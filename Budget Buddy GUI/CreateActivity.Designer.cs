@@ -1,6 +1,6 @@
 ﻿namespace Budget_Buddy_GUI
 {
-    partial class Form6
+    partial class CreateActivity
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form6));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateActivity));
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             label1 = new Label();

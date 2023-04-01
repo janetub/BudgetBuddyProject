@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class Form7 : Form
+    public partial class BudgetContents : Form
     {
-        public Form7()
+        public BudgetContents()
         {
             InitializeComponent();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

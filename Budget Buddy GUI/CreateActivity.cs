@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class AddItem : Form
+    public partial class CreateActivity : Form
     {
-        public AddItem()
+        public CreateActivity()
         {
             InitializeComponent();
         }
 
-        private void AddItem_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

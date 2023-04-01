@@ -10,19 +10,24 @@ using System.Windows.Forms;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class Form5 : Form
+    public partial class NoBudget : Form
     {
-        public Form5()
+        public NoBudget()
         {
             InitializeComponent();
         }
 
-        private void Form5_Load(object sender, EventArgs e)
+        private void Form4_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roundButton1_Click(object sender, EventArgs e)
         {
 
         }

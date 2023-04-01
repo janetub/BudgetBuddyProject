@@ -1,6 +1,6 @@
 ﻿namespace Budget_Buddy_GUI
 {
-    partial class Form4
+    partial class NoBudget
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoBudget));
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             roundButton1 = new RoundButton();
