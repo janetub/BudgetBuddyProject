@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddItem));
             panel1 = new Panel();
             label1 = new Label();
             textBox1 = new TextBox();
@@ -36,12 +37,16 @@
             label3 = new Label();
             numericUpDown1 = new NumericUpDown();
             button1 = new Button();
+            pictureBox2 = new PictureBox();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(255, 178, 30);
+            panel1.Controls.Add(pictureBox2);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -103,16 +108,30 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(225, 178, 30);
+            button1.BackColor = Color.FromArgb(255, 178, 30);
             button1.Dock = DockStyle.Bottom;
             button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(0, 338);
+            button1.Location = new Point(0, 354);
             button1.Name = "button1";
-            button1.Size = new Size(252, 46);
+            button1.Size = new Size(252, 30);
             button1.TabIndex = 16;
             button1.Text = "Add Item";
             button1.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.FromArgb(255, 178, 30);
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(8, 7);
+            pictureBox2.Margin = new Padding(2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(24, 24);
+            pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox2.TabIndex = 9;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // AddItem
             // 
@@ -132,7 +151,10 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddItem";
             Load += AddItem_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -147,5 +169,6 @@
         private Label label3;
         private NumericUpDown numericUpDown1;
         private Button button1;
+        private PictureBox pictureBox2;
     }
 }

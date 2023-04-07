@@ -41,8 +41,9 @@
             panel1.BackColor = Color.FromArgb(255, 178, 30);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(360, 50);
+            panel1.Size = new Size(252, 30);
             panel1.TabIndex = 0;
             // 
             // roundButton1
@@ -52,9 +53,10 @@
             roundButton1.FlatStyle = FlatStyle.Flat;
             roundButton1.ForeColor = Color.White;
             roundButton1.Image = (Image)resources.GetObject("roundButton1.Image");
-            roundButton1.Location = new Point(282, 567);
+            roundButton1.Location = new Point(197, 340);
+            roundButton1.Margin = new Padding(2);
             roundButton1.Name = "roundButton1";
-            roundButton1.Size = new Size(53, 50);
+            roundButton1.Size = new Size(37, 30);
             roundButton1.TabIndex = 6;
             roundButton1.UseVisualStyleBackColor = false;
             // 
@@ -62,36 +64,41 @@
             // 
             pictureBox1.BackColor = Color.FromArgb(255, 178, 30);
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Location = new Point(8, 7);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(24, 24);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // button1
             // 
             button1.Dock = DockStyle.Top;
             button1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(0, 50);
+            button1.Location = new Point(0, 30);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
-            button1.Size = new Size(360, 89);
+            button1.Size = new Size(252, 53);
             button1.TabIndex = 8;
-            button1.Text = "March 2023 W1 Budget";
+            button1.Text = "Budget Created No 1";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // Form5
+            // BudgetCreated
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(360, 640);
+            ClientSize = new Size(252, 384);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
             Controls.Add(roundButton1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form5";
+            Margin = new Padding(2);
+            Name = "BudgetCreated";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form5";
             Load += Form5_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

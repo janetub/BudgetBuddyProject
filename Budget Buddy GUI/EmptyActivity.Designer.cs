@@ -30,18 +30,35 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmptyActivity));
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             label2 = new Label();
             roundButton1 = new RoundButton();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(255, 178, 30);
+            panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(252, 30);
             panel1.TabIndex = 19;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.FromArgb(255, 178, 30);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(8, 7);
+            pictureBox1.Margin = new Padding(2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(24, 24);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // label2
             // 
@@ -68,6 +85,7 @@
             roundButton1.Size = new Size(37, 30);
             roundButton1.TabIndex = 21;
             roundButton1.UseVisualStyleBackColor = false;
+            roundButton1.Click += roundButton1_Click;
             // 
             // EmptyActivity
             // 
@@ -81,6 +99,9 @@
             Name = "EmptyActivity";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EmptyActivity";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -90,5 +111,6 @@
         private Panel panel1;
         private Label label2;
         private RoundButton roundButton1;
+        private PictureBox pictureBox1;
     }
 }

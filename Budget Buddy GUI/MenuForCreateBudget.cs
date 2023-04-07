@@ -10,26 +10,16 @@ using System.Windows.Forms;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class BudgetCreated : Form
+    public partial class MenuForCreateBudget : Form
     {
-        public BudgetCreated()
+        public MenuForCreateBudget()
         {
             InitializeComponent();
         }
 
-        private void Form5_Load(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            new Menu().Show();
+            new CreateBudget().Show();
             this.Hide();
         }
     }
