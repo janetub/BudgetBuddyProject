@@ -34,5 +34,11 @@ namespace Budget_Buddy_GUI
             new AboutUs().Show();
             this.Hide();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new Help().Show();
+            this.Hide();
+        }
     }
 }

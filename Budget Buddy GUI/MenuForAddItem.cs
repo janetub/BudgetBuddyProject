@@ -22,14 +22,28 @@ namespace Budget_Buddy_GUI
             new AddItem().Show();
             this.Hide();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Home().Show();
+            this.Hide();
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             new Settings().Show();
             this.Hide();
         }
+
         private void button3_Click(object sender, EventArgs e)
         {
             new AboutUs().Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new Help().Show();
             this.Hide();
         }
     }

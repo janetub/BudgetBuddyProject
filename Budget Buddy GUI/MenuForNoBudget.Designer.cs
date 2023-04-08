@@ -1,6 +1,6 @@
 ﻿namespace Budget_Buddy_GUI
 {
-    partial class MenuForCreateBudget
+    partial class MenuForNoBudget
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            panel1 = new Panel();
+            button6 = new Button();
             sideBar = new Panel();
             button5 = new Button();
             button4 = new Button();
@@ -35,11 +37,31 @@
             button2 = new Button();
             button1 = new Button();
             label1 = new Label();
-            panel1 = new Panel();
-            button6 = new Button();
-            sideBar.SuspendLayout();
             panel1.SuspendLayout();
+            sideBar.SuspendLayout();
             SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(255, 178, 30);
+            panel1.Controls.Add(button6);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(252, 30);
+            panel1.TabIndex = 6;
+            // 
+            // button6
+            // 
+            button6.FlatStyle = FlatStyle.Popup;
+            button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button6.Location = new Point(217, 4);
+            button6.Name = "button6";
+            button6.Size = new Size(29, 23);
+            button6.TabIndex = 0;
+            button6.Text = "X";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // sideBar
             // 
@@ -53,7 +75,7 @@
             sideBar.MaximumSize = new Size(252, 351);
             sideBar.Name = "sideBar";
             sideBar.Size = new Size(252, 306);
-            sideBar.TabIndex = 1;
+            sideBar.TabIndex = 7;
             // 
             // button5
             // 
@@ -135,48 +157,27 @@
             label1.TabIndex = 8;
             label1.Text = "MENU";
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(255, 178, 30);
-            panel1.Controls.Add(button6);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(252, 30);
-            panel1.TabIndex = 4;
-            // 
-            // button6
-            // 
-            button6.FlatStyle = FlatStyle.Popup;
-            button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button6.Location = new Point(217, 4);
-            button6.Name = "button6";
-            button6.Size = new Size(29, 23);
-            button6.TabIndex = 0;
-            button6.Text = "X";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
-            // 
-            // MenuForCreateBudget
+            // MenuForNoBudget
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(252, 384);
-            Controls.Add(panel1);
             Controls.Add(sideBar);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "MenuForCreateBudget";
-            ShowIcon = false;
+            Name = "MenuForNoBudget";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "MenuForCreateBudget";
+            Text = "MenuForNoBudget";
+            panel1.ResumeLayout(false);
             sideBar.ResumeLayout(false);
             sideBar.PerformLayout();
-            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
+        private Panel panel1;
+        private Button button6;
         private Panel sideBar;
         private Button button5;
         private Button button4;
@@ -184,7 +185,5 @@
         private Button button2;
         private Button button1;
         private Label label1;
-        private Panel panel1;
-        private Button button6;
     }
 }
