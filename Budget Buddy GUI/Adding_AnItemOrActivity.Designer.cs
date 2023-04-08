@@ -66,7 +66,7 @@
             button1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             button1.Location = new Point(0, 50);
             button1.Name = "button1";
-            button1.Size = new Size(360, 88);
+            button1.Size = new Size(360, 67);
             button1.TabIndex = 9;
             button1.Text = "Budget Created No 1";
             button1.UseVisualStyleBackColor = true;

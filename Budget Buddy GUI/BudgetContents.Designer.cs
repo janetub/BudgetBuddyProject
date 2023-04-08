@@ -80,7 +80,7 @@
             button1.Location = new Point(0, 240);
             button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
-            button1.Size = new Size(380, 83);
+            button1.Size = new Size(380, 70);
             button1.TabIndex = 22;
             button1.Text = "This week's grocery shopping";
             button1.TextAlign = ContentAlignment.MiddleLeft;
@@ -95,6 +95,7 @@
             pb.Size = new Size(311, 30);
             pb.TabIndex = 23;
             pb.TabStop = false;
+            pb.Click += pb_Click;
             // 
             // circularButton1
             // 

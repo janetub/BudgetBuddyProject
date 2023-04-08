@@ -79,6 +79,7 @@
             pb.Size = new Size(311, 30);
             pb.TabIndex = 14;
             pb.TabStop = false;
+            pb.Click += pb_Click;
             // 
             // button1
             // 

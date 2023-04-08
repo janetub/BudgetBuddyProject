@@ -50,17 +50,15 @@
             panel2.Controls.Add(pictureBox2);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(252, 30);
+            panel2.Size = new Size(360, 50);
             panel2.TabIndex = 10;
             // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.FromArgb(255, 178, 30);
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(8, 7);
-            pictureBox2.Margin = new Padding(2);
+            pictureBox2.Location = new Point(11, 12);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(24, 24);
             pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -71,9 +69,10 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(9, 70);
+            label1.Location = new Point(13, 117);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(44, 17);
+            label1.Size = new Size(66, 28);
             label1.TabIndex = 11;
             label1.Text = "Name";
             // 
@@ -82,9 +81,10 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.Red;
-            label3.Location = new Point(50, 70);
+            label3.Location = new Point(71, 117);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(14, 17);
+            label3.Size = new Size(21, 28);
             label3.TabIndex = 12;
             label3.Text = "*";
             // 
@@ -92,19 +92,21 @@
             // 
             textBox1.BackColor = SystemColors.Control;
             textBox1.ForeColor = SystemColors.ButtonFace;
-            textBox1.Location = new Point(10, 91);
+            textBox1.Location = new Point(14, 152);
+            textBox1.Margin = new Padding(4, 5, 4, 5);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "March W1 Grocery Shopping";
-            textBox1.Size = new Size(234, 23);
+            textBox1.Size = new Size(333, 31);
             textBox1.TabIndex = 13;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(8, 124);
+            label2.Location = new Point(11, 207);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(119, 17);
+            label2.Size = new Size(178, 28);
             label2.TabIndex = 14;
             label2.Text = "Projected Amount";
             // 
@@ -112,19 +114,21 @@
             // 
             textBox2.BackColor = SystemColors.Control;
             textBox2.ForeColor = SystemColors.ButtonFace;
-            textBox2.Location = new Point(10, 149);
+            textBox2.Location = new Point(14, 248);
+            textBox2.Margin = new Padding(4, 5, 4, 5);
             textBox2.Name = "textBox2";
             textBox2.PlaceholderText = "200.00";
-            textBox2.Size = new Size(234, 23);
+            textBox2.Size = new Size(333, 31);
             textBox2.TabIndex = 15;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(10, 184);
+            label5.Location = new Point(14, 307);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(100, 17);
+            label5.Size = new Size(148, 28);
             label5.TabIndex = 16;
             label5.Text = "Actual Amount";
             // 
@@ -132,9 +136,10 @@
             // 
             textBox3.BackColor = SystemColors.Control;
             textBox3.ForeColor = SystemColors.ButtonFace;
-            textBox3.Location = new Point(10, 214);
+            textBox3.Location = new Point(14, 357);
+            textBox3.Margin = new Padding(4, 5, 4, 5);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(234, 23);
+            textBox3.Size = new Size(333, 31);
             textBox3.TabIndex = 17;
             // 
             // label4
@@ -142,9 +147,10 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.Red;
-            label4.Location = new Point(131, 122);
+            label4.Location = new Point(187, 203);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(14, 17);
+            label4.Size = new Size(21, 28);
             label4.TabIndex = 18;
             label4.Text = "*";
             // 
@@ -156,10 +162,9 @@
             button1.FlatAppearance.MouseDownBackColor = Color.Gray;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(0, 354);
-            button1.Margin = new Padding(2);
+            button1.Location = new Point(0, 590);
             button1.Name = "button1";
-            button1.Size = new Size(252, 30);
+            button1.Size = new Size(360, 50);
             button1.TabIndex = 19;
             button1.Text = "Create Budget";
             button1.UseVisualStyleBackColor = false;
@@ -167,9 +172,9 @@
             // 
             // CreateActivity
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(252, 384);
+            ClientSize = new Size(360, 640);
             Controls.Add(button1);
             Controls.Add(label4);
             Controls.Add(textBox3);
@@ -181,9 +186,11 @@
             Controls.Add(label1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "CreateActivity";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CreateActivity";
+            Load += CreateActivity_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

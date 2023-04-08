@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 
 namespace Budget_Buddy_GUI
 {
@@ -23,9 +24,8 @@ namespace Budget_Buddy_GUI
             /*textBox1.Text = "Budget Name:" + textBox1.Text;
             button1 = new Button();
             button1.Text = "Budget Name:" + textBox1.Text;*/
-            this.Hide();
 
-            //
+            this.Hide();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

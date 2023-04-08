@@ -20,7 +20,15 @@ namespace Budget_Buddy_GUI
         private void button1_Click(object sender, EventArgs e)
         {
             new BudgetContents().Show();
+            double maxBudget = 100, projected = 200, actual = 20;
+            View_Activity1 view_Activity1 = new View_Activity1();
+            view_Activity1.Show();
             this.Hide();
+        }
+
+        private void CreateActivity_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

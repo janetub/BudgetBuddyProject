@@ -39,5 +39,9 @@ namespace Budget_Buddy_GUI
             new CreateActivity().Show();
             this.Hide();
         }
+
+        private void pb_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
