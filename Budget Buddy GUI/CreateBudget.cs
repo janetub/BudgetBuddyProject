@@ -38,5 +38,12 @@ namespace Budget_Buddy_GUI
         {
 
         }
+
+        private void Menu_Click(object sender, EventArgs e)
+        {
+            Menu menuForm = new Menu(this);
+            menuForm.Show();
+            this.Hide();
+        }
     }
 }

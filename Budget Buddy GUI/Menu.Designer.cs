@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            button6 = new Button();
+            Exit = new Button();
             label1 = new Label();
             button1 = new Button();
             button2 = new Button();
@@ -44,24 +44,24 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(255, 178, 30);
-            panel1.Controls.Add(button6);
+            panel1.Controls.Add(Exit);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(252, 30);
             panel1.TabIndex = 3;
             // 
-            // button6
+            // Exit
             // 
-            button6.FlatStyle = FlatStyle.Popup;
-            button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button6.Location = new Point(217, 4);
-            button6.Name = "button6";
-            button6.Size = new Size(29, 23);
-            button6.TabIndex = 0;
-            button6.Text = "X";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            Exit.FlatStyle = FlatStyle.Popup;
+            Exit.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            Exit.Location = new Point(217, 4);
+            Exit.Name = "Exit";
+            Exit.Size = new Size(29, 23);
+            Exit.TabIndex = 0;
+            Exit.Text = "X";
+            Exit.UseVisualStyleBackColor = true;
+            Exit.Click += Exit_Click;
             // 
             // label1
             // 
@@ -176,7 +176,7 @@
 
         #endregion
         private Panel panel1;
-        private Button button6;
+        private Button Exit;
         private Label label1;
         private Button button1;
         private Button button2;

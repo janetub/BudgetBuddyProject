@@ -43,5 +43,10 @@ namespace Budget_Buddy_GUI
         private void pb_Click(object sender, EventArgs e)
         {
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

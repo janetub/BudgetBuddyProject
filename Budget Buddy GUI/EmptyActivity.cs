@@ -30,19 +30,19 @@ namespace Budget_Buddy_GUI
 
         private void roundButton1_Click(object sender, EventArgs e)
         {
-            new Adding_AnItemOrActivity().Show();
+            new AddingItemOrActivity_Contract().Show();
             this.Hide();
         }
 
         private void roundButton1_Click_1(object sender, EventArgs e)
         {
-            new Adding_AnItemOrActivity().Show();
+            new AddingItemOrActivity_Contract().Show();
             this.Hide();
         }
 
         private void circularButton1_Click(object sender, EventArgs e)
         {
-            new Adding_AnItemOrActivity().Show();
+            new AddingItemOrActivity_Contract().Show();
             this.Hide();
         }
     }

@@ -12,9 +12,11 @@ namespace Budget_Buddy_GUI
 {
     public partial class Menu : Form
     {
-        public Menu()
+        private Form previousForm;
+        public Menu(Form previousForm)
         {
             InitializeComponent();
+            this.previousForm = previousForm;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,6 +57,12 @@ namespace Budget_Buddy_GUI
         {
             new Help().Show();
             this.Hide();
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            this.previousForm.Show();
+            this.Close();
         }
     }
 }
