@@ -39,5 +39,11 @@ namespace Budget_Buddy_GUI
             new CreateBudget().Show();
             this.Hide();
         }
+
+        private void circularButton1_Click(object sender, EventArgs e)
+        {
+            new CreateBudget().Show();
+            this.Hide();
+        }
     }
 }

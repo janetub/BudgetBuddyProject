@@ -45,17 +45,15 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(252, 30);
+            panel1.Size = new Size(360, 50);
             panel1.TabIndex = 1;
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.FromArgb(255, 178, 30);
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(8, 7);
-            pictureBox1.Margin = new Padding(2);
+            pictureBox1.Location = new Point(11, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(24, 24);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -66,10 +64,9 @@
             // 
             button1.Dock = DockStyle.Top;
             button1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(0, 30);
-            button1.Margin = new Padding(2);
+            button1.Location = new Point(0, 50);
             button1.Name = "button1";
-            button1.Size = new Size(252, 53);
+            button1.Size = new Size(360, 88);
             button1.TabIndex = 9;
             button1.Text = "Budget Created No 1";
             button1.UseVisualStyleBackColor = true;
@@ -82,10 +79,9 @@
             roundButton1.FlatStyle = FlatStyle.Flat;
             roundButton1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             roundButton1.ForeColor = Color.Black;
-            roundButton1.Location = new Point(197, 340);
-            roundButton1.Margin = new Padding(2);
+            roundButton1.Location = new Point(281, 567);
             roundButton1.Name = "roundButton1";
-            roundButton1.Size = new Size(37, 30);
+            roundButton1.Size = new Size(53, 50);
             roundButton1.TabIndex = 10;
             roundButton1.UseVisualStyleBackColor = false;
             // 
@@ -95,10 +91,9 @@
             roundButton2.FlatAppearance.BorderSize = 0;
             roundButton2.FlatStyle = FlatStyle.Flat;
             roundButton2.ForeColor = Color.White;
-            roundButton2.Location = new Point(197, 291);
-            roundButton2.Margin = new Padding(2);
+            roundButton2.Location = new Point(281, 485);
             roundButton2.Name = "roundButton2";
-            roundButton2.Size = new Size(37, 30);
+            roundButton2.Size = new Size(53, 50);
             roundButton2.TabIndex = 11;
             roundButton2.UseVisualStyleBackColor = false;
             roundButton2.Click += roundButton2_Click;
@@ -109,27 +104,28 @@
             roundButton3.FlatAppearance.BorderSize = 0;
             roundButton3.FlatStyle = FlatStyle.Flat;
             roundButton3.ForeColor = Color.White;
-            roundButton3.Location = new Point(197, 248);
-            roundButton3.Margin = new Padding(2);
+            roundButton3.Location = new Point(281, 413);
             roundButton3.Name = "roundButton3";
-            roundButton3.Size = new Size(37, 30);
+            roundButton3.Size = new Size(53, 50);
             roundButton3.TabIndex = 12;
             roundButton3.UseVisualStyleBackColor = false;
             // 
-            // AddPopUpButtons
+            // Adding_AnItemOrActivity
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(252, 384);
+            ClientSize = new Size(360, 640);
             Controls.Add(roundButton3);
             Controls.Add(roundButton2);
             Controls.Add(roundButton1);
             Controls.Add(button1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "AddPopUpButtons";
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "Adding_AnItemOrActivity";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddPopUpButtons";
+            Load += Adding_AnItemOrActivity_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

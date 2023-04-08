@@ -40,10 +40,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-119, -51);
-            pictureBox1.Margin = new Padding(2);
+            pictureBox1.Location = new Point(-73, -58);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(360, 373);
+            pictureBox1.Size = new Size(514, 622);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -52,10 +51,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(179, 179, 179);
-            label1.Location = new Point(63, 50);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(90, 83);
             label1.Name = "label1";
-            label1.Size = new Size(113, 21);
+            label1.Size = new Size(169, 32);
             label1.TabIndex = 1;
             label1.Text = "WELCOME TO";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -65,10 +63,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(236, 154, 119);
-            label2.Location = new Point(42, 83);
-            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Location = new Point(56, 259);
             label2.Name = "label2";
-            label2.Size = new Size(162, 30);
+            label2.Size = new Size(235, 45);
             label2.TabIndex = 2;
             label2.Text = "Budget Buddy";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -79,10 +76,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(179, 179, 179);
-            label3.Location = new Point(33, 254);
-            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Location = new Point(47, 423);
             label3.Name = "label3";
-            label3.Size = new Size(182, 42);
+            label3.Size = new Size(273, 64);
             label3.TabIndex = 3;
             label3.Text = "YOUR MONEY-SAVING\r\nSIDEKICK";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -96,10 +92,9 @@
             button1.FlatAppearance.MouseDownBackColor = Color.Gray;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(0, 354);
-            button1.Margin = new Padding(2);
+            button1.Location = new Point(0, 590);
             button1.Name = "button1";
-            button1.Size = new Size(252, 30);
+            button1.Size = new Size(360, 50);
             button1.TabIndex = 16;
             button1.Text = "Tap here to start";
             button1.UseVisualStyleBackColor = false;
@@ -107,16 +102,15 @@
             // 
             // Main
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(252, 384);
+            ClientSize = new Size(360, 640);
             Controls.Add(button1);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2);
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form7";

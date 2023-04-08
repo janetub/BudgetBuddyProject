@@ -34,7 +34,7 @@
             label2 = new Label();
             label1 = new Label();
             pb = new PictureBox();
-            roundButton1 = new RoundButton();
+            circularButton1 = new CircularButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb).BeginInit();
@@ -46,16 +46,16 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(252, 30);
+            panel1.Size = new Size(360, 50);
             panel1.TabIndex = 19;
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.FromArgb(255, 178, 30);
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(8, 7);
-            pictureBox1.Margin = new Padding(2);
+            pictureBox1.Location = new Point(11, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(24, 24);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -68,9 +68,10 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
             label2.ForeColor = Color.Gray;
-            label2.Location = new Point(69, 182);
+            label2.Location = new Point(99, 303);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(113, 15);
+            label2.Size = new Size(174, 25);
             label2.TabIndex = 20;
             label2.Text = "No activities / items.";
             label2.Click += label2_Click;
@@ -79,48 +80,48 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(40, 42);
+            label1.Location = new Point(57, 70);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(187, 17);
+            label1.Size = new Size(283, 28);
             label1.TabIndex = 22;
             label1.Text = "This week's grocery shopping";
             // 
             // pb
             // 
             pb.BorderStyle = BorderStyle.FixedSingle;
-            pb.Location = new Point(17, 73);
-            pb.Margin = new Padding(2);
+            pb.Location = new Point(24, 122);
             pb.Name = "pb";
-            pb.Size = new Size(218, 19);
+            pb.Size = new Size(311, 30);
             pb.TabIndex = 24;
             pb.TabStop = false;
             // 
-            // roundButton1
+            // circularButton1
             // 
-            roundButton1.BackColor = Color.FromArgb(217, 217, 217);
-            roundButton1.FlatAppearance.BorderSize = 0;
-            roundButton1.FlatStyle = FlatStyle.Flat;
-            roundButton1.ForeColor = Color.White;
-            roundButton1.Image = (Image)resources.GetObject("roundButton1.Image");
-            roundButton1.Location = new Point(197, 340);
-            roundButton1.Margin = new Padding(2);
-            roundButton1.Name = "roundButton1";
-            roundButton1.Size = new Size(37, 30);
-            roundButton1.TabIndex = 25;
-            roundButton1.UseVisualStyleBackColor = false;
-            roundButton1.Click += roundButton1_Click_1;
+            circularButton1.AllowDrop = true;
+            circularButton1.BackColor = Color.FromArgb(217, 217, 217);
+            circularButton1.FlatStyle = FlatStyle.Flat;
+            circularButton1.ForeColor = Color.FromArgb(217, 217, 217);
+            circularButton1.Image = (Image)resources.GetObject("circularButton1.Image");
+            circularButton1.Location = new Point(288, 572);
+            circularButton1.Name = "circularButton1";
+            circularButton1.Size = new Size(49, 49);
+            circularButton1.TabIndex = 28;
+            circularButton1.UseVisualStyleBackColor = false;
+            circularButton1.Click += circularButton1_Click;
             // 
             // EmptyActivity
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(252, 385);
-            Controls.Add(roundButton1);
+            ClientSize = new Size(360, 642);
+            Controls.Add(circularButton1);
             Controls.Add(pb);
             Controls.Add(label1);
             Controls.Add(label2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "EmptyActivity";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EmptyActivity";
@@ -139,6 +140,6 @@
         private PictureBox pictureBox1;
         private Label label1;
         private PictureBox pb;
-        private RoundButton roundButton1;
+        private CircularButton circularButton1;
     }
 }

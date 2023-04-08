@@ -24,6 +24,8 @@ namespace Budget_Buddy_GUI
             button1 = new Button();
             button1.Text = "Budget Name:" + textBox1.Text;*/
             this.Hide();
+
+            //
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

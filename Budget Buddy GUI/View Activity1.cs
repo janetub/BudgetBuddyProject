@@ -22,5 +22,10 @@ namespace Budget_Buddy_GUI
             new EmptyActivity().Show();
             this.Hide();
         }
+
+        private void roundButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
