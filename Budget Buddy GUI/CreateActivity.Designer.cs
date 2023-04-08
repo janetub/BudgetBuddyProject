@@ -117,9 +117,10 @@
             textBox2.Location = new Point(14, 248);
             textBox2.Margin = new Padding(4, 5, 4, 5);
             textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "200.00";
+            textBox2.PlaceholderText = "Enter an amount";
             textBox2.Size = new Size(333, 31);
             textBox2.TabIndex = 15;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // label5
             // 
@@ -166,7 +167,7 @@
             button1.Name = "button1";
             button1.Size = new Size(360, 50);
             button1.TabIndex = 19;
-            button1.Text = "Create Budget";
+            button1.Text = "Create Activity";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 

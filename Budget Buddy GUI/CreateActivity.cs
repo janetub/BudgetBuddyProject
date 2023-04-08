@@ -30,5 +30,10 @@ namespace Budget_Buddy_GUI
         {
 
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
