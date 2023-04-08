@@ -24,7 +24,13 @@ namespace Budget_Buddy_GUI
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            new Menu().Show();
+            new MenuForAddItem().Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new View_Activity2().Show();
             this.Hide();
         }
     }

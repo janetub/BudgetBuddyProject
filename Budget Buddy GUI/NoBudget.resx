@@ -58,20 +58,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="roundButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        rQAAAK0BVE7WMAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACWSURBVEhL7ZVB
+        DkAwEEW74BY2HMMpcP8VLsAF+H/SNiKlxEhI+pJnMSYzEX6ZG3RwtLYsaJLDGS7WydbUKKAb7mRNjbQg
+        Slog33QJqwNruF/AWqiXcpbPCRO6DZGWnCmJZ/RDDRoOUC6hmxr2UB6DZ0uo4Ymc2UAhg9ovmTMv8/0c
+        xEgLovx/wes/fcLE81ihPqHnGLMCXxWwacaUCHYAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAFNJREFUSEtjGAXEgG4g/g3E/6mMQWaCzGb4ARWgBf4OxLT3wSgYeKAGxDVA3EBl
+        vwAADr8BOAVTJAAAAFNJREFUSEtjGAXEgG4g/g3E/6mMQWaCzGb4ARWgBf4OxLT3wSgYeKAGxDVA3EBl
         DDITZDbDAyDGlgqogUFm094CmgfRKBh4MFpc48KjxTUxgIEBAEcw0W8YbAudAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="roundButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAALAAAACwARRqq2kAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAAAlklEQVRIS+2VQQ5AMBBFu+AWNhzDKXD/FS7ABfh/0jYipcRISPqSZzEmMxF+mRt0cLS2LGiSwxku
-        1snW1CigG+5kTY20IEpaIN90CasDa7hfwFqol3KWzwkTug2RlpwpiWf0Qw0aDlAuoZsa9lAeg2dLqOGJ
-        nNlAIYPaL5kzL/P9HMRIC6L8f8HrP33CxPNYoT6h5xizAl8VsGnGlAh2AAAAAElFTkSuQmCC
 </value>
   </data>
 </root>

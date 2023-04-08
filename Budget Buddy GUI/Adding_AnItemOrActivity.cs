@@ -10,28 +10,33 @@ using System.Windows.Forms;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class BudgetContents : Form
+    public partial class Adding_AnItemOrActivity : Form
     {
-        public BudgetContents()
+        public Adding_AnItemOrActivity()
         {
             InitializeComponent();
         }
 
         private void roundButton1_Click(object sender, EventArgs e)
         {
+            new EmptyActivity().Show();
+            this.Hide();
+        }
+        private void roundButton2_Click(object sender, EventArgs e)
+        {
+            new AddItem().Show();
+            this.Hide();
+        }
+
+        private void roundButton3_Click(object sender, EventArgs e)
+        {
             new CreateActivity().Show();
             this.Hide();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            new View_Activity1().Show();
-            this.Hide();
+
         }
     }
 }

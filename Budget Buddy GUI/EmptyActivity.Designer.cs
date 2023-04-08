@@ -32,9 +32,12 @@
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             label2 = new Label();
+            label1 = new Label();
+            pb = new PictureBox();
             roundButton1 = new RoundButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pb).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -72,6 +75,26 @@
             label2.Text = "No activities / items.";
             label2.Click += label2_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(40, 42);
+            label1.Name = "label1";
+            label1.Size = new Size(187, 17);
+            label1.TabIndex = 22;
+            label1.Text = "This week's grocery shopping";
+            // 
+            // pb
+            // 
+            pb.BorderStyle = BorderStyle.FixedSingle;
+            pb.Location = new Point(17, 73);
+            pb.Margin = new Padding(2);
+            pb.Name = "pb";
+            pb.Size = new Size(218, 19);
+            pb.TabIndex = 24;
+            pb.TabStop = false;
+            // 
             // roundButton1
             // 
             roundButton1.BackColor = Color.FromArgb(217, 217, 217);
@@ -79,13 +102,13 @@
             roundButton1.FlatStyle = FlatStyle.Flat;
             roundButton1.ForeColor = Color.White;
             roundButton1.Image = (Image)resources.GetObject("roundButton1.Image");
-            roundButton1.Location = new Point(200, 341);
+            roundButton1.Location = new Point(197, 340);
             roundButton1.Margin = new Padding(2);
             roundButton1.Name = "roundButton1";
             roundButton1.Size = new Size(37, 30);
-            roundButton1.TabIndex = 21;
+            roundButton1.TabIndex = 25;
             roundButton1.UseVisualStyleBackColor = false;
-            roundButton1.Click += roundButton1_Click;
+            roundButton1.Click += roundButton1_Click_1;
             // 
             // EmptyActivity
             // 
@@ -93,6 +116,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(252, 385);
             Controls.Add(roundButton1);
+            Controls.Add(pb);
+            Controls.Add(label1);
             Controls.Add(label2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -102,6 +127,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pb).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -110,7 +136,9 @@
 
         private Panel panel1;
         private Label label2;
-        private RoundButton roundButton1;
         private PictureBox pictureBox1;
+        private Label label1;
+        private PictureBox pb;
+        private RoundButton roundButton1;
     }
 }

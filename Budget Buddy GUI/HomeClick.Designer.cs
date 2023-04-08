@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeClick));
             label1 = new Label();
             panel2 = new Panel();
+            button6 = new Button();
             pictureBox2 = new PictureBox();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
-            button6 = new Button();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -64,6 +64,18 @@
             panel2.Size = new Size(252, 30);
             panel2.TabIndex = 11;
             // 
+            // button6
+            // 
+            button6.FlatStyle = FlatStyle.Popup;
+            button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button6.Location = new Point(217, 4);
+            button6.Name = "button6";
+            button6.Size = new Size(29, 23);
+            button6.TabIndex = 9;
+            button6.Text = "X";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.FromArgb(255, 178, 30);
@@ -88,6 +100,7 @@
             button1.TabIndex = 12;
             button1.Text = "Create Budget";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -115,18 +128,7 @@
             button3.TabIndex = 14;
             button3.Text = "Budget Created";
             button3.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            button6.FlatStyle = FlatStyle.Popup;
-            button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button6.Location = new Point(217, 4);
-            button6.Name = "button6";
-            button6.Size = new Size(29, 23);
-            button6.TabIndex = 9;
-            button6.Text = "X";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            button3.Click += button3_Click;
             // 
             // HomeClick
             // 

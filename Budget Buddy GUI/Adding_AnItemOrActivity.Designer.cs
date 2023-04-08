@@ -1,6 +1,6 @@
 ﻿namespace Budget_Buddy_GUI
 {
-    partial class Home
+    partial class Adding_AnItemOrActivity
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Adding_AnItemOrActivity));
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
-            label1 = new Label();
-            label2 = new Label();
+            button1 = new Button();
             roundButton1 = new RoundButton();
-            pb = new PictureBox();
+            roundButton2 = new RoundButton();
+            roundButton3 = new RoundButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pb).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(255, 178, 30);
             panel1.Controls.Add(pictureBox1);
+            panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(252, 30);
-            panel1.TabIndex = 0;
+            panel1.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -60,85 +61,88 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
-            // label1
+            // button1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(53, 52);
-            label1.Name = "label1";
-            label1.Size = new Size(134, 17);
-            label1.TabIndex = 1;
-            label1.Text = "Budget Created No 1";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label2.ForeColor = Color.Gray;
-            label2.Location = new Point(82, 189);
-            label2.Name = "label2";
-            label2.Size = new Size(74, 15);
-            label2.TabIndex = 2;
-            label2.Text = "No activities.";
+            button1.Dock = DockStyle.Top;
+            button1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(0, 30);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Size = new Size(252, 53);
+            button1.TabIndex = 9;
+            button1.Text = "Budget Created No 1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // roundButton1
             // 
             roundButton1.BackColor = Color.FromArgb(217, 217, 217);
             roundButton1.FlatAppearance.BorderSize = 0;
             roundButton1.FlatStyle = FlatStyle.Flat;
-            roundButton1.ForeColor = Color.White;
-            roundButton1.Image = (Image)resources.GetObject("roundButton1.Image");
+            roundButton1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            roundButton1.ForeColor = Color.Black;
             roundButton1.Location = new Point(197, 340);
             roundButton1.Margin = new Padding(2);
             roundButton1.Name = "roundButton1";
             roundButton1.Size = new Size(37, 30);
-            roundButton1.TabIndex = 7;
+            roundButton1.TabIndex = 10;
             roundButton1.UseVisualStyleBackColor = false;
-            roundButton1.Click += roundButton1_Click_2;
             // 
-            // pb
+            // roundButton2
             // 
-            pb.BorderStyle = BorderStyle.FixedSingle;
-            pb.Location = new Point(14, 82);
-            pb.Margin = new Padding(2);
-            pb.Name = "pb";
-            pb.Size = new Size(218, 19);
-            pb.TabIndex = 25;
-            pb.TabStop = false;
+            roundButton2.BackColor = Color.FromArgb(217, 217, 217);
+            roundButton2.FlatAppearance.BorderSize = 0;
+            roundButton2.FlatStyle = FlatStyle.Flat;
+            roundButton2.ForeColor = Color.White;
+            roundButton2.Location = new Point(197, 291);
+            roundButton2.Margin = new Padding(2);
+            roundButton2.Name = "roundButton2";
+            roundButton2.Size = new Size(37, 30);
+            roundButton2.TabIndex = 11;
+            roundButton2.UseVisualStyleBackColor = false;
+            roundButton2.Click += roundButton2_Click;
             // 
-            // Home
+            // roundButton3
+            // 
+            roundButton3.BackColor = Color.FromArgb(217, 217, 217);
+            roundButton3.FlatAppearance.BorderSize = 0;
+            roundButton3.FlatStyle = FlatStyle.Flat;
+            roundButton3.ForeColor = Color.White;
+            roundButton3.Location = new Point(197, 248);
+            roundButton3.Margin = new Padding(2);
+            roundButton3.Name = "roundButton3";
+            roundButton3.Size = new Size(37, 30);
+            roundButton3.TabIndex = 12;
+            roundButton3.UseVisualStyleBackColor = false;
+            // 
+            // AddPopUpButtons
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(252, 384);
-            Controls.Add(pb);
+            Controls.Add(roundButton3);
+            Controls.Add(roundButton2);
             Controls.Add(roundButton1);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(button1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Home";
+            Name = "AddPopUpButtons";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form3";
-            Load += Home_Load;
+            Text = "AddPopUpButtons";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pb).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private Panel panel1;
-        private Label label1;
-        private Label label2;
-        private RoundButton roundButton1;
         private PictureBox pictureBox1;
-        private PictureBox pb;
+        private Button button1;
+        private RoundButton roundButton1;
+        private RoundButton roundButton2;
+        private RoundButton roundButton3;
     }
 }

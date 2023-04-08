@@ -1,6 +1,6 @@
 ﻿namespace Budget_Buddy_GUI
 {
-    partial class Home
+    partial class View_Activity1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View_Activity1));
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             label1 = new Label();
-            label2 = new Label();
-            roundButton1 = new RoundButton();
             pb = new PictureBox();
+            button1 = new Button();
+            roundButton1 = new RoundButton();
+            button2 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb).BeginInit();
@@ -44,45 +45,56 @@
             // 
             panel1.BackColor = Color.FromArgb(255, 178, 30);
             panel1.Controls.Add(pictureBox1);
+            panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(252, 30);
-            panel1.TabIndex = 0;
+            panel1.TabIndex = 5;
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.FromArgb(255, 178, 30);
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(8, 7);
             pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(24, 24);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox1.TabIndex = 8;
+            pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(53, 52);
+            label1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(47, 44);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(134, 17);
-            label1.TabIndex = 1;
-            label1.Text = "Budget Created No 1";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Size = new Size(157, 19);
+            label1.TabIndex = 13;
+            label1.Text = "March 2023 W1 Budget";
             // 
-            // label2
+            // pb
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label2.ForeColor = Color.Gray;
-            label2.Location = new Point(82, 189);
-            label2.Name = "label2";
-            label2.Size = new Size(74, 15);
-            label2.TabIndex = 2;
-            label2.Text = "No activities.";
+            pb.BorderStyle = BorderStyle.FixedSingle;
+            pb.Location = new Point(17, 73);
+            pb.Margin = new Padding(2);
+            pb.Name = "pb";
+            pb.Size = new Size(218, 19);
+            pb.TabIndex = 14;
+            pb.TabStop = false;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(0, 144);
+            button1.Name = "button1";
+            button1.Size = new Size(266, 50);
+            button1.TabIndex = 23;
+            button1.Text = "This week's grocery shopping";
+            button1.TextAlign = ContentAlignment.MiddleLeft;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // roundButton1
             // 
@@ -95,35 +107,35 @@
             roundButton1.Margin = new Padding(2);
             roundButton1.Name = "roundButton1";
             roundButton1.Size = new Size(37, 30);
-            roundButton1.TabIndex = 7;
+            roundButton1.TabIndex = 24;
             roundButton1.UseVisualStyleBackColor = false;
-            roundButton1.Click += roundButton1_Click_2;
             // 
-            // pb
+            // button2
             // 
-            pb.BorderStyle = BorderStyle.FixedSingle;
-            pb.Location = new Point(14, 82);
-            pb.Margin = new Padding(2);
-            pb.Name = "pb";
-            pb.Size = new Size(218, 19);
-            pb.TabIndex = 25;
-            pb.TabStop = false;
+            button2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(0, 191);
+            button2.Name = "button2";
+            button2.Size = new Size(266, 50);
+            button2.TabIndex = 25;
+            button2.Text = "Fare";
+            button2.TextAlign = ContentAlignment.MiddleLeft;
+            button2.UseVisualStyleBackColor = true;
             // 
-            // Home
+            // View_Activity1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(252, 384);
-            Controls.Add(pb);
+            Controls.Add(button2);
             Controls.Add(roundButton1);
-            Controls.Add(label2);
+            Controls.Add(button1);
+            Controls.Add(pb);
             Controls.Add(label1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Home";
+            Name = "View_Activity1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form3";
-            Load += Home_Load;
+            Text = "View_Activity1";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -135,10 +147,11 @@
         #endregion
 
         private Panel panel1;
-        private Label label1;
-        private Label label2;
-        private RoundButton roundButton1;
         private PictureBox pictureBox1;
+        private Label label1;
         private PictureBox pb;
+        private Button button1;
+        private RoundButton roundButton1;
+        private Button button2;
     }
 }

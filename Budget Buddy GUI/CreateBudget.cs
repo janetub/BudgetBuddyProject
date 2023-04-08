@@ -31,5 +31,10 @@ namespace Budget_Buddy_GUI
             new MenuForCreateBudget().Show();
             this.Hide();
         }
+
+        private void CreateBudget_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
