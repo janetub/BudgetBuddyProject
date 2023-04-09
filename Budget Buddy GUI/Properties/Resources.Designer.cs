@@ -63,9 +63,39 @@ namespace Budget_Buddy_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddActivityButton1_1 {
+            get {
+                object obj = ResourceManager.GetObject("AddActivityButton1.1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AddItemButton1_1 {
+            get {
+                object obj = ResourceManager.GetObject("AddItemButton1.1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MenuButton_Image {
             get {
                 object obj = ResourceManager.GetObject("MenuButton.Image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap XButton_Image {
+            get {
+                object obj = ResourceManager.GetObject("XButton.Image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

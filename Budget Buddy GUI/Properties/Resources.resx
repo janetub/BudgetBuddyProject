@@ -121,4 +121,16 @@
   <data name="MenuButton.Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuButton.Image1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AddActivityButton1.1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddActivityButton1.1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AddItemButton1.1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddItemButton1.1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="XButton.Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\XButton.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MenuButton.Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuButton.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

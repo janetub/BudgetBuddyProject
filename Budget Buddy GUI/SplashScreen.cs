@@ -38,5 +38,10 @@ namespace Budget_Buddy_GUI
         {
 
         }
+
+        private void AddButtonCollapsed_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
