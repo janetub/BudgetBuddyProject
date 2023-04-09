@@ -47,18 +47,18 @@
             // 
             panel1.BackColor = Color.FromArgb(255, 178, 30);
             panel1.Controls.Add(Menu);
-            panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(252, 30);
             panel1.TabIndex = 1;
+            panel1.Paint += panel1_Paint;
             // 
             // Menu
             // 
             Menu.BackColor = Color.FromArgb(255, 178, 30);
             Menu.Image = (Image)resources.GetObject("Menu.Image");
             Menu.Location = new Point(8, 7);
-            Menu.Margin = new Padding(2, 2, 2, 2);
+            Menu.Margin = new Padding(2);
             Menu.Name = "Menu";
             Menu.Size = new Size(24, 24);
             Menu.SizeMode = PictureBoxSizeMode.AutoSize;

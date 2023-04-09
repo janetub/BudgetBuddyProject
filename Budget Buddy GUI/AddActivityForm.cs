@@ -10,26 +10,21 @@ using System.Windows.Forms;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class Settings : Form
+    public partial class AddActivityForm : Form
     {
-        public Settings()
+        public AddActivityForm()
         {
             InitializeComponent();
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            new MenuForm(this).Show();
-            this.Hide();
-        }
-
-        private void kryptonTextBox1_TextChanged(object sender, EventArgs e)
+        private void AddActivityForm_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void MenuButton_Click(object sender, EventArgs e)
         {
+
         }
     }
 }

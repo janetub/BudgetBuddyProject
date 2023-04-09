@@ -124,6 +124,5 @@
         private Label label1;
         private Button button1;
         private PictureBox pb;
-        private CircularButton circularButton1;
     }
 }

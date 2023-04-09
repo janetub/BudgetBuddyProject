@@ -15,10 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="AddingItemOrActivity_Contracted.cs">
+    <Compile Update="ActivityForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="AddingItemOrActivity_Expanded.cs">
+    <Compile Update="AddActivity.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">

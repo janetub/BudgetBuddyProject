@@ -48,7 +48,7 @@
             panel2.Controls.Add(Menu);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(252, 30);
             panel2.TabIndex = 10;
@@ -58,7 +58,7 @@
             Menu.BackColor = Color.FromArgb(255, 178, 30);
             Menu.Image = (Image)resources.GetObject("Menu.Image");
             Menu.Location = new Point(8, 7);
-            Menu.Margin = new Padding(2, 2, 2, 2);
+            Menu.Margin = new Padding(2);
             Menu.Name = "Menu";
             Menu.Size = new Size(24, 24);
             Menu.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -115,6 +115,7 @@
             textBox1.PlaceholderText = "Enter budget name";
             textBox1.Size = new Size(232, 23);
             textBox1.TabIndex = 15;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox2
             // 
@@ -133,7 +134,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             button1.Location = new Point(0, 354);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(252, 30);
             button1.TabIndex = 17;

@@ -1,6 +1,6 @@
 ﻿namespace Budget_Buddy_GUI
 {
-    partial class HomeClick
+    partial class HomeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeClick));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             label1 = new Label();
             panel2 = new Panel();
+            menuButton = new PictureBox();
             Menu = new PictureBox();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)menuButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Menu).BeginInit();
             SuspendLayout();
             // 
@@ -54,26 +56,39 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(255, 178, 30);
+            panel2.Controls.Add(menuButton);
             panel2.Controls.Add(Menu);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(252, 30);
             panel2.TabIndex = 11;
+            panel2.Paint += panel2_Paint;
+            // 
+            // menuButton
+            // 
+            menuButton.BackColor = Color.FromArgb(255, 178, 30);
+            menuButton.Image = (Image)resources.GetObject("menuButton.Image");
+            menuButton.Location = new Point(8, 7);
+            menuButton.Margin = new Padding(2);
+            menuButton.Name = "menuButton";
+            menuButton.Size = new Size(24, 24);
+            menuButton.SizeMode = PictureBoxSizeMode.AutoSize;
+            menuButton.TabIndex = 15;
+            menuButton.TabStop = false;
+            menuButton.Click += menuButton_Click;
             // 
             // Menu
             // 
             Menu.BackColor = Color.FromArgb(255, 178, 30);
-            Menu.Image = (Image)resources.GetObject("Menu.Image");
             Menu.Location = new Point(8, 7);
-            Menu.Margin = new Padding(2, 2, 2, 2);
+            Menu.Margin = new Padding(2);
             Menu.Name = "Menu";
             Menu.Size = new Size(24, 24);
             Menu.SizeMode = PictureBoxSizeMode.AutoSize;
             Menu.TabIndex = 8;
             Menu.TabStop = false;
-            Menu.Click += Menu_Click;
             // 
             // button1
             // 
@@ -117,7 +132,7 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
-            // HomeClick
+            // HomeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -128,11 +143,12 @@
             Controls.Add(panel2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "HomeClick";
+            Name = "HomeForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "HomeClick";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)menuButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)Menu).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -146,5 +162,6 @@
         private Button button1;
         private Button button2;
         private Button button3;
+        private PictureBox menuButton;
     }
 }

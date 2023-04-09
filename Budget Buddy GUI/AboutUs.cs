@@ -32,9 +32,9 @@ namespace Budget_Buddy_GUI
 
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void exitButton_Click(object sender, EventArgs e)
         {
-            new Menu().Show();
+            new MenuForm(new HomeForm()).Show();
             this.Hide();
         }
     }

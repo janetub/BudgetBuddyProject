@@ -59,5 +59,15 @@ namespace Budget_Buddy_GUI.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MenuButton_Image {
+            get {
+                object obj = ResourceManager.GetObject("MenuButton.Image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

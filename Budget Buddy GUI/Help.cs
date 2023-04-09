@@ -16,5 +16,11 @@ namespace Budget_Buddy_GUI
         {
             InitializeComponent();
         }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            new MenuForm(new HomeForm()).Show();
+            this.Close();
+        }
     }
 }

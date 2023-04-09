@@ -30,7 +30,7 @@ namespace Budget_Buddy_GUI
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            new MenuForCreateBudget().Show();
+            //new MenuForCreateBudget().Show();
             this.Hide();
         }
 
@@ -41,9 +41,14 @@ namespace Budget_Buddy_GUI
 
         private void Menu_Click(object sender, EventArgs e)
         {
-            Menu menuForm = new Menu(this);
+            MenuForm menuForm = new MenuForm(this);
             menuForm.Show();
             this.Hide();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

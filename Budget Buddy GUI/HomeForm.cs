@@ -10,16 +10,14 @@ using System.Windows.Forms;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class Menu : Form
+    public partial class HomeForm : Form
     {
-        private Form previousForm;
-        public Menu(Form previousForm)
+        public HomeForm()
         {
             InitializeComponent();
-            this.previousForm = previousForm;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -29,40 +27,34 @@ namespace Budget_Buddy_GUI
 
         }
 
-
-        private void sideBar_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
-            new Home().Show();
+            new MenuForm(this).Show();
             this.Hide();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            new HomeClick().Show();
+            new CreateBudget().Show();
             this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            new AboutUs().Show();
+            new AddActivity().Show();
             this.Hide();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void menuButton_Click(object sender, EventArgs e)
         {
-            new Help().Show();
+            MenuForm menuForm = new(this);
+            menuForm.Show();
             this.Hide();
         }
 
-        private void Exit_Click(object sender, EventArgs e)
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
-            this.previousForm.Show();
-            this.Close();
+
         }
     }
 }

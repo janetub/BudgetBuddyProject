@@ -30,7 +30,7 @@ namespace Budget_Buddy_GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new View_Activity1().Show();
+            new AddActivity().Show();
             this.Hide();
         }
 

@@ -34,20 +34,25 @@ namespace Budget_Buddy_GUI
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            new Menu().Show();
+            new MenuForm(this).Show();
             this.Hide();
         }
 
         //private void roundButton1_Click_2(object sender, EventArgs e)
         //{
-           // new CreateActivity().Show();
-           // this.Hide();
-       // }
+        // new CreateActivity().Show();
+        // this.Hide();
+        // }
 
         private void circularButton1_Click(object sender, EventArgs e)
         {
             new CreateActivity().Show();
             this.Hide();
+        }
+
+        private void pb_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

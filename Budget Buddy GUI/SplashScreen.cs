@@ -30,8 +30,13 @@ namespace Budget_Buddy_GUI
         private void button1_Click(object sender, EventArgs e)
         {
             //new EmptyActivity().Show();
-            new HomeClick().Show();
+            new HomeForm().Show();
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
