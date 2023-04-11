@@ -12,7 +12,7 @@ namespace Budget_Buddy_GUI
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new Main());
-            Application.Run(new AddActivityForm());
+            Application.Run(new CreateBudgetForm());
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Budget_Buddy_GUI
 {
-    public class RoundButton2 : Button
+    public class RoundButton : Button
     {
         protected override void OnPaint(PaintEventArgs e)
         {

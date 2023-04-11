@@ -58,54 +58,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="AddButtonCollapsed.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="AddButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
         qAAAAKgBefSzxgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACWSURBVEhL7ZVB
         DkAwEEW74BY2HMMpcP8VLsAF+H/SNiKlxEhI+pJnMSYzEX6ZG3RwtLYsaJLDGS7WydbUKKAb7mRNjbQg
         Slog33QJqwNruF/AWqiXcpbPCRO6DZGWnCmJZ/RDDRoOUC6hmxr2UB6DZ0uo4Ymc2UAhg9ovmTMv8/0c
         xEgLovx/wes/fcLE81ihPqHnGLMCXxWwacaUCHYAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="AddActivityButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB0AAAAfCAYAAAAbW8YEAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAAl9JREFUSEvt1snLT1Ecx/GfKSFjiggLC/OQUKYdMiRjKOURZWMoQ1lQttgpiYUM
-        G6WUKX+ADJEMibKRMkRmEjK+33VPnW7n/u7jugvFp149T/d3zv3e4dxzTuN/SjIZqzADXT1A2mR/a09H
-        zMRZ3MMFrEFP1BKvPOgCC07AOfyM3MRSdIB33RahX6tjY698NDplZmM19uAN4qKfcAIrsQI94AUMQX+0
-        Q2mG4jg8+QD0xnlY4Ct+ZP/HvmV/H2MYvNAruIpZaJqB2A1P8Bkj4J0fzY6VuQPvtBduZMdOYQwKswC3
-        YWOL7oCPZzAWYTl8f3nLsASTYFrwEJ7nKbahMOsQ3tl33Iejsx8cIM3iE/Euff8X4UV7Ht/5IRRmIz7A
-        xsEDHMRWbMaWhHB8F24h7v8Fx1CYDXiPuNOfsqhjojB/dVE/m+vIv4qUWor6+wFMxU74zlPtglqKPsNi
-        mIm4hFS7oJair+D37CdiUWeeVLugctGPeIl3uAu/RYuOgwtA/Hu+b+Wie+EaOhLD0Q2mM5ytRmE87B/m
-        4aBSUWeUOWhN+sJJP14UKt+pM5Jz71xMRx8Ypz3n23mYj+3wUcd9Kxd9ARdrB80ZTIPv1GVsP/xmr+ER
-        8n1Li6bm3ry3iEeva2aqXVBadD1SIzD2HC5nZgouI9UucLU5gsK4JXmCVOfAx78P7ps2IaybRbwJR39h
-        3Hi50qc6B45MC1vsNdzCpNoF7iYWojDtYQMngNQJfpevwl2D33PTdIdbD0flSZyuwKd1GGsxCE3jiAxx
-        R+fGbGzGzVWZuF28AY/P+8+k0fgFI/aLN9alO2wAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="AddItemButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACMAAAAdCAYAAAAgqdWEAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAAbBJREFUWEft1z0ohVEcx/G7SFhQ8rJIyPtglUUGlFEWAzIqyWA2KQZkMSulLDar
-        wUShlBgUk8HkPfL6/Q1PPZ3+z73Pud2z3V99lnP+95z/vfe553luppg804olbGPHoHHNqy5ohvGCL3xn
-        oXnVjSBYrvDn4RpB0oBfWJsmUb1eV/B0wNowl04UPFrU2iwXvYmCx6eZc4yhBkGStpkDVKMRc1jHpmED
-        88jrmkrTzDPURB9u8YT3LDR/h354JU0zu1BOYM0nOYZX0jSzgDro4LPmk6i+FqmTppkp5HsEtCN1umAt
-        EjeJbHX3+HHGInpd6jTBWiQuWzOv0NxqbCzOq5lSPMJaKJLUzA32oAzhCJ+I13g1oywivoBrGm4z+lr0
-        OBEdgGWoxxbidd7NVGIG+9DP8dQxCrcZ3SyXMQGlDbM4Q7zOuxmlBLp+utHjqILbjOh6uYAyjge4TwB5
-        NZMrVjOis2QN+kSt+SDN6BOzNpMPYywSpJkWWJvl0oyCpwJvsDZMomuqHEGSdLAlWUGw6GapvyuHuIQe
-        zF0a17zqVB80OrF7MYBBg8Y1r7piPJPJ/AMI6mgyB0WrRQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="CollapseButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACMAAAAiCAYAAADVhWD8AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        qAAAAKgBefSzxgAAAWFJREFUWEft1jlOAzEYxfFhX2qQEIvY90uEnoYDUHECOAMVDaLmMiC2AhoKloZj
-        gKAB/g9iaWT5G0LsiYTwk35SJoo9L8mMx0VOTs5/Th/Gv1/+Kv3QuJ6vowQZxBHucIJWSnVjBbdN++hF
-        VDTpNt7w0XSOqkIas45HuDHP2EQX2o4GH8BN6pwhVEhF1vAAf8weojOKe/iT+4WqilxgCEmyBKvQGFRk
-        FaEil5hD1F/kZxGhQrqGGrCKzEJlk8cq9BJ4r9YiLiqk27x84nfvuCNFXJbxhHIB5wYq0rHorrHKXGMS
-        tce6ff2/yVqHksUqIqELuLZCVUV0sW6glYUxOiqiZ41VZBr6zDysQhNIkhG0uqBZ65AKDSAqOlHoQVm1
-        jliFdhEVnWwHr3CTXuGnBU2Fyr+mthBbiH4+DeMY+ranmEFVEZcFuM3VIbRbTBJtH9tZyHSdTCHZtjMn
-        J+ePpSg+AXjwq7cQTYzyAAAAAElFTkSuQmCC
 </value>
   </data>
 </root>

@@ -6,33 +6,43 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows;
 using System.Windows.Forms;
-using static System.Windows.Forms.AxHost;
-using Control = System.Windows.Forms.Control;
-using Point = System.Drawing.Point;
-using Timer = System.Windows.Forms.Timer;
-using System.Windows.Media.TextFormatting;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class AddActivityForm : Form
+    public partial class ExpandingButtonControl : UserControl
     {
-        public AddActivityForm()
+        public ExpandingButtonControl()
         {
             InitializeComponent();
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            BackColor = Color.Transparent;
         }
-
-        private void AddActivityForm_Load(object sender, EventArgs e)
+        // transparent background
+        protected override CreateParams CreateParams
         {
-
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x20;  // WS_EX_TRANSPARENT
+                return cp;
+            }
         }
-
-        private void MenuButton_Click(object sender, EventArgs e)
+        
+        // background elements become clickable
+        protected override void WndProc(ref Message m)
         {
-        }
+            const int WM_NCHITTEST = 0x0084;
+            const int HTTRANSPARENT = (-1);
 
+            if (m.Msg == WM_NCHITTEST)
+            {
+                m.Result = (IntPtr)HTTRANSPARENT;
+                return;
+            }
+
+            base.WndProc(ref m);
+        }
         private async void Animate(Control control1, int endX1, int endY1, Control control2, int endX2, int endY2, int duration)
         {
             control1.Visible = control2.Visible = true;
@@ -82,32 +92,33 @@ namespace Budget_Buddy_GUI
             control2.Location = new Point(endX2, endY2);
         }
 
-        private void CollapseButton_Click(object sender, EventArgs e)
-        {
-            Animate(this.AddItemButton, this.CollapseButton.Location.X, this.CollapseButton.Location.Y, this.AddActivityButton, this.CollapseButton.Location.X, this.CollapseButton.Location.Y, 20);
-
-            this.AddItemButton.Visible = this.AddActivityButton.Visible = this.AddActivityLabel.Visible = this.AddItemLabel.Visible =
-                this.CollapseButton.Visible = this.ModalOverlay.Visible = false;
-
-            this.AddButton.Visible = true;
-        }
-
         private void AddButton_Click(object sender, EventArgs e)
         {
             this.AddButton.Visible = false;
 
             this.CollapseButton.Location = this.AddActivityButton.Location = this.AddItemButton.Location = this.AddButton.Location;
 
-            this.ModalOverlay.Visible = this.CollapseButton.Visible = true;
+            this.ModalOverlay.Visible = true;
 
-            Animate(this.AddItemButton, this.CollapseButton.Location.X, this.CollapseButton.Location.Y - 70, this.AddActivityButton, this.CollapseButton.Location.X, this.AddItemButton.Location.Y - 130, 20);
+            this.CollapseButton.Visible = true;
+
+            Animate(this.AddItemButton, this.CollapseButton.Location.X, this.CollapseButton.Location.Y - 70, this.AddActivityButton, this.CollapseButton.Location.X, this.AddItemButton.Location.Y - 136, 50);
 
             this.AddActivityLabel.Visible = this.AddItemLabel.Visible = true;
         }
 
-        private void ModalOverlay_Click(object sender, EventArgs e)
+        private void CollapseButton_Click(object sender, EventArgs e)
         {
-            this.CollapseButton.PerformClick();
+            Animate(this.AddItemButton, this.CollapseButton.Location.X, this.CollapseButton.Location.Y, this.AddActivityButton, this.CollapseButton.Location.X, this.CollapseButton.Location.Y, 50);
+
+            this.AddItemButton.Visible = this.AddActivityButton.Visible = this.AddActivityLabel.Visible = this.AddItemLabel.Visible =
+                this.CollapseButton.Visible = false;
+
+            this.ModalOverlay.Visible = false;
+            this.ModalOverlay.SendToBack();
+
+            this.AddButton.Visible = true;
         }
+
     }
 }
