@@ -10,17 +10,13 @@ using System.Windows.Forms;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class Help : Form
+    public partial class AppPanelForm : Form
     {
-        public Help()
+        public AppPanelForm()
         {
             InitializeComponent();
+
         }
 
-        private void ExitButton_Click(object sender, EventArgs e)
-        {
-            new MenuForm(new HomeForm()).Show();
-            this.Close();
-        }
     }
 }
