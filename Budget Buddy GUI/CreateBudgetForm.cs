@@ -8,7 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< HEAD
 using Student_Financial_Assisstance;
+=======
+>>>>>>> 00f4f1cd4af6f3aebb25d52ddadc0d60a6d0d8b7
 
 namespace Budget_Buddy_GUI
 {
@@ -25,7 +28,11 @@ namespace Budget_Buddy_GUI
 
         private void CreateBudgetButton_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
 
+=======
+            this.CreateBudgetButton.Hide();
+>>>>>>> 00f4f1cd4af6f3aebb25d52ddadc0d60a6d0d8b7
         }
 
         private void BudgetNameTextBox_Validating(object sender, CancelEventArgs e)
@@ -52,5 +59,12 @@ namespace Budget_Buddy_GUI
         {
 
         }
+<<<<<<< HEAD
+=======
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+        }
+>>>>>>> 00f4f1cd4af6f3aebb25d52ddadc0d60a6d0d8b7
     }
 }
