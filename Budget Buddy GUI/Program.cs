@@ -1,3 +1,5 @@
+using Student_Financial_Assisstance;
+
 namespace Budget_Buddy_GUI
 {
     internal static class Program
@@ -12,7 +14,7 @@ namespace Budget_Buddy_GUI
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new Main());
-            Application.Run(new CreateBudgetForm());
+            Application.Run(new AppPanel_Form(new HashSet<Budget>()));
         }
     }
 }

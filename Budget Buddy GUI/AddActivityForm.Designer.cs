@@ -127,6 +127,7 @@ namespace Budget_Buddy_GUI
             AddItemLabel.Size = new Size(64, 16);
             AddItemLabel.TabIndex = 50;
             AddItemLabel.Text = "Add item";
+            AddItemLabel.Click += AddItemLabel_Click;
             // 
             // AddActivityLabel
             // 
@@ -140,6 +141,7 @@ namespace Budget_Buddy_GUI
             AddActivityLabel.Size = new Size(81, 16);
             AddActivityLabel.TabIndex = 49;
             AddActivityLabel.Text = "Add activity";
+            AddActivityLabel.Click += AddActivityLabel_Click;
             // 
             // AddActivityButton
             // 

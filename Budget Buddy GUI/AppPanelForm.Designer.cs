@@ -1,6 +1,6 @@
 ﻿namespace Budget_Buddy_GUI
 {
-    partial class AppPanelForm
+    partial class AppPanel_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,12 @@
         {
             AppBar = new PictureBox();
             MenuButton = new Button();
+            Amount_Label = new Krypton.Toolkit.KryptonLabel();
+            Name_Label = new Krypton.Toolkit.KryptonLabel();
+            Placeholder_Panel = new Krypton.Toolkit.KryptonPanel();
+            Add_Button = new RoundButton();
             ((System.ComponentModel.ISupportInitialize)AppBar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).BeginInit();
             SuspendLayout();
             // 
             // AppBar
@@ -53,23 +58,74 @@
             MenuButton.Location = new Point(12, 12);
             MenuButton.Name = "MenuButton";
             MenuButton.Size = new Size(30, 30);
-            MenuButton.TabIndex = 21;
+            MenuButton.TabIndex = 0;
             MenuButton.UseVisualStyleBackColor = false;
             // 
-            // AppPanelForm
+            // Amount_Label
+            // 
+            Amount_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            Amount_Label.Location = new Point(3, 76);
+            Amount_Label.Name = "Amount_Label";
+            Amount_Label.Size = new Size(70, 21);
+            Amount_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            Amount_Label.TabIndex = 33;
+            Amount_Label.Values.Text = "Amount";
+            // 
+            // Name_Label
+            // 
+            Name_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            Name_Label.Location = new Point(23, 3);
+            Name_Label.Name = "Name_Label";
+            Name_Label.Size = new Size(54, 21);
+            Name_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            Name_Label.TabIndex = 31;
+            Name_Label.Values.Text = "Name";
+            // 
+            // Placeholder_Panel
+            // 
+            Placeholder_Panel.Location = new Point(0, 50);
+            Placeholder_Panel.Name = "Placeholder_Panel";
+            Placeholder_Panel.Size = new Size(360, 593);
+            Placeholder_Panel.StateCommon.Color1 = Color.White;
+            Placeholder_Panel.TabIndex = 0;
+            // 
+            // Add_Button
+            // 
+            Add_Button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            Add_Button.BackColor = Color.LightGray;
+            Add_Button.BackgroundImage = Properties.Resources.PlusButton_Image;
+            Add_Button.BackgroundImageLayout = ImageLayout.Center;
+            Add_Button.FlatAppearance.BorderSize = 0;
+            Add_Button.FlatStyle = FlatStyle.Flat;
+            Add_Button.ForeColor = Color.Transparent;
+            Add_Button.Location = new Point(276, 561);
+            Add_Button.Name = "Add_Button";
+            Add_Button.Size = new Size(49, 49);
+            Add_Button.TabIndex = 1;
+            Add_Button.UseVisualStyleBackColor = false;
+            Add_Button.Visible = false;
+            Add_Button.Click += Add_Button_Click;
+            // 
+            // AppPanel_Form
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(360, 640);
+            Controls.Add(Add_Button);
             Controls.Add(MenuButton);
             Controls.Add(AppBar);
+            Controls.Add(Placeholder_Panel);
+            ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
-            Name = "AppPanelForm";
+            Name = "AppPanel_Form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "NotificationPanelForm";
+            KeyDown += AppPanel_Form_KeyDown;
             ((System.ComponentModel.ISupportInitialize)AppBar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).EndInit();
             ResumeLayout(false);
         }
 
@@ -77,5 +133,9 @@
 
         private PictureBox AppBar;
         private Button MenuButton;
+        private Krypton.Toolkit.KryptonLabel Amount_Label;
+        private Krypton.Toolkit.KryptonLabel Name_Label;
+        private Krypton.Toolkit.KryptonPanel Placeholder_Panel;
+        private RoundButton Add_Button;
     }
 }
