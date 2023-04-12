@@ -16,9 +16,5 @@ namespace Budget_Buddy_GUI
         {
             InitializeComponent();
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> c4a5d01 (added forms and user controls for ceating a budget)
     }
 }
