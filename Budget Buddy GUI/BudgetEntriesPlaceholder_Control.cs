@@ -35,7 +35,11 @@ namespace Budget_Buddy_GUI
                     BudgetEntry_Control entry = new BudgetEntry_Control(budget);
                     entry.BudgetClicked += BudgetEntry_BudgetClicked;
                     entry.DeleteButtonClicked += BudgetEntry_BudgetDeleted;
+<<<<<<< HEAD
                                     this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(entry);
+=======
+                    this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(entry);
+>>>>>>> c4a5d01 (added forms and user controls for ceating a budget)
                     entry.HashCode = budget.GetHashCode();
                 }
             }
@@ -47,8 +51,12 @@ namespace Budget_Buddy_GUI
             BudgetEntry_Control budgetEntry = (BudgetEntry_Control)sender;
             SelectedBudget = budgetEntry.Budget;
             this.BudgetEntryPlaceHolder_TablePanel.Controls.Clear();
+<<<<<<< HEAD
             ActivityEntriesPlaceholder_Control act = new ActivityEntriesPlaceholder_Control();
 this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(act);
+=======
+            this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(new ActivityEntriesPlaceholder_Control());
+>>>>>>> c4a5d01 (added forms and user controls for ceating a budget)
         }
 
         private void BudgetEntry_BudgetDeleted(object sender, EventArgs e)

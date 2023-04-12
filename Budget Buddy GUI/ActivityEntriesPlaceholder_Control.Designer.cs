@@ -44,8 +44,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+<<<<<<< HEAD
             AutoScroll = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
+=======
+>>>>>>> c4a5d01 (added forms and user controls for ceating a budget)
             Controls.Add(label1);
             Name = "ActivityEntriesPlaceholder_Control";
             Size = new Size(360, 590);
