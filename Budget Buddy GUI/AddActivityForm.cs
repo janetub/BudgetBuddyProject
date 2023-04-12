@@ -109,5 +109,15 @@ namespace Budget_Buddy_GUI
         {
             this.CollapseButton.PerformClick();
         }
+
+        private void AddActivityLabel_Click(object sender, EventArgs e)
+        {
+            this.AddActivityButton.PerformClick();
+        }
+
+        private void AddItemLabel_Click(object sender, EventArgs e)
+        {
+            this.AddItemButton.PerformClick();
+        }
     }
 }
