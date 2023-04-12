@@ -35,21 +35,10 @@ namespace Budget_Buddy_GUI
                     BudgetEntry_Control entry = new BudgetEntry_Control(budget);
                     entry.BudgetClicked += BudgetEntry_BudgetClicked;
                     entry.DeleteButtonClicked += BudgetEntry_BudgetDeleted;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 1b193d40ef3835605b5ca55803473616f667b7da
                                     this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(entry);
                     this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(entry);
-<<<<<<< HEAD
                     this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(entry);
-=======
->>>>>>> c4a5d01 (added forms and user controls for ceating a budget)
-=======
                     this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(entry);
->>>>>>> c4a5d0191eb69cd43b9f678fe9a1be19856814fc
->>>>>>> 1b193d40ef3835605b5ca55803473616f667b7da
                     entry.HashCode = budget.GetHashCode();
                 }
             }
@@ -61,22 +50,11 @@ namespace Budget_Buddy_GUI
             BudgetEntry_Control budgetEntry = (BudgetEntry_Control)sender;
             SelectedBudget = budgetEntry.Budget;
             this.BudgetEntryPlaceHolder_TablePanel.Controls.Clear();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 1b193d40ef3835605b5ca55803473616f667b7da
             ActivityEntriesPlaceholder_Control act = new ActivityEntriesPlaceholder_Control();
 this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(act);
             this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(new ActivityEntriesPlaceholder_Control());
-<<<<<<< HEAD
             this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(new ActivityEntriesPlaceholder_Control());
-=======
->>>>>>> c4a5d01 (added forms and user controls for ceating a budget)
-=======
             this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(new ActivityEntriesPlaceholder_Control());
->>>>>>> c4a5d0191eb69cd43b9f678fe9a1be19856814fc
->>>>>>> 1b193d40ef3835605b5ca55803473616f667b7da
         }
 
         private void BudgetEntry_BudgetDeleted(object sender, EventArgs e)
