@@ -18,6 +18,7 @@ namespace Budget_Buddy_GUI
         {
             InitializeComponent();
         }
+
         private void CreateBudget_Control_Load(object sender, EventArgs e)
         {
 
@@ -43,6 +44,15 @@ namespace Budget_Buddy_GUI
             }
             if (!this.Amount_NumUpDown.Text.Contains("."))
                 this.Amount_NumUpDown.Text += ".00";
+            double budgetAmount;
+            if (Double.TryParse(this.Amount_NumUpDown.Text, out budgetAmount))
+            {
+                if (budgetAmount > 1000000000.00)
+                {
+                    MessageBox.Show("You have reached the maximum budget/funds allowed in the app.");
+                    this.Amount_NumUpDown = null;
+                }
+            }
         }
 
         private void CreateBudgetButton_Click(object sender, EventArgs e)

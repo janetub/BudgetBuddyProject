@@ -62,13 +62,13 @@
             CreateBudgetInputFields_TableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             CreateBudgetInputFields_TableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             CreateBudgetInputFields_TableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            CreateBudgetInputFields_TableLayoutPanel.Size = new Size(360, 537);
+            CreateBudgetInputFields_TableLayoutPanel.Size = new Size(360, 540);
             CreateBudgetInputFields_TableLayoutPanel.TabIndex = 0;
             // 
             // Amount_Label
             // 
             Amount_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            Amount_Label.Location = new Point(23, 168);
+            Amount_Label.Location = new Point(23, 170);
             Amount_Label.Name = "Amount_Label";
             Amount_Label.Size = new Size(70, 21);
             Amount_Label.StateCommon.ShortText.Color1 = Color.Black;
@@ -79,7 +79,7 @@
             // Name_Label
             // 
             Name_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            Name_Label.Location = new Point(23, 47);
+            Name_Label.Location = new Point(23, 48);
             Name_Label.Name = "Name_Label";
             Name_Label.Size = new Size(54, 21);
             Name_Label.StateCommon.ShortText.Color1 = Color.Black;
@@ -93,7 +93,7 @@
             Name_TextBox.AsciiOnly = true;
             Name_TextBox.Cursor = Cursors.IBeam;
             Name_TextBox.Hint = "Enter budget name here";
-            Name_TextBox.Location = new Point(23, 74);
+            Name_TextBox.Location = new Point(23, 75);
             Name_TextBox.Name = "Name_TextBox";
             Name_TextBox.Size = new Size(314, 29);
             Name_TextBox.StateActive.Back.Color1 = Color.WhiteSmoke;
@@ -111,11 +111,13 @@
             // 
             Amount_NumUpDown.AllowDecimals = true;
             Amount_NumUpDown.AlwaysActive = false;
+            Amount_NumUpDown.Cursor = Cursors.IBeam;
             Amount_NumUpDown.DecimalPlaces = 2;
-            Amount_NumUpDown.Location = new Point(20, 192);
+            Amount_NumUpDown.Location = new Point(20, 194);
             Amount_NumUpDown.Margin = new Padding(0);
-            Amount_NumUpDown.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            Amount_NumUpDown.Maximum = new decimal(new int[] { 1215752192, 23, 0, 131072 });
             Amount_NumUpDown.Name = "Amount_NumUpDown";
+            Amount_NumUpDown.PaletteMode = Krypton.Toolkit.PaletteMode.Office365White;
             Amount_NumUpDown.Size = new Size(317, 23);
             Amount_NumUpDown.StateActive.Back.Color1 = Color.WhiteSmoke;
             Amount_NumUpDown.StateActive.Content.Color1 = Color.Black;
@@ -125,6 +127,7 @@
             Amount_NumUpDown.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Bottom;
             Amount_NumUpDown.StateCommon.Content.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Amount_NumUpDown.StateCommon.Content.Padding = new Padding(5);
+            Amount_NumUpDown.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             Amount_NumUpDown.TabIndex = 2;
             Amount_NumUpDown.ThousandsSeparator = true;
             Amount_NumUpDown.UpDownButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;

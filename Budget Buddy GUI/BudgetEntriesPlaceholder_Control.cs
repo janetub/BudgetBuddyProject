@@ -14,7 +14,8 @@ namespace Budget_Buddy_GUI
     public partial class BudgetEntriesPlaceholder_Control : UserControl
     {
         private HashSet<Budget> budgets = new HashSet<Budget>();
-        public Budget SelectedBudget { get; private set; }
+
+        //selected budget is in tag
 
         public BudgetEntriesPlaceholder_Control(HashSet<Budget> budgets)
         {
@@ -22,7 +23,7 @@ namespace Budget_Buddy_GUI
             this.budgets = budgets;
             DisplayBudgets();
         }
-        public void DisplayBudgets()
+        /*public void DisplayBudgets()
         {
             this.BudgetEntryPlaceHolder_TablePanel.Controls.Clear();
             if (this.budgets.Count < 1)
@@ -35,38 +36,69 @@ namespace Budget_Buddy_GUI
                     BudgetEntry_Control entry = new BudgetEntry_Control(budget);
                     entry.BudgetClicked += BudgetEntry_BudgetClicked;
                     entry.DeleteButtonClicked += BudgetEntry_BudgetDeleted;
-                                    this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(entry);
                     this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(entry);
-                    this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(entry);
-                    this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(entry);
-                    entry.HashCode = budget.GetHashCode();
                 }
             }
+        }*/
+
+        private HashSet<BudgetEntry_Control> displayedControls = new HashSet<BudgetEntry_Control>();
+
+        public void DisplayBudgets()
+        {
+            // Remove any controls that are no longer needed
+            foreach (var control in displayedControls.ToList())
+            {
+                if (!budgets.Contains((Budget)control.Tag))
+                {
+                    BudgetEntriesPlaceHolder_TablePanel.Controls.Remove(control);
+                    displayedControls.Remove(control);
+                }
+            }
+
+            // Add any new controls that are needed
+            foreach (var budget in budgets)
+            {
+                if (!displayedControls.Any(c => (Budget)c.Tag == budget))
+                {
+                    BudgetEntry_Control entry = new BudgetEntry_Control(budget);
+                    entry.BudgetClicked += BudgetEntry_BudgetClicked;
+                    entry.DeleteButtonClicked += BudgetEntry_BudgetDeleted;
+                    BudgetEntriesPlaceHolder_TablePanel.Controls.Add(entry);
+                    displayedControls.Add(entry);
+                }
+            }
+
+            // Show or hide the "No budgets" label as needed
+            NoBudget_label.Visible = (budgets.Count == 0);
         }
 
         private void BudgetEntry_BudgetClicked(object sender, EventArgs e)
         {
-            // Set the SelectedBudget property to the Budget object corresponding to the BudgetEntry control that was clicked
             BudgetEntry_Control budgetEntry = (BudgetEntry_Control)sender;
-            SelectedBudget = budgetEntry.Budget;
-            this.BudgetEntryPlaceHolder_TablePanel.Controls.Clear();
-            ActivityEntriesPlaceholder_Control act = new ActivityEntriesPlaceholder_Control();
-this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(act);
-            this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(new ActivityEntriesPlaceholder_Control());
-            this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(new ActivityEntriesPlaceholder_Control());
-            this.BudgetEntryPlaceHolder_TablePanel.Controls.Add(new ActivityEntriesPlaceholder_Control());
+            Budget budget = (Budget)budgetEntry.Tag;
+            this.Tag = budget;
         }
 
         private void BudgetEntry_BudgetDeleted(object sender, EventArgs e)
         {
             BudgetEntry_Control budgetEntry = (BudgetEntry_Control)sender;
-            int hashCode = budgetEntry.HashCode;
-            Budget budget = budgets.FirstOrDefault(b => b.GetHashCode() == hashCode);
-            if (budget != null)
+            Budget budget = (Budget)budgetEntry.Tag;
+            try
             {
-                this.budgets.Remove(budget);
+                if (budget != null)
+                {
+                    this.budgets.Remove(budget);
+                }
             }
-            DisplayBudgets();
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while deleting the budget: {ex.Message}");
+                MessageBox.Show("An error occurred while deleting the budget: {ex.Message}");
+            }
+            finally
+            {
+                DisplayBudgets();
+            }
         }
     }
 }

@@ -17,9 +17,9 @@ using System.Windows.Media.TextFormatting;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class AddActivityForm : Form
+    public partial class AddActItem_Form : Form
     {
-        public AddActivityForm()
+        public AddActItem_Form()
         {
             InitializeComponent();
         }

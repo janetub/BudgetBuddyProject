@@ -13,10 +13,8 @@ namespace Budget_Buddy_GUI
 {
     public partial class BudgetEntry_Control : UserControl
     {
-        private Budget budget;
         public event EventHandler BudgetClicked;
-        public event EventHandler DeleteButtonClicked;
-        public int HashCode { get; set; }
+        public event EventHandler DeleteButtonClicked; //
         public BudgetEntry_Control(Budget budget)
         {
             InitializeComponent();
@@ -26,23 +24,41 @@ namespace Budget_Buddy_GUI
             {
                 this.BudgetBalanceAmount_Label.Text += ".00";
             }
-        }
-
-        public Budget Budget
-        {
-
-            get => this.budget;
+            this.Tag = budget;
         }
 
         private void BudgetEntry_Control_Click(object sender, EventArgs e)
         {
-            // Raise the BudgetClicked event when the control is clicked
             BudgetClicked?.Invoke(this, EventArgs.Empty);
         }
 
         private void DeleteBudget_Button_Click(object sender, EventArgs e)
         {
-            DeleteButtonClicked?.Invoke(this, EventArgs.Empty);
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this budget?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                DeleteButtonClicked?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        private void BudgetName_Label_Click(object sender, EventArgs e)
+        {
+            this.BudgetEntry_Control_Click(sender, e);
+        }
+
+        private void BudgetFundsStatus_Panel_Click(object sender, EventArgs e)
+        {
+            this.BudgetEntry_Control_Click(sender, e);
+        }
+
+        private void Balance_Label_Click(object sender, EventArgs e)
+        {
+            this.BudgetEntry_Control_Click(sender, e);
+        }
+
+        private void BudgetBalanceAmount_Label_Click(object sender, EventArgs e)
+        {
+            this.BudgetEntry_Control_Click(sender, e);
         }
     }
 }

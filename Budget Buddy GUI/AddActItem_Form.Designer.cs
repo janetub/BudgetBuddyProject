@@ -2,7 +2,7 @@
 
 namespace Budget_Buddy_GUI
 {
-    partial class AddActivityForm
+    partial class AddActItem_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace Budget_Buddy_GUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddActivityForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddActItem_Form));
             AppBar = new PictureBox();
             MenuButton = new Button();
             AddButton = new RoundButton();

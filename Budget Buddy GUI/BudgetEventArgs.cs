@@ -11,6 +11,7 @@ namespace Budget_Buddy_GUI
     public class BudgetEventArgs : EventArgs
     {
         public Budget Budget { get; }
+
         public BudgetEventArgs (Budget budget)
         {
             this.Budget = budget;
