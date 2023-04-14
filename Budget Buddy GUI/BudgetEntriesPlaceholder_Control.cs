@@ -93,7 +93,7 @@ namespace Budget_Buddy_GUI
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred while deleting the budget: {ex.Message}");
-                MessageBox.Show("An error occurred while deleting the budget: {ex.Message}");
+                MessageBox.Show($"An error occurred while deleting the budget: {ex.Message}");
             }
             finally
             {

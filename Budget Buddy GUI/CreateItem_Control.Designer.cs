@@ -58,6 +58,7 @@
             AddItem_Button.TabIndex = 1;
             AddItem_Button.Text = "Add Item";
             AddItem_Button.UseVisualStyleBackColor = false;
+            AddItem_Button.Click += AddItem_Button_Click;
             // 
             // CreateBudgetInputFields_TableLayoutPanel
             // 
@@ -118,6 +119,7 @@
             Tags_ComboBox.StateCommon.ComboBox.Content.Padding = new Padding(0);
             Tags_ComboBox.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             Tags_ComboBox.TabIndex = 4;
+            Tags_ComboBox.KeyDown += Tags_ComboBox_KeyDown;
             // 
             // Tags_Label
             // 
@@ -197,6 +199,7 @@
             Price_NumUpDown.ThousandsSeparator = true;
             Price_NumUpDown.UpDownButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             Price_NumUpDown.UseMnemonic = false;
+            Price_NumUpDown.KeyDown += Price_NumUpDown_KeyDown;
             Price_NumUpDown.Validating += Price_NumUpDown_Validating;
             // 
             // Quantity_Label
@@ -235,6 +238,8 @@
             Quantity_NumUpDown.UpDownButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             Quantity_NumUpDown.UseMnemonic = false;
             Quantity_NumUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            Quantity_NumUpDown.KeyDown += Quantity_NumUpDown_KeyDown;
+            Quantity_NumUpDown.Validating += Quantity_NumUpDown_Validating;
             // 
             // RequiredName_Label
             // 

@@ -38,9 +38,10 @@ namespace Budget_Buddy_GUI
         {
             if (string.IsNullOrEmpty(Amount_NumUpDown.Text) || Amount_NumUpDown.Text == "0.00")
             {
-                MessageBox.Show("Budget amount is required");
+                MessageBox.Show("Budget amount is required.");
                 e.Cancel = true;
                 this.RequiredAmount_Label.Visible = true;
+                return;
             }
             if (!this.Amount_NumUpDown.Text.Contains("."))
                 this.Amount_NumUpDown.Text += ".00";
@@ -51,6 +52,7 @@ namespace Budget_Buddy_GUI
                 {
                     MessageBox.Show("You have reached the maximum budget/funds allowed in the app.");
                     this.Amount_NumUpDown = null;
+                    return;
                 }
             }
         }
@@ -75,6 +77,16 @@ namespace Budget_Buddy_GUI
                 MessageBox.Show("Please fill up all required fields");
                 this.RequiredAmount_Label.Visible = true;
                 return;
+            }
+            double budgetAmount;
+            if (Double.TryParse(this.Amount_NumUpDown.Text, out budgetAmount))
+            {
+                if (budgetAmount > 1000000000.00)
+                {
+                    MessageBox.Show("You have reached the maximum budget/funds allowed in the app.");
+                    this.Amount_NumUpDown = null;
+                    return;
+                }
             }
             double amount = double.Parse(Amount_NumUpDown.Text);
             Budget newBudget = new(this.Name_TextBox.Text, amount);

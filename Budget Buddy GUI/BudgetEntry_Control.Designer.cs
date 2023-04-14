@@ -107,11 +107,12 @@
             DeleteBudget_Button.BackColor = Color.Transparent;
             DeleteBudget_Button.BackgroundImage = Properties.Resources.delete3;
             DeleteBudget_Button.BackgroundImageLayout = ImageLayout.Center;
+            DeleteBudget_Button.Dock = DockStyle.Right;
             DeleteBudget_Button.FlatAppearance.BorderSize = 0;
             DeleteBudget_Button.FlatStyle = FlatStyle.Flat;
             DeleteBudget_Button.Location = new Point(367, 0);
             DeleteBudget_Button.Name = "DeleteBudget_Button";
-            DeleteBudget_Button.Size = new Size(26, 32);
+            DeleteBudget_Button.Size = new Size(26, 62);
             DeleteBudget_Button.TabIndex = 36;
             DeleteBudget_Button.UseVisualStyleBackColor = false;
             DeleteBudget_Button.Click += DeleteBudget_Button_Click;
