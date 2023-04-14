@@ -113,7 +113,7 @@ namespace Budget_Buddy_GUI
         private void MenuButton_Click(object sender, EventArgs e)
         {
             new AppPanel_Form2(new BudgetActivity("Saving for Inline skates", "I want to learn inline skating.", 2300, BudgetBuddyProject.BudgetActivityType.Expense)).Show();
-            this.Hide();
+            this.Close();
         }
 
         /*private void BudgetEntry_BudgetClicked(object sender, EventArgs e)
