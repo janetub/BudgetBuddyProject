@@ -26,38 +26,40 @@ namespace Budget_Buddy_GUI
         public AppPanel_Form2(BudgetActivity activity)
         {
             InitializeComponent();
-
+            Placeholder_BudgetActivitiesEntries_Control placeholder_BudgetActivitiesEntries_Control = new();
+            placeholder_BudgetActivitiesEntries_Control.SendToBack();
+            this.Placeholder_Panel.Controls.Add(placeholder_BudgetActivitiesEntries_Control);
             // Create and add the ActivityEntriesPlaceholder_Control to the Placeholder_Panel
-            ActivityEntriesPlaceholder_Control activityEntriesControl = new ActivityEntriesPlaceholder_Control(activity);
-            Placeholder_Panel.Controls.Add(activityEntriesControl);
+            /*Placeholder_ActivityEntries_Control activityEntriesControl = new Placeholder_ActivityEntries_Control(activity);
+            Placeholder_Panel.Controls.Add(activityEntriesControl);*/
 
             // Add event handlers for the BudgetEntryAdded and BudgetEntryDeleted events of the ActivityEntriesPlaceholder_Control
-            activityEntriesControl.BudgetEntryAdded += ActivityEntriesControl_BudgetEntryAdded;
-            activityEntriesControl.BudgetEntryDeleted += ActivityEntriesControl_BudgetEntryDeleted;
+            /*activityEntriesControl.BudgetEntryAdded += ActivityEntriesControl_BudgetEntryAdded;
+            activityEntriesControl.BudgetEntryDeleted += ActivityEntriesControl_BudgetEntryDeleted;*/
 
             // Show the AddButton
             AddButton.Visible = true;
         }
+        /*
+                // Event handler for the BudgetEntryAdded event of the ActivityEntriesPlaceholder_Control
+                private void ActivityEntriesControl_BudgetEntryAdded(object sender, BudgetEntryEventArgs e)
+                {
+                    // Add the new BudgetEntry to the Budget
+                    budget.AddEntry(e.Entry);
 
-        // Event handler for the BudgetEntryAdded event of the ActivityEntriesPlaceholder_Control
-        private void ActivityEntriesControl_BudgetEntryAdded(object sender, BudgetEntryEventArgs e)
-        {
-            // Add the new BudgetEntry to the Budget
-            budget.AddEntry(e.Entry);
+                    // Refresh the UI to show the updated Budget
+                    RefreshUI();
+                }
 
-            // Refresh the UI to show the updated Budget
-            RefreshUI();
-        }
+                // Event handler for the BudgetEntryDeleted event of the ActivityEntriesPlaceholder_Control
+                private void ActivityEntriesControl_BudgetEntryDeleted(object sender, BudgetEntryEventArgs e)
+                {
+                    // Remove the BudgetEntry from the Budget
+                    budget.RemoveEntry(e.Entry);
 
-        // Event handler for the BudgetEntryDeleted event of the ActivityEntriesPlaceholder_Control
-        private void ActivityEntriesControl_BudgetEntryDeleted(object sender, BudgetEntryEventArgs e)
-        {
-            // Remove the BudgetEntry from the Budget
-            budget.RemoveEntry(e.Entry);
-
-            // Refresh the UI to show the updated Budget
-            RefreshUI();
-        }
+                    // Refresh the UI to show the updated Budget
+                    RefreshUI();
+                }*/
 
         private void RefreshUI()
         {
@@ -73,6 +75,7 @@ namespace Budget_Buddy_GUI
 
         private void MenuButton_Click(object sender, EventArgs e)
         {
+            new AppPanel_Form(new HashSet<Budget>()).Show();
         }
 
         private async void Animate(Control control1, int endX1, int endY1, Control control2, int endX2, int endY2, int duration)
@@ -136,6 +139,7 @@ namespace Budget_Buddy_GUI
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            this.Placeholder_Panel.SendToBack();
             this.AddButton.Visible = false;
 
             Point point = this.AddButton.Location;
@@ -163,6 +167,16 @@ namespace Budget_Buddy_GUI
         private void AddItemLabel_Click(object sender, EventArgs e)
         {
             this.AddItemButton.PerformClick();
+        }
+
+        private void Exit_Button_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void AddItemButton_Click(object sender, EventArgs e)
+        {
+            this.Placeholder_Panel.Visible = false;
         }
     }
 }

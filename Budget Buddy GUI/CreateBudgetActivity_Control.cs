@@ -18,7 +18,7 @@ namespace Budget_Buddy_GUI
         public CreateBudgetActivity_Control(bool canCreateSavings)
         {
             InitializeComponent();
-            // Add enum values as items to the Krypton ComboBox
+            
             if (canCreateSavings)
             {
                 this.ActivityType_ComboBox.DataSource = Enum.GetNames(typeof(BudgetActivityType));

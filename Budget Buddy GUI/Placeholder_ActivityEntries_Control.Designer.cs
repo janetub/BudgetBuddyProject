@@ -1,6 +1,6 @@
 ﻿namespace Budget_Buddy_GUI
 {
-    partial class ActivityEntriesPlaceholder_Control
+    partial class Placeholder_ActivityEntries_Control
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActivityEntriesPlaceholder_Control));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Placeholder_ActivityEntries_Control));
             NoBudget_label = new Label();
             ActivityEntriesPlaceHolder_TablePanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
             SuspendLayout();
@@ -36,7 +36,7 @@
             // NoBudget_label
             // 
             NoBudget_label.AutoSize = true;
-            NoBudget_label.BackColor = Color.White;
+            NoBudget_label.BackColor = SystemColors.Control;
             NoBudget_label.Enabled = false;
             NoBudget_label.Font = new Font("Arial", 9.75F, FontStyle.Italic, GraphicsUnit.Point);
             NoBudget_label.ForeColor = Color.Gray;

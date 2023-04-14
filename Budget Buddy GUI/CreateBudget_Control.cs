@@ -14,6 +14,8 @@ namespace Budget_Buddy_GUI
     public partial class CreateBudget_Control : UserControl
     {
         public event EventHandler<BudgetEventArgs> BudgetEntered;
+
+
         public CreateBudget_Control()
         {
             InitializeComponent();

@@ -35,16 +35,17 @@ namespace Budget_Buddy_GUI
             MenuButton = new Button();
             AddButton = new RoundButton();
             checkBox1 = new CheckBox();
-            Placeholder_Panel = new Krypton.Toolkit.KryptonPanel();
             CollapseButton = new RoundButton();
             AddActivityButton = new RoundButton();
             AddActivityLabel = new Label();
             AddItemLabel = new Label();
             AddItemButton = new RoundButton();
             ModalOverlay = new SemiTransparentPanel();
+            Exit_Button = new Button();
+            Placeholder_Panel = new Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)AppBar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).BeginInit();
             ModalOverlay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).BeginInit();
             SuspendLayout();
             // 
             // AppBar
@@ -97,14 +98,6 @@ namespace Budget_Buddy_GUI
             checkBox1.Text = "checklang";
             checkBox1.UseVisualStyleBackColor = false;
             // 
-            // Placeholder_Panel
-            // 
-            Placeholder_Panel.Location = new Point(0, 50);
-            Placeholder_Panel.Name = "Placeholder_Panel";
-            Placeholder_Panel.Size = new Size(360, 590);
-            Placeholder_Panel.StateCommon.Color1 = Color.White;
-            Placeholder_Panel.TabIndex = 53;
-            // 
             // CollapseButton
             // 
             CollapseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -114,7 +107,7 @@ namespace Budget_Buddy_GUI
             CollapseButton.FlatAppearance.BorderSize = 0;
             CollapseButton.FlatStyle = FlatStyle.Flat;
             CollapseButton.ForeColor = Color.Transparent;
-            CollapseButton.Location = new Point(276, 513);
+            CollapseButton.Location = new Point(275, 513);
             CollapseButton.Name = "CollapseButton";
             CollapseButton.Size = new Size(49, 49);
             CollapseButton.TabIndex = 48;
@@ -130,7 +123,7 @@ namespace Budget_Buddy_GUI
             AddActivityButton.FlatAppearance.BorderSize = 0;
             AddActivityButton.FlatStyle = FlatStyle.Flat;
             AddActivityButton.ForeColor = Color.Transparent;
-            AddActivityButton.Location = new Point(276, 444);
+            AddActivityButton.Location = new Point(275, 444);
             AddActivityButton.Name = "AddActivityButton";
             AddActivityButton.Size = new Size(39, 39);
             AddActivityButton.TabIndex = 46;
@@ -143,7 +136,7 @@ namespace Budget_Buddy_GUI
             AddActivityLabel.BackColor = Color.DimGray;
             AddActivityLabel.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             AddActivityLabel.ForeColor = Color.White;
-            AddActivityLabel.Location = new Point(189, 397);
+            AddActivityLabel.Location = new Point(188, 397);
             AddActivityLabel.Name = "AddActivityLabel";
             AddActivityLabel.Size = new Size(81, 16);
             AddActivityLabel.TabIndex = 49;
@@ -157,7 +150,7 @@ namespace Budget_Buddy_GUI
             AddItemLabel.BackColor = Color.DimGray;
             AddItemLabel.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             AddItemLabel.ForeColor = Color.White;
-            AddItemLabel.Location = new Point(206, 455);
+            AddItemLabel.Location = new Point(205, 455);
             AddItemLabel.Name = "AddItemLabel";
             AddItemLabel.Size = new Size(64, 16);
             AddItemLabel.TabIndex = 50;
@@ -173,11 +166,12 @@ namespace Budget_Buddy_GUI
             AddItemButton.FlatAppearance.BorderSize = 0;
             AddItemButton.FlatStyle = FlatStyle.Flat;
             AddItemButton.ForeColor = Color.Transparent;
-            AddItemButton.Location = new Point(276, 386);
+            AddItemButton.Location = new Point(275, 386);
             AddItemButton.Name = "AddItemButton";
             AddItemButton.Size = new Size(39, 39);
             AddItemButton.TabIndex = 47;
             AddItemButton.UseVisualStyleBackColor = false;
+            AddItemButton.Click += AddItemButton_Click;
             // 
             // ModalOverlay
             // 
@@ -189,31 +183,55 @@ namespace Budget_Buddy_GUI
             ModalOverlay.Controls.Add(CollapseButton);
             ModalOverlay.Location = new Point(0, 50);
             ModalOverlay.Name = "ModalOverlay";
-            ModalOverlay.Size = new Size(360, 590);
+            ModalOverlay.Size = new Size(359, 590);
             ModalOverlay.TabIndex = 43;
             ModalOverlay.Visible = false;
             ModalOverlay.Click += ModalOverlay_Click;
             // 
-            // AddActItem_Form
+            // Exit_Button
+            // 
+            Exit_Button.BackColor = Color.FromArgb(255, 178, 30);
+            Exit_Button.BackgroundImage = Properties.Resources.XButton_Image;
+            Exit_Button.BackgroundImageLayout = ImageLayout.Zoom;
+            Exit_Button.FlatAppearance.BorderSize = 0;
+            Exit_Button.FlatStyle = FlatStyle.Flat;
+            Exit_Button.Location = new Point(317, 12);
+            Exit_Button.Name = "Exit_Button";
+            Exit_Button.Size = new Size(30, 30);
+            Exit_Button.TabIndex = 54;
+            Exit_Button.UseVisualStyleBackColor = false;
+            Exit_Button.Click += Exit_Button_Click;
+            // 
+            // Placeholder_Panel
+            // 
+            Placeholder_Panel.Location = new Point(0, 50);
+            Placeholder_Panel.Name = "Placeholder_Panel";
+            Placeholder_Panel.Size = new Size(360, 590);
+            Placeholder_Panel.StateCommon.Color1 = Color.White;
+            Placeholder_Panel.TabIndex = 55;
+            Placeholder_Panel.Visible = false;
+            // 
+            // AppPanel_Form2
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(359, 640);
+            Controls.Add(ModalOverlay);
+            Controls.Add(Exit_Button);
             Controls.Add(MenuButton);
             Controls.Add(AppBar);
-            Controls.Add(ModalOverlay);
             Controls.Add(checkBox1);
             Controls.Add(AddButton);
             Controls.Add(Placeholder_Panel);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "AddActItem_Form";
+            Name = "AppPanel_Form2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddActivityForm";
             Load += AddActivityForm_Load;
             ((System.ComponentModel.ISupportInitialize)AppBar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).EndInit();
             ModalOverlay.ResumeLayout(false);
             ModalOverlay.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -224,12 +242,13 @@ namespace Budget_Buddy_GUI
         private Button MenuButton;
         private RoundButton AddButton;
         private CheckBox checkBox1;
-        private Krypton.Toolkit.KryptonPanel Placeholder_Panel;
         private RoundButton CollapseButton;
         private RoundButton AddActivityButton;
         private Label AddActivityLabel;
         private Label AddItemLabel;
         private RoundButton AddItemButton;
         private SemiTransparentPanel ModalOverlay;
+        private Button Exit_Button;
+        private Krypton.Toolkit.KryptonPanel Placeholder_Panel;
     }
 }

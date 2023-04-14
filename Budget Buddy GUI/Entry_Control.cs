@@ -11,6 +11,7 @@ namespace Budget_Buddy_GUI
         public event EventHandler ActivityClicked;
         public event EventHandler DeleteButtonClicked;
 
+
         protected virtual void OnBudgetEntryAdded(EventArgs e)
         {
             ActivityClicked?.Invoke(this, e);

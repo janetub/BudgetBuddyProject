@@ -23,5 +23,11 @@ namespace Budget_Buddy_GUI
         {
 
         }
+
+        private void Start_Button_Click(object sender, EventArgs e)
+        {
+            new AppPanel_Form(new HashSet<Budget>()).Show();
+            this.Hide();
+        }
     }
 }

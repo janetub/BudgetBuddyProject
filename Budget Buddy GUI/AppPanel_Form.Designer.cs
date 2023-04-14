@@ -34,6 +34,7 @@
             Name_Label = new Krypton.Toolkit.KryptonLabel();
             Placeholder_Panel = new Krypton.Toolkit.KryptonPanel();
             Add_Button = new RoundButton();
+            Exit_Button = new Button();
             ((System.ComponentModel.ISupportInitialize)AppBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).BeginInit();
             SuspendLayout();
@@ -60,6 +61,7 @@
             MenuButton.Size = new Size(30, 30);
             MenuButton.TabIndex = 0;
             MenuButton.UseVisualStyleBackColor = false;
+            MenuButton.Click += MenuButton_Click;
             // 
             // Amount_Label
             // 
@@ -106,6 +108,20 @@
             Add_Button.Visible = false;
             Add_Button.Click += Add_Button_Click;
             // 
+            // Exit_Button
+            // 
+            Exit_Button.BackColor = Color.FromArgb(255, 178, 30);
+            Exit_Button.BackgroundImage = Properties.Resources.XButton_Image;
+            Exit_Button.BackgroundImageLayout = ImageLayout.Zoom;
+            Exit_Button.FlatAppearance.BorderSize = 0;
+            Exit_Button.FlatStyle = FlatStyle.Flat;
+            Exit_Button.Location = new Point(318, 12);
+            Exit_Button.Name = "Exit_Button";
+            Exit_Button.Size = new Size(30, 30);
+            Exit_Button.TabIndex = 2;
+            Exit_Button.UseVisualStyleBackColor = false;
+            Exit_Button.Click += Exit_Button_Click;
+            // 
             // AppPanel_Form
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -113,6 +129,7 @@
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(360, 640);
+            Controls.Add(Exit_Button);
             Controls.Add(Add_Button);
             Controls.Add(MenuButton);
             Controls.Add(AppBar);
@@ -137,5 +154,6 @@
         private Krypton.Toolkit.KryptonLabel Name_Label;
         private Krypton.Toolkit.KryptonPanel Placeholder_Panel;
         private RoundButton Add_Button;
+        private Button Exit_Button;
     }
 }
