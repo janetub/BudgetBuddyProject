@@ -1,6 +1,6 @@
-﻿namespace Budget_Buddy_GUI
+﻿    namespace Budget_Buddy_GUI
 {
-    partial class BudgetEntry_Control
+    partial class EntryBudget_Control
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BudgetEntry_Control));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntryBudget_Control));
             BudgetName_Label = new Krypton.Toolkit.KryptonLabel();
             BudgetBalanceAmount_Label = new Krypton.Toolkit.KryptonLabel();
             BudgetFundStatus_TLPanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
@@ -40,7 +40,6 @@
             // BudgetName_Label
             // 
             BudgetName_Label.AutoSize = false;
-            BudgetName_Label.Enabled = false;
             BudgetName_Label.Location = new Point(0, 0);
             BudgetName_Label.Name = "BudgetName_Label";
             BudgetName_Label.Size = new Size(365, 62);
@@ -131,6 +130,10 @@
             BudgetFundStatus_TLPanel.ResumeLayout(false);
             BudgetFundStatus_TLPanel.PerformLayout();
             ResumeLayout(false);
+
+
+            this.Click += new System.EventHandler(this.BudgetEntry_Control_Click);
+
         }
 
         #endregion

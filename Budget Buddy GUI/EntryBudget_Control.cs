@@ -11,11 +11,11 @@ using Student_Financial_Assisstance;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class BudgetEntry_Control : UserControl
+    public partial class EntryBudget_Control : UserControl
     {
         public event EventHandler BudgetClicked;
-        public event EventHandler DeleteButtonClicked; //
-        public BudgetEntry_Control(Budget budget)
+        public event EventHandler DeleteButtonClicked;
+        public EntryBudget_Control(Budget budget)
         {
             InitializeComponent();
             this.BudgetName_Label.Text = budget.Name;
@@ -25,6 +25,7 @@ namespace Budget_Buddy_GUI
                 this.BudgetBalanceAmount_Label.Text += ".00";
             }
             this.Tag = budget;
+
         }
 
         private void BudgetEntry_Control_Click(object sender, EventArgs e)
@@ -60,5 +61,6 @@ namespace Budget_Buddy_GUI
         {
             this.BudgetEntry_Control_Click(sender, e);
         }
+
     }
 }

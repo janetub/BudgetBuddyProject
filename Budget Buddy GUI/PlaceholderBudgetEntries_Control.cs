@@ -11,13 +11,13 @@ using Student_Financial_Assisstance;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class BudgetEntriesPlaceholder_Control : UserControl
+    public partial class PlaceholderBudgetEntries_Control : UserControl
     {
         private HashSet<Budget> budgets = new HashSet<Budget>();
 
         //selected budget is in tag
 
-        public BudgetEntriesPlaceholder_Control(HashSet<Budget> budgets)
+        public PlaceholderBudgetEntries_Control(HashSet<Budget> budgets)
         {
             InitializeComponent();
             this.budgets = budgets;
@@ -41,7 +41,7 @@ namespace Budget_Buddy_GUI
             }
         }*/
 
-        private HashSet<BudgetEntry_Control> displayedControls = new HashSet<BudgetEntry_Control>();
+        private HashSet<EntryBudget_Control> displayedControls = new HashSet<EntryBudget_Control>();
 
         public void DisplayBudgets()
         {
@@ -56,11 +56,11 @@ namespace Budget_Buddy_GUI
             }
 
             // Add any new controls that are needed
-            foreach (var budget in budgets)
+            foreach (var budget in this.budgets)
             {
                 if (!displayedControls.Any(c => (Budget)c.Tag == budget))
                 {
-                    BudgetEntry_Control entry = new BudgetEntry_Control(budget);
+                    EntryBudget_Control entry = new EntryBudget_Control(budget);
                     entry.BudgetClicked += BudgetEntry_BudgetClicked;
                     entry.DeleteButtonClicked += BudgetEntry_BudgetDeleted;
                     BudgetEntriesPlaceHolder_TablePanel.Controls.Add(entry);
@@ -74,14 +74,14 @@ namespace Budget_Buddy_GUI
 
         private void BudgetEntry_BudgetClicked(object sender, EventArgs e)
         {
-            BudgetEntry_Control budgetEntry = (BudgetEntry_Control)sender;
+            EntryBudget_Control budgetEntry = (EntryBudget_Control)sender;
             Budget budget = (Budget)budgetEntry.Tag;
             this.Tag = budget;
         }
 
         private void BudgetEntry_BudgetDeleted(object sender, EventArgs e)
         {
-            BudgetEntry_Control budgetEntry = (BudgetEntry_Control)sender;
+            EntryBudget_Control budgetEntry = (EntryBudget_Control)sender;
             Budget budget = (Budget)budgetEntry.Tag;
             try
             {

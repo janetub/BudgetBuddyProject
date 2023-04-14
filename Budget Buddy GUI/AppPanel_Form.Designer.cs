@@ -1,6 +1,6 @@
 ﻿namespace Budget_Buddy_GUI
 {
-    partial class CreateBudgetForm
+    partial class AppPanel_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            MenuButton = new Button();
             AppBar = new PictureBox();
-            CreateBudgetInputFields_TableLayoutPanel = new TableLayoutPanel();
+            MenuButton = new Button();
             Amount_Label = new Krypton.Toolkit.KryptonLabel();
             Name_Label = new Krypton.Toolkit.KryptonLabel();
+            Placeholder_Panel = new Krypton.Toolkit.KryptonPanel();
+            Add_Button = new RoundButton();
             ((System.ComponentModel.ISupportInitialize)AppBar).BeginInit();
-            CreateBudgetInputFields_TableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).BeginInit();
             SuspendLayout();
+            // 
+            // AppBar
+            // 
+            AppBar.BackColor = Color.FromArgb(255, 178, 30);
+            AppBar.Dock = DockStyle.Top;
+            AppBar.Location = new Point(0, 0);
+            AppBar.Name = "AppBar";
+            AppBar.Size = new Size(360, 50);
+            AppBar.TabIndex = 1;
+            AppBar.TabStop = false;
             // 
             // MenuButton
             // 
@@ -47,28 +58,8 @@
             MenuButton.Location = new Point(12, 12);
             MenuButton.Name = "MenuButton";
             MenuButton.Size = new Size(30, 30);
-            MenuButton.TabIndex = 22;
+            MenuButton.TabIndex = 0;
             MenuButton.UseVisualStyleBackColor = false;
-            // 
-            // AppBar
-            // 
-            AppBar.BackColor = Color.FromArgb(255, 178, 30);
-            AppBar.Location = new Point(0, 0);
-            AppBar.Name = "AppBar";
-            AppBar.Size = new Size(360, 50);
-            AppBar.TabIndex = 21;
-            AppBar.TabStop = false;
-            // 
-            // CreateBudgetInputFields_TableLayoutPanel
-            // 
-            CreateBudgetInputFields_TableLayoutPanel.ColumnCount = 1;
-            CreateBudgetInputFields_TableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Amount_Label, 0, 2);
-            CreateBudgetInputFields_TableLayoutPanel.Location = new Point(0, 0);
-            CreateBudgetInputFields_TableLayoutPanel.Name = "CreateBudgetInputFields_TableLayoutPanel";
-            CreateBudgetInputFields_TableLayoutPanel.RowCount = 3;
-            CreateBudgetInputFields_TableLayoutPanel.Size = new Size(200, 100);
-            CreateBudgetInputFields_TableLayoutPanel.TabIndex = 0;
             // 
             // Amount_Label
             // 
@@ -90,30 +81,61 @@
             Name_Label.TabIndex = 31;
             Name_Label.Values.Text = "Name";
             // 
-            // CreateBudgetForm
+            // Placeholder_Panel
             // 
-            AutoScaleMode = AutoScaleMode.None;
+            Placeholder_Panel.Location = new Point(0, 50);
+            Placeholder_Panel.Name = "Placeholder_Panel";
+            Placeholder_Panel.Size = new Size(360, 590);
+            Placeholder_Panel.StateCommon.Color1 = Color.White;
+            Placeholder_Panel.TabIndex = 0;
+            // 
+            // Add_Button
+            // 
+            Add_Button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            Add_Button.BackColor = Color.LightGray;
+            Add_Button.BackgroundImage = Properties.Resources.PlusButton_Image;
+            Add_Button.BackgroundImageLayout = ImageLayout.Center;
+            Add_Button.FlatAppearance.BorderSize = 0;
+            Add_Button.FlatStyle = FlatStyle.Flat;
+            Add_Button.ForeColor = Color.Transparent;
+            Add_Button.Location = new Point(276, 561);
+            Add_Button.Name = "Add_Button";
+            Add_Button.Size = new Size(49, 49);
+            Add_Button.TabIndex = 1;
+            Add_Button.UseVisualStyleBackColor = false;
+            Add_Button.Visible = false;
+            Add_Button.Click += Add_Button_Click;
+            // 
+            // AppPanel_Form
+            // 
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
+            BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(360, 640);
+            Controls.Add(Add_Button);
             Controls.Add(MenuButton);
             Controls.Add(AppBar);
-            Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Controls.Add(Placeholder_Panel);
+            ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
-            Name = "CreateBudgetForm";
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "AppPanel_Form";
             StartPosition = FormStartPosition.CenterScreen;
-            Load += CreateBudgetForm_Load;
+            Text = "NotificationPanelForm";
+            KeyDown += AppPanel_Form_KeyDown;
             ((System.ComponentModel.ISupportInitialize)AppBar).EndInit();
-            CreateBudgetInputFields_TableLayoutPanel.ResumeLayout(false);
-            CreateBudgetInputFields_TableLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button MenuButton;
         private PictureBox AppBar;
-        private TableLayoutPanel CreateBudgetInputFields_TableLayoutPanel;
+        private Button MenuButton;
         private Krypton.Toolkit.KryptonLabel Amount_Label;
         private Krypton.Toolkit.KryptonLabel Name_Label;
+        private Krypton.Toolkit.KryptonPanel Placeholder_Panel;
+        private RoundButton Add_Button;
     }
 }

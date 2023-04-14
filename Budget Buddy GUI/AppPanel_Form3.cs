@@ -12,9 +12,9 @@ using Student_Financial_Assisstance;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class CreateBudgetForm : Form
+    public partial class AppPanel_Form3 : Form
     {
-        public CreateBudgetForm()
+        public AppPanel_Form3()
         {
             InitializeComponent();
         }

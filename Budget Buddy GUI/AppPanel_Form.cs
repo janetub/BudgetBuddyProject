@@ -15,11 +15,12 @@ namespace Budget_Buddy_GUI
     public partial class AppPanel_Form : Form
     {
         private HashSet<Budget> budgets = new HashSet<Budget>();
+        private Budget selectedBudget = null;
         public AppPanel_Form(HashSet<Budget> budgets)
         {
             InitializeComponent();
             this.budgets = budgets;
-            this.Placeholder_Panel.Controls.Add(new BudgetEntriesPlaceholder_Control(budgets));
+            this.Placeholder_Panel.Controls.Add(new PlaceholderBudgetEntries_Control(budgets));
             this.Add_Button.Visible = true;
         }
 
@@ -29,7 +30,7 @@ namespace Budget_Buddy_GUI
             // Add the budget object to the list of budget entries
             budgets.Add(e.Budget);
             this.Placeholder_Panel.Controls.Clear();
-            this.Placeholder_Panel.Controls.Add(new BudgetEntriesPlaceholder_Control(budgets));
+            this.Placeholder_Panel.Controls.Add(new PlaceholderBudgetEntries_Control(budgets));
 
             this.Add_Button.Visible = true;
         }
@@ -55,9 +56,9 @@ namespace Budget_Buddy_GUI
 
             if (this.Placeholder_Panel.Controls.Count > 0)
             {
-                var placeholderContent = this.Placeholder_Panel.Controls.OfType<BudgetEntriesPlaceholder_Control>().FirstOrDefault();
+                var placeholderContent = this.Placeholder_Panel.Controls.OfType<PlaceholderBudgetEntries_Control>().FirstOrDefault();
 
-                if (placeholderContent is BudgetEntriesPlaceholder_Control)
+                if (placeholderContent is PlaceholderBudgetEntries_Control)
                 {
                     this.Placeholder_Panel.Controls.Clear();
                     this.ShowCreateBudgetControl();
@@ -85,6 +86,21 @@ namespace Budget_Buddy_GUI
             {
                 Placeholder_Panel.Controls.Clear();
             }
+        }
+
+        private void BudgetEntry_BudgetClicked(object sender, EventArgs e)
+        {
+            EntryBudget_Control budgetEntry = (EntryBudget_Control)sender;
+            selectedBudget = (Budget)budgetEntry.Tag;
+
+            AppPanel_Form2 form = new AddActItem_Form(selectedBudget);
+
+            form.ShowDialog();
+
+            // Update the budget entries after the form is closed
+            budgets = form.BudgetEntries;
+            this.Placeholder_Panel.Controls.Clear();
+            this.Placeholder_Panel.Controls.Add(new PlaceholderBudgetEntries_Control(budgets));
         }
     }
 }

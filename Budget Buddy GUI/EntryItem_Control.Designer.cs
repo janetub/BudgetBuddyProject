@@ -1,6 +1,6 @@
 ﻿namespace Budget_Buddy_GUI
 {
-    partial class ItemEntry_Control
+    partial class EntryItem_Control
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemEntry_Control));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntryItem_Control));
             ItemName_Label = new Krypton.Toolkit.KryptonLabel();
             DeleteItem_Button = new Button();
             ItemDetails_TLPanel = new Krypton.Toolkit.KryptonTableLayoutPanel();

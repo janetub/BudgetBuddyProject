@@ -14,15 +14,57 @@ using Control = System.Windows.Forms.Control;
 using Point = System.Drawing.Point;
 using Timer = System.Windows.Forms.Timer;
 using System.Windows.Media.TextFormatting;
+using MessageBox = System.Windows.Forms.MessageBox;
+using Student_Financial_Assisstance;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class AddActItem_Form : Form
+    public partial class AppPanel_Form2 : Form
     {
-        public AddActItem_Form()
+
+        private BudgetActivity activity;
+        public AppPanel_Form2(BudgetActivity activity)
         {
             InitializeComponent();
+
+            // Create and add the ActivityEntriesPlaceholder_Control to the Placeholder_Panel
+            ActivityEntriesPlaceholder_Control activityEntriesControl = new ActivityEntriesPlaceholder_Control(activity);
+            Placeholder_Panel.Controls.Add(activityEntriesControl);
+
+            // Add event handlers for the BudgetEntryAdded and BudgetEntryDeleted events of the ActivityEntriesPlaceholder_Control
+            activityEntriesControl.BudgetEntryAdded += ActivityEntriesControl_BudgetEntryAdded;
+            activityEntriesControl.BudgetEntryDeleted += ActivityEntriesControl_BudgetEntryDeleted;
+
+            // Show the AddButton
+            AddButton.Visible = true;
         }
+
+        // Event handler for the BudgetEntryAdded event of the ActivityEntriesPlaceholder_Control
+        private void ActivityEntriesControl_BudgetEntryAdded(object sender, BudgetEntryEventArgs e)
+        {
+            // Add the new BudgetEntry to the Budget
+            budget.AddEntry(e.Entry);
+
+            // Refresh the UI to show the updated Budget
+            RefreshUI();
+        }
+
+        // Event handler for the BudgetEntryDeleted event of the ActivityEntriesPlaceholder_Control
+        private void ActivityEntriesControl_BudgetEntryDeleted(object sender, BudgetEntryEventArgs e)
+        {
+            // Remove the BudgetEntry from the Budget
+            budget.RemoveEntry(e.Entry);
+
+            // Refresh the UI to show the updated Budget
+            RefreshUI();
+        }
+
+        private void RefreshUI()
+        {
+            // Refresh the UI to show the updated Budget
+            // For example, you could update labels or other controls to show the current state of the Budget
+        }
+
 
         private void AddActivityForm_Load(object sender, EventArgs e)
         {
@@ -96,13 +138,16 @@ namespace Budget_Buddy_GUI
         {
             this.AddButton.Visible = false;
 
-            this.CollapseButton.Location = this.AddActivityButton.Location = this.AddItemButton.Location = this.AddButton.Location;
+            Point point = this.AddButton.Location;
+
+            this.CollapseButton.Location = this.AddActivityButton.Location = this.AddItemButton.Location = new Point(276, 513);
 
             this.ModalOverlay.Visible = this.CollapseButton.Visible = true;
 
             Animate(this.AddItemButton, this.CollapseButton.Location.X, this.CollapseButton.Location.Y - 70, this.AddActivityButton, this.CollapseButton.Location.X, this.AddItemButton.Location.Y - 130, 20);
 
             this.AddActivityLabel.Visible = this.AddItemLabel.Visible = true;
+            //MessageBox.Show($"x = {CollapseButton.Location.X}\ty  = {CollapseButton.Location.Y}");
         }
 
         private void ModalOverlay_Click(object sender, EventArgs e)
