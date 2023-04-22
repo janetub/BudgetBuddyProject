@@ -14,11 +14,12 @@ namespace Budget_Buddy_GUI
 {
     public partial class CreateBudgetActivity_Control : UserControl
     {
-        public event EventHandler<ActivityEventArgs> ActivityEntered;
-        public CreateBudgetActivity_Control(bool canCreateSavings)
+        public Budget Budget { get; private set; }
+        public event EventHandler OnActivityEntered;
+        public CreateBudgetActivity_Control(bool canCreateSavings, Budget budget)
         {
             InitializeComponent();
-            
+
             if (canCreateSavings)
             {
                 this.ActivityType_ComboBox.DataSource = Enum.GetNames(typeof(BudgetActivityType));
@@ -28,6 +29,9 @@ namespace Budget_Buddy_GUI
                 this.ActivityType_ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
                 this.ActivityType_ComboBox.DataSource = new string[] { BudgetActivityType.Expense.ToString() };
             }
+
+            this.Budget = budget;
+
         }
 
         private void Name_TextBox_Validating(object sender, CancelEventArgs e)
@@ -93,8 +97,8 @@ namespace Budget_Buddy_GUI
             if (string.IsNullOrEmpty(this.Description_RTextBox.Text))
                 this.Description_RTextBox.Text += "";
             double amount = double.Parse(ProjectedAmount_NumUpDown.Text);
-            BudgetActivity newAct = new BudgetActivity(this.Name_TextBox.Text, this.Description_RTextBox.Text, amount, activityType);
-            ActivityEntered?.Invoke(this, new ActivityEventArgs(newAct));
+            this.Tag = new BudgetActivity(this.Name_TextBox.Text, this.Description_RTextBox.Text, amount, activityType);
+            OnActivityEntered?.Invoke(this, EventArgs.Empty);
 
         }
 

@@ -105,7 +105,7 @@ namespace Student_Financial_Assisstance
         /// <param name="activity">the activity to be removed</param>
         /// <param name="records">Holder/recorder for expenses and savings.</param>
         /// <returns>returns confirmation if an intance of activity is in activities</returns>
-        public bool RemoveActivity(BudgetActivity activity, ExpenseRecords records)
+        public bool RemoveActivity(BudgetActivity activity)
         {
             ReadOnlyCollection<BudgetActivity> activitiesList = (ReadOnlyCollection<BudgetActivity>)activity.GetSubActivities();
             foreach (BudgetActivity act in activitiesList)
@@ -116,7 +116,7 @@ namespace Student_Financial_Assisstance
             if (activity.Projected > activity.Actual)
                 return false;
             this.activities.Remove(activity);
-            records.AddActivity(activity); //** added expenseRecords
+            //records.AddActivity(activity)
             return !this.activities.Contains(activity);
         }
 

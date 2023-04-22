@@ -24,37 +24,11 @@ namespace Budget_Buddy_GUI
             this.Add_Button.Visible = true;
         }
 
-        private void BudgetEntriesPlaceholder_BudgetEntryAdded(object sender, BudgetEventArgs e)
-        {
-            budgets.Add(e.Budget);
-            this.Placeholder_Panel.Controls.Clear();
-            Placeholder_BudgetEntries_Control placeholder_BudgetEntries_Control = new Placeholder_BudgetEntries_Control(budgets);
-            this.Placeholder_Panel.Controls.Add(placeholder_BudgetEntries_Control);
-
-            this.Add_Button.Visible = true;
-        }
-
-        private void ActivityEntryPlaceholder_BudgetEntryAdded(object sender, ActivityEventArgs e)
-        {
-            /*Budget budget = budgets.FirstOrDefault(b => b.Id == e.BudgetActivity.BudgetId);
-
-            if (budget != null)
-            {
-                // Add the activity to the budget
-                budget.Activities.Add(e.BudgetActivity);
-
-                // Refresh the UI
-                this.Placeholder_Panel.Controls.Clear();
-                this.Placeholder_Panel.Controls.Add(new Placeholder_BudgetEntries_Control(budgets));
-                this.Add_Button.Visible = true;
-            }*/
-        }
-
         private void ShowCreateBudgetControl()
         {
             CreateBudget_Control createBudgetControl = new CreateBudget_Control();
 
-            createBudgetControl.BudgetEntered += BudgetEntriesPlaceholder_BudgetEntryAdded;
+            createBudgetControl.OnBudgetEntered += BudgetEntriesPlaceholder_BudgetEntryAdded;
 
             this.Placeholder_Panel.Controls.Add(createBudgetControl);
 
@@ -62,16 +36,51 @@ namespace Budget_Buddy_GUI
         }
         private void ShowCreateBudgetActivityControl(Budget budget)
         {
-            CreateBudgetActivity_Control createBudgetActivityControl = new CreateBudgetActivity_Control(true);
-            createBudgetActivityControl.Tag = budget;
-            createBudgetActivityControl.ActivityEntered += ActivityEntryPlaceholder_BudgetEntryAdded;
+            CreateBudgetActivity_Control createBudgetActivityControl = new CreateBudgetActivity_Control(true, budget);
+            createBudgetActivityControl.OnActivityEntered += ActivityEntryPlaceholder_ActivityEntryAdded;
 
             this.Placeholder_Panel.Controls.Add(createBudgetActivityControl);
 
             createBudgetActivityControl.Dock = DockStyle.Fill;
         }
 
+        private void BudgetEntriesPlaceholder_BudgetEntryAdded(object sender, EventArgs e)
+        {
+            CreateBudget_Control control = (CreateBudget_Control)sender;
+            budgets.Add((Budget)control.Tag);
+            this.Placeholder_Panel.Controls.Clear();
+            Placeholder_BudgetEntries_Control placeholder_BudgetEntries_Control = new Placeholder_BudgetEntries_Control(budgets);
+            placeholder_BudgetEntries_Control.OnControlClicked += ShowPlaceHolder_ActivityEntries;
+            //placeholder_BudgetEntries_Control.OnControlUpdated += ;
+            this.Placeholder_Panel.Controls.Add(placeholder_BudgetEntries_Control);
+            this.Add_Button.Visible = true;
+        }
 
+        private void ShowPlaceHolder_ActivityEntries(object sender, EventArgs e)
+        {
+            EntryBudget_Control entry = (EntryBudget_Control)sender;
+            Placeholder_ActivityEntries_Control activitiesPlaceholder = new((Budget)entry.Tag);
+            this.Placeholder_Panel.Controls.Clear();
+            this.Placeholder_Panel.Controls.Add(activitiesPlaceholder);
+        }
+
+        private void ActivityEntryPlaceholder_ActivityEntryAdded(object sender, EventArgs e)
+        {
+            CreateBudgetActivity_Control control = (CreateBudgetActivity_Control)sender;
+            BudgetActivity activity = (BudgetActivity)control.Tag;
+            Budget budget = control.Budget;
+
+            if (activity != null && this.budgets.Contains(budget))
+            {
+                budget.AddActivity(activity);
+                this.budgets.Remove(control.Budget);
+                this.budgets.Add(budget);
+
+                this.Placeholder_Panel.Controls.Clear();
+                this.Placeholder_Panel.Controls.Add(new Placeholder_BudgetEntries_Control(budgets));
+                this.Add_Button.Visible = true;
+            }
+        }
 
         private void Add_Button_Click(object sender, EventArgs e)
         {
@@ -97,14 +106,6 @@ namespace Budget_Buddy_GUI
             }
         }
 
-        private void AppPanel_Form_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                Placeholder_Panel.Controls.Clear();
-            }
-        }
-
         private void Exit_Button_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -112,8 +113,7 @@ namespace Budget_Buddy_GUI
 
         private void MenuButton_Click(object sender, EventArgs e)
         {
-            new AppPanel_Form2(new BudgetActivity("Saving for Inline skates", "I want to learn inline skating.", 2300, BudgetBuddyProject.BudgetActivityType.Expense)).Show();
-            this.Close();
+
         }
 
         /*private void BudgetEntry_BudgetClicked(object sender, EventArgs e)

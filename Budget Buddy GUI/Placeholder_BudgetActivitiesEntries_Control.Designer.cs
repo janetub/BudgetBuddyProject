@@ -29,24 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Placeholder_BudgetActivitiesEntries_Control));
-            NoBudget_label = new Label();
+            NoContent_label = new Label();
             ActivityItemEntriesPlaceHolder_TablePanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
             SuspendLayout();
             // 
-            // NoBudget_label
+            // NoContent_label
             // 
-            NoBudget_label.Anchor = AnchorStyles.None;
-            NoBudget_label.AutoSize = true;
-            NoBudget_label.BackColor = SystemColors.Control;
-            NoBudget_label.Enabled = false;
-            NoBudget_label.Font = new Font("Arial", 9.75F, FontStyle.Italic, GraphicsUnit.Point);
-            NoBudget_label.ForeColor = Color.Gray;
-            NoBudget_label.Location = new Point(119, 292);
-            NoBudget_label.Name = "NoBudget_label";
-            NoBudget_label.Size = new Size(126, 16);
-            NoBudget_label.TabIndex = 3;
-            NoBudget_label.Text = "No activities / items.";
-            NoBudget_label.Click += NoBudget_label_Click;
+            NoContent_label.Anchor = AnchorStyles.None;
+            NoContent_label.AutoSize = true;
+            NoContent_label.BackColor = SystemColors.Control;
+            NoContent_label.Enabled = false;
+            NoContent_label.Font = new Font("Arial", 9.75F, FontStyle.Italic, GraphicsUnit.Point);
+            NoContent_label.ForeColor = Color.Gray;
+            NoContent_label.Location = new Point(119, 292);
+            NoContent_label.Name = "NoContent_label";
+            NoContent_label.Size = new Size(126, 16);
+            NoContent_label.TabIndex = 3;
+            NoContent_label.Text = "No activities / items.";
             // 
             // ActivityItemEntriesPlaceHolder_TablePanel
             // 
@@ -73,7 +72,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(NoBudget_label);
+            Controls.Add(NoContent_label);
             Controls.Add(ActivityItemEntriesPlaceHolder_TablePanel);
             Name = "Placeholder_BudgetActivitiesEntries_Control";
             Size = new Size(360, 590);
@@ -84,7 +83,7 @@
 
         #endregion
 
-        private Label NoBudget_label;
+        private Label NoContent_label;
         private Krypton.Toolkit.KryptonTableLayoutPanel ActivityItemEntriesPlaceHolder_TablePanel;
     }
 }

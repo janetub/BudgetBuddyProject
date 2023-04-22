@@ -35,7 +35,7 @@ namespace Budget_Buddy_GUI
             MenuButton = new Button();
             AddButton = new RoundButton();
             checkBox1 = new CheckBox();
-            CollapseButton = new RoundButton();
+            Collapse_Button = new RoundButton();
             AddActivityButton = new RoundButton();
             AddActivityLabel = new Label();
             AddItemLabel = new Label();
@@ -85,6 +85,7 @@ namespace Budget_Buddy_GUI
             AddButton.Size = new Size(49, 49);
             AddButton.TabIndex = 42;
             AddButton.UseVisualStyleBackColor = false;
+            AddButton.Visible = false;
             AddButton.Click += AddButton_Click;
             // 
             // checkBox1
@@ -98,21 +99,21 @@ namespace Budget_Buddy_GUI
             checkBox1.Text = "checklang";
             checkBox1.UseVisualStyleBackColor = false;
             // 
-            // CollapseButton
+            // Collapse_Button
             // 
-            CollapseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            CollapseButton.BackColor = Color.LightGray;
-            CollapseButton.BackgroundImage = Properties.Resources.XButton_Image;
-            CollapseButton.BackgroundImageLayout = ImageLayout.Center;
-            CollapseButton.FlatAppearance.BorderSize = 0;
-            CollapseButton.FlatStyle = FlatStyle.Flat;
-            CollapseButton.ForeColor = Color.Transparent;
-            CollapseButton.Location = new Point(275, 513);
-            CollapseButton.Name = "CollapseButton";
-            CollapseButton.Size = new Size(49, 49);
-            CollapseButton.TabIndex = 48;
-            CollapseButton.UseVisualStyleBackColor = false;
-            CollapseButton.Click += CollapseButton_Click;
+            Collapse_Button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            Collapse_Button.BackColor = Color.LightGray;
+            Collapse_Button.BackgroundImage = Properties.Resources.XButton_Image;
+            Collapse_Button.BackgroundImageLayout = ImageLayout.Center;
+            Collapse_Button.FlatAppearance.BorderSize = 0;
+            Collapse_Button.FlatStyle = FlatStyle.Flat;
+            Collapse_Button.ForeColor = Color.Transparent;
+            Collapse_Button.Location = new Point(198, 262);
+            Collapse_Button.Name = "Collapse_Button";
+            Collapse_Button.Size = new Size(49, 49);
+            Collapse_Button.TabIndex = 48;
+            Collapse_Button.UseVisualStyleBackColor = false;
+            Collapse_Button.Click += CollapseButton_Click;
             // 
             // AddActivityButton
             // 
@@ -123,7 +124,7 @@ namespace Budget_Buddy_GUI
             AddActivityButton.FlatAppearance.BorderSize = 0;
             AddActivityButton.FlatStyle = FlatStyle.Flat;
             AddActivityButton.ForeColor = Color.Transparent;
-            AddActivityButton.Location = new Point(275, 444);
+            AddActivityButton.Location = new Point(198, 193);
             AddActivityButton.Name = "AddActivityButton";
             AddActivityButton.Size = new Size(39, 39);
             AddActivityButton.TabIndex = 46;
@@ -136,7 +137,7 @@ namespace Budget_Buddy_GUI
             AddActivityLabel.BackColor = Color.DimGray;
             AddActivityLabel.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             AddActivityLabel.ForeColor = Color.White;
-            AddActivityLabel.Location = new Point(188, 397);
+            AddActivityLabel.Location = new Point(111, 146);
             AddActivityLabel.Name = "AddActivityLabel";
             AddActivityLabel.Size = new Size(81, 16);
             AddActivityLabel.TabIndex = 49;
@@ -150,7 +151,7 @@ namespace Budget_Buddy_GUI
             AddItemLabel.BackColor = Color.DimGray;
             AddItemLabel.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             AddItemLabel.ForeColor = Color.White;
-            AddItemLabel.Location = new Point(205, 455);
+            AddItemLabel.Location = new Point(128, 204);
             AddItemLabel.Name = "AddItemLabel";
             AddItemLabel.Size = new Size(64, 16);
             AddItemLabel.TabIndex = 50;
@@ -166,7 +167,7 @@ namespace Budget_Buddy_GUI
             AddItemButton.FlatAppearance.BorderSize = 0;
             AddItemButton.FlatStyle = FlatStyle.Flat;
             AddItemButton.ForeColor = Color.Transparent;
-            AddItemButton.Location = new Point(275, 386);
+            AddItemButton.Location = new Point(0, 0);
             AddItemButton.Name = "AddItemButton";
             AddItemButton.Size = new Size(39, 39);
             AddItemButton.TabIndex = 47;
@@ -180,10 +181,11 @@ namespace Budget_Buddy_GUI
             ModalOverlay.Controls.Add(AddItemLabel);
             ModalOverlay.Controls.Add(AddActivityLabel);
             ModalOverlay.Controls.Add(AddActivityButton);
-            ModalOverlay.Controls.Add(CollapseButton);
-            ModalOverlay.Location = new Point(0, 50);
+            ModalOverlay.Controls.Add(Collapse_Button);
+            ModalOverlay.Enabled = false;
+            ModalOverlay.Location = new Point(65, 236);
             ModalOverlay.Name = "ModalOverlay";
-            ModalOverlay.Size = new Size(359, 590);
+            ModalOverlay.Size = new Size(282, 339);
             ModalOverlay.TabIndex = 43;
             ModalOverlay.Visible = false;
             ModalOverlay.Click += ModalOverlay_Click;
@@ -204,7 +206,7 @@ namespace Budget_Buddy_GUI
             // 
             // Placeholder_Panel
             // 
-            Placeholder_Panel.Location = new Point(0, 50);
+            Placeholder_Panel.Location = new Point(0, 48);
             Placeholder_Panel.Name = "Placeholder_Panel";
             Placeholder_Panel.Size = new Size(360, 590);
             Placeholder_Panel.StateCommon.Color1 = Color.White;
@@ -242,7 +244,7 @@ namespace Budget_Buddy_GUI
         private Button MenuButton;
         private RoundButton AddButton;
         private CheckBox checkBox1;
-        private RoundButton CollapseButton;
+        private RoundButton Collapse_Button;
         private RoundButton AddActivityButton;
         private Label AddActivityLabel;
         private Label AddItemLabel;

@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Placeholder_ActivityEntries_Control));
-            NoBudget_label = new Label();
+            NoContent_label = new Label();
             ActivityEntriesPlaceHolder_TablePanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
             SuspendLayout();
             // 
-            // NoBudget_label
+            // NoContent_label
             // 
-            NoBudget_label.AutoSize = true;
-            NoBudget_label.BackColor = SystemColors.Control;
-            NoBudget_label.Enabled = false;
-            NoBudget_label.Font = new Font("Arial", 9.75F, FontStyle.Italic, GraphicsUnit.Point);
-            NoBudget_label.ForeColor = Color.Gray;
-            NoBudget_label.Location = new Point(145, 287);
-            NoBudget_label.Name = "NoBudget_label";
-            NoBudget_label.Size = new Size(82, 16);
-            NoBudget_label.TabIndex = 3;
-            NoBudget_label.Text = "No activities.";
-            NoBudget_label.Visible = false;
+            NoContent_label.AutoSize = true;
+            NoContent_label.BackColor = SystemColors.Control;
+            NoContent_label.Enabled = false;
+            NoContent_label.Font = new Font("Arial", 9.75F, FontStyle.Italic, GraphicsUnit.Point);
+            NoContent_label.ForeColor = Color.Gray;
+            NoContent_label.Location = new Point(145, 287);
+            NoContent_label.Name = "NoContent_label";
+            NoContent_label.Size = new Size(82, 16);
+            NoContent_label.TabIndex = 3;
+            NoContent_label.Text = "No activities.";
+            NoContent_label.Visible = false;
             // 
             // ActivityEntriesPlaceHolder_TablePanel
             // 
@@ -67,16 +67,16 @@
             ActivityEntriesPlaceHolder_TablePanel.StateNormal.Color1 = Color.White;
             ActivityEntriesPlaceHolder_TablePanel.TabIndex = 5;
             // 
-            // ActivityEntriesPlaceholder_Control
+            // Placeholder_ActivityEntries_Control
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.White;
-            Controls.Add(NoBudget_label);
+            Controls.Add(NoContent_label);
             Controls.Add(ActivityEntriesPlaceHolder_TablePanel);
-            Name = "ActivityEntriesPlaceholder_Control";
+            Name = "Placeholder_ActivityEntries_Control";
             Size = new Size(360, 590);
             ResumeLayout(false);
             PerformLayout();
@@ -84,7 +84,7 @@
 
         #endregion
 
-        private Label NoBudget_label;
+        private Label NoContent_label;
         private Krypton.Toolkit.KryptonTableLayoutPanel ActivityEntriesPlaceHolder_TablePanel;
     }
 }

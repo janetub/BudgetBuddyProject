@@ -26,9 +26,12 @@ namespace Budget_Buddy_GUI
         public AppPanel_Form2(BudgetActivity activity)
         {
             InitializeComponent();
-            Placeholder_BudgetActivitiesEntries_Control placeholder_BudgetActivitiesEntries_Control = new();
-            placeholder_BudgetActivitiesEntries_Control.SendToBack();
-            this.Placeholder_Panel.Controls.Add(placeholder_BudgetActivitiesEntries_Control);
+            //Placeholder_BudgetActivitiesEntries_Control placeholder_BudgetActivitiesEntries_Control = new();
+
+            //placeholder_BudgetActivitiesEntries_Control.SendToBack();
+            //this.Placeholder_Panel.Controls.Add(placeholder_BudgetActivitiesEntries_Control);
+            //placeholder_BudgetActivitiesEntries_Control.Controls.Add(new CreateBudgetActivity_Control(true));
+            //this.Placeholder_Panel.Controls.Add(new CreateBudgetActivity_Control(true));
             // Create and add the ActivityEntriesPlaceholder_Control to the Placeholder_Panel
             /*Placeholder_ActivityEntries_Control activityEntriesControl = new Placeholder_ActivityEntries_Control(activity);
             Placeholder_Panel.Controls.Add(activityEntriesControl);*/
@@ -129,10 +132,10 @@ namespace Budget_Buddy_GUI
 
         private void CollapseButton_Click(object sender, EventArgs e)
         {
-            Animate(this.AddItemButton, this.CollapseButton.Location.X, this.CollapseButton.Location.Y, this.AddActivityButton, this.CollapseButton.Location.X, this.CollapseButton.Location.Y, 20);
+            Animate(this.AddItemButton, this.Collapse_Button.Location.X, this.Collapse_Button.Location.Y, this.AddActivityButton, this.Collapse_Button.Location.X, this.Collapse_Button.Location.Y, 20);
 
             this.AddItemButton.Visible = this.AddActivityButton.Visible = this.AddActivityLabel.Visible = this.AddItemLabel.Visible =
-                this.CollapseButton.Visible = this.ModalOverlay.Visible = false;
+                this.Collapse_Button.Visible = this.ModalOverlay.Visible = false;
 
             this.AddButton.Visible = true;
         }
@@ -144,11 +147,11 @@ namespace Budget_Buddy_GUI
 
             Point point = this.AddButton.Location;
 
-            this.CollapseButton.Location = this.AddActivityButton.Location = this.AddItemButton.Location = new Point(276, 513);
+            this.Collapse_Button.Location = this.AddActivityButton.Location = this.AddItemButton.Location = new Point(276, 513);
 
-            this.ModalOverlay.Visible = this.CollapseButton.Visible = true;
+            this.ModalOverlay.Visible = this.Collapse_Button.Visible = true;
 
-            Animate(this.AddItemButton, this.CollapseButton.Location.X, this.CollapseButton.Location.Y - 70, this.AddActivityButton, this.CollapseButton.Location.X, this.AddItemButton.Location.Y - 130, 20);
+            Animate(this.AddItemButton, this.Collapse_Button.Location.X, this.Collapse_Button.Location.Y - 70, this.AddActivityButton, this.Collapse_Button.Location.X, this.AddItemButton.Location.Y - 130, 20);
 
             this.AddActivityLabel.Visible = this.AddItemLabel.Visible = true;
             //MessageBox.Show($"x = {CollapseButton.Location.X}\ty  = {CollapseButton.Location.Y}");
@@ -156,7 +159,7 @@ namespace Budget_Buddy_GUI
 
         private void ModalOverlay_Click(object sender, EventArgs e)
         {
-            this.CollapseButton.PerformClick();
+            this.Collapse_Button.PerformClick();
         }
 
         private void AddActivityLabel_Click(object sender, EventArgs e)

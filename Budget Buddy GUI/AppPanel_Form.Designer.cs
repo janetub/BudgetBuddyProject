@@ -140,7 +140,6 @@
             Name = "AppPanel_Form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "NotificationPanelForm";
-            KeyDown += AppPanel_Form_KeyDown;
             ((System.ComponentModel.ISupportInitialize)AppBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).EndInit();
             ResumeLayout(false);

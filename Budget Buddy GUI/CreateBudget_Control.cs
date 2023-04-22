@@ -13,8 +13,7 @@ namespace Budget_Buddy_GUI
 {
     public partial class CreateBudget_Control : UserControl
     {
-        public event EventHandler<BudgetEventArgs> BudgetEntered;
-
+        public event EventHandler OnBudgetEntered;
 
         public CreateBudget_Control()
         {
@@ -92,10 +91,8 @@ namespace Budget_Buddy_GUI
             }
             double amount = double.Parse(Amount_NumUpDown.Text);
             Budget newBudget = new(this.Name_TextBox.Text, amount);
-            BudgetEntered?.Invoke(this, new BudgetEventArgs(newBudget));
-
-
-            //this.CloseControl();
+            this.Tag = newBudget;
+            OnBudgetEntered?.Invoke(this, EventArgs.Empty);
         }
         public void CloseControl()
         {

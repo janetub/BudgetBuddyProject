@@ -13,8 +13,8 @@ namespace Budget_Buddy_GUI
 {
     public partial class EntryBudget_Control : UserControl
     {
-        public event EventHandler BudgetClicked;
-        public event EventHandler DeleteButtonClicked;
+        public event EventHandler OnControlClicked;
+        public event EventHandler OnDeleteButtonClicked;
         public EntryBudget_Control(Budget budget)
         {
             InitializeComponent();
@@ -25,12 +25,11 @@ namespace Budget_Buddy_GUI
                 this.BudgetBalanceAmount_Label.Text += ".00";
             }
             this.Tag = budget;
-
         }
 
         private void BudgetEntry_Control_Click(object sender, EventArgs e)
         {
-            BudgetClicked?.Invoke(this, EventArgs.Empty);
+            OnControlClicked?.Invoke(this, EventArgs.Empty);
         }
 
         private void DeleteBudget_Button_Click(object sender, EventArgs e)
@@ -38,7 +37,7 @@ namespace Budget_Buddy_GUI
             DialogResult result = MessageBox.Show("Are you sure you want to delete this budget?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                DeleteButtonClicked?.Invoke(this, EventArgs.Empty);
+                OnDeleteButtonClicked?.Invoke(this, EventArgs.Empty);
             }
         }
 

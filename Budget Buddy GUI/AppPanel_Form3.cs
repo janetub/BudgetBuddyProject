@@ -17,6 +17,8 @@ namespace Budget_Buddy_GUI
         public AppPanel_Form3()
         {
             InitializeComponent();
+            //CreateBudgetActivity_Control control = new(false);
+            //control.Enabled = false;
         }
 
         private void CreateBudgetForm_Load(object sender, EventArgs e)

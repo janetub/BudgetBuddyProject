@@ -13,51 +13,67 @@ namespace Budget_Buddy_GUI
 {
     public partial class Placeholder_ActivityEntries_Control : UserControl
     {
-
         private HashSet<EntryActivity_Control> displayedControls = new HashSet<EntryActivity_Control>();
 
-        public Placeholder_ActivityEntries_Control(Budget budget, BudgetActivity activity)
+        public event EventHandler OnEntriesUpdated;
+
+        public Placeholder_ActivityEntries_Control(Budget budget)
         {
             InitializeComponent();
             this.Tag = budget;
             DisplayActivities();
         }
 
-        /*public HashSet<BudgetActivity> Activities
-        {
-            get
-            {
-                return new HashSet<BudgetActivity>(budget.Activities);
-            }
-        }
-*/
         public void DisplayActivities()
         {
-            // Remove any controls that are no longer needed
-            /*foreach (var control in displayedControls.ToList())
+            Budget budget = (Budget)this.Tag;
+            foreach (var control in displayedControls.ToList())
             {
-                if (!budget.Activities.Contains((BudgetActivity)control.Tag))
+                if (!budget.GetActivities().Any(a => a == (BudgetActivity)control.Tag))
                 {
                     this.ActivityEntriesPlaceHolder_TablePanel.Controls.Remove(control);
                     displayedControls.Remove(control);
+                    OnEntriesUpdated?.Invoke(this, EventArgs.Empty);
                 }
-            }*/
-
-            // Add any new controls that are needed
-           /* foreach (var activity in budget.Activities)
+            }
+            foreach (var activity in budget.GetActivities())
             {
                 if (!displayedControls.Any(c => (BudgetActivity)c.Tag == activity))
                 {
-                    EntryActivity_Control entry = new EntryActivity_Control(activity);
-                    entry.ActivityClicked += ActivityEntry_ActivitytClicked;
-                    entry.DeleteButtonClicked += ActivityEntry_ActivityDeleted;
-                    this.ActivityEntriesPlaceHolder_TablePanel.Controls.Add(entry);
-                    displayedControls.Add(entry);
+                    EntryActivity_Control act = new(activity);
+                    act.OnDeleteButtonClicked += Entry_Deleted;
+                    this.ActivityEntriesPlaceHolder_TablePanel.Controls.Add(act);
+                    displayedControls.Add(act);
+                    OnEntriesUpdated?.Invoke(this, EventArgs.Empty);
                 }
-            }*/
+            }
 
-            // Show or hide the "No activities." label as needed
-            /*this.NoBudget_label.Visible = (budget.Activities.Count == 0);*/
+            NoContent_label.Visible = (this.displayedControls.Count == 0);
+        }
+        
+        public void Entry_Deleted(object sender, EventArgs e)
+        {
+            EntryActivity_Control activityEntry = (EntryActivity_Control)sender;
+            BudgetActivity actEntry = (BudgetActivity)activityEntry.Tag;
+            try
+            {
+                if (actEntry != null)
+                {
+                    BudgetActivity act = (BudgetActivity)this.Tag;
+                    act.RemoveSubActivity(actEntry);
+                    this.Tag = act;
+                    OnEntriesUpdated?.Invoke(this, EventArgs.Empty);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while deleting the activity: {ex.Message}");
+                MessageBox.Show($"An error occurred while deleting the activity: {ex.Message}");
+            }
+            finally
+            {
+                DisplayActivities();
+            }
         }
     }
 }

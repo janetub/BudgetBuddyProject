@@ -13,67 +13,63 @@ namespace Budget_Buddy_GUI
 {
     public partial class Placeholder_BudgetEntries_Control : UserControl
     {
-        private HashSet<Budget> budgets = new HashSet<Budget>();
         private HashSet<EntryBudget_Control> displayedControls = new HashSet<EntryBudget_Control>();
 
-        public event EventHandler<EntryBudget_Control> Deleted;
-        public event EventHandler<EntryBudget_Control> Added;
-
+        public event EventHandler OnControlClicked;
+        public event EventHandler OnControlUpdated;
 
         public Placeholder_BudgetEntries_Control(HashSet<Budget> budgets)
         {
             InitializeComponent();
-            this.budgets = budgets;
+            this.Tag = budgets;
             DisplayBudgets();
         }
         
         public void DisplayBudgets()
         {
-
-        foreach (var control in displayedControls.ToList())
-        {
-            if (!this.budgets.Contains((Budget)control.Tag))
+            HashSet<Budget> budgets = (HashSet<Budget>)this.Tag;
+            foreach (var control in displayedControls.ToList())
             {
-                BudgetEntriesPlaceHolder_TablePanel.Controls.Remove(control);
-                displayedControls.Remove(control);
+                if (!budgets.Contains((Budget)control.Tag))
+                {
+                    BudgetEntriesPlaceHolder_TablePanel.Controls.Remove(control);
+                    displayedControls.Remove(control);
 
-                Deleted?.Invoke(this, control);
+                    OnControlUpdated?.Invoke(this, EventArgs.Empty);
+                }
             }
-        }
 
-        foreach (var budget in this.budgets)
-        {
-            if (!displayedControls.Any(c => (Budget)c.Tag == budget))
+            foreach (var budget in budgets)
             {
-                EntryBudget_Control entry = new EntryBudget_Control(budget);
-                entry.BudgetClicked += BudgetEntry_BudgetClicked;
-                entry.DeleteButtonClicked += BudgetEntry_BudgetDeleted;
-                BudgetEntriesPlaceHolder_TablePanel.Controls.Add(entry);
-                displayedControls.Add(entry);
-
-                Added?.Invoke(this, entry);
+                if (!displayedControls.Any(c => (Budget)c.Tag == budget))
+                {
+                    EntryBudget_Control entry = new EntryBudget_Control(budget);
+                    entry.OnDeleteButtonClicked += BudgetEntry_Deleted;
+                    entry.OnControlClicked += BudgetEntry_Clicked;
+                    BudgetEntriesPlaceHolder_TablePanel.Controls.Add(entry);
+                    displayedControls.Add(entry);
+                }
             }
+
+            NoBudget_label.Visible = (budgets.Count == 0);
         }
 
-        NoBudget_label.Visible = (budgets.Count == 0);
-        }
-
-        private void BudgetEntry_BudgetClicked(object sender, EventArgs e)
+        private void BudgetEntry_Clicked(object sender, EventArgs e)
         {
-            EntryBudget_Control budgetEntry = (EntryBudget_Control)sender;
-            Budget budget = (Budget)budgetEntry.Tag;
-            this.Tag = budget;
+            OnControlClicked?.Invoke(sender, e);
         }
 
-        private void BudgetEntry_BudgetDeleted(object sender, EventArgs e)
+        private void BudgetEntry_Deleted(object sender, EventArgs e)
         {
+            HashSet<Budget> budgets = (HashSet<Budget>)this.Tag;
             EntryBudget_Control budgetEntry = (EntryBudget_Control)sender;
             Budget budget = (Budget)budgetEntry.Tag;
             try
             {
                 if (budget != null)
                 {
-                    this.budgets.Remove(budget);
+                    budgets.Remove(budget);
+
                 }
             }
             catch (Exception ex)
