@@ -25,5 +25,10 @@ namespace Budget_Buddy_GUI
         {
 
         }
+
+        private void Add_Button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

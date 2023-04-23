@@ -31,7 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Placeholder_BudgetActivitiesEntries_Control));
             NoContent_label = new Label();
             ActivityItemEntriesPlaceHolder_TablePanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
+            button1 = new Button();
             PlaceHolder_StatusBar_Control = new Krypton.Toolkit.KryptonPanel();
+            ActivityItemEntriesPlaceHolder_TablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PlaceHolder_StatusBar_Control).BeginInit();
             SuspendLayout();
             // 
@@ -58,21 +60,32 @@
             ActivityItemEntriesPlaceHolder_TablePanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             ActivityItemEntriesPlaceHolder_TablePanel.ColumnCount = 1;
             ActivityItemEntriesPlaceHolder_TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            ActivityItemEntriesPlaceHolder_TablePanel.Location = new Point(0, 124);
+            ActivityItemEntriesPlaceHolder_TablePanel.Controls.Add(button1, 0, 1);
+            ActivityItemEntriesPlaceHolder_TablePanel.Location = new Point(0, 141);
             ActivityItemEntriesPlaceHolder_TablePanel.Name = "ActivityItemEntriesPlaceHolder_TablePanel";
             ActivityItemEntriesPlaceHolder_TablePanel.RowCount = 2;
             ActivityItemEntriesPlaceHolder_TablePanel.RowStyles.Add(new RowStyle());
             ActivityItemEntriesPlaceHolder_TablePanel.RowStyles.Add(new RowStyle());
-            ActivityItemEntriesPlaceHolder_TablePanel.Size = new Size(360, 466);
+            ActivityItemEntriesPlaceHolder_TablePanel.Size = new Size(360, 449);
             ActivityItemEntriesPlaceHolder_TablePanel.StateCommon.Draw = Krypton.Toolkit.InheritBool.False;
             ActivityItemEntriesPlaceHolder_TablePanel.StateNormal.Color1 = Color.White;
             ActivityItemEntriesPlaceHolder_TablePanel.TabIndex = 5;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(4, 5);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // PlaceHolder_StatusBar_Control
             // 
             PlaceHolder_StatusBar_Control.Location = new Point(0, 0);
             PlaceHolder_StatusBar_Control.Name = "PlaceHolder_StatusBar_Control";
-            PlaceHolder_StatusBar_Control.Size = new Size(360, 124);
+            PlaceHolder_StatusBar_Control.Size = new Size(360, 141);
             PlaceHolder_StatusBar_Control.StateCommon.Color1 = Color.Transparent;
             PlaceHolder_StatusBar_Control.TabIndex = 8;
             // 
@@ -87,6 +100,7 @@
             Name = "Placeholder_BudgetActivitiesEntries_Control";
             Size = new Size(360, 590);
             Load += ActivityItemEntries_Control_Load;
+            ActivityItemEntriesPlaceHolder_TablePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PlaceHolder_StatusBar_Control).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -97,5 +111,6 @@
         private Label NoContent_label;
         private Krypton.Toolkit.KryptonTableLayoutPanel ActivityItemEntriesPlaceHolder_TablePanel;
         private Krypton.Toolkit.KryptonPanel PlaceHolder_StatusBar_Control;
+        private Button button1;
     }
 }

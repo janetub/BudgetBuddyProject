@@ -60,10 +60,10 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ActivityFundStatus_TLPanel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAYkAAAAYCAYAAAAPkAHvAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABmSURBVHhe7dWBAAAADASh+Uv/CM6gJLoBQJAEAEkSACRJ
+        iVBORw0KGgoAAAANSUhEUgAAAYkAAAAZCAYAAADEzNJKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABpSURBVHhe7dWBAAAADASh+Uv/CM6gJLoBQJAEAEkSACRJ
         AJAkAUCSBABJEgAkSQCQJAFAkgQASRIAJEkAkCQBQJIEAEkSACRJAJAkAUCSBABJEgAkSQCQJAFAkgQA
-        SRIAJEkAELYH2HbVL6o+rl0AAAAASUVORK5CYII=
+        SRIAJEkAkCQBQNge5V3zZbDgh44AAAAASUVORK5CYII=
 </value>
   </data>
 </root>

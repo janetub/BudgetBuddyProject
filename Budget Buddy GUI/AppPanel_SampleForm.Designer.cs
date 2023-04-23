@@ -87,6 +87,7 @@
             Add_Button.TabIndex = 37;
             Add_Button.UseVisualStyleBackColor = false;
             Add_Button.Visible = false;
+            Add_Button.Click += Add_Button_Click;
             // 
             // Placeholder_Panel
             // 

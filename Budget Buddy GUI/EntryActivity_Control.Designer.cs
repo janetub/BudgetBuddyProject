@@ -59,7 +59,7 @@
             ActivityName_Label.Enabled = false;
             ActivityName_Label.Location = new Point(0, 0);
             ActivityName_Label.Name = "ActivityName_Label";
-            ActivityName_Label.Size = new Size(365, 62);
+            ActivityName_Label.Size = new Size(358, 62);
             ActivityName_Label.StateCommon.Padding = new Padding(10, 0, 30, 10);
             ActivityName_Label.StateCommon.ShortText.Color1 = Color.Black;
             ActivityName_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -92,7 +92,7 @@
             ProjectedBalanceAmount_Label.Location = new Point(244, 3);
             ProjectedBalanceAmount_Label.MaximumSize = new Size(125, 19);
             ProjectedBalanceAmount_Label.Name = "ProjectedBalanceAmount_Label";
-            ProjectedBalanceAmount_Label.Size = new Size(113, 18);
+            ProjectedBalanceAmount_Label.Size = new Size(113, 19);
             ProjectedBalanceAmount_Label.StateCommon.Padding = new Padding(0, 0, 0, 3);
             ProjectedBalanceAmount_Label.StateCommon.ShortText.Color1 = Color.Black;
             ProjectedBalanceAmount_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -106,7 +106,7 @@
             ActualBalanceAmount_Label.Location = new Point(134, 3);
             ActualBalanceAmount_Label.MaximumSize = new Size(125, 19);
             ActualBalanceAmount_Label.Name = "ActualBalanceAmount_Label";
-            ActualBalanceAmount_Label.Size = new Size(104, 18);
+            ActualBalanceAmount_Label.Size = new Size(104, 19);
             ActualBalanceAmount_Label.StateCommon.Padding = new Padding(0, 0, 0, 3);
             ActualBalanceAmount_Label.StateCommon.ShortText.Color1 = Color.Black;
             ActualBalanceAmount_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -120,7 +120,7 @@
             Balance_Label.Location = new Point(66, 3);
             Balance_Label.MaximumSize = new Size(125, 19);
             Balance_Label.Name = "Balance_Label";
-            Balance_Label.Size = new Size(59, 18);
+            Balance_Label.Size = new Size(59, 19);
             Balance_Label.StateCommon.Padding = new Padding(0, 0, -7, 3);
             Balance_Label.StateCommon.ShortText.Color1 = Color.Black;
             Balance_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -129,6 +129,7 @@
             // 
             // ActivityFundStatus_TLPanel
             // 
+            ActivityFundStatus_TLPanel.AutoSize = true;
             ActivityFundStatus_TLPanel.BackgroundImage = (Image)resources.GetObject("ActivityFundStatus_TLPanel.BackgroundImage");
             ActivityFundStatus_TLPanel.BackgroundImageLayout = ImageLayout.None;
             ActivityFundStatus_TLPanel.ColumnCount = 3;
@@ -139,11 +140,11 @@
             ActivityFundStatus_TLPanel.Controls.Add(ActualBalanceAmount_Label, 1, 0);
             ActivityFundStatus_TLPanel.Controls.Add(ProjectedBalanceAmount_Label, 2, 0);
             ActivityFundStatus_TLPanel.Dock = DockStyle.Bottom;
-            ActivityFundStatus_TLPanel.Location = new Point(0, 38);
+            ActivityFundStatus_TLPanel.Location = new Point(0, 37);
             ActivityFundStatus_TLPanel.Name = "ActivityFundStatus_TLPanel";
             ActivityFundStatus_TLPanel.RowCount = 1;
             ActivityFundStatus_TLPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            ActivityFundStatus_TLPanel.Size = new Size(393, 24);
+            ActivityFundStatus_TLPanel.Size = new Size(393, 25);
             ActivityFundStatus_TLPanel.StateCommon.Color1 = Color.White;
             ActivityFundStatus_TLPanel.StateCommon.Color2 = Color.White;
             ActivityFundStatus_TLPanel.TabIndex = 45;
@@ -163,6 +164,7 @@
             ActivityFundStatus_TLPanel.ResumeLayout(false);
             ActivityFundStatus_TLPanel.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

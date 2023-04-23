@@ -23,7 +23,6 @@ namespace Budget_Buddy_GUI
             InitializeComponent();
             this.Tag = budgets;
             DisplayBudgets();
-            StatusBar statusBar = new StatusBar();
         }
 
         public void DisplayBudgets()

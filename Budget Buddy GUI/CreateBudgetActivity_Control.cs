@@ -14,6 +14,7 @@ namespace Budget_Buddy_GUI
 {
     public partial class CreateBudgetActivity_Control : UserControl
     {
+        //*Content length will be limited to 100 characters (including spaces)
         public Budget Budget { get; private set; }
         public event EventHandler OnActivityEntered;
         public CreateBudgetActivity_Control(bool canCreateSavings, Budget budget)

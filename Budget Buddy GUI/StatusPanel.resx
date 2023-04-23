@@ -57,4 +57,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ActivityFundStatus_TLPanel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAUYAAAA3CAYAAABw3uMgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC3SURBVHhe7dQxAQAwEAOh+jedzn8aQARvABxiBAgxAoQY
+        AUKMACFGgBAjQIgRIMQIEGIECDEChBgBQowAIUaAECNAiBEgxAgQYgQIMQKEGAFCjAAhRoAQI0CIESDE
+        CBBiBAgxAoQYAUKMACFGgBAjQIgRIMQIEGIECDEChBgBQowAIUaAECNAiBEgxAgQYgQIMQKEGAFCjAAh
+        RoAQI0CIESDECBBiBAgxAoQYAUKMACFGgBAjwLF9ZfwgMts0jy0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="kryptonTableLayoutPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAWgAAAAZCAYAAAAc7LQFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAGxJREFUeF7t1DEBAAAMw6D5N93ZyAEiuAGQJGiAKEEDRAkaIErQAFGCBogSNECU
+        oAGiBA0QJWiAKEEDRAkaIErQAFGCBogSNECUoAGiBA0QJWiAKEEDRAkaIErQAFGCBogSNECUoAGiBA2Q
+        tD1tbhuVduhaLAAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

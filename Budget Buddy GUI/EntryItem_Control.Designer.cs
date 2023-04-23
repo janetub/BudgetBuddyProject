@@ -44,7 +44,7 @@
             ItemName_Label.Enabled = false;
             ItemName_Label.Location = new Point(0, 0);
             ItemName_Label.Name = "ItemName_Label";
-            ItemName_Label.Size = new Size(365, 62);
+            ItemName_Label.Size = new Size(358, 62);
             ItemName_Label.StateCommon.Padding = new Padding(10, 0, 30, 10);
             ItemName_Label.StateCommon.ShortText.Color1 = Color.Black;
             ItemName_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -95,6 +95,7 @@
             // ItemQuantity_Label
             // 
             ItemQuantity_Label.Anchor = AnchorStyles.Left;
+            ItemQuantity_Label.AutoSize = false;
             ItemQuantity_Label.Enabled = false;
             ItemQuantity_Label.Location = new Point(244, 3);
             ItemQuantity_Label.Name = "ItemQuantity_Label";
@@ -108,9 +109,9 @@
             // 
             // ItemPriceAmount_Label
             // 
-            ItemPriceAmount_Label.Anchor = AnchorStyles.Left;
+            ItemPriceAmount_Label.Anchor = AnchorStyles.Right;
             ItemPriceAmount_Label.Enabled = false;
-            ItemPriceAmount_Label.Location = new Point(131, 3);
+            ItemPriceAmount_Label.Location = new Point(134, 3);
             ItemPriceAmount_Label.MaximumSize = new Size(125, 19);
             ItemPriceAmount_Label.Name = "ItemPriceAmount_Label";
             ItemPriceAmount_Label.Size = new Size(104, 18);
