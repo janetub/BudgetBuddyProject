@@ -72,6 +72,7 @@
             // 
             // Delete_Button
             // 
+            Delete_Button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Delete_Button.BackColor = Color.Transparent;
             Delete_Button.BackgroundImage = Properties.Resources.delete3;
             Delete_Button.BackgroundImageLayout = ImageLayout.Center;

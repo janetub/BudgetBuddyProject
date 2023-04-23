@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Budget Buddy GUI", "Budget Buddy GUI\Budget Buddy GUI.csproj", "{2BC61979-B240-4ED7-9A0C-034E6D897B55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetBuddyProjectGUI", "Budget Buddy GUI\BudgetBuddyProjectGUI.csproj", "{2BC61979-B240-4ED7-9A0C-034E6D897B55}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetBuddyProject", "BudgetBuddyProject\BudgetBuddyProject.csproj", "{FC9F2CF9-7B19-4A36-9FBC-11195A22682F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetBuddyDataProject", "BudgetBuddyProject\BudgetBuddyDataProject.csproj", "{FC9F2CF9-7B19-4A36-9FBC-11195A22682F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

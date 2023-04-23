@@ -43,7 +43,7 @@
             BudgetName_Label.Enabled = false;
             BudgetName_Label.Location = new Point(0, 0);
             BudgetName_Label.Name = "BudgetName_Label";
-            BudgetName_Label.Size = new Size(365, 62);
+            BudgetName_Label.Size = new Size(358, 62);
             BudgetName_Label.StateCommon.Padding = new Padding(10, 0, 30, 10);
             BudgetName_Label.StateCommon.ShortText.Color1 = Color.Black;
             BudgetName_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -103,6 +103,7 @@
             // 
             // Delete_Button
             // 
+            Delete_Button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Delete_Button.BackColor = Color.Transparent;
             Delete_Button.BackgroundImage = Properties.Resources.delete3;
             Delete_Button.BackgroundImageLayout = ImageLayout.Center;

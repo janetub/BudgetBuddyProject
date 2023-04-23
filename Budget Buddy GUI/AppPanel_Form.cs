@@ -38,7 +38,6 @@ namespace Budget_Buddy_GUI
         {
             CreateBudgetActivity_Control createBudgetActivityControl = new CreateBudgetActivity_Control(true, budget);
             createBudgetActivityControl.OnActivityEntered += ActivityEntryPlaceholder_ActivityEntryAdded;
-
             this.Placeholder_Panel.Controls.Add(createBudgetActivityControl);
 
             createBudgetActivityControl.Dock = DockStyle.Fill;

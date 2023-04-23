@@ -22,6 +22,7 @@ namespace Budget_Buddy_GUI
             InitializeComponent();
             this.Tag = activity;
             this.Display();
+            this.PlaceHolder_StatusBar_Control.Controls.Add(new StatusBar());
         }
 
         public void Display()
@@ -42,11 +43,11 @@ namespace Budget_Buddy_GUI
                     OnEntriesUpdated?.Invoke(this, new EventArgs());
                 }
             }
-            if(this.Tag is BudgetActivity)
+            if (this.Tag is BudgetActivity)
             {
-                foreach (var subactivity in  activity.GetSubActivities())
+                foreach (var subactivity in activity.GetSubActivities())
                 {
-                    if(!displayedControls.Any(c => (BudgetActivity)c.Tag == subactivity))
+                    if (!displayedControls.Any(c => (BudgetActivity)c.Tag == subactivity))
                     {
                         EntryActivity_Control act = new(subactivity);
                         act.OnDeleteButtonClicked -= ActivitytEntry_Deleted;
@@ -56,7 +57,7 @@ namespace Budget_Buddy_GUI
                 }
                 foreach (var item in activity.GetItems())
                 {
-                    if(!displayedControls.Any(c => (Item)c.Tag == item))
+                    if (!displayedControls.Any(c => (Item)c.Tag == item))
                     {
                         EntryItem_Control i = new(item);
                         i.OnDeleteButtonClicked -= ItemEntry_Deleted;

@@ -23,8 +23,9 @@ namespace Budget_Buddy_GUI
             InitializeComponent();
             this.Tag = budgets;
             DisplayBudgets();
+            StatusBar statusBar = new StatusBar();
         }
-        
+
         public void DisplayBudgets()
         {
             HashSet<Budget> budgets = (HashSet<Budget>)this.Tag;

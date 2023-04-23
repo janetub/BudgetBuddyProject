@@ -50,7 +50,7 @@ namespace Budget_Buddy_GUI
 
             NoContent_label.Visible = (this.displayedControls.Count == 0);
         }
-        
+
         public void Entry_Deleted(object sender, EventArgs e)
         {
             EntryActivity_Control activityEntry = (EntryActivity_Control)sender;

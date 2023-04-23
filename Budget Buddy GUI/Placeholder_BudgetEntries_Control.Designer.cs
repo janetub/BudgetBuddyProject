@@ -36,13 +36,11 @@
             // BudgetEntriesPlaceHolder_TablePanel
             // 
             BudgetEntriesPlaceHolder_TablePanel.AutoScroll = true;
-            BudgetEntriesPlaceHolder_TablePanel.AutoSize = true;
             BudgetEntriesPlaceHolder_TablePanel.BackgroundImage = (Image)resources.GetObject("BudgetEntriesPlaceHolder_TablePanel.BackgroundImage");
             BudgetEntriesPlaceHolder_TablePanel.BackgroundImageLayout = ImageLayout.None;
             BudgetEntriesPlaceHolder_TablePanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             BudgetEntriesPlaceHolder_TablePanel.ColumnCount = 1;
             BudgetEntriesPlaceHolder_TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            BudgetEntriesPlaceHolder_TablePanel.Dock = DockStyle.Fill;
             BudgetEntriesPlaceHolder_TablePanel.Location = new Point(0, 0);
             BudgetEntriesPlaceHolder_TablePanel.Name = "BudgetEntriesPlaceHolder_TablePanel";
             BudgetEntriesPlaceHolder_TablePanel.RowCount = 2;
@@ -67,7 +65,7 @@
             NoBudget_label.Text = "No budgets.";
             NoBudget_label.Visible = false;
             // 
-            // BudgetEntriesPlaceholder_Control
+            // Placeholder_BudgetEntries_Control
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -76,7 +74,7 @@
             Controls.Add(NoBudget_label);
             Controls.Add(BudgetEntriesPlaceHolder_TablePanel);
             ForeColor = Color.White;
-            Name = "BudgetEntriesPlaceholder_Control";
+            Name = "Placeholder_BudgetEntries_Control";
             Size = new Size(360, 590);
             ResumeLayout(false);
             PerformLayout();

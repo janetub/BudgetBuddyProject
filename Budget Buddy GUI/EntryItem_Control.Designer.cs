@@ -98,12 +98,13 @@
             ItemQuantity_Label.Enabled = false;
             ItemQuantity_Label.Location = new Point(244, 3);
             ItemQuantity_Label.Name = "ItemQuantity_Label";
-            ItemQuantity_Label.Size = new Size(139, 18);
+            ItemQuantity_Label.Size = new Size(145, 18);
             ItemQuantity_Label.StateCommon.Padding = new Padding(0, 0, -7, 3);
             ItemQuantity_Label.StateCommon.ShortText.Color1 = Color.DimGray;
-            ItemQuantity_Label.StateCommon.ShortText.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            ItemQuantity_Label.StateCommon.ShortText.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
             ItemQuantity_Label.TabIndex = 42;
-            ItemQuantity_Label.Values.Text = "999999999x999999999";
+            ItemQuantity_Label.Values.Text = "999999999.99x999999999";
+            ItemQuantity_Label.Click += ItemQuantity_Label_Click;
             // 
             // ItemPriceAmount_Label
             // 

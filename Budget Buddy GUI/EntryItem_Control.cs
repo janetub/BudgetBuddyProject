@@ -37,5 +37,10 @@ namespace Budget_Buddy_GUI
         {
             OnControlClicked?.Invoke(this, EventArgs.Empty);
         }
+
+        private void ItemQuantity_Label_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

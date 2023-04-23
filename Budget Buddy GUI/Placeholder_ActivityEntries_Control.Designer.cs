@@ -50,7 +50,6 @@
             // ActivityEntriesPlaceHolder_TablePanel
             // 
             ActivityEntriesPlaceHolder_TablePanel.AutoScroll = true;
-            ActivityEntriesPlaceHolder_TablePanel.AutoSize = true;
             ActivityEntriesPlaceHolder_TablePanel.BackgroundImage = (Image)resources.GetObject("ActivityEntriesPlaceHolder_TablePanel.BackgroundImage");
             ActivityEntriesPlaceHolder_TablePanel.BackgroundImageLayout = ImageLayout.None;
             ActivityEntriesPlaceHolder_TablePanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
