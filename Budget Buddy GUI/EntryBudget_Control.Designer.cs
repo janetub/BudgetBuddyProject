@@ -39,6 +39,7 @@
             // 
             // BudgetName_Label
             // 
+            BudgetName_Label.Anchor = AnchorStyles.Left;
             BudgetName_Label.AutoSize = false;
             BudgetName_Label.Enabled = false;
             BudgetName_Label.Location = new Point(0, 0);
@@ -61,7 +62,7 @@
             BudgetBalanceAmount_Label.Location = new Point(68, 3);
             BudgetBalanceAmount_Label.MaximumSize = new Size(125, 19);
             BudgetBalanceAmount_Label.Name = "BudgetBalanceAmount_Label";
-            BudgetBalanceAmount_Label.Size = new Size(104, 18);
+            BudgetBalanceAmount_Label.Size = new Size(104, 19);
             BudgetBalanceAmount_Label.StateCommon.Padding = new Padding(0, 0, 0, 3);
             BudgetBalanceAmount_Label.StateCommon.ShortText.Color1 = Color.Black;
             BudgetBalanceAmount_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -79,11 +80,11 @@
             BudgetFundStatus_TLPanel.Controls.Add(Balance_Label, 0, 0);
             BudgetFundStatus_TLPanel.Controls.Add(BudgetBalanceAmount_Label, 1, 0);
             BudgetFundStatus_TLPanel.Enabled = false;
-            BudgetFundStatus_TLPanel.Location = new Point(193, 38);
+            BudgetFundStatus_TLPanel.Location = new Point(193, 37);
             BudgetFundStatus_TLPanel.Name = "BudgetFundStatus_TLPanel";
             BudgetFundStatus_TLPanel.RowCount = 1;
             BudgetFundStatus_TLPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            BudgetFundStatus_TLPanel.Size = new Size(200, 24);
+            BudgetFundStatus_TLPanel.Size = new Size(200, 25);
             BudgetFundStatus_TLPanel.StateCommon.Color1 = Color.White;
             BudgetFundStatus_TLPanel.TabIndex = 34;
             // 
@@ -94,7 +95,7 @@
             Balance_Label.Location = new Point(3, 3);
             Balance_Label.MaximumSize = new Size(125, 19);
             Balance_Label.Name = "Balance_Label";
-            Balance_Label.Size = new Size(59, 18);
+            Balance_Label.Size = new Size(59, 19);
             Balance_Label.StateCommon.Padding = new Padding(0, 0, -7, 3);
             Balance_Label.StateCommon.ShortText.Color1 = Color.Black;
             Balance_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -114,6 +115,7 @@
             Delete_Button.Size = new Size(26, 30);
             Delete_Button.TabIndex = 40;
             Delete_Button.UseVisualStyleBackColor = false;
+            Delete_Button.Click += DeleteBudget_Button_Click;
             // 
             // EntryBudget_Control
             // 

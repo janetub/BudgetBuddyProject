@@ -41,13 +41,13 @@
             // 
             // CreateBudgetInputFields_TableLayoutPanel
             // 
+            CreateBudgetInputFields_TableLayoutPanel.Anchor = AnchorStyles.None;
             CreateBudgetInputFields_TableLayoutPanel.ColumnCount = 1;
             CreateBudgetInputFields_TableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Amount_Label, 0, 2);
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Name_Label, 0, 0);
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Name_TextBox, 0, 1);
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Amount_NumUpDown, 0, 3);
-            CreateBudgetInputFields_TableLayoutPanel.Dock = DockStyle.Top;
             CreateBudgetInputFields_TableLayoutPanel.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CreateBudgetInputFields_TableLayoutPanel.Location = new Point(0, 0);
             CreateBudgetInputFields_TableLayoutPanel.Margin = new Padding(0);
@@ -177,8 +177,7 @@
             // 
             // CreateBudget_Control
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
             Controls.Add(RequiredAmount_Label);
             Controls.Add(RequiredName_Label);

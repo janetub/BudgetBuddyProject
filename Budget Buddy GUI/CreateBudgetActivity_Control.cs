@@ -37,7 +37,7 @@ namespace Budget_Buddy_GUI
 
         private void Name_TextBox_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(this.Name_TextBox.Text))
+            if (string.IsNullOrEmpty(this.Name_Label.Text))
             {
                 MessageBox.Show("Activity name is required.");
                 e.Cancel = true;
@@ -68,39 +68,45 @@ namespace Budget_Buddy_GUI
 
         private void CreateActivity_Button_Click(object sender, EventArgs e)
         {
-            if (this.ActivityType_ComboBox == null)
+            try
             {
-                MessageBox.Show("Activity type is required.");
-                this.RequiredActivityType_Label.Visible = true;
-                return;
+                if (this.ActivityType_ComboBox == null)
+                {
+                    MessageBox.Show("Activity type is required.");
+                    this.RequiredActivityType_Label.Visible = true;
+                    return;
+                }
+                BudgetActivityType activityType = (BudgetActivityType)Enum.Parse(typeof(BudgetActivityType), this.ActivityType_ComboBox.Text);
+                if (string.IsNullOrEmpty(this.Name_TextBox.Text) && (string.IsNullOrEmpty(ProjectedAmount_NumUpDown.Text) || ProjectedAmount_NumUpDown.Text == "0.00"))
+                {
+                    MessageBox.Show("Please fill up all required fields to create an activity entry.");
+                    this.RequiredProjectedAmount_Label.Visible = this.RequiredName_Label.Visible = true;
+                    return;
+                }
+                if (string.IsNullOrEmpty(this.Name_TextBox.Text))
+                {
+                    MessageBox.Show("Please fill up all required fields.");
+                    this.RequiredName_Label.Visible = true;
+                    return;
+                }
+                if (string.IsNullOrEmpty(ProjectedAmount_NumUpDown.Text) || ProjectedAmount_NumUpDown.Text == "0.00")
+                {
+                    MessageBox.Show("Please fill up all required fields.");
+                    this.ProjectedAmount_NumUpDown.Visible = true;
+                    return;
+                }
+                if (!this.ProjectedAmount_NumUpDown.Text.Contains("."))
+                    this.ProjectedAmount_NumUpDown.Text += ".00";
+                if (string.IsNullOrEmpty(this.Description_RTextBox.Text))
+                    this.Description_RTextBox.Text += "";
+                double amount = double.Parse(ProjectedAmount_NumUpDown.Text);
+                this.Tag = new BudgetActivity(this.Name_TextBox.Text, this.Description_RTextBox.Text, amount, activityType);
+                OnActivityEntered?.Invoke(this, EventArgs.Empty);
             }
-            BudgetActivityType activityType = (BudgetActivityType)Enum.Parse(typeof(BudgetActivityType), this.ActivityType_ComboBox.Text);
-            if (string.IsNullOrEmpty(this.Name_TextBox.Text) && (string.IsNullOrEmpty(ProjectedAmount_NumUpDown.Text) || ProjectedAmount_NumUpDown.Text == "0.00"))
+            catch (Exception ex)
             {
-                MessageBox.Show("Please fill up all required fields to create an activity entry.");
-                this.RequiredProjectedAmount_Label.Visible = this.RequiredName_Label.Visible = true;
-                return;
-            }
-            if (string.IsNullOrEmpty(this.Name_TextBox.Text))
-            {
-                MessageBox.Show("Please fill up all required fields.");
-                this.RequiredName_Label.Visible = true;
-                return;
-            }
-            if (string.IsNullOrEmpty(ProjectedAmount_NumUpDown.Text) || ProjectedAmount_NumUpDown.Text == "0.00")
-            {
-                MessageBox.Show("Please fill up all required fields.");
-                this.ProjectedAmount_NumUpDown.Visible = true;
-                return;
-            }
-            if (!this.ProjectedAmount_NumUpDown.Text.Contains("."))
-                this.ProjectedAmount_NumUpDown.Text += ".00";
-            if (string.IsNullOrEmpty(this.Description_RTextBox.Text))
-                this.Description_RTextBox.Text += "";
-            double amount = double.Parse(ProjectedAmount_NumUpDown.Text);
-            this.Tag = new BudgetActivity(this.Name_TextBox.Text, this.Description_RTextBox.Text, amount, activityType);
-            OnActivityEntered?.Invoke(this, EventArgs.Empty);
 
+            }
         }
 
         private void Name_TextBox_KeyDown(object sender, KeyEventArgs e)

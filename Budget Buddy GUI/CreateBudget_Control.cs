@@ -46,6 +46,13 @@ namespace Budget_Buddy_GUI
                     this.RequiredAmount_Label.Visible = true;
                     return;
                 }
+                if (this.Amount_NumUpDown.Text.Contains("-"))
+                {
+                    MessageBox.Show("Budget amount must be a positive number.");
+                    e.Cancel = true;
+                    this.RequiredAmount_Label.Visible = true;
+                    return;
+                }
                 if (!this.Amount_NumUpDown.Text.Contains("."))
                     this.Amount_NumUpDown.Text += ".00";
                 double budgetAmount;
@@ -59,7 +66,7 @@ namespace Budget_Buddy_GUI
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -67,39 +74,46 @@ namespace Budget_Buddy_GUI
 
         private void CreateBudgetButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(this.Name_TextBox.Text) && (string.IsNullOrEmpty(Amount_NumUpDown.Text) || Amount_NumUpDown.Text == "0.00"))
+            try
             {
-                MessageBox.Show("Please fill up all required fields to create a budget entry.");
-                this.RequiredAmount_Label.Visible = true;
-                this.RequiredName_Label.Visible = true;
-                return;
-            }
-            if (string.IsNullOrEmpty(this.Name_TextBox.Text))
-            {
-                MessageBox.Show("Please fill up all required fields");
-                this.RequiredName_Label.Visible = true;
-                return;
-            }
-            if (string.IsNullOrEmpty(Amount_NumUpDown.Text) || Amount_NumUpDown.Text == "0.00")
-            {
-                MessageBox.Show("Please fill up all required fields");
-                this.RequiredAmount_Label.Visible = true;
-                return;
-            }
-            double budgetAmount;
-            if (Double.TryParse(this.Amount_NumUpDown.Text, out budgetAmount))
-            {
-                if (budgetAmount > 1000000000.00)
+                double budgetAmount;
+                if (string.IsNullOrEmpty(this.Name_TextBox.Text) && (string.IsNullOrEmpty(Amount_NumUpDown.Text) || Amount_NumUpDown.Text == "0.00"))
                 {
-                    MessageBox.Show("You have reached the maximum budget/funds allowed in the app.");
-                    this.Amount_NumUpDown = null;
+                    MessageBox.Show("Please fill up all required fields to create a budget entry.");
+                    this.RequiredAmount_Label.Visible = true;
+                    this.RequiredName_Label.Visible = true;
                     return;
                 }
+                else if (string.IsNullOrEmpty(this.Name_TextBox.Text))
+                {
+                    MessageBox.Show("Please fill up all required fields");
+                    this.RequiredName_Label.Visible = true;
+                    return;
+                }
+                else if (string.IsNullOrEmpty(Amount_NumUpDown.Text) || Amount_NumUpDown.Text == "0.00")
+                {
+                    MessageBox.Show("Please fill up all required fields");
+                    this.RequiredAmount_Label.Visible = true;
+                    return;
+                }
+                else if (Double.TryParse(this.Amount_NumUpDown.Text, out budgetAmount))
+                {
+                    if (budgetAmount > 1000000000.00)
+                    {
+                        MessageBox.Show("You have reached the maximum budget/funds allowed in the app.");
+                        this.Amount_NumUpDown = null;
+                        return;
+                    }
+                }
+                double amount = double.Parse(Amount_NumUpDown.Text);
+                Budget newBudget = new(this.Name_TextBox.Text, amount);
+                this.Tag = newBudget;
+                OnBudgetEntered?.Invoke(this, EventArgs.Empty);
             }
-            double amount = double.Parse(Amount_NumUpDown.Text);
-            Budget newBudget = new(this.Name_TextBox.Text, amount);
-            this.Tag = newBudget;
-            OnBudgetEntered?.Invoke(this, EventArgs.Empty);
+            catch (Exception ex)
+            {
+
+            }
         }
         public void CloseControl()
         {

@@ -129,6 +129,7 @@
             // 
             // ActivityFundStatus_TLPanel
             // 
+            ActivityFundStatus_TLPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             ActivityFundStatus_TLPanel.AutoSize = true;
             ActivityFundStatus_TLPanel.BackgroundImage = (Image)resources.GetObject("ActivityFundStatus_TLPanel.BackgroundImage");
             ActivityFundStatus_TLPanel.BackgroundImageLayout = ImageLayout.None;
@@ -139,7 +140,6 @@
             ActivityFundStatus_TLPanel.Controls.Add(Balance_Label, 0, 0);
             ActivityFundStatus_TLPanel.Controls.Add(ActualBalanceAmount_Label, 1, 0);
             ActivityFundStatus_TLPanel.Controls.Add(ProjectedBalanceAmount_Label, 2, 0);
-            ActivityFundStatus_TLPanel.Dock = DockStyle.Bottom;
             ActivityFundStatus_TLPanel.Location = new Point(0, 37);
             ActivityFundStatus_TLPanel.Name = "ActivityFundStatus_TLPanel";
             ActivityFundStatus_TLPanel.RowCount = 1;
@@ -151,8 +151,7 @@
             // 
             // EntryActivity_Control
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
             Controls.Add(Delete_Button);
             Controls.Add(ActivityFundStatus_TLPanel);

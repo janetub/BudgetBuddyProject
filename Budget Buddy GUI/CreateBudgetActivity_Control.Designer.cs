@@ -37,9 +37,9 @@
             ProjectedAmount_NumUpDown = new Krypton.Toolkit.KryptonNumericUpDown();
             Description_Label = new Krypton.Toolkit.KryptonLabel();
             Description_RTextBox = new Krypton.Toolkit.KryptonRichTextBox();
-            ActivityName_TextBox = new Krypton.Toolkit.KryptonMaskedTextBox();
+            Name_TextBox = new Krypton.Toolkit.KryptonMaskedTextBox();
             ProjectedAmount_Label = new Krypton.Toolkit.KryptonLabel();
-            Name_TextBox = new Krypton.Toolkit.KryptonLabel();
+            Name_Label = new Krypton.Toolkit.KryptonLabel();
             RequiredActivityType_Label = new Krypton.Toolkit.KryptonLabel();
             CreateActivityInputFields_TableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ActivityType_ComboBox).BeginInit();
@@ -96,9 +96,9 @@
             CreateActivityInputFields_TableLayoutPanel.Controls.Add(ProjectedAmount_NumUpDown, 0, 5);
             CreateActivityInputFields_TableLayoutPanel.Controls.Add(Description_Label, 0, 6);
             CreateActivityInputFields_TableLayoutPanel.Controls.Add(Description_RTextBox, 0, 7);
-            CreateActivityInputFields_TableLayoutPanel.Controls.Add(ActivityName_TextBox, 0, 3);
+            CreateActivityInputFields_TableLayoutPanel.Controls.Add(Name_TextBox, 0, 3);
             CreateActivityInputFields_TableLayoutPanel.Controls.Add(ProjectedAmount_Label, 0, 4);
-            CreateActivityInputFields_TableLayoutPanel.Controls.Add(Name_TextBox, 0, 2);
+            CreateActivityInputFields_TableLayoutPanel.Controls.Add(Name_Label, 0, 2);
             CreateActivityInputFields_TableLayoutPanel.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CreateActivityInputFields_TableLayoutPanel.Location = new Point(0, 0);
             CreateActivityInputFields_TableLayoutPanel.Margin = new Padding(0);
@@ -215,23 +215,23 @@
             Description_RTextBox.TabIndex = 4;
             Description_RTextBox.Text = "";
             // 
-            // ActivityName_TextBox
+            // Name_TextBox
             // 
-            ActivityName_TextBox.AlwaysActive = false;
-            ActivityName_TextBox.AsciiOnly = true;
-            ActivityName_TextBox.Cursor = Cursors.IBeam;
-            ActivityName_TextBox.Hint = "Enter activity name here";
-            ActivityName_TextBox.Location = new Point(23, 162);
-            ActivityName_TextBox.Name = "ActivityName_TextBox";
-            ActivityName_TextBox.Size = new Size(314, 29);
-            ActivityName_TextBox.StateActive.Back.Color1 = Color.WhiteSmoke;
-            ActivityName_TextBox.StateActive.Content.Color1 = Color.Black;
-            ActivityName_TextBox.StateCommon.Back.Color1 = Color.White;
-            ActivityName_TextBox.StateCommon.Border.Color1 = Color.Black;
-            ActivityName_TextBox.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Bottom;
-            ActivityName_TextBox.StateCommon.Content.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            ActivityName_TextBox.StateCommon.Content.Padding = new Padding(5);
-            ActivityName_TextBox.TabIndex = 2;
+            Name_TextBox.AlwaysActive = false;
+            Name_TextBox.AsciiOnly = true;
+            Name_TextBox.Cursor = Cursors.IBeam;
+            Name_TextBox.Hint = "Enter activity name here";
+            Name_TextBox.Location = new Point(23, 162);
+            Name_TextBox.Name = "Name_TextBox";
+            Name_TextBox.Size = new Size(314, 29);
+            Name_TextBox.StateActive.Back.Color1 = Color.WhiteSmoke;
+            Name_TextBox.StateActive.Content.Color1 = Color.Black;
+            Name_TextBox.StateCommon.Back.Color1 = Color.White;
+            Name_TextBox.StateCommon.Border.Color1 = Color.Black;
+            Name_TextBox.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Bottom;
+            Name_TextBox.StateCommon.Content.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Name_TextBox.StateCommon.Content.Padding = new Padding(5);
+            Name_TextBox.TabIndex = 2;
             // 
             // ProjectedAmount_Label
             // 
@@ -245,16 +245,16 @@
             ProjectedAmount_Label.Target = ProjectedAmount_NumUpDown;
             ProjectedAmount_Label.Values.Text = "Projected Amount";
             // 
-            // Name_TextBox
+            // Name_Label
             // 
-            Name_TextBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            Name_TextBox.Location = new Point(23, 135);
-            Name_TextBox.Name = "Name_TextBox";
-            Name_TextBox.Size = new Size(54, 21);
-            Name_TextBox.StateCommon.ShortText.Color1 = Color.Black;
-            Name_TextBox.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            Name_TextBox.TabIndex = 0;
-            Name_TextBox.Values.Text = "Name";
+            Name_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            Name_Label.Location = new Point(23, 135);
+            Name_Label.Name = "Name_Label";
+            Name_Label.Size = new Size(54, 21);
+            Name_Label.StateCommon.ShortText.Color1 = Color.Black;
+            Name_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            Name_Label.TabIndex = 0;
+            Name_Label.Values.Text = "Name";
             // 
             // RequiredActivityType_Label
             // 
@@ -297,8 +297,8 @@
         private Krypton.Toolkit.KryptonNumericUpDown ProjectedAmount_NumUpDown;
         private Krypton.Toolkit.KryptonLabel Description_Label;
         private Krypton.Toolkit.KryptonRichTextBox Description_RTextBox;
-        private Krypton.Toolkit.KryptonLabel Name_TextBox;
-        private Krypton.Toolkit.KryptonMaskedTextBox ActivityName_TextBox;
+        private Krypton.Toolkit.KryptonLabel Name_Label;
+        private Krypton.Toolkit.KryptonMaskedTextBox Name_TextBox;
         private Krypton.Toolkit.KryptonLabel ProjectedAmount_Label;
         private Krypton.Toolkit.KryptonComboBox ActivityType_ComboBox;
         private Krypton.Toolkit.KryptonLabel ActivityType_Label;

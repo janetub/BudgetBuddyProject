@@ -14,12 +14,12 @@ using UserControl = System.Windows.Forms.UserControl;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class Placeholder_BudgetActivitiesEntries_Control : UserControl
+    public partial class Placeholder_SubActivitiesEntries_Control : UserControl
     {
         private HashSet<UserControl> displayedControls = new HashSet<UserControl>();
 
         public event EventHandler OnEntriesUpdated;
-        public Placeholder_BudgetActivitiesEntries_Control(BudgetActivity activity)
+        public Placeholder_SubActivitiesEntries_Control(BudgetActivity activity)
         {
             InitializeComponent();
 

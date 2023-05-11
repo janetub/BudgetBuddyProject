@@ -21,7 +21,17 @@ namespace Budget_Buddy_GUI
         {
             InitializeComponent();
             this.Tag = budget;
+            DisplayStatus();
             DisplayActivities();
+        }
+
+        public void DisplayStatus()
+        {
+            if (this.Tag != null && this.Tag is Budget)
+            {
+                this.Name_Label.Text = ((Budget)Tag).Name.ToString();
+                this.BalanceAmount_Label.Text = ((Budget)Tag).Amount.ToString();
+            }
         }
 
         public void DisplayActivities()
@@ -74,6 +84,11 @@ namespace Budget_Buddy_GUI
             {
                 DisplayActivities();
             }
+        }
+
+        private void Edit_Button_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

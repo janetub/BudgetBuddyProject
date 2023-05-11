@@ -17,7 +17,7 @@ namespace Budget_Buddy_GUI
         public AppPanel_SampleForm()
         {
             InitializeComponent();
-            this.Placeholder_Panel.Controls.Add(new Placeholder_BudgetActivitiesEntries_Control(new BudgetActivity("Grocery SHopping", "For my grocery shopping", 500, BudgetActivityType.Expense)));
+            this.Placeholder_Panel.Controls.Add(new Placeholder_SubActivitiesEntries_Control(new BudgetActivity("Grocery SHopping", "For my grocery shopping", 500, BudgetActivityType.Expense)));
             this.Add_Button.Visible = true;
         }
 

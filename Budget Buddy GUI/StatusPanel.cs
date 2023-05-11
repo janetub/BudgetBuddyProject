@@ -13,7 +13,7 @@ namespace Budget_Buddy_GUI
 {
     public partial class StatusPanel : UserControl
     {
-        public StatusPanel(Placeholder_BudgetActivitiesEntries_Control placeholder_BudgetActivitiesEntries_Control)
+        public StatusPanel(Placeholder_SubActivitiesEntries_Control placeholder_BudgetActivitiesEntries_Control)
         {
             InitializeComponent();
             placeholder_BudgetActivitiesEntries_Control.OnEntriesUpdated += UpdateStatusBar;
@@ -26,7 +26,7 @@ namespace Budget_Buddy_GUI
 
         private void UpdateStatusBar(object sender, EventArgs e)
         {
-            Placeholder_BudgetActivitiesEntries_Control control = (Placeholder_BudgetActivitiesEntries_Control)sender;
+            Placeholder_SubActivitiesEntries_Control control = (Placeholder_SubActivitiesEntries_Control)sender;
             BudgetActivity act = (BudgetActivity)control.Tag;
             this.Name_Label.Text = act.Name;
             double maxBudget = act.Projected, projected = act.GetSummedProjectedsItems(), actual = act.Actual;

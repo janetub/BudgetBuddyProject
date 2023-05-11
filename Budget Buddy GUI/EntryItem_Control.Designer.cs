@@ -57,6 +57,7 @@
             // 
             // ItemDetails_TLPanel
             // 
+            ItemDetails_TLPanel.Anchor = AnchorStyles.None;
             ItemDetails_TLPanel.BackgroundImage = (Image)resources.GetObject("ItemDetails_TLPanel.BackgroundImage");
             ItemDetails_TLPanel.BackgroundImageLayout = ImageLayout.None;
             ItemDetails_TLPanel.ColumnCount = 3;
@@ -66,7 +67,6 @@
             ItemDetails_TLPanel.Controls.Add(ItemPrice_Label, 0, 0);
             ItemDetails_TLPanel.Controls.Add(ItemQuantity_Label, 2, 0);
             ItemDetails_TLPanel.Controls.Add(ItemPriceAmount_Label, 1, 0);
-            ItemDetails_TLPanel.Dock = DockStyle.Bottom;
             ItemDetails_TLPanel.Enabled = false;
             ItemDetails_TLPanel.Location = new Point(0, 38);
             ItemDetails_TLPanel.Name = "ItemDetails_TLPanel";

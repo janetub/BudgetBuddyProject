@@ -20,8 +20,8 @@ namespace Budget_Buddy_GUI
             InitializeComponent();
             this.ItemName_Label.Text = item.Name;
             double price = item.Cost * item.Quantity;
-            this.ItemPriceAmount_Label.Text = price.ToString().Contains(".") ? price.ToString(): price.ToString()+".00";
-            this.ItemQuantity_Label.Text = item.Cost.ToString().Contains(".")? item.Cost.ToString() + item.Quantity + "qty" : item.Cost + ".00 x " + item.Quantity + "qty";
+            this.ItemPriceAmount_Label.Text = price.ToString().Contains(".") ? price.ToString() : price.ToString() + ".00";
+            this.ItemQuantity_Label.Text = item.Cost.ToString().Contains(".") ? item.Cost.ToString() + item.Quantity + "qty" : item.Cost + ".00 x " + item.Quantity + "qty";
         }
 
         private void Delete_Button_Click(object sender, EventArgs e)

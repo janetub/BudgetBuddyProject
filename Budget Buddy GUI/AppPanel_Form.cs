@@ -38,6 +38,7 @@ namespace Budget_Buddy_GUI
         {
             CreateBudgetActivity_Control createBudgetActivityControl = new CreateBudgetActivity_Control(true, budget);
             createBudgetActivityControl.OnActivityEntered += ActivityEntryPlaceholder_ActivityEntryAdded;
+
             this.Placeholder_Panel.Controls.Add(createBudgetActivityControl);
 
             createBudgetActivityControl.Dock = DockStyle.Fill;
@@ -46,21 +47,31 @@ namespace Budget_Buddy_GUI
         private void BudgetEntriesPlaceholder_BudgetEntryAdded(object sender, EventArgs e)
         {
             CreateBudget_Control control = (CreateBudget_Control)sender;
-            budgets.Add((Budget)control.Tag);
+            this.budgets.Add((Budget)control.Tag);
             this.Placeholder_Panel.Controls.Clear();
-            Placeholder_BudgetEntries_Control placeholder_BudgetEntries_Control = new Placeholder_BudgetEntries_Control(budgets);
+            Placeholder_BudgetEntries_Control placeholder_BudgetEntries_Control = new Placeholder_BudgetEntries_Control(this.budgets);
             placeholder_BudgetEntries_Control.OnControlClicked += ShowPlaceHolder_ActivityEntries;
-            //placeholder_BudgetEntries_Control.OnControlUpdated += ;
+            placeholder_BudgetEntries_Control.OnControlUpdated += BudgetEntriesPlaceholder_Refresh;
             this.Placeholder_Panel.Controls.Add(placeholder_BudgetEntries_Control);
             this.Add_Button.Visible = true;
+        }
+
+        private void BudgetEntriesPlaceholder_Refresh(object sender, EventArgs e)
+        {
+            Placeholder_BudgetEntries_Control entry = (Placeholder_BudgetEntries_Control)sender;
+            HashSet<Budget> budgets = (HashSet<Budget>)entry.Tag;
+            this.budgets = budgets;
         }
 
         private void ShowPlaceHolder_ActivityEntries(object sender, EventArgs e)
         {
             EntryBudget_Control entry = (EntryBudget_Control)sender;
-            Placeholder_ActivityEntries_Control activitiesPlaceholder = new((Budget)entry.Tag);
+            Budget budget = (Budget)entry.Tag;
+            Placeholder_ActivityEntries_Control activitiesPlaceholder = new(budget);
+            //MessageBox.Show($"{budget.Name}");
             this.Placeholder_Panel.Controls.Clear();
             this.Placeholder_Panel.Controls.Add(activitiesPlaceholder);
+            this.Add_Button.Visible = true;
         }
 
         private void ActivityEntryPlaceholder_ActivityEntryAdded(object sender, EventArgs e)
@@ -76,9 +87,11 @@ namespace Budget_Buddy_GUI
                 this.budgets.Add(budget);
 
                 this.Placeholder_Panel.Controls.Clear();
-                this.Placeholder_Panel.Controls.Add(new Placeholder_BudgetEntries_Control(budgets));
+                this.Placeholder_Panel.Controls.Add(new Placeholder_ActivityEntries_Control(budget));
                 this.Add_Button.Visible = true;
             }
+            else
+                MessageBox.Show("Cannot create activity.");
         }
 
         private void Add_Button_Click(object sender, EventArgs e)
@@ -86,8 +99,7 @@ namespace Budget_Buddy_GUI
 
             if (this.Placeholder_Panel.Controls.Count > 0)
             {
-                var placeholderContent = this.Placeholder_Panel.Controls.OfType<Placeholder_BudgetEntries_Control>().FirstOrDefault();
-
+                var placeholderContent = this.Placeholder_Panel.Controls.OfType<System.Windows.Forms.UserControl>().FirstOrDefault();
                 if (placeholderContent is Placeholder_BudgetEntries_Control)
                 {
                     this.Placeholder_Panel.Controls.Clear();
@@ -99,9 +111,10 @@ namespace Budget_Buddy_GUI
                 {
                     this.Placeholder_Panel.Controls.Clear();
                     this.ShowCreateBudgetActivityControl((Budget)placeholderContent.Tag);
-
                     this.Add_Button.Visible = false;
                 }
+                else
+                    MessageBox.Show($"");
             }
         }
 
