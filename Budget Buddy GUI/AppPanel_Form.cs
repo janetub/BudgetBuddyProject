@@ -15,8 +15,9 @@ using Student_Financial_Assisstance;
 
 namespace Budget_Buddy_GUI
 {
+    // TODO add a dialog box w option to redirect to page of control
+    // TODO add messagebox when creation is not processed or maximum amount is exceeded
     public partial class AppPanel_Form : Form
-    // add a dialog box w option to redirect to page of control
     {
         private HashSet<Budget> budgets = new HashSet<Budget>();
         private Budget? activeBudget = null;

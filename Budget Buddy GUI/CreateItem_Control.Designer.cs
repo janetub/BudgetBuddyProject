@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateItem_Control));
             AddItem_Button = new Button();
             CreateBudgetInputFields_TableLayoutPanel = new TableLayoutPanel();
-            Tags_ComboBox = new Krypton.Toolkit.KryptonComboBox();
             Tags_Label = new Krypton.Toolkit.KryptonLabel();
             Price_Label = new Krypton.Toolkit.KryptonLabel();
             Name_Label = new Krypton.Toolkit.KryptonLabel();
@@ -39,9 +38,11 @@
             Price_NumUpDown = new Krypton.Toolkit.KryptonNumericUpDown();
             Quantity_Label = new Krypton.Toolkit.KryptonLabel();
             Quantity_NumUpDown = new Krypton.Toolkit.KryptonNumericUpDown();
+            Tags_ComboBox = new Krypton.Toolkit.KryptonComboBox();
             RequiredName_Label = new Krypton.Toolkit.KryptonLabel();
             RequiredPrice_Label = new Krypton.Toolkit.KryptonLabel();
             Back_Button = new Button();
+            RequiredQuantity_Label = new Krypton.Toolkit.KryptonLabel();
             CreateBudgetInputFields_TableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Tags_ComboBox).BeginInit();
             SuspendLayout();
@@ -66,7 +67,6 @@
             // 
             CreateBudgetInputFields_TableLayoutPanel.ColumnCount = 1;
             CreateBudgetInputFields_TableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Tags_ComboBox, 0, 8);
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Tags_Label, 0, 7);
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Price_Label, 0, 2);
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Name_Label, 0, 0);
@@ -74,6 +74,7 @@
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Price_NumUpDown, 0, 3);
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Quantity_Label, 0, 4);
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Quantity_NumUpDown, 0, 5);
+            CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Tags_ComboBox, 0, 8);
             CreateBudgetInputFields_TableLayoutPanel.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             CreateBudgetInputFields_TableLayoutPanel.Location = new Point(0, 0);
             CreateBudgetInputFields_TableLayoutPanel.Margin = new Padding(0);
@@ -94,33 +95,6 @@
             CreateBudgetInputFields_TableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             CreateBudgetInputFields_TableLayoutPanel.Size = new Size(360, 540);
             CreateBudgetInputFields_TableLayoutPanel.TabIndex = 2;
-            // 
-            // Tags_ComboBox
-            // 
-            Tags_ComboBox.AlwaysActive = false;
-            Tags_ComboBox.AutoCompleteMode = AutoCompleteMode.Append;
-            Tags_ComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
-            Tags_ComboBox.CornerRoundingRadius = -1F;
-            Tags_ComboBox.CueHint.Color1 = Color.DimGray;
-            Tags_ComboBox.CueHint.CueHintText = "Enter tags here";
-            Tags_ComboBox.CueHint.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Tags_ComboBox.CueHint.Padding = new Padding(0);
-            Tags_ComboBox.Cursor = Cursors.IBeam;
-            Tags_ComboBox.DropDownWidth = 121;
-            Tags_ComboBox.IntegralHeight = false;
-            Tags_ComboBox.ItemStyle = Krypton.Toolkit.ButtonStyle.Standalone;
-            Tags_ComboBox.Location = new Point(23, 405);
-            Tags_ComboBox.Name = "Tags_ComboBox";
-            Tags_ComboBox.PaletteMode = Krypton.Toolkit.PaletteMode.Office365White;
-            Tags_ComboBox.Size = new Size(314, 22);
-            Tags_ComboBox.StateActive.ComboBox.Back.Color1 = Color.WhiteSmoke;
-            Tags_ComboBox.StateCommon.ComboBox.Border.Color1 = Color.Black;
-            Tags_ComboBox.StateCommon.ComboBox.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            Tags_ComboBox.StateCommon.ComboBox.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Bottom;
-            Tags_ComboBox.StateCommon.ComboBox.Content.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Tags_ComboBox.StateCommon.ComboBox.Content.Padding = new Padding(0);
-            Tags_ComboBox.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            Tags_ComboBox.TabIndex = 4;
             // 
             // Tags_Label
             // 
@@ -242,6 +216,35 @@
             Quantity_NumUpDown.KeyDown += ValidateField_KeyDown;
             Quantity_NumUpDown.Validating += Quantity_NumUpDown_Validating;
             // 
+            // Tags_ComboBox
+            // 
+            Tags_ComboBox.AlwaysActive = false;
+            Tags_ComboBox.AutoCompleteMode = AutoCompleteMode.Append;
+            Tags_ComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+            Tags_ComboBox.CornerRoundingRadius = -1F;
+            Tags_ComboBox.CueHint.Color1 = Color.DimGray;
+            Tags_ComboBox.CueHint.CueHintText = "Enter tags here";
+            Tags_ComboBox.CueHint.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Tags_ComboBox.CueHint.Padding = new Padding(0);
+            Tags_ComboBox.Cursor = Cursors.IBeam;
+            Tags_ComboBox.DropDownWidth = 121;
+            Tags_ComboBox.IntegralHeight = false;
+            Tags_ComboBox.ItemStyle = Krypton.Toolkit.ButtonStyle.Standalone;
+            Tags_ComboBox.Location = new Point(23, 405);
+            Tags_ComboBox.MaxDropDownItems = 6;
+            Tags_ComboBox.Name = "Tags_ComboBox";
+            Tags_ComboBox.PaletteMode = Krypton.Toolkit.PaletteMode.Office365White;
+            Tags_ComboBox.Size = new Size(314, 22);
+            Tags_ComboBox.StateActive.ComboBox.Back.Color1 = Color.WhiteSmoke;
+            Tags_ComboBox.StateCommon.ComboBox.Border.Color1 = Color.Black;
+            Tags_ComboBox.StateCommon.ComboBox.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            Tags_ComboBox.StateCommon.ComboBox.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Bottom;
+            Tags_ComboBox.StateCommon.ComboBox.Content.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Tags_ComboBox.StateCommon.ComboBox.Content.Padding = new Padding(0);
+            Tags_ComboBox.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            Tags_ComboBox.TabIndex = 4;
+            Tags_ComboBox.KeyDown += Tags_ComboBox_KeyDown;
+            // 
             // RequiredName_Label
             // 
             RequiredName_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
@@ -280,12 +283,25 @@
             Back_Button.UseVisualStyleBackColor = false;
             Back_Button.Click += Back_Button_Click;
             // 
+            // RequiredQuantity_Label
+            // 
+            RequiredQuantity_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            RequiredQuantity_Label.Location = new Point(88, 272);
+            RequiredQuantity_Label.Name = "RequiredQuantity_Label";
+            RequiredQuantity_Label.Size = new Size(18, 21);
+            RequiredQuantity_Label.StateCommon.ShortText.Color1 = Color.Red;
+            RequiredQuantity_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            RequiredQuantity_Label.TabIndex = 47;
+            RequiredQuantity_Label.Values.Text = "*";
+            RequiredQuantity_Label.Visible = false;
+            // 
             // CreateItem_Control
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.White;
+            Controls.Add(RequiredQuantity_Label);
             Controls.Add(Back_Button);
             Controls.Add(RequiredPrice_Label);
             Controls.Add(RequiredName_Label);
@@ -315,5 +331,6 @@
         private Krypton.Toolkit.KryptonLabel RequiredName_Label;
         private Krypton.Toolkit.KryptonLabel RequiredPrice_Label;
         private Button Back_Button;
+        private Krypton.Toolkit.KryptonLabel RequiredQuantity_Label;
     }
 }
