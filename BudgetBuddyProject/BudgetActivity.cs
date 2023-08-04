@@ -160,7 +160,7 @@ namespace Student_Financial_Assisstance
         /// The Date to when the activity was added.
         /// </summary>
         [JsonRequired]
-        public DateTime DateAdded { get; private set; } //* butangi comment like sa above kay aron og muhover ana ang cursor, naay description mugawas, take note, identifiers sa public attributes/methods naka pascal case, camel case ang private.
+        public DateTime DateAdded { get; private set; }
 
         /// <summary>
         /// The Date to When the activity will end.
@@ -248,9 +248,16 @@ namespace Student_Financial_Assisstance
             return !this.subActivities.Contains(subActivity);
         }
 
+        /// <summary>
+        /// Transfers the amount to a savings activity.
+        /// </summary>
+        /// <param name="amount">amount to transfer</param>
+        /// <param name="activity">destination activity</param>
+        /// <returns></returns>
         public bool transferAmountToActivity(double amount, BudgetActivity activity)
         {
-            if (activity.ActivityType != BudgetActivityType.Savings || (this.Projected - this.GetSummedProjectedsItems()) < amount || (activity.Projected - activity.Actual) < amount)    
+            // should be Savings type, funds to move can be supported, and destination funds will not exceed projected if added
+            if (activity.ActivityType != BudgetActivityType.Savings || (this.Projected - this.GetSummedProjectedsItems()) < amount || (activity.Projected - activity.Actual) < amount)  
                 return false;
             Item savings = new Item($"Saved amount {amount} from activity {this.name} for {activity.name}", amount, 1);
 
@@ -262,7 +269,7 @@ namespace Student_Financial_Assisstance
         /// <summary>
         /// Helper function.
         /// Computes the actual cost of all contained items and activities.
-        /// Useful to keep track of nested activities and numerous additions and removals of items and activities.
+        /// Useful to keep track of nested activities during numerous additions and removals of items and activities.
         /// </summary>
         private void computeActual()
         {

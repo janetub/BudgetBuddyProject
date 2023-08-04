@@ -15,9 +15,9 @@ namespace Budget_Buddy_GUI
     public partial class CreateBudgetActivity_Control : UserControl
     {
         //*Content length will be limited to 100 characters (including spaces)
-        public Budget Budget { get; private set; }
         public event EventHandler OnActivityEntered;
-        public CreateBudgetActivity_Control(bool canCreateSavings, Budget budget)
+        public event EventHandler OnBackButtonClicked;
+        public CreateBudgetActivity_Control(bool canCreateSavings)
         {
             InitializeComponent();
 
@@ -30,9 +30,6 @@ namespace Budget_Buddy_GUI
                 this.ActivityType_ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
                 this.ActivityType_ComboBox.DataSource = new string[] { BudgetActivityType.Expense.ToString() };
             }
-
-            this.Budget = budget;
-
         }
 
         private void Name_TextBox_Validating(object sender, CancelEventArgs e)
@@ -105,27 +102,12 @@ namespace Budget_Buddy_GUI
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
 
-        private void Name_TextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                this.CreateActivity_Button.PerformClick();
-            }
-        }
-
-        private void ProjectedAmount_NumUpDown_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                this.CreateActivity_Button.PerformClick();
-            }
-        }
-
-        private void Description_RTextBox_KeyDown(object sender, KeyEventArgs e)
+        private void ValidateField_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -141,6 +123,10 @@ namespace Budget_Buddy_GUI
                 this.RequiredActivityType_Label.Visible = true;
                 return;
             }
+        }
+        private void Back_Button_Click(object sender, EventArgs e)
+        {
+            OnBackButtonClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

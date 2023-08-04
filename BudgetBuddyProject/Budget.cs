@@ -86,7 +86,7 @@ namespace Student_Financial_Assisstance
         /// <returns>confirmation of the addition of activity to activities</returns>
         public bool AddActivity(BudgetActivity activity)
         {
-            if(activity.ActivityType == BudgetActivityType.Expense) //** savings activity wont deduct funds from budget.
+            if(activity.ActivityType == BudgetActivityType.Expense)
             {
                 if (this.amount < activity.Projected)
                     return false;
@@ -129,8 +129,9 @@ namespace Student_Financial_Assisstance
         {
             if (activity.Projected <= activity.Actual)
                 return false;
-            this.amount += (activity.Projected - activity.Actual);
-            Item transfer = new Item("Transfer Balance To Budget", (activity.Projected - activity.Actual), 1); //** changed the data type to Item
+            double balance = activity.Projected - activity.Actual;
+            this.amount += balance;
+            Item transfer = new("Transfer Balance To Budget", balance, 1);
             activity.AddItem(transfer);
             return true;
         }

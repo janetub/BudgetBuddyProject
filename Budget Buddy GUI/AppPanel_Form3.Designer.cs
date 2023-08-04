@@ -123,7 +123,7 @@
             // 
             // Start_Button
             // 
-            Start_Button.BackColor = Color.FromArgb(255, 178, 30);
+            Start_Button.BackColor = Color.FromArgb(255, 198, 50);
             Start_Button.Dock = DockStyle.Bottom;
             Start_Button.FlatAppearance.BorderSize = 0;
             Start_Button.FlatStyle = FlatStyle.Flat;

@@ -14,7 +14,8 @@ namespace Budget_Buddy_GUI
 {
     public partial class CreateItem_Control : UserControl
     {
-        public event EventHandler<ItemEventArgs> ItemEntered;
+        public event EventHandler<ItemEventArgs> OnItemCreationConfirmed;
+        public event EventHandler<ItemEventArgs> OnBackButtonClicked;
         public CreateItem_Control()
         {
             InitializeComponent();
@@ -85,6 +86,7 @@ namespace Budget_Buddy_GUI
             if (ValidateChildren())
             {
                 // passed
+                OnItemCreationConfirmed?.Invoke(this, (ItemEventArgs)EventArgs.Empty);
             }
             else
             {
@@ -92,6 +94,11 @@ namespace Budget_Buddy_GUI
                 this.RequiredName_Label.Visible = this.RequiredPrice_Label.Visible = true;
                 return;
             }
+        }
+
+        private void Back_Button_Click(object sender, EventArgs e)
+        {
+            OnBackButtonClicked?.Invoke(this, (ItemEventArgs)EventArgs.Empty);
         }
     }
 }

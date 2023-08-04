@@ -33,7 +33,7 @@ namespace Budget_Buddy_GUI
 
         private void EntryActivity_Control_Click(object sender, EventArgs e)
         {
-            OnDeleteButtonClicked?.Invoke(this, EventArgs.Empty);
+            OnControlClicked?.Invoke(this, EventArgs.Empty);
         }
 
         private void Delete_Button_Click(object sender, EventArgs e)

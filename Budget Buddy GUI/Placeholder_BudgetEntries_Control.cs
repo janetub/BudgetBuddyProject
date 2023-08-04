@@ -45,7 +45,7 @@ namespace Budget_Buddy_GUI
                 {
                     EntryBudget_Control entry = new EntryBudget_Control(budget);
                     entry.OnDeleteButtonClicked += BudgetEntry_Deleted;
-                    entry.OnControlClicked += BudgetEntry_Clicked;
+                    entry.OnEntryClicked += BudgetEntry_Clicked;
                     BudgetEntriesPlaceHolder_TablePanel.Controls.Add(entry);
                     displayedControls.Add(entry);
                 }

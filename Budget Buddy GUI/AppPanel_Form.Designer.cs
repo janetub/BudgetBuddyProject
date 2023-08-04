@@ -35,23 +35,33 @@
             Placeholder_Panel = new Krypton.Toolkit.KryptonPanel();
             Add_Button = new RoundButton();
             Exit_Button = new Button();
+            PageName_Label = new Label();
+            AddActivityButton = new RoundButton();
+            AddItemLabel = new Label();
+            AddActivityLabel = new Label();
+            AddItemButton = new RoundButton();
+            CollapseButton = new RoundButton();
+            modalPanel = new SemiTransparentPanel();
             ((System.ComponentModel.ISupportInitialize)AppBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).BeginInit();
             SuspendLayout();
             // 
             // AppBar
             // 
-            AppBar.BackColor = Color.FromArgb(255, 178, 30);
+            AppBar.BackColor = Color.FromArgb(255, 218, 70);
             AppBar.Dock = DockStyle.Top;
             AppBar.Location = new Point(0, 0);
             AppBar.Name = "AppBar";
             AppBar.Size = new Size(360, 50);
             AppBar.TabIndex = 1;
             AppBar.TabStop = false;
+            AppBar.MouseDown += AppBar_MouseDown;
+            AppBar.MouseMove += AppBar_MouseMove;
+            AppBar.MouseUp += AppBar_MouseUp;
             // 
             // MenuButton
             // 
-            MenuButton.BackColor = Color.FromArgb(255, 178, 30);
+            MenuButton.BackColor = Color.FromArgb(255, 218, 70);
             MenuButton.BackgroundImage = Properties.Resources.MenuButton_Image;
             MenuButton.BackgroundImageLayout = ImageLayout.Center;
             MenuButton.FlatAppearance.BorderSize = 0;
@@ -85,9 +95,9 @@
             // 
             // Placeholder_Panel
             // 
-            Placeholder_Panel.Location = new Point(0, 50);
+            Placeholder_Panel.Location = new Point(0, 48);
             Placeholder_Panel.Name = "Placeholder_Panel";
-            Placeholder_Panel.Size = new Size(360, 590);
+            Placeholder_Panel.Size = new Size(360, 592);
             Placeholder_Panel.StateCommon.Color1 = Color.White;
             Placeholder_Panel.TabIndex = 0;
             // 
@@ -110,7 +120,7 @@
             // 
             // Exit_Button
             // 
-            Exit_Button.BackColor = Color.FromArgb(255, 178, 30);
+            Exit_Button.BackColor = Color.FromArgb(255, 218, 70);
             Exit_Button.BackgroundImage = Properties.Resources.XButton_Image;
             Exit_Button.BackgroundImageLayout = ImageLayout.Zoom;
             Exit_Button.FlatAppearance.BorderSize = 0;
@@ -122,6 +132,110 @@
             Exit_Button.UseVisualStyleBackColor = false;
             Exit_Button.Click += Exit_Button_Click;
             // 
+            // PageName_Label
+            // 
+            PageName_Label.Anchor = AnchorStyles.None;
+            PageName_Label.AutoSize = true;
+            PageName_Label.BackColor = Color.FromArgb(255, 218, 70);
+            PageName_Label.Font = new Font("Segoe UI Semibold", 13.25F, FontStyle.Bold, GraphicsUnit.Point);
+            PageName_Label.ForeColor = Color.Black;
+            PageName_Label.Location = new Point(122, 14);
+            PageName_Label.Name = "PageName_Label";
+            PageName_Label.Size = new Size(126, 25);
+            PageName_Label.TabIndex = 0;
+            PageName_Label.Text = "BudgetBuddy";
+            PageName_Label.TextAlign = ContentAlignment.MiddleCenter;
+            PageName_Label.SizeChanged += PageName_Label_SizeChanged;
+            // 
+            // AddActivityButton
+            // 
+            AddActivityButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            AddActivityButton.BackColor = Color.LightGray;
+            AddActivityButton.BackgroundImage = Properties.Resources.AddActivityButton1_1;
+            AddActivityButton.BackgroundImageLayout = ImageLayout.Center;
+            AddActivityButton.FlatAppearance.BorderSize = 0;
+            AddActivityButton.FlatStyle = FlatStyle.Flat;
+            AddActivityButton.ForeColor = Color.Transparent;
+            AddActivityButton.Location = new Point(276, 457);
+            AddActivityButton.Name = "AddActivityButton";
+            AddActivityButton.Size = new Size(39, 39);
+            AddActivityButton.TabIndex = 52;
+            AddActivityButton.UseVisualStyleBackColor = false;
+            AddActivityButton.Visible = false;
+            AddActivityButton.Click += AddActivityButton_Click;
+            // 
+            // AddItemLabel
+            // 
+            AddItemLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            AddItemLabel.AutoSize = true;
+            AddItemLabel.BackColor = Color.DimGray;
+            AddItemLabel.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            AddItemLabel.ForeColor = Color.White;
+            AddItemLabel.Location = new Point(206, 520);
+            AddItemLabel.Name = "AddItemLabel";
+            AddItemLabel.Size = new Size(64, 16);
+            AddItemLabel.TabIndex = 55;
+            AddItemLabel.Text = "Add item";
+            AddItemLabel.Visible = false;
+            AddItemLabel.Click += AddItemButton_Click;
+            // 
+            // AddActivityLabel
+            // 
+            AddActivityLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            AddActivityLabel.AutoSize = true;
+            AddActivityLabel.BackColor = Color.DimGray;
+            AddActivityLabel.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            AddActivityLabel.ForeColor = Color.White;
+            AddActivityLabel.Location = new Point(189, 468);
+            AddActivityLabel.Name = "AddActivityLabel";
+            AddActivityLabel.Size = new Size(81, 16);
+            AddActivityLabel.TabIndex = 54;
+            AddActivityLabel.Text = "Add activity";
+            AddActivityLabel.Visible = false;
+            AddActivityLabel.Click += AddActivityButton_Click;
+            // 
+            // AddItemButton
+            // 
+            AddItemButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            AddItemButton.BackColor = Color.LightGray;
+            AddItemButton.BackgroundImage = Properties.Resources.AddItemButton1_1;
+            AddItemButton.BackgroundImageLayout = ImageLayout.Center;
+            AddItemButton.FlatAppearance.BorderSize = 0;
+            AddItemButton.FlatStyle = FlatStyle.Flat;
+            AddItemButton.ForeColor = Color.Transparent;
+            AddItemButton.Location = new Point(276, 506);
+            AddItemButton.Name = "AddItemButton";
+            AddItemButton.Size = new Size(39, 39);
+            AddItemButton.TabIndex = 51;
+            AddItemButton.UseVisualStyleBackColor = false;
+            AddItemButton.Visible = false;
+            AddItemButton.Click += AddItemButton_Click;
+            // 
+            // CollapseButton
+            // 
+            CollapseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            CollapseButton.BackColor = Color.LightGray;
+            CollapseButton.BackgroundImage = Properties.Resources.XButton_Image;
+            CollapseButton.BackgroundImageLayout = ImageLayout.Center;
+            CollapseButton.FlatAppearance.BorderSize = 0;
+            CollapseButton.FlatStyle = FlatStyle.Flat;
+            CollapseButton.ForeColor = Color.Transparent;
+            CollapseButton.Location = new Point(276, 561);
+            CollapseButton.Name = "CollapseButton";
+            CollapseButton.Size = new Size(49, 49);
+            CollapseButton.TabIndex = 53;
+            CollapseButton.UseVisualStyleBackColor = false;
+            CollapseButton.Visible = false;
+            CollapseButton.Click += CollapseButton_Click;
+            // 
+            // modalPanel
+            // 
+            modalPanel.Location = new Point(0, 0);
+            modalPanel.Name = "modalPanel";
+            modalPanel.Size = new Size(360, 640);
+            modalPanel.TabIndex = 57;
+            modalPanel.Visible = false;
+            // 
             // AppPanel_Form
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -129,11 +243,18 @@
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(360, 640);
+            Controls.Add(AddActivityButton);
+            Controls.Add(AddItemLabel);
+            Controls.Add(AddActivityLabel);
+            Controls.Add(AddItemButton);
+            Controls.Add(CollapseButton);
+            Controls.Add(PageName_Label);
             Controls.Add(Exit_Button);
             Controls.Add(Add_Button);
             Controls.Add(MenuButton);
             Controls.Add(AppBar);
             Controls.Add(Placeholder_Panel);
+            Controls.Add(modalPanel);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
@@ -143,6 +264,7 @@
             ((System.ComponentModel.ISupportInitialize)AppBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -154,5 +276,12 @@
         private Krypton.Toolkit.KryptonPanel Placeholder_Panel;
         private RoundButton Add_Button;
         private Button Exit_Button;
+        private Label PageName_Label;
+        private RoundButton AddActivityButton;
+        private Label AddItemLabel;
+        private Label AddActivityLabel;
+        private RoundButton AddItemButton;
+        private RoundButton CollapseButton;
+        private SemiTransparentPanel modalPanel;
     }
 }

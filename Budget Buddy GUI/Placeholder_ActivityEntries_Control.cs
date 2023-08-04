@@ -16,6 +16,9 @@ namespace Budget_Buddy_GUI
         private HashSet<EntryActivity_Control> displayedControls = new HashSet<EntryActivity_Control>();
 
         public event EventHandler OnEntriesUpdated;
+        public event EventHandler OnEditBudgetClicked;
+        public event EventHandler OnBackButtonClicked;
+        public event EventHandler OnEntryClicked;
 
         public Placeholder_ActivityEntries_Control(Budget budget)
         {
@@ -52,6 +55,7 @@ namespace Budget_Buddy_GUI
                 {
                     EntryActivity_Control act = new(activity);
                     act.OnDeleteButtonClicked += Entry_Deleted;
+                    act.OnControlClicked += Act_OnControlClicked;
                     this.ActivityEntriesPlaceHolder_TablePanel.Controls.Add(act);
                     displayedControls.Add(act);
                     OnEntriesUpdated?.Invoke(this, EventArgs.Empty);
@@ -59,6 +63,14 @@ namespace Budget_Buddy_GUI
             }
 
             NoContent_label.Visible = (this.displayedControls.Count == 0);
+        }
+
+        private void Act_OnControlClicked(object? sender, EventArgs e)
+        {
+            if(sender != null)
+            {
+                OnEntryClicked?.Invoke(sender, e);
+            }
         }
 
         public void Entry_Deleted(object sender, EventArgs e)
@@ -88,7 +100,12 @@ namespace Budget_Buddy_GUI
 
         private void Edit_Button_Click(object sender, EventArgs e)
         {
-            
+            OnEditBudgetClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void Back_Button_Click(object sender, EventArgs e)
+        {
+            OnBackButtonClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

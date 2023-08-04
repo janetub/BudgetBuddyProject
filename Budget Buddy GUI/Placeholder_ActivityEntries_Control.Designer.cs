@@ -32,6 +32,7 @@
             NoContent_label = new Label();
             ActivityEntriesPlaceHolder_TablePanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
             PlaceHolder_StatusBar_Control = new Krypton.Toolkit.KryptonPanel();
+            Back_Button = new Button();
             ActivityFundStatus_TLPanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
             Balance_Label = new Krypton.Toolkit.KryptonLabel();
             BalanceAmount_Label = new Krypton.Toolkit.KryptonLabel();
@@ -64,25 +65,40 @@
             ActivityEntriesPlaceHolder_TablePanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             ActivityEntriesPlaceHolder_TablePanel.ColumnCount = 1;
             ActivityEntriesPlaceHolder_TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            ActivityEntriesPlaceHolder_TablePanel.Location = new Point(0, 80);
+            ActivityEntriesPlaceHolder_TablePanel.Location = new Point(0, 115);
             ActivityEntriesPlaceHolder_TablePanel.Name = "ActivityEntriesPlaceHolder_TablePanel";
             ActivityEntriesPlaceHolder_TablePanel.RowCount = 2;
             ActivityEntriesPlaceHolder_TablePanel.RowStyles.Add(new RowStyle());
             ActivityEntriesPlaceHolder_TablePanel.RowStyles.Add(new RowStyle());
-            ActivityEntriesPlaceHolder_TablePanel.Size = new Size(360, 510);
+            ActivityEntriesPlaceHolder_TablePanel.Size = new Size(360, 475);
             ActivityEntriesPlaceHolder_TablePanel.StateCommon.Draw = Krypton.Toolkit.InheritBool.False;
             ActivityEntriesPlaceHolder_TablePanel.StateNormal.Color1 = Color.White;
             ActivityEntriesPlaceHolder_TablePanel.TabIndex = 5;
             // 
             // PlaceHolder_StatusBar_Control
             // 
+            PlaceHolder_StatusBar_Control.Controls.Add(Back_Button);
             PlaceHolder_StatusBar_Control.Controls.Add(ActivityFundStatus_TLPanel);
             PlaceHolder_StatusBar_Control.Controls.Add(Name_Label);
             PlaceHolder_StatusBar_Control.Location = new Point(0, 0);
             PlaceHolder_StatusBar_Control.Name = "PlaceHolder_StatusBar_Control";
-            PlaceHolder_StatusBar_Control.Size = new Size(360, 80);
+            PlaceHolder_StatusBar_Control.Size = new Size(360, 115);
             PlaceHolder_StatusBar_Control.StateCommon.Color1 = Color.Transparent;
             PlaceHolder_StatusBar_Control.TabIndex = 9;
+            // 
+            // Back_Button
+            // 
+            Back_Button.BackColor = Color.Transparent;
+            Back_Button.BackgroundImage = (Image)resources.GetObject("Back_Button.BackgroundImage");
+            Back_Button.BackgroundImageLayout = ImageLayout.Center;
+            Back_Button.FlatAppearance.BorderSize = 0;
+            Back_Button.FlatStyle = FlatStyle.Flat;
+            Back_Button.Location = new Point(12, 7);
+            Back_Button.Name = "Back_Button";
+            Back_Button.Size = new Size(31, 28);
+            Back_Button.TabIndex = 53;
+            Back_Button.UseVisualStyleBackColor = false;
+            Back_Button.Click += Back_Button_Click;
             // 
             // ActivityFundStatus_TLPanel
             // 
@@ -95,7 +111,7 @@
             ActivityFundStatus_TLPanel.Controls.Add(Balance_Label, 0, 0);
             ActivityFundStatus_TLPanel.Controls.Add(BalanceAmount_Label, 1, 0);
             ActivityFundStatus_TLPanel.Controls.Add(Edit_Button, 2, 0);
-            ActivityFundStatus_TLPanel.Location = new Point(17, 48);
+            ActivityFundStatus_TLPanel.Location = new Point(17, 80);
             ActivityFundStatus_TLPanel.Name = "ActivityFundStatus_TLPanel";
             ActivityFundStatus_TLPanel.RowCount = 1;
             ActivityFundStatus_TLPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
@@ -154,7 +170,7 @@
             Name_Label.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             Name_Label.ForeColor = Color.Black;
             Name_Label.LabelStyle = Krypton.Toolkit.LabelStyle.NormalControl;
-            Name_Label.Location = new Point(0, 0);
+            Name_Label.Location = new Point(0, 31);
             Name_Label.Name = "Name_Label";
             Name_Label.Padding = new Padding(5);
             Name_Label.Size = new Size(360, 48);
@@ -193,5 +209,6 @@
         private Krypton.Toolkit.KryptonLabel BalanceAmount_Label;
         private Krypton.Toolkit.KryptonWrapLabel Name_Label;
         private Button Edit_Button;
+        private Button Back_Button;
     }
 }

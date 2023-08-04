@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateItem_Control));
             AddItem_Button = new Button();
             CreateBudgetInputFields_TableLayoutPanel = new TableLayoutPanel();
             Tags_ComboBox = new Krypton.Toolkit.KryptonComboBox();
@@ -40,13 +41,14 @@
             Quantity_NumUpDown = new Krypton.Toolkit.KryptonNumericUpDown();
             RequiredName_Label = new Krypton.Toolkit.KryptonLabel();
             RequiredPrice_Label = new Krypton.Toolkit.KryptonLabel();
+            Back_Button = new Button();
             CreateBudgetInputFields_TableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Tags_ComboBox).BeginInit();
             SuspendLayout();
             // 
             // AddItem_Button
             // 
-            AddItem_Button.BackColor = Color.FromArgb(255, 178, 30);
+            AddItem_Button.BackColor = Color.FromArgb(255, 198, 50);
             AddItem_Button.Dock = DockStyle.Bottom;
             AddItem_Button.FlatAppearance.BorderSize = 0;
             AddItem_Button.FlatStyle = FlatStyle.Flat;
@@ -265,12 +267,26 @@
             RequiredPrice_Label.Values.Text = "*";
             RequiredPrice_Label.Visible = false;
             // 
+            // Back_Button
+            // 
+            Back_Button.BackColor = Color.Transparent;
+            Back_Button.BackgroundImage = (Image)resources.GetObject("Back_Button.BackgroundImage");
+            Back_Button.BackgroundImageLayout = ImageLayout.Center;
+            Back_Button.FlatAppearance.BorderSize = 0;
+            Back_Button.FlatStyle = FlatStyle.Flat;
+            Back_Button.Location = new Point(12, 7);
+            Back_Button.Name = "Back_Button";
+            Back_Button.Size = new Size(31, 30);
+            Back_Button.TabIndex = 46;
+            Back_Button.UseVisualStyleBackColor = false;
+            // 
             // CreateItem_Control
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.White;
+            Controls.Add(Back_Button);
             Controls.Add(RequiredPrice_Label);
             Controls.Add(RequiredName_Label);
             Controls.Add(CreateBudgetInputFields_TableLayoutPanel);
@@ -298,5 +314,6 @@
         private Krypton.Toolkit.KryptonComboBox Tags_ComboBox;
         private Krypton.Toolkit.KryptonLabel RequiredName_Label;
         private Krypton.Toolkit.KryptonLabel RequiredPrice_Label;
+        private Button Back_Button;
     }
 }

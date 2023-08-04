@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateBudget_Control));
             CreateBudgetInputFields_TableLayoutPanel = new TableLayoutPanel();
             Amount_Label = new Krypton.Toolkit.KryptonLabel();
             Name_Label = new Krypton.Toolkit.KryptonLabel();
@@ -36,6 +37,7 @@
             CreateBudgetButton = new Button();
             RequiredAmount_Label = new Krypton.Toolkit.KryptonLabel();
             RequiredName_Label = new Krypton.Toolkit.KryptonLabel();
+            Back_Button = new Button();
             CreateBudgetInputFields_TableLayoutPanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -137,7 +139,7 @@
             // 
             // CreateBudgetButton
             // 
-            CreateBudgetButton.BackColor = Color.FromArgb(255, 178, 30);
+            CreateBudgetButton.BackColor = Color.FromArgb(255, 198, 50);
             CreateBudgetButton.Dock = DockStyle.Bottom;
             CreateBudgetButton.FlatAppearance.BorderSize = 0;
             CreateBudgetButton.FlatStyle = FlatStyle.Flat;
@@ -175,10 +177,25 @@
             RequiredName_Label.Values.Text = "*";
             RequiredName_Label.Visible = false;
             // 
+            // Back_Button
+            // 
+            Back_Button.BackColor = Color.Transparent;
+            Back_Button.BackgroundImage = (Image)resources.GetObject("Back_Button.BackgroundImage");
+            Back_Button.BackgroundImageLayout = ImageLayout.Center;
+            Back_Button.FlatAppearance.BorderSize = 0;
+            Back_Button.FlatStyle = FlatStyle.Flat;
+            Back_Button.Location = new Point(12, 7);
+            Back_Button.Name = "Back_Button";
+            Back_Button.Size = new Size(31, 30);
+            Back_Button.TabIndex = 42;
+            Back_Button.UseVisualStyleBackColor = false;
+            Back_Button.Click += Back_Button_Click;
+            // 
             // CreateBudget_Control
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
+            Controls.Add(Back_Button);
             Controls.Add(RequiredAmount_Label);
             Controls.Add(RequiredName_Label);
             Controls.Add(CreateBudgetButton);
@@ -201,5 +218,6 @@
         private Krypton.Toolkit.KryptonLabel RequiredAmount_Label;
         private Krypton.Toolkit.KryptonLabel RequiredName_Label;
         private Krypton.Toolkit.KryptonNumericUpDown Amount_NumUpDown;
+        private Button Back_Button;
     }
 }

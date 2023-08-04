@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateBudgetActivity_Control));
             CreateActivity_Button = new Button();
             RequiredProjectedAmount_Label = new Krypton.Toolkit.KryptonLabel();
             RequiredName_Label = new Krypton.Toolkit.KryptonLabel();
@@ -41,13 +42,14 @@
             ProjectedAmount_Label = new Krypton.Toolkit.KryptonLabel();
             Name_Label = new Krypton.Toolkit.KryptonLabel();
             RequiredActivityType_Label = new Krypton.Toolkit.KryptonLabel();
+            Back_Button = new Button();
             CreateActivityInputFields_TableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ActivityType_ComboBox).BeginInit();
             SuspendLayout();
             // 
             // CreateActivity_Button
             // 
-            CreateActivity_Button.BackColor = Color.FromArgb(255, 178, 30);
+            CreateActivity_Button.BackColor = Color.FromArgb(255, 198, 50);
             CreateActivity_Button.Dock = DockStyle.Bottom;
             CreateActivity_Button.FlatAppearance.BorderSize = 0;
             CreateActivity_Button.FlatStyle = FlatStyle.Flat;
@@ -157,6 +159,7 @@
             ActivityType_ComboBox.StateCommon.ComboBox.Content.Padding = new Padding(0);
             ActivityType_ComboBox.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             ActivityType_ComboBox.TabIndex = 1;
+            ActivityType_ComboBox.KeyDown += ValidateField_KeyDown;
             ActivityType_ComboBox.Validating += ActivityType_ComboBox_Validating;
             // 
             // ProjectedAmount_NumUpDown
@@ -184,6 +187,7 @@
             ProjectedAmount_NumUpDown.ThousandsSeparator = true;
             ProjectedAmount_NumUpDown.UpDownButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             ProjectedAmount_NumUpDown.UseMnemonic = false;
+            ProjectedAmount_NumUpDown.KeyDown += ValidateField_KeyDown;
             // 
             // Description_Label
             // 
@@ -214,6 +218,7 @@
             Description_RTextBox.StateCommon.Content.Padding = new Padding(0);
             Description_RTextBox.TabIndex = 4;
             Description_RTextBox.Text = "";
+            Description_RTextBox.KeyDown += ValidateField_KeyDown;
             // 
             // Name_TextBox
             // 
@@ -232,6 +237,7 @@
             Name_TextBox.StateCommon.Content.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Name_TextBox.StateCommon.Content.Padding = new Padding(5);
             Name_TextBox.TabIndex = 2;
+            Name_TextBox.KeyDown += ValidateField_KeyDown;
             // 
             // ProjectedAmount_Label
             // 
@@ -269,11 +275,26 @@
             RequiredActivityType_Label.Values.Text = "*";
             RequiredActivityType_Label.Visible = false;
             // 
+            // Back_Button
+            // 
+            Back_Button.BackColor = Color.Transparent;
+            Back_Button.BackgroundImage = (Image)resources.GetObject("Back_Button.BackgroundImage");
+            Back_Button.BackgroundImageLayout = ImageLayout.Center;
+            Back_Button.FlatAppearance.BorderSize = 0;
+            Back_Button.FlatStyle = FlatStyle.Flat;
+            Back_Button.Location = new Point(12, 7);
+            Back_Button.Name = "Back_Button";
+            Back_Button.Size = new Size(31, 30);
+            Back_Button.TabIndex = 45;
+            Back_Button.UseVisualStyleBackColor = false;
+            Back_Button.Click += Back_Button_Click;
+            // 
             // CreateBudgetActivity_Control
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(Back_Button);
             Controls.Add(RequiredActivityType_Label);
             Controls.Add(RequiredName_Label);
             Controls.Add(RequiredProjectedAmount_Label);
@@ -303,5 +324,6 @@
         private Krypton.Toolkit.KryptonComboBox ActivityType_ComboBox;
         private Krypton.Toolkit.KryptonLabel ActivityType_Label;
         private Krypton.Toolkit.KryptonLabel RequiredActivityType_Label;
+        private Button Back_Button;
     }
 }

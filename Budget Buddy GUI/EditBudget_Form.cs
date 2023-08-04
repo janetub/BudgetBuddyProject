@@ -11,19 +11,38 @@ using System.Windows.Forms;
 
 namespace Budget_Buddy_GUI
 {
-    public partial class CreateBudget_Control : UserControl
+    public partial class EditBudget_Form : Form
     {
-        public event EventHandler OnBudgetCreated;
-        public event EventHandler OnBackButtonClicked;
+        private bool isDragging;
+        private Point startPoint;
+        public event EventHandler OnConfirmButtonClicked;
 
-        public CreateBudget_Control()
+        public EditBudget_Form(Budget budget)
         {
             InitializeComponent();
+            Back_Button.DialogResult = DialogResult.Cancel;
+            this.Name_TextBox.Text = budget.Name;
+            this.Amount_NumUpDown.Text = budget.Amount.ToString("F2");
         }
 
-        private void CreateBudget_Control_Load(object sender, EventArgs e)
+        private void AppBar_MouseDown(object sender, MouseEventArgs e)
         {
+            isDragging = true;
+            startPoint = new Point(e.X, e.Y);
+        }
 
+        private void AppBar_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
+        }
+
+        private void AppBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                Point p = PointToScreen(e.Location);
+                Location = new Point(p.X - startPoint.X, p.Y - startPoint.Y);
+            }
         }
 
         private void Name_TextBox_Validating(object sender, CancelEventArgs e)
@@ -73,7 +92,7 @@ namespace Budget_Buddy_GUI
             }
         }
 
-        private void CreateBudgetButton_Click(object sender, EventArgs e)
+        private void ConfirmEdit_Button_Click(object sender, EventArgs e)
         {
             try
             {
@@ -81,8 +100,8 @@ namespace Budget_Buddy_GUI
                 if (string.IsNullOrEmpty(this.Name_TextBox.Text) && (string.IsNullOrEmpty(Amount_NumUpDown.Text) || Amount_NumUpDown.Text == "0.00"))
                 {
                     MessageBox.Show("Please fill up all required fields to create a budget entry.");
-                    this.RequiredAmount_Label.Visible = true;
                     this.RequiredName_Label.Visible = true;
+                    this.RequiredAmount_Label.Visible = true;
                     return;
                 }
                 else if (string.IsNullOrEmpty(this.Name_TextBox.Text))
@@ -109,16 +128,12 @@ namespace Budget_Buddy_GUI
                 double amount = double.Parse(Amount_NumUpDown.Text);
                 Budget newBudget = new(this.Name_TextBox.Text, amount);
                 this.Tag = newBudget;
-                OnBudgetCreated?.Invoke(this, EventArgs.Empty);
+                OnConfirmButtonClicked?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-        }
-        public void CloseControl()
-        {
-            ((Form)this.TopLevelControl).Close();
         }
 
         private void Amount_NumUpDown_KeyDown(object sender, KeyEventArgs e)
@@ -126,7 +141,7 @@ namespace Budget_Buddy_GUI
 
             if (e.KeyCode == Keys.Enter)
             {
-                this.CreateBudgetButton.PerformClick();
+                this.ConfirmEdit_Button.PerformClick();
             }
         }
 
@@ -135,14 +150,9 @@ namespace Budget_Buddy_GUI
 
             if (e.KeyCode == Keys.Enter)
             {
-                this.CreateBudgetButton.PerformClick();
+                this.ConfirmEdit_Button.PerformClick();
             }
 
-        }
-
-        private void Back_Button_Click(object sender, EventArgs e)
-        {
-            OnBackButtonClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

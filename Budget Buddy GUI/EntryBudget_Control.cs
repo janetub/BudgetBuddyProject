@@ -13,7 +13,7 @@ namespace Budget_Buddy_GUI
 {
     public partial class EntryBudget_Control : UserControl
     {
-        public event EventHandler OnControlClicked;
+        public event EventHandler OnEntryClicked;
         public event EventHandler OnDeleteButtonClicked;
         public EntryBudget_Control(Budget budget)
         {
@@ -29,7 +29,7 @@ namespace Budget_Buddy_GUI
 
         private void BudgetEntry_Control_Click(object sender, EventArgs e)
         {
-            OnControlClicked?.Invoke(this, EventArgs.Empty);
+            OnEntryClicked?.Invoke(this, EventArgs.Empty);
         }
 
         private void DeleteBudget_Button_Click(object sender, EventArgs e)

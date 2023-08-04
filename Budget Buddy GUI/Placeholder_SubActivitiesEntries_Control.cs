@@ -23,13 +23,13 @@ namespace Budget_Buddy_GUI
         {
             InitializeComponent();
 
-            BudgetActivity act = new("Grocery Shopping", "Groceries for first week of April.", 1000, BudgetBuddyProject.BudgetActivityType.Expense);
-            act.AddItem(new Item("Sardines", 35, 5));
-            act.AddItem(new Item("Pancit Canton", 10, 6));
-            BudgetActivity subAct = new BudgetActivity("Dinner Ingredients", "Buy dinner ingredients from the market", 100, BudgetBuddyProject.BudgetActivityType.Expense);
-            act.AddSubActivity(subAct);
+            //BudgetActivity act = new("Grocery Shopping", "Groceries for first week of April.", 1000, BudgetBuddyProject.BudgetActivityType.Expense);
+            //act.AddItem(new Item("Sardines", 35, 5));
+            //act.AddItem(new Item("Pancit Canton", 10, 6));
+            //BudgetActivity subAct = new BudgetActivity("Dinner Ingredients", "Buy dinner ingredients from the market", 100, BudgetBuddyProject.BudgetActivityType.Expense);
+            // act.AddSubActivity(subAct);
             //MessageBox.Show(subAct.Actual.ToString());
-            this.Tag = act;
+            this.Tag = activity;
             this.Display();
             this.PlaceHolder_StatusBar_Control.Controls.Add(new StatusPanel(this));
         }
@@ -169,6 +169,11 @@ namespace Budget_Buddy_GUI
         private void button1_Click(object sender, EventArgs e)
         {
             OnEntriesUpdated?.Invoke(this, new EventArgs());
+        }
+
+        private void PlaceHolder_StatusBar_Control_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
