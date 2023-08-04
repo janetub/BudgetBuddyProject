@@ -34,6 +34,7 @@
             button1 = new Button();
             PlaceHolder_StatusBar_Control = new Krypton.Toolkit.KryptonPanel();
             Back_Button = new Button();
+            Edit_Button = new Button();
             ActivityItemEntriesPlaceHolder_TablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PlaceHolder_StatusBar_Control).BeginInit();
             SuspendLayout();
@@ -102,12 +103,29 @@
             Back_Button.Size = new Size(31, 28);
             Back_Button.TabIndex = 54;
             Back_Button.UseVisualStyleBackColor = false;
+            Back_Button.Click += Back_Button_Click;
+            // 
+            // Edit_Button
+            // 
+            Edit_Button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            Edit_Button.BackColor = Color.Transparent;
+            Edit_Button.BackgroundImage = (Image)resources.GetObject("Edit_Button.BackgroundImage");
+            Edit_Button.BackgroundImageLayout = ImageLayout.Zoom;
+            Edit_Button.FlatAppearance.BorderSize = 0;
+            Edit_Button.FlatStyle = FlatStyle.Flat;
+            Edit_Button.Location = new Point(318, 7);
+            Edit_Button.Name = "Edit_Button";
+            Edit_Button.Size = new Size(30, 26);
+            Edit_Button.TabIndex = 55;
+            Edit_Button.UseVisualStyleBackColor = false;
+            Edit_Button.Click += Edit_Button_Click;
             // 
             // Placeholder_SubActivitiesEntries_Control
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(Edit_Button);
             Controls.Add(Back_Button);
             Controls.Add(PlaceHolder_StatusBar_Control);
             Controls.Add(NoContent_label);
@@ -128,5 +146,6 @@
         private Krypton.Toolkit.KryptonPanel PlaceHolder_StatusBar_Control;
         private Button button1;
         private Button Back_Button;
+        private Button Edit_Button;
     }
 }

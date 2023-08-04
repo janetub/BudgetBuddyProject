@@ -14,8 +14,8 @@ namespace Budget_Buddy_GUI
 {
     public partial class CreateItem_Control : UserControl
     {
-        public event EventHandler<ItemEventArgs> OnItemCreationConfirmed;
-        public event EventHandler<ItemEventArgs> OnBackButtonClicked;
+        public event EventHandler? OnItemCreationConfirmed;
+        public event EventHandler? OnBackButtonClicked;
         public CreateItem_Control()
         {
             InitializeComponent();
@@ -28,14 +28,6 @@ namespace Budget_Buddy_GUI
                 MessageBox.Show("Item name is required.");
                 e.Cancel = true;
                 this.RequiredName_Label.Visible = true;
-            }
-        }
-
-        private void Name_TextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                this.AddItem_Button.PerformClick();
             }
         }
 
@@ -61,24 +53,28 @@ namespace Budget_Buddy_GUI
                 }
             }
         }
+
         private void Quantity_NumUpDown_Validating(object sender, CancelEventArgs e)
         {
-
-        }
-
-        private void Tags_ComboBox_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void Quantity_NumUpDown_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void Price_NumUpDown_KeyDown(object sender, KeyEventArgs e)
-        {
-
+            if (string.IsNullOrEmpty(Quantity_NumUpDown.Text) || Quantity_NumUpDown.Text == "0")
+            {
+                MessageBox.Show("Quantity is required.");
+                e.Cancel = true;
+                this.RequiredPrice_Label.Visible = true;
+                return;
+            }
+            if (!this.Price_NumUpDown.Text.Contains("."))
+                this.Price_NumUpDown.Text += ".00";
+            double budgetAmount;
+            if (Double.TryParse(this.Price_NumUpDown.Text, out budgetAmount))
+            {
+                if (budgetAmount > 1000000000.00)
+                {
+                    MessageBox.Show("You have reached the maximum item cost allowed in the app.");
+                    this.Price_NumUpDown = null;
+                    return;
+                }
+            }
         }
 
         private void AddItem_Button_Click(object sender, EventArgs e)
@@ -86,7 +82,7 @@ namespace Budget_Buddy_GUI
             if (ValidateChildren())
             {
                 // passed
-                OnItemCreationConfirmed?.Invoke(this, (ItemEventArgs)EventArgs.Empty);
+                OnItemCreationConfirmed?.Invoke(this, EventArgs.Empty);
             }
             else
             {
@@ -96,9 +92,17 @@ namespace Budget_Buddy_GUI
             }
         }
 
+        private void ValidateField_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.AddItem_Button.PerformClick();
+            }
+        }
+
         private void Back_Button_Click(object sender, EventArgs e)
         {
-            OnBackButtonClicked?.Invoke(this, (ItemEventArgs)EventArgs.Empty);
+            OnBackButtonClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

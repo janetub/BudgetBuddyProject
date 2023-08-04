@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace Budget_Buddy_GUI
 {
+    // TODO Content length will be limited to 100 characters (including spaces)
     public partial class CreateBudgetActivity_Control : UserControl
     {
-        //*Content length will be limited to 100 characters (including spaces)
-        public event EventHandler OnActivityEntered;
-        public event EventHandler OnBackButtonClicked;
+        public event EventHandler? OnActivityEntered;
+        public event EventHandler? OnBackButtonClicked;
         public CreateBudgetActivity_Control(bool canCreateSavings)
         {
             InitializeComponent();
@@ -60,6 +60,16 @@ namespace Budget_Buddy_GUI
                     MessageBox.Show("You have reached the maximum funds allowed in the app.");
                     this.ProjectedAmount_NumUpDown = null;
                 }
+            }
+        }
+
+        private void ActivityType_ComboBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (this.ActivityType_ComboBox == null)
+            {
+                MessageBox.Show("Activity type is required.");
+                this.RequiredActivityType_Label.Visible = true;
+                return;
             }
         }
 
@@ -112,16 +122,6 @@ namespace Budget_Buddy_GUI
             if (e.KeyCode == Keys.Enter)
             {
                 this.CreateActivity_Button.PerformClick();
-            }
-        }
-
-        private void ActivityType_ComboBox_Validating(object sender, CancelEventArgs e)
-        {
-            if (this.ActivityType_ComboBox == null)
-            {
-                MessageBox.Show("Activity type is required.");
-                this.RequiredActivityType_Label.Visible = true;
-                return;
             }
         }
         private void Back_Button_Click(object sender, EventArgs e)

@@ -11,14 +11,19 @@ using System.Windows.Forms;
 
 namespace Budget_Buddy_GUI
 {
+    // TODO item controls can be added
+
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class Placeholder_ActivityEntries_Control : UserControl
     {
         private HashSet<EntryActivity_Control> displayedControls = new HashSet<EntryActivity_Control>();
 
-        public event EventHandler OnEntriesUpdated;
-        public event EventHandler OnEditBudgetClicked;
-        public event EventHandler OnBackButtonClicked;
-        public event EventHandler OnEntryClicked;
+        public event EventHandler? OnEntriesUpdated;
+        public event EventHandler? OnEditBudgetClicked;
+        public event EventHandler? OnBackButtonClicked;
+        public event EventHandler? OnEntryClicked;
 
         public Placeholder_ActivityEntries_Control(Budget budget)
         {

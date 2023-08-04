@@ -121,7 +121,6 @@
             Tags_ComboBox.StateCommon.ComboBox.Content.Padding = new Padding(0);
             Tags_ComboBox.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             Tags_ComboBox.TabIndex = 4;
-            Tags_ComboBox.KeyDown += Tags_ComboBox_KeyDown;
             // 
             // Tags_Label
             // 
@@ -173,7 +172,7 @@
             Name_TextBox.StateCommon.Content.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Name_TextBox.StateCommon.Content.Padding = new Padding(5);
             Name_TextBox.TabIndex = 1;
-            Name_TextBox.KeyDown += Name_TextBox_KeyDown;
+            Name_TextBox.KeyDown += ValidateField_KeyDown;
             Name_TextBox.Validating += Name_TextBox_Validating;
             // 
             // Price_NumUpDown
@@ -201,7 +200,7 @@
             Price_NumUpDown.ThousandsSeparator = true;
             Price_NumUpDown.UpDownButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             Price_NumUpDown.UseMnemonic = false;
-            Price_NumUpDown.KeyDown += Price_NumUpDown_KeyDown;
+            Price_NumUpDown.KeyDown += ValidateField_KeyDown;
             Price_NumUpDown.Validating += Price_NumUpDown_Validating;
             // 
             // Quantity_Label
@@ -240,7 +239,7 @@
             Quantity_NumUpDown.UpDownButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             Quantity_NumUpDown.UseMnemonic = false;
             Quantity_NumUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            Quantity_NumUpDown.KeyDown += Quantity_NumUpDown_KeyDown;
+            Quantity_NumUpDown.KeyDown += ValidateField_KeyDown;
             Quantity_NumUpDown.Validating += Quantity_NumUpDown_Validating;
             // 
             // RequiredName_Label
@@ -279,6 +278,7 @@
             Back_Button.Size = new Size(31, 30);
             Back_Button.TabIndex = 46;
             Back_Button.UseVisualStyleBackColor = false;
+            Back_Button.Click += Back_Button_Click;
             // 
             // CreateItem_Control
             // 

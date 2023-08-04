@@ -18,7 +18,11 @@ namespace Budget_Buddy_GUI
     {
         private HashSet<UserControl> displayedControls = new HashSet<UserControl>();
 
-        public event EventHandler OnEntriesUpdated;
+        public event EventHandler? OnEntriesUpdated;
+        public event EventHandler? OnEditButtonClicked;
+        public event EventHandler? OnBackButtonClicked;
+        public event EventHandler? OnEntryClicked;
+
         public Placeholder_SubActivitiesEntries_Control(BudgetActivity activity)
         {
             InitializeComponent();
@@ -174,6 +178,16 @@ namespace Budget_Buddy_GUI
         private void PlaceHolder_StatusBar_Control_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Edit_Button_Click(object sender, EventArgs e)
+        {
+            OnEditButtonClicked?.Invoke(this, new EventArgs());
+        }
+
+        private void Back_Button_Click(object sender, EventArgs e)
+        {
+            OnBackButtonClicked?.Invoke(this, new EventArgs());
         }
     }
 }
