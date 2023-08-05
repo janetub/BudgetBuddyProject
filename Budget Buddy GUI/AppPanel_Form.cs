@@ -201,25 +201,23 @@ namespace Budget_Buddy_GUI
                 {
                     foreach (BudgetActivity a in currentDirectory.Last!.Value.SubActivities)
                     {
-                        if (a.Name == this.activeBudget!.Name)
+                        if (a.Name == activity.Name)
                         {
                             MessageBox.Show("An activity with the same name already exists.");
-                            MessageBox.Show(activity.Name);
                             return;
                         }
                     }
                     BudgetActivity currentActivity = currentDirectory.Last.Value;
                     currentActivity.SubActivities.Add(activity);
-                    MessageBox.Show(this.currentDirectory.Last!.Value.Name);
+                    ShowPlaceholder_SubActivityEntries(this.currentDirectory.Last.Value);
                 }
                 else
                 {
                     foreach (BudgetActivity a in this.activeBudget!.Activities)
                     {
-                        if (a.Name == this.activeBudget.Name)
+                        if (a.Name == activity.Name)
                         {
                             MessageBox.Show("An activity with the same name already exists.");
-                            MessageBox.Show(activity.Name);
                             return;
                         }
                     }
