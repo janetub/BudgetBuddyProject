@@ -112,56 +112,71 @@ namespace Budget_Buddy_GUI
                     }
                 }
             }
-
             NoContent_label.Visible = (this.displayedControls.Count == 0);
         }
 
-        private void ItemEntry_Deleted(object sender, EventArgs e)
+        private void ItemEntry_Deleted(object? sender, EventArgs e)
         {
-            EntryItem_Control budgetEntry = (EntryItem_Control)sender;
-            Item item = (Item)budgetEntry.Tag;
             try
             {
-                if (item != null)
+                EntryItem_Control budgetEntry = (EntryItem_Control)sender!;
+                Item item = (Item)budgetEntry.Tag;
+                try
                 {
-                    BudgetActivity act = (BudgetActivity)this.Tag;
-                    act.RemoveItem(item);
-                    this.Tag = act;
+                    if (item != null)
+                    {
+                        BudgetActivity act = (BudgetActivity)this.Tag;
+                        act.RemoveItem(item);
+                        this.Tag = act;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"An error occurred while deleting the item: {ex.Message}");
+                    MessageBox.Show($"An error occurred while deleting the item: {ex.Message}");
+                }
+                finally
+                {
+                    Display();
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred while deleting the item: {ex.Message}");
-                MessageBox.Show($"An error occurred while deleting the item: {ex.Message}");
-            }
-            finally
-            {
-                Display();
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while deleting the Item entry. Please try again.\n" + ex.Message, "Error");
             }
         }
 
-        private void ActivitytEntry_Deleted(object sender, EventArgs e)
+        private void ActivitytEntry_Deleted(object? sender, EventArgs e)
         {
-            EntryActivity_Control activityEntry = (EntryActivity_Control)sender;
-            BudgetActivity subAct = (BudgetActivity)activityEntry.Tag;
             try
             {
-                if (subAct != null)
+                EntryActivity_Control activityEntry = (EntryActivity_Control)sender!;
+                BudgetActivity subAct = (BudgetActivity)activityEntry.Tag;
+                try
                 {
-                    BudgetActivity act = (BudgetActivity)this.Tag;
-                    act.RemoveSubActivity(subAct);
-                    this.Tag = act;
-                    OnEntriesUpdated?.Invoke(this, new EventArgs());
+                    if (subAct != null)
+                    {
+                        BudgetActivity act = (BudgetActivity)this.Tag;
+                        act.RemoveSubActivity(subAct);
+                        this.Tag = act;
+                        OnEntriesUpdated?.Invoke(this, new EventArgs());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"An error occurred while deleting the sub-activity: {ex.Message}");
+                    MessageBox.Show($"An error occurred while deleting the sub-activity: {ex.Message}");
+                }
+                finally
+                {
+                    Display();
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred while deleting the sub-activity: {ex.Message}");
-                MessageBox.Show($"An error occurred while deleting the sub-activity: {ex.Message}");
-            }
-            finally
-            {
-                Display();
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while deleting the Subativity entry. Please try again.\n" + ex.Message, "Error");
             }
         }
 

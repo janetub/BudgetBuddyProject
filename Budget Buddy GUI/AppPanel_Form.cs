@@ -144,8 +144,8 @@ namespace Budget_Buddy_GUI
             try
             {
                 Placeholder_SubActivitiesEntries_Control activities = new(activity);
-                /*activities.OnBackButtonClicked += ;
-                activities.OnEditButtonClicked += ;
+                activities.OnBackButtonClicked += Refresh_SubActivityEntriesPlaceholder;
+                /*activities.OnEditButtonClicked += ;
                 activities.OnEntriesUpdated += ;
                 activities.OnEntryClicked += ;*/
                 this.Placeholder_Panel.Controls.Clear();
@@ -191,11 +191,6 @@ namespace Budget_Buddy_GUI
             }
         }
 
-        private void SubAct_OnEntriesUpdated(object? sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void Add_BudgetActivityEntry(object? sender, EventArgs e)
         {
             try
@@ -209,11 +204,13 @@ namespace Budget_Buddy_GUI
                         if (a.Name == this.activeBudget!.Name)
                         {
                             MessageBox.Show("An activity with the same name already exists.");
+                            MessageBox.Show(activity.Name);
                             return;
                         }
                     }
                     BudgetActivity currentActivity = currentDirectory.Last.Value;
                     currentActivity.SubActivities.Add(activity);
+                    MessageBox.Show(this.currentDirectory.Last!.Value.Name);
                 }
                 else
                 {
@@ -222,6 +219,7 @@ namespace Budget_Buddy_GUI
                         if (a.Name == this.activeBudget.Name)
                         {
                             MessageBox.Show("An activity with the same name already exists.");
+                            MessageBox.Show(activity.Name);
                             return;
                         }
                     }
@@ -247,7 +245,7 @@ namespace Budget_Buddy_GUI
             {
                 if (this.currentDirectory.Count > 0)
                 {
-                    ShowPlaceholder_SubActivityEntries(currentDirectory.Last!.Value);
+                    ShowPlaceholder_SubActivityEntries(this.currentDirectory.Last!.Value);
                 }
                 else
                 {
@@ -258,6 +256,50 @@ namespace Budget_Buddy_GUI
             {
                 Console.WriteLine(ex.Message);
                 MessageBox.Show("An error occurred while refreshing the Budget activities. Please try again.\n" + ex.Message, "Error");
+            }
+        }
+
+        private void Refresh_SubActivityEntriesPlaceholder(object? sender, EventArgs e)
+        {
+            try
+            {
+                // if placeholder is type create control of item and activity then remain in the currentDirectory
+                // if placeholder is type subactivities control then go to previous by removing the last of current directory
+                    // if currentdirectory count would be zero means it goes out and loads the subactivities of the active budget
+                // else generate message box
+                var placeholderContent = this.Placeholder_Panel.Controls.OfType<System.Windows.Forms.UserControl>().FirstOrDefault();
+                if(placeholderContent is CreateItem_Control || placeholderContent is CreateBudgetActivity_Control)
+                {
+                    ShowPlaceholder_SubActivityEntries(this.currentDirectory.Last!.Value);
+                }
+                else if (placeholderContent is Placeholder_SubActivitiesEntries_Control)
+                {
+                    if(this.currentDirectory.Count > 0)
+                    {
+                        this.currentDirectory.RemoveLast();
+                        if(this.currentDirectory.Count > 0)
+                        {
+                            ShowPlaceholder_SubActivityEntries(this.currentDirectory.Last!.Value);
+                        }
+                        else
+                        {
+                            ShowPlaceholder_BudgetActivityEntries(this.activeBudget!);
+                        }
+                    }
+                    else
+                    {
+                        ShowPlaceholder_BudgetActivityEntries(this.activeBudget!);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("An error occurred while redirecting to previous page. Please try again.\n", "Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while refreshing the Budget Subactivities. Please try again.\n" + ex.Message, "Error");
             }
         }
 
@@ -337,6 +379,12 @@ namespace Budget_Buddy_GUI
                 }
                 else if (placeholderContent is Placeholder_ActivityEntries_Control)
                 {
+                    this.Placeholder_Panel.Controls.Clear();
+                    this.ShowCreateBudgetActivityControl();
+                    this.Add_Button.Visible = false;
+                }
+                else if (placeholderContent is Placeholder_SubActivitiesEntries_Control) // TODO do not show add activity button if activity is type savings
+                {
                     this.Add_Button.Visible = false;
                     this.CollapseButton.Visible = this.AddItemButton.Visible = this.AddActivityButton.Visible = this.AddActivityLabel.Visible = this.AddItemLabel.Visible = true;
                     this.CollapseButton.BringToFront();
@@ -350,9 +398,29 @@ namespace Budget_Buddy_GUI
             }
         }
 
-        private void Exit_Button_Click(object? sender, EventArgs e)
+        private void CollapseButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.AddActivityButton.Visible = this.AddItemButton.Visible = this.AddActivityLabel.Visible = this.AddItemLabel.Visible =
+                this.CollapseButton.Visible = false;
+            this.Add_Button.Visible = true;
+        }
+
+        private void AddItemButton_Click(object sender, EventArgs e)
+        {
+            this.AddActivityButton.Visible = this.AddItemButton.Visible = this.AddActivityLabel.Visible = this.AddItemLabel.Visible =
+                this.CollapseButton.Visible = false;
+            this.Add_Button.Visible = false;
+            this.Placeholder_Panel.Controls.Clear();
+            this.ShowCreateItemControl();
+        }
+
+        private void AddActivityButton_Click(object sender, EventArgs e)
+        {
+            this.AddActivityButton.Visible = this.AddItemButton.Visible = this.AddActivityLabel.Visible = this.AddItemLabel.Visible =
+                this.CollapseButton.Visible = false;
+            this.Add_Button.Visible = false;
+            this.Placeholder_Panel.Controls.Clear();
+            this.ShowCreateBudgetActivityControl();
         }
 
         private void MenuButton_Click(object? sender, EventArgs e)
@@ -388,29 +456,9 @@ namespace Budget_Buddy_GUI
             PageName_Label.Left = (this.ClientSize.Width - PageName_Label.Size.Width) / 2;
         }
 
-        private void CollapseButton_Click(object sender, EventArgs e)
+        private void Exit_Button_Click(object? sender, EventArgs e)
         {
-            this.AddActivityButton.Visible = this.AddItemButton.Visible = this.AddActivityLabel.Visible = this.AddItemLabel.Visible =
-                this.CollapseButton.Visible = false;
-            this.Add_Button.Visible = true;
-        }
-
-        private void AddItemButton_Click(object sender, EventArgs e)
-        {
-            this.AddActivityButton.Visible = this.AddItemButton.Visible = this.AddActivityLabel.Visible = this.AddItemLabel.Visible =
-                this.CollapseButton.Visible = false;
-            this.Add_Button.Visible = false;
-            this.Placeholder_Panel.Controls.Clear();
-            this.ShowCreateItemControl();
-        }
-
-        private void AddActivityButton_Click(object sender, EventArgs e)
-        {
-            this.AddActivityButton.Visible = this.AddItemButton.Visible = this.AddActivityLabel.Visible = this.AddItemLabel.Visible =
-                this.CollapseButton.Visible = false;
-            this.Add_Button.Visible = false;
-            this.Placeholder_Panel.Controls.Clear();
-            this.ShowCreateBudgetActivityControl();
+            this.Close();
         }
 
         /*private void BudgetEntry_BudgetClicked(object sender, EventArgs e)

@@ -89,7 +89,7 @@ namespace Budget_Buddy_GUI
             if (e.KeyCode == Keys.Enter)
             {
                 string tag = Tags_ComboBox.Text;
-                if (!Tags_ComboBox.Items.Contains(tag))
+                if (!string.IsNullOrWhiteSpace(tag) && !Tags_ComboBox.Items.Contains(tag))
                 {
                     Tags_ComboBox.Items.Add(tag);
                 }
@@ -128,9 +128,9 @@ namespace Budget_Buddy_GUI
                 }
                 double amount = double.Parse(Price_NumUpDown.Text);
                 Item newItem = new(this.Name_TextBox.Text, amount, qty);
-                if(Tags_ComboBox.Items.Count > 0)
+                if (Tags_ComboBox.Items.Count > 0)
                 {
-                    foreach(string t in  Tags_ComboBox.Items)
+                    foreach (string t in Tags_ComboBox.Items)
                     {
                         newItem.AddTag(t);
                     }
