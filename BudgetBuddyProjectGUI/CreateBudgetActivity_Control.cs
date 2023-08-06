@@ -79,27 +79,27 @@ namespace Budget_Buddy_GUI
             {
                 if (this.ActivityType_ComboBox == null)
                 {
-                    MessageBox.Show("Activity type is required.");
                     this.RequiredActivityType_Label.Visible = true;
+                    MessageBox.Show("Activity type is required.");
                     return;
                 }
                 BudgetActivityType activityType = (BudgetActivityType)Enum.Parse(typeof(BudgetActivityType), this.ActivityType_ComboBox.Text);
                 if (string.IsNullOrEmpty(this.Name_TextBox.Text) && (string.IsNullOrEmpty(ProjectedAmount_NumUpDown.Text) || ProjectedAmount_NumUpDown.Text == "0.00"))
                 {
-                    MessageBox.Show("Please fill up all required fields to create an activity entry.");
                     this.RequiredProjectedAmount_Label.Visible = this.RequiredName_Label.Visible = true;
+                    MessageBox.Show("Please fill up all required fields to create an activity entry.");
                     return;
                 }
                 if (string.IsNullOrEmpty(this.Name_TextBox.Text))
                 {
-                    MessageBox.Show("Please fill up all required fields.");
                     this.RequiredName_Label.Visible = true;
+                    MessageBox.Show("Please fill up all required fields.");
                     return;
                 }
                 if (string.IsNullOrEmpty(ProjectedAmount_NumUpDown.Text) || ProjectedAmount_NumUpDown.Text == "0.00")
                 {
+                    this.RequiredProjectedAmount_Label.Visible = true;
                     MessageBox.Show("Please fill up all required fields.");
-                    this.ProjectedAmount_NumUpDown.Visible = true;
                     return;
                 }
                 if (!this.ProjectedAmount_NumUpDown.Text.Contains("."))

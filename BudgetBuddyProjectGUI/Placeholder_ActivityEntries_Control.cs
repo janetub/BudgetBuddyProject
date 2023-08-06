@@ -12,6 +12,7 @@ using System.Windows.Forms;
 namespace Budget_Buddy_GUI
 {
     // TODO item controls can be added
+    // TODO restrictions on number of characters or digits, limit to whats visible or add ellipses
 
     /// <summary>
     /// 
@@ -38,7 +39,7 @@ namespace Budget_Buddy_GUI
             if (this.Tag != null && this.Tag is Budget)
             {
                 this.Name_Label.Text = ((Budget)Tag).Name.ToString();
-                this.BalanceAmount_Label.Text = ((Budget)Tag).Amount.ToString();
+                this.BalanceAmount_Label.Text = ((Budget)Tag).Amount.ToString("N2");
             }
         }
 
@@ -60,7 +61,6 @@ namespace Budget_Buddy_GUI
                 {
                     EntryActivity_Control act = new(activity);
                     act.OnDeleteButtonClicked += Entry_Deleted;
-                    act.OnDeleteAndTransferButtonClicked += Entry_DeletedAndTransfer;
                     act.OnControlClicked += Act_OnControlClicked;
                     this.ActivityEntriesPlaceHolder_TablePanel.Controls.Add(act);
                     displayedControls.Add(act);
@@ -73,7 +73,7 @@ namespace Budget_Buddy_GUI
 
         private void Act_OnControlClicked(object? sender, EventArgs e)
         {
-            if(sender != null)
+            if (sender != null)
             {
                 OnEntryClicked?.Invoke(sender, e);
             }
@@ -88,9 +88,16 @@ namespace Budget_Buddy_GUI
                 if (actEntry != null)
                 {
                     Budget budget = (Budget)this.Tag;
-                    if(!budget.RemoveActivity(actEntry))
+                    if (!budget.RemoveActivity(actEntry))
                     {
-                        MessageBox.Show("Please check for existing subactivity(ies) or item(s) within the activity and try again.", "Cannot Delete Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        if(actEntry.ActivityType == BudgetBuddyProject.BudgetActivityType.Savings)
+                        {
+                            MessageBox.Show("This savings have yet to reach its target amount. Please check the contributions and try again.", "Cannot Delete Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please check for remaining balance or ongoing subactivity(ies) within the activity and try again.", "Cannot Delete Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                     this.Tag = budget;
                     OnEntriesUpdated?.Invoke(this, EventArgs.Empty);
@@ -106,8 +113,8 @@ namespace Budget_Buddy_GUI
                 DisplayActivities();
             }
         }
-        
-        public void Entry_DeletedAndTransfer(object? sender, EventArgs e)
+
+        /*public void Entry_DeletedAndTransfer(object? sender, EventArgs e)
         {
             try
             {
@@ -116,9 +123,9 @@ namespace Budget_Buddy_GUI
                 if (actEntry != null)
                 {
                     Budget budget = (Budget)this.Tag;
-                    if(!budget.RemoveActivity(actEntry))
+                    if (!budget.RemoveActivity(actEntry))
                     {
-                        MessageBox.Show("Please check for existing subactivity(ies) or item(s) within the activity and try again.", "Cannot Delete Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Please check for ongoing subactivity(ies) within the activity and try again.", "Cannot Delete Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     budget.AddBudgetAmount(actEntry.Projected);
                     this.Tag = budget;
@@ -134,7 +141,7 @@ namespace Budget_Buddy_GUI
             {
                 DisplayActivities();
             }
-        }
+        }*/
 
         private void Edit_Button_Click(object sender, EventArgs e)
         {

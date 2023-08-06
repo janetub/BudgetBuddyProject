@@ -19,6 +19,8 @@ namespace Budget_Buddy_GUI
     // TODO add a dialog box w option to redirect to page of control
     // TODO add messagebox when creation is not processed or maximum amount is exceeded
     // FIXME bug, sometimes after creating an entry, it does not get added || actually add a messagebox if the entry was not added or a snackbar. see classes, use the bool return of the function
+    // TODO put appropriate texts such as when inside savings, instead of add item when creating an item, put contribution
+
     public partial class AppPanel_Form : Form
     {
         private HashSet<Budget> budgets = new HashSet<Budget>();
@@ -149,7 +151,6 @@ namespace Budget_Buddy_GUI
                 // CollapseButton.performCLick() when other elements are clicked
                 activities.OnBackButtonClicked += Refresh_SubActivityEntriesPlaceholder;
                 /*activities.OnEditButtonClicked += ;
-                activities.OnEntriesUpdated += ;
                 activities.OnEntryClicked += ;*/
                 this.Placeholder_Panel.Controls.Clear();
                 this.Placeholder_Panel.Controls.Add(activities);
@@ -392,13 +393,23 @@ namespace Budget_Buddy_GUI
                 }
                 else if (placeholderContent is Placeholder_SubActivitiesEntries_Control) // TODO do not show add activity button if activity is type savings
                 {
-                    this.Add_Button.Visible = false;
-                    this.CollapseButton.Visible = this.AddItemButton.Visible = this.AddActivityButton.Visible = this.AddActivityLabel.Visible = this.AddItemLabel.Visible = true;
-                    this.CollapseButton.BringToFront();
-                    this.AddItemLabel.BringToFront();
-                    this.AddActivityButton.BringToFront();
-                    this.AddActivityLabel.BringToFront();
-                    this.AddItemButton.BringToFront();
+                    BudgetActivity act = (BudgetActivity)placeholderContent!.Tag;
+                    if (act.ActivityType == BudgetActivityType.Savings)
+                    {
+                        this.Placeholder_Panel.Controls.Clear();
+                        this.ShowCreateItemControl();
+                        this.Add_Button.Visible = false;
+                    }
+                    else if (act.ActivityType == BudgetActivityType.Expense)
+                    {
+                        this.Add_Button.Visible = false;
+                        this.CollapseButton.Visible = this.AddItemButton.Visible = this.AddActivityButton.Visible = this.AddActivityLabel.Visible = this.AddItemLabel.Visible = true;
+                        this.CollapseButton.BringToFront();
+                        this.AddItemLabel.BringToFront();
+                        this.AddActivityButton.BringToFront();
+                        this.AddActivityLabel.BringToFront();
+                        this.AddItemButton.BringToFront();
+                    }
                 }
                 else
                     MessageBox.Show($"");

@@ -1,0 +1,19 @@
+-for savings type, balance must be renamed to target.
+-put item caption on items and expense caption to BudgetActivities of type Expense
+-for savings activities, only transfer saved funds to budget once
+-details form for each type
+-check for unused attribute or method
+-write always information and confirmation dialog. add symbols
+-recursively check subactivities
+-archived or hidden for budget activities
+-record or history and archive for budgets
+-cancelled savings will be removed
+-three dot menu button
+-bug: cannot press back since the activated field continues to validate
+-disable add button in certain moments
+-auto resize textbox, with max hw, put ellipses if exceeding, make it scrollable or open a window that is scrollable
+-messagebox when savings contribution exceeds target
+
+so there are several reason why an activity cannot be deleted and i want it in a list form for user's guidance.
+- If expense-type activity: There is a remaining balance or ongoing savings in the activity or within its subactivity. User must go to options and choose transfer balance or amount back to budget funds or budget activity funds. 
+- if savings-type activity: The target amount is not yet met. User must go to options and choose cancel savings.

@@ -79,6 +79,7 @@
             // 
             PlaceHolder_StatusBar_Control.Controls.Add(Back_Button);
             PlaceHolder_StatusBar_Control.Controls.Add(ActivityFundStatus_TLPanel);
+            PlaceHolder_StatusBar_Control.Controls.Add(Edit_Button);
             PlaceHolder_StatusBar_Control.Controls.Add(Name_Label);
             PlaceHolder_StatusBar_Control.Location = new Point(0, 0);
             PlaceHolder_StatusBar_Control.Name = "PlaceHolder_StatusBar_Control";
@@ -110,7 +111,6 @@
             ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 118F));
             ActivityFundStatus_TLPanel.Controls.Add(Balance_Label, 0, 0);
             ActivityFundStatus_TLPanel.Controls.Add(BalanceAmount_Label, 1, 0);
-            ActivityFundStatus_TLPanel.Controls.Add(Edit_Button, 2, 0);
             ActivityFundStatus_TLPanel.Location = new Point(17, 80);
             ActivityFundStatus_TLPanel.Name = "ActivityFundStatus_TLPanel";
             ActivityFundStatus_TLPanel.RowCount = 1;
@@ -157,7 +157,7 @@
             Edit_Button.BackgroundImageLayout = ImageLayout.Zoom;
             Edit_Button.FlatAppearance.BorderSize = 0;
             Edit_Button.FlatStyle = FlatStyle.Flat;
-            Edit_Button.Location = new Point(293, 3);
+            Edit_Button.Location = new Point(318, 7);
             Edit_Button.Name = "Edit_Button";
             Edit_Button.Size = new Size(30, 26);
             Edit_Button.TabIndex = 43;

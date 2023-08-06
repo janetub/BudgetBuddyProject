@@ -17,7 +17,6 @@ namespace Budget_Buddy_GUI
     {
         public event EventHandler? OnControlClicked;
         public event EventHandler? OnDeleteButtonClicked;
-        public event EventHandler? OnDeleteAndTransferButtonClicked;
 
         public EntryActivity_Control(BudgetActivity activity)
         {
@@ -29,10 +28,11 @@ namespace Budget_Buddy_GUI
             if (activity.ActivityType == BudgetActivityType.Savings)
             {
                 this.BudgetActivityType_Label.Text = "Savings";
+                this.Balance_Label.Text = "Target:";
             }
             else
             {
-                this.BudgetActivityType_Label.Visible = false;
+                this.BudgetActivityType_Label.Text = "Expense";
             }
             this.Tag = activity;
         }
@@ -49,12 +49,8 @@ namespace Budget_Buddy_GUI
 
         private void Delete_Button_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Do you want to delete this budget and transfer the amount back to the budget funds?", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this budget?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
-            {
-                OnDeleteAndTransferButtonClicked?.Invoke(this, EventArgs.Empty);
-            }
-            else if (result == DialogResult.No)
             {
                 OnDeleteButtonClicked?.Invoke(this, EventArgs.Empty);
             }

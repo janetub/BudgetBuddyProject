@@ -100,8 +100,8 @@ namespace Student_Financial_Assisstance
 
         /// <summary>
         /// Removes the instance of the activity from the activities.
-        /// Allow removal if actual is zero or no activity was added.
-        /// Allow removal if projected is greater than actual total cost of the activity or if there is no remaining balance in the activity.
+        /// Allow removal if projected is greater than actual total cost of the activity or if there is no remaining balance in the activity otherwise this must be transferred to budget funds first before it can be deleted.
+        /// Savings-type activities without any contributions can be deleted
         /// </summary>
         /// <param name="activity">the activity to be removed</param>
         /// <param name="records">Holder/recorder for expenses and savings.</param>
@@ -109,12 +109,12 @@ namespace Student_Financial_Assisstance
         public bool RemoveActivity(BudgetActivity activity) // TODO savings activity might not be detected
         {
             ReadOnlyCollection<BudgetActivity> subActs = (ReadOnlyCollection<BudgetActivity>)activity.GetSubActivities();
-            foreach (BudgetActivity act in subActs)
+            foreach (BudgetActivity act in subActs) // TODO create recursive function in BudgetActivity
             {
                 if (act.Projected > activity.Actual)
                     return false;
             }
-            if (activity.Projected > activity.Actual && activity.Actual != 0 || subActs.Count > 0)
+            if (activity.Projected > activity.Actual)
                 return false;
             this.activities.Remove(activity);
             //records.AddActivity(activity)
@@ -123,6 +123,8 @@ namespace Student_Financial_Assisstance
 
         /// <summary>
         /// Transfers or moves the remaining unused money to back to budget.
+        /// If the activity is an expense, the remaining balance or unused money gets moved to the budget funds.
+        /// For expense-type activities since projected is deducted from budget funds while savings-type are not
         /// </summary>
         /// <param name="activity">activity with having a positive difference between projected and actual</param>
         /// <returns>Confimation for transfer</returns>
@@ -132,9 +134,33 @@ namespace Student_Financial_Assisstance
                 return false;
             double balance = activity.Projected - activity.Actual;
             this.amount += balance;
-            Item transfer = new("Transfer Balance To Budget", balance, 1);
+            Item transfer = new("Transfer " + (activity.ActivityType == BudgetActivityType.Savings? $"amount of {activity.Actual} " : "balance") + " to budget funds", balance, 1);
             activity.AddItem(transfer);
             return true;
+        }
+
+        /// <summary>
+        /// Deletes a savings-type activity with target amount not met.
+        /// </summary>
+        /// <param name="activity">BudgetActivity to modify.</param>
+        /// <param name="transferToFunds">If saved amount will be transferred to budget funds.</param>
+        /// <param name="removeActivity">If the savings activity will be removed from budget activities.</param>
+        /// <returns></returns>
+        public bool CancelSavings(BudgetActivity activity, bool transferToFunds)
+        {
+            if(activity.ActivityType != BudgetActivityType.Savings)
+            {
+                if (transferToFunds)
+                {
+                    this.amount += activity.Actual;
+                }
+                double balance = activity.Projected - activity.Actual;
+                Item transfer = new($"Transfer amount of {activity.Actual} to budget funds. Savings cancelled.", balance, 1);
+                activity.AddItem(transfer);
+                this.Activities.Remove(activity);
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
