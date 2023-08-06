@@ -43,7 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BudgetBuddyProject\BudgetBuddyDataProject.csproj" />
+    <ProjectReference Include="..\BudgetBuddyDataProject\BudgetBuddyDataProject.csproj" />
   </ItemGroup>
 
 </Project>
