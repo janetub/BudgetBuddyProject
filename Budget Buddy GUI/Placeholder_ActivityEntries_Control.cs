@@ -60,6 +60,7 @@ namespace Budget_Buddy_GUI
                 {
                     EntryActivity_Control act = new(activity);
                     act.OnDeleteButtonClicked += Entry_Deleted;
+                    act.OnDeleteAndTransferButtonClicked += Entry_DeletedAndTransfer;
                     act.OnControlClicked += Act_OnControlClicked;
                     this.ActivityEntriesPlaceHolder_TablePanel.Controls.Add(act);
                     displayedControls.Add(act);
@@ -78,17 +79,49 @@ namespace Budget_Buddy_GUI
             }
         }
 
-        public void Entry_Deleted(object sender, EventArgs e)
+        public void Entry_Deleted(object? sender, EventArgs e)
         {
-            EntryActivity_Control activityEntry = (EntryActivity_Control)sender;
-            BudgetActivity actEntry = (BudgetActivity)activityEntry.Tag;
             try
             {
+                EntryActivity_Control activityEntry = (EntryActivity_Control)sender!;
+                BudgetActivity actEntry = (BudgetActivity)activityEntry.Tag;
                 if (actEntry != null)
                 {
-                    BudgetActivity act = (BudgetActivity)this.Tag;
-                    act.RemoveSubActivity(actEntry);
-                    this.Tag = act;
+                    Budget budget = (Budget)this.Tag;
+                    if(!budget.RemoveActivity(actEntry))
+                    {
+                        MessageBox.Show("Please check for existing subactivity(ies) or item(s) within the activity and try again.", "Cannot Delete Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    this.Tag = budget;
+                    OnEntriesUpdated?.Invoke(this, EventArgs.Empty);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while deleting the activity: {ex.Message}");
+                MessageBox.Show($"An error occurred while deleting the activity: {ex.Message}");
+            }
+            finally
+            {
+                DisplayActivities();
+            }
+        }
+        
+        public void Entry_DeletedAndTransfer(object? sender, EventArgs e)
+        {
+            try
+            {
+                EntryActivity_Control activityEntry = (EntryActivity_Control)sender!;
+                BudgetActivity actEntry = (BudgetActivity)activityEntry.Tag;
+                if (actEntry != null)
+                {
+                    Budget budget = (Budget)this.Tag;
+                    if(!budget.RemoveActivity(actEntry))
+                    {
+                        MessageBox.Show("Please check for existing subactivity(ies) or item(s) within the activity and try again.", "Cannot Delete Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    budget.AddBudgetAmount(actEntry.Projected);
+                    this.Tag = budget;
                     OnEntriesUpdated?.Invoke(this, EventArgs.Empty);
                 }
             }

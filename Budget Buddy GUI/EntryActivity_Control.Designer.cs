@@ -36,6 +36,7 @@
             ActualBalanceAmount_Label = new Krypton.Toolkit.KryptonLabel();
             Balance_Label = new Krypton.Toolkit.KryptonLabel();
             ActivityFundStatus_TLPanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
+            BudgetActivityType_Label = new Krypton.Toolkit.KryptonLabel();
             ActivityFundStatus_TLPanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -133,21 +134,37 @@
             ActivityFundStatus_TLPanel.AutoSize = true;
             ActivityFundStatus_TLPanel.BackgroundImage = (Image)resources.GetObject("ActivityFundStatus_TLPanel.BackgroundImage");
             ActivityFundStatus_TLPanel.BackgroundImageLayout = ImageLayout.None;
-            ActivityFundStatus_TLPanel.ColumnCount = 3;
-            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 53.1120338F));
-            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 46.8879662F));
+            ActivityFundStatus_TLPanel.ColumnCount = 4;
+            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0005074F));
+            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 28.11057F));
+            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 46.888916F));
             ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 151F));
-            ActivityFundStatus_TLPanel.Controls.Add(Balance_Label, 0, 0);
-            ActivityFundStatus_TLPanel.Controls.Add(ActualBalanceAmount_Label, 1, 0);
-            ActivityFundStatus_TLPanel.Controls.Add(ProjectedBalanceAmount_Label, 2, 0);
+            ActivityFundStatus_TLPanel.Controls.Add(BudgetActivityType_Label, 0, 0);
+            ActivityFundStatus_TLPanel.Controls.Add(Balance_Label, 1, 0);
+            ActivityFundStatus_TLPanel.Controls.Add(ActualBalanceAmount_Label, 2, 0);
+            ActivityFundStatus_TLPanel.Controls.Add(ProjectedBalanceAmount_Label, 3, 0);
             ActivityFundStatus_TLPanel.Location = new Point(0, 37);
             ActivityFundStatus_TLPanel.Name = "ActivityFundStatus_TLPanel";
             ActivityFundStatus_TLPanel.RowCount = 1;
-            ActivityFundStatus_TLPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            ActivityFundStatus_TLPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             ActivityFundStatus_TLPanel.Size = new Size(393, 25);
             ActivityFundStatus_TLPanel.StateCommon.Color1 = Color.White;
             ActivityFundStatus_TLPanel.StateCommon.Color2 = Color.White;
             ActivityFundStatus_TLPanel.TabIndex = 45;
+            // 
+            // BudgetActivityType_Label
+            // 
+            BudgetActivityType_Label.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            BudgetActivityType_Label.Enabled = false;
+            BudgetActivityType_Label.Location = new Point(3, 3);
+            BudgetActivityType_Label.MaximumSize = new Size(125, 19);
+            BudgetActivityType_Label.Name = "BudgetActivityType_Label";
+            BudgetActivityType_Label.Size = new Size(54, 19);
+            BudgetActivityType_Label.StateCommon.Padding = new Padding(0, 0, -7, 3);
+            BudgetActivityType_Label.StateCommon.ShortText.Color1 = Color.Gray;
+            BudgetActivityType_Label.StateCommon.ShortText.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            BudgetActivityType_Label.TabIndex = 46;
+            BudgetActivityType_Label.Values.Text = "Type";
             // 
             // EntryActivity_Control
             // 
@@ -175,5 +192,6 @@
         private Krypton.Toolkit.KryptonLabel ActualBalanceAmount_Label;
         private Krypton.Toolkit.KryptonLabel Balance_Label;
         private Krypton.Toolkit.KryptonTableLayoutPanel ActivityFundStatus_TLPanel;
+        private Krypton.Toolkit.KryptonLabel BudgetActivityType_Label;
     }
 }

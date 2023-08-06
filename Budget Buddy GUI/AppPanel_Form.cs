@@ -11,12 +11,14 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
+using BudgetBuddyProject;
 using Student_Financial_Assisstance;
 
 namespace Budget_Buddy_GUI
 {
     // TODO add a dialog box w option to redirect to page of control
     // TODO add messagebox when creation is not processed or maximum amount is exceeded
+    // FIXME bug, sometimes after creating an entry, it does not get added || actually add a messagebox if the entry was not added or a snackbar. see classes, use the bool return of the function
     public partial class AppPanel_Form : Form
     {
         private HashSet<Budget> budgets = new HashSet<Budget>();
@@ -144,6 +146,7 @@ namespace Budget_Buddy_GUI
             try
             {
                 Placeholder_SubActivitiesEntries_Control activities = new(activity);
+                // CollapseButton.performCLick() when other elements are clicked
                 activities.OnBackButtonClicked += Refresh_SubActivityEntriesPlaceholder;
                 /*activities.OnEditButtonClicked += ;
                 activities.OnEntriesUpdated += ;
@@ -221,7 +224,12 @@ namespace Budget_Buddy_GUI
                             return;
                         }
                     }
-                    this.activeBudget!.AddActivity(activity);
+                    if (!this.activeBudget!.AddActivity(activity))
+                    {
+                        MessageBox.Show("Projected amount cannot be funded. Please check balance and try again.", "Cannot Add Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        return;
+                    }
                     ShowPlaceholder_BudgetActivityEntries(this.activeBudget);
                 }
             }
@@ -293,6 +301,7 @@ namespace Budget_Buddy_GUI
                 {
                     MessageBox.Show("An error occurred while redirecting to previous page. Please try again.\n", "Error");
                 }
+                CollapseButton.PerformClick();
             }
             catch (Exception ex)
             {

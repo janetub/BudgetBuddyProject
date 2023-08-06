@@ -233,7 +233,7 @@ namespace Student_Financial_Assisstance
 
         /// <summary>
         /// Removes the instance of subActivity from the subActivities.
-        /// Will not proceed if actual is greater than zero or is any of the involved activity is a savings type.
+        /// Will not proceed if actual is greater than zero or if any of the involved activity is a savings type.
         /// </summary>
         /// <param name="subActivity">subActivity of type-BudgetActivity to be removed.</param>
         /// <returns>boolean confirmaiton of removal</returns>

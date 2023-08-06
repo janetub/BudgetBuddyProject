@@ -96,24 +96,25 @@ namespace Student_Financial_Assisstance
             }
             this.activities.Add(activity);
             return true;
-        }
+        } 
 
         /// <summary>
         /// Removes the instance of the activity from the activities.
+        /// Allow removal if actual is zero or no activity was added.
         /// Allow removal if projected is greater than actual total cost of the activity or if there is no remaining balance in the activity.
         /// </summary>
         /// <param name="activity">the activity to be removed</param>
         /// <param name="records">Holder/recorder for expenses and savings.</param>
         /// <returns>returns confirmation if an intance of activity is in activities</returns>
-        public bool RemoveActivity(BudgetActivity activity)
+        public bool RemoveActivity(BudgetActivity activity) // TODO savings activity might not be detected
         {
-            ReadOnlyCollection<BudgetActivity> activitiesList = (ReadOnlyCollection<BudgetActivity>)activity.GetSubActivities();
-            foreach (BudgetActivity act in activitiesList)
+            ReadOnlyCollection<BudgetActivity> subActs = (ReadOnlyCollection<BudgetActivity>)activity.GetSubActivities();
+            foreach (BudgetActivity act in subActs)
             {
                 if (act.Projected > activity.Actual)
                     return false;
             }
-            if (activity.Projected > activity.Actual)
+            if (activity.Projected > activity.Actual && activity.Actual != 0 || subActs.Count > 0)
                 return false;
             this.activities.Remove(activity);
             //records.AddActivity(activity)
