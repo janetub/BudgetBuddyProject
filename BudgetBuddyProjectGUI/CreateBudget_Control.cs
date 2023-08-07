@@ -34,6 +34,13 @@ namespace Budget_Buddy_GUI
                 e.Cancel = true;
                 this.RequiredName_Label.Visible = true;
             }
+            int maxLength = 100;
+            if (Name_TextBox.Text.Length > maxLength)
+            {
+                MessageBox.Show($"Budget name must be no more than {maxLength} characters.");
+                e.Cancel = true;
+                this.RequiredName_Label.Visible = true;
+            }
         }
 
         private void Amount_NumUpDown_Validating(object sender, CancelEventArgs e)
