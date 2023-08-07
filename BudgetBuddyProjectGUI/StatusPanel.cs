@@ -17,10 +17,10 @@ namespace Budget_Buddy_GUI
         {
             InitializeComponent();
             this.Name_Label.Text = act.Name;
-            this.ActualBalanceAmount_Label.Text = act.Actual.ToString().Contains(".") ? act.Actual.ToString() : act.Actual + ".00";
-            this.ProjectedAmount_Label.Text = act.GetSummedProjectedsItems().ToString().Contains(".") ? act.GetSummedProjectedsItems().ToString() : act.GetSummedProjectedsItems() + ".00";
-            this.AllocatedAmount_Label1.Text = "/" + (act.Projected.ToString().Contains(".") ? act.Projected.ToString() : act.Projected + ".00");
-            this.AllocatedAmount_Label2.Text = "/" + (act.Projected.ToString().Contains(".") ? act.Projected.ToString() : act.Projected + ".00");
+            this.ActualBalanceAmount_Label.Text = act.Actual.ToString("N2");
+            this.ProjectedAmount_Label.Text = act.GetSummedProjectedsItems().ToString("N2");
+            this.AllocatedAmount_Label1.Text = "/" + (act.Projected.ToString("N2"));
+            this.AllocatedAmount_Label2.Text = "/" + (act.Projected.ToString("N2"));
 
             double maxBudget = act.Projected, projected = act.GetSummedProjectedsItems(), actual = act.Actual;
 

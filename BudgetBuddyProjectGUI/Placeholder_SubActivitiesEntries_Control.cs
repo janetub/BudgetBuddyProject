@@ -20,6 +20,7 @@ namespace Budget_Buddy_GUI
     {
         private HashSet<UserControl> displayedControls = new HashSet<UserControl>();
 
+        public event EventHandler? OnEntriesUpdated;
         public event EventHandler? OnEditButtonClicked;
         public event EventHandler? OnBackButtonClicked;
         public event EventHandler? OnEntryClicked;
@@ -46,11 +47,15 @@ namespace Budget_Buddy_GUI
             {
                 try
                 {
-                    if (!activity.GetSubActivities().Any(a => a == (BudgetActivity)control.Tag))
+                    if(control.Tag is BudgetActivity)
                     {
-                        this.ActivityItemEntriesPlaceHolder_TablePanel.Controls.Remove(control);
-                        displayedControls.Remove(control);
-                        ReloadStatusPanel();
+                        if (!activity.GetSubActivities().Any(a => a == (BudgetActivity)control.Tag))
+                        {
+                            this.ActivityItemEntriesPlaceHolder_TablePanel.Controls.Remove(control);
+                            displayedControls.Remove(control);
+                            ReloadStatusPanel();
+                            OnEntriesUpdated?.Invoke(this, EventArgs.Empty);
+                        }
                     }
                 }
                 catch (ArgumentNullException ex)
@@ -60,11 +65,15 @@ namespace Budget_Buddy_GUI
                 }
                 try
                 {
-                    if (!activity.GetItems().Any(i => i == (Item)control.Tag))
+                    if(control.Tag is Item)
                     {
-                        this.ActivityItemEntriesPlaceHolder_TablePanel.Controls.Remove(control);
-                        displayedControls.Remove(control);
-                        ReloadStatusPanel();
+                        if (!activity.GetItems().Any(i => i == (Item)control.Tag))
+                        {
+                            this.ActivityItemEntriesPlaceHolder_TablePanel.Controls.Remove(control);
+                            displayedControls.Remove(control);
+                            ReloadStatusPanel();
+                            OnEntriesUpdated?.Invoke(this, EventArgs.Empty);
+                        }
                     }
                 }
                 catch (ArgumentNullException ex)
@@ -74,43 +83,42 @@ namespace Budget_Buddy_GUI
                 }
 
             }
-            if (this.Tag is BudgetActivity)
+            foreach (var subactivity in activity.GetSubActivities())
             {
-                foreach (var subactivity in activity.GetSubActivities())
+                try
                 {
-                    try
+                    if (!displayedControls.Any(c => c.Tag is BudgetActivity activity1 && activity1 == subactivity))
                     {
-                        if (!displayedControls.Any(c => c.Tag is BudgetActivity && (BudgetActivity)c.Tag == subactivity))
-                        {
-                            EntryActivity_Control act = new(subactivity);
-                            act.OnDeleteButtonClicked -= ActivitytEntry_Deleted;
-                            this.ActivityItemEntriesPlaceHolder_TablePanel.Controls.Add(act);
-                            displayedControls.Add(act);
-                        }
-                    }
-                    catch (ArgumentNullException ex)
-                    {
-                        Console.WriteLine($"An error occurred while displaying the item(s): {ex.Message}");
-                        MessageBox.Show($"An error occurred while displaying the item(s): {ex.Message}");
+                        EntryActivity_Control act = new(subactivity);
+                        act.OnDeleteButtonClicked += ActivitytEntry_Deleted;
+                        this.ActivityItemEntriesPlaceHolder_TablePanel.Controls.Add(act);
+                        this.ActivityItemEntriesPlaceHolder_TablePanel.Controls.SetChildIndex(act, 0);
+                        displayedControls.Add(act);
                     }
                 }
-                foreach (var item in activity.GetItems())
+                catch (ArgumentNullException ex)
                 {
-                    try
+                    Console.WriteLine($"An error occurred while displaying the item(s): {ex.Message}");
+                    MessageBox.Show($"An error occurred while displaying the item(s): {ex.Message}");
+                }
+            }
+            foreach (var item in activity.GetItems())
+            {
+                try
+                {
+                    if (!displayedControls.Any(c => c.Tag is Item item1 && item1 == item))
                     {
-                        if (!displayedControls.Any(c => c.Tag is Item && (Item)c.Tag == item))
-                        {
-                            EntryItem_Control i = new(item);
-                            i.OnDeleteButtonClicked -= ItemEntry_Deleted;
-                            this.ActivityItemEntriesPlaceHolder_TablePanel.Controls.Add(i);
-                            displayedControls.Add(i);
-                        }
+                        EntryItem_Control i = new(item);
+                        i.OnDeleteButtonClicked += ItemEntry_Deleted;
+                        this.ActivityItemEntriesPlaceHolder_TablePanel.Controls.Add(i);
+                        this.ActivityItemEntriesPlaceHolder_TablePanel.Controls.SetChildIndex(i, 0);
+                        displayedControls.Add(i);
                     }
-                    catch (ArgumentNullException ex)
-                    {
-                        Console.WriteLine($"An error occurred while displaying the sub-activities: {ex.Message}");
-                        MessageBox.Show($"An error occurred while displaying the sub-activities: {ex.Message}");
-                    }
+                }
+                catch (ArgumentNullException ex)
+                {
+                    Console.WriteLine($"An error occurred while displaying the sub-activities: {ex.Message}");
+                    MessageBox.Show($"An error occurred while displaying the sub-activities: {ex.Message}");
                 }
             }
             NoContent_label.Visible = (this.displayedControls.Count == 0);
@@ -122,29 +130,25 @@ namespace Budget_Buddy_GUI
             {
                 EntryItem_Control budgetEntry = (EntryItem_Control)sender!;
                 Item item = (Item)budgetEntry.Tag;
-                try
+                BudgetActivity act = (BudgetActivity)this.Tag;
+                MessageBox.Show($"{act.Items.Contains(item)} --{act.Items.Count} -- {displayedControls.Count}");
+                if (!act.RemoveItem(item))
                 {
-                    if (item != null)
-                    {
-                        BudgetActivity act = (BudgetActivity)this.Tag;
-                        act.RemoveItem(item);
-                        this.Tag = act;
-                    }
+                    MessageBox.Show("An error occurred while deleting the item entry. Please try again.\n", "Error");
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"An error occurred while deleting the item: {ex.Message}");
-                    MessageBox.Show($"An error occurred while deleting the item: {ex.Message}");
-                }
-                finally
-                {
-                    Display();
-                }
+                this.Tag = act;
+                ReloadStatusPanel();
+                MessageBox.Show($"{act.Items.Contains(item)} --{act.Items.Count} -- {displayedControls.Count}");
+                OnEntriesUpdated?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 MessageBox.Show("An error occurred while deleting the Item entry. Please try again.\n" + ex.Message, "Error");
+            }
+            finally
+            {
+                Display();
             }
         }
 
@@ -154,30 +158,23 @@ namespace Budget_Buddy_GUI
             {
                 EntryActivity_Control activityEntry = (EntryActivity_Control)sender!;
                 BudgetActivity subAct = (BudgetActivity)activityEntry.Tag;
-                try
+                BudgetActivity act = (BudgetActivity)this.Tag;
+                if (!act.RemoveSubActivity(subAct))
                 {
-                    if (subAct != null)
-                    {
-                        BudgetActivity act = (BudgetActivity)this.Tag;
-                        act.RemoveSubActivity(subAct);
-                        this.Tag = act;
-                        ReloadStatusPanel();
-                    }
+                    MessageBox.Show("Please check for remaining balance or ongoing subactivity(ies) within the activity and try again.", "Cannot Delete Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"An error occurred while deleting the sub-activity: {ex.Message}");
-                    MessageBox.Show($"An error occurred while deleting the sub-activity: {ex.Message}");
-                }
-                finally
-                {
-                    Display();
-                }
+                this.Tag = act;
+                ReloadStatusPanel();
+                OnEntriesUpdated?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 MessageBox.Show("An error occurred while deleting the Subativity entry. Please try again.\n" + ex.Message, "Error");
+            }
+            finally
+            {
+                Display();
             }
         }
 

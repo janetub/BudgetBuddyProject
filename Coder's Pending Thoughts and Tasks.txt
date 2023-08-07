@@ -13,6 +13,7 @@
 -disable add button in certain moments
 -auto resize textbox, with max hw, put ellipses if exceeding, make it scrollable or open a window that is scrollable
 -messagebox when savings contribution exceeds target
+-screen shrinks when scrollbar is present
 
 so there are several reason why an activity cannot be deleted and i want it in a list form for user's guidance.
 - If expense-type activity: There is a remaining balance or ongoing savings in the activity or within its subactivity. User must go to options and choose transfer balance or amount back to budget funds or budget activity funds. 

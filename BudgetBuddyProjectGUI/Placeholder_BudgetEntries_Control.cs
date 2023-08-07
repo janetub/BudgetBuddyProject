@@ -15,8 +15,8 @@ namespace Budget_Buddy_GUI
     {
         private HashSet<EntryBudget_Control> displayedControls = new HashSet<EntryBudget_Control>();
 
-        public event EventHandler OnControlClicked;
-        public event EventHandler OnControlUpdated;
+        public event EventHandler? OnControlClicked;
+        public event EventHandler? OnControlUpdated;
 
         public Placeholder_BudgetEntries_Control(HashSet<Budget> budgets)
         {
@@ -34,7 +34,6 @@ namespace Budget_Buddy_GUI
                 {
                     BudgetEntriesPlaceHolder_TablePanel.Controls.Remove(control);
                     displayedControls.Remove(control);
-
                     OnControlUpdated?.Invoke(this, EventArgs.Empty);
                 }
             }
@@ -47,29 +46,29 @@ namespace Budget_Buddy_GUI
                     entry.OnDeleteButtonClicked += BudgetEntry_Deleted;
                     entry.OnEntryClicked += BudgetEntry_Clicked;
                     BudgetEntriesPlaceHolder_TablePanel.Controls.Add(entry);
+                    BudgetEntriesPlaceHolder_TablePanel.Controls.SetChildIndex(entry, 0);
                     displayedControls.Add(entry);
+                    OnControlUpdated?.Invoke(this, EventArgs.Empty);
                 }
             }
-
             NoBudget_label.Visible = (budgets.Count == 0);
         }
 
-        private void BudgetEntry_Clicked(object sender, EventArgs e)
+        private void BudgetEntry_Clicked(object? sender, EventArgs e)
         {
             OnControlClicked?.Invoke(sender, e);
         }
 
-        private void BudgetEntry_Deleted(object sender, EventArgs e)
+        private void BudgetEntry_Deleted(object? sender, EventArgs e)
         {
-            HashSet<Budget> budgets = (HashSet<Budget>)this.Tag;
-            EntryBudget_Control budgetEntry = (EntryBudget_Control)sender;
-            Budget budget = (Budget)budgetEntry.Tag;
             try
             {
+                HashSet<Budget> budgets = (HashSet<Budget>)this.Tag;
+                EntryBudget_Control budgetEntry = (EntryBudget_Control)sender!;
+                Budget budget = (Budget)budgetEntry.Tag;
                 if (budget != null)
                 {
                     budgets.Remove(budget);
-
                 }
             }
             catch (Exception ex)

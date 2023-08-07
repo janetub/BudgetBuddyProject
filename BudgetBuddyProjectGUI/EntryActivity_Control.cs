@@ -22,9 +22,9 @@ namespace Budget_Buddy_GUI
         {
             InitializeComponent();
             double balance = activity.Projected - activity.Actual;
-            this.ActualBalanceAmount_Label.Text = balance.ToString().Contains(".") ? balance.ToString() : balance.ToString() + ".00";
+            this.ActualBalanceAmount_Label.Text = balance.ToString("N2");
             this.ActivityName_Label.Text = activity.Name;
-            this.ProjectedBalanceAmount_Label.Text = "/ " + (activity.Projected.ToString().Contains(".") ? activity.Projected.ToString() : activity.Projected.ToString() + ".00");
+            this.ProjectedBalanceAmount_Label.Text = "/ " + (activity.Projected.ToString("N2"));
             if (activity.ActivityType == BudgetActivityType.Savings)
             {
                 this.BudgetActivityType_Label.Text = "Savings";

@@ -195,8 +195,10 @@ namespace Student_Financial_Assisstance
         /// <returns>Confirmation of the addition of item</returns>
         public bool AddItem(Item item)
         {
-            if ((this.projected - this.actual) < (item.Cost * item.Quantity))
+            if((this.projected - this.GetSummedProjectedsItems()) < (item.Cost * item.Quantity))
+            {
                 return false;
+            }
             this.items.Add(item);
             this.computeActual();
             return true;
@@ -216,7 +218,8 @@ namespace Student_Financial_Assisstance
         }
 
         /// <summary>
-        /// Adds the subactivity if the available amount is not less than the cost of the activity.
+        /// Activities cannot have savings-type subactivities.
+        /// Adds the subactivity if the available balance including the projected is not less than the cost of the subactivity.
         /// </summary>
         /// <param name="subActivity">subActivity of type-BudgetActivity to be added.</param>
         /// <returns>Confirmation for the addition.</returns>
@@ -254,7 +257,7 @@ namespace Student_Financial_Assisstance
         /// <param name="amount">amount to transfer</param>
         /// <param name="activity">destination activity</param>
         /// <returns></returns>
-        public bool transferAmountToActivity(double amount, BudgetActivity activity)
+        public bool TransferAmountToSavings(double amount, BudgetActivity activity)
         {
             // should be Savings type, funds to move can be supported, and destination funds will not exceed projected if added
             if (activity.ActivityType != BudgetActivityType.Savings || (this.Projected - this.GetSummedProjectedsItems()) < amount || (activity.Projected - activity.Actual) < amount)  

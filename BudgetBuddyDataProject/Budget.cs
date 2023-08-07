@@ -140,25 +140,21 @@ namespace Student_Financial_Assisstance
         }
 
         /// <summary>
-        /// Deletes a savings-type activity with target amount not met.
+        /// If target amount is not met, the actual or saved amount of savings-type activity is moved to budget's funds.
         /// </summary>
         /// <param name="activity">BudgetActivity to modify.</param>
-        /// <param name="transferToFunds">If saved amount will be transferred to budget funds.</param>
-        /// <param name="removeActivity">If the savings activity will be removed from budget activities.</param>
-        /// <returns></returns>
-        public bool CancelSavings(BudgetActivity activity, bool transferToFunds)
+        /// <returns>Confirmation of saved amount transfer</returns>
+        public bool CancelSavings(BudgetActivity activity)
         {
             if(activity.ActivityType != BudgetActivityType.Savings)
             {
-                if (transferToFunds)
+                if (activity.Projected <= activity.Actual)
                 {
-                    this.amount += activity.Actual;
+                    double balance = activity.Projected - activity.Actual;
+                    Item transfer = new($"Transfer amount of {activity.Actual} to budget funds. Savings cancelled.", balance, 1);
+                    activity.AddItem(transfer);
+                    return true;
                 }
-                double balance = activity.Projected - activity.Actual;
-                Item transfer = new($"Transfer amount of {activity.Actual} to budget funds. Savings cancelled.", balance, 1);
-                activity.AddItem(transfer);
-                this.Activities.Remove(activity);
-                return true;
             }
             return false;
         }

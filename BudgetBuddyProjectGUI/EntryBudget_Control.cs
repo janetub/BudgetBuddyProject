@@ -19,11 +19,7 @@ namespace Budget_Buddy_GUI
         {
             InitializeComponent();
             this.BudgetName_Label.Text = budget.Name;
-            this.BudgetBalanceAmount_Label.Text = budget.Amount.ToString();
-            if (!this.BudgetBalanceAmount_Label.Text.Contains("."))
-            {
-                this.BudgetBalanceAmount_Label.Text += ".00";
-            }
+            this.BudgetBalanceAmount_Label.Text = budget.Amount.ToString("N2");
             this.Tag = budget;
         }
 

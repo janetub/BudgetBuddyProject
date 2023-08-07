@@ -63,6 +63,7 @@ namespace Budget_Buddy_GUI
                     act.OnDeleteButtonClicked += Entry_Deleted;
                     act.OnControlClicked += Act_OnControlClicked;
                     this.ActivityEntriesPlaceHolder_TablePanel.Controls.Add(act);
+                    this.ActivityEntriesPlaceHolder_TablePanel.Controls.SetChildIndex(act, 0);
                     displayedControls.Add(act);
                     OnEntriesUpdated?.Invoke(this, EventArgs.Empty);
                 }
@@ -90,7 +91,7 @@ namespace Budget_Buddy_GUI
                     Budget budget = (Budget)this.Tag;
                     if (!budget.RemoveActivity(actEntry))
                     {
-                        if(actEntry.ActivityType == BudgetBuddyProject.BudgetActivityType.Savings)
+                        if (actEntry.ActivityType == BudgetBuddyProject.BudgetActivityType.Savings)
                         {
                             MessageBox.Show("This savings have yet to reach its target amount. Please check the contributions and try again.", "Cannot Delete Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
