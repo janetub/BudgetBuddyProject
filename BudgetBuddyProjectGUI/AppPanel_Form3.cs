@@ -14,9 +14,10 @@ namespace Budget_Buddy_GUI
 {
     public partial class AppPanel_Form3 : Form
     {
-        public AppPanel_Form3()
+        public AppPanel_Form3(HashSet<Budget> budgets)
         {
             InitializeComponent();
+            this.Tag = budgets;
             //CreateBudgetActivity_Control control = new(false);
             //control.Enabled = false;
         }
@@ -28,7 +29,7 @@ namespace Budget_Buddy_GUI
 
         private void Start_Button_Click(object sender, EventArgs e)
         {
-            new AppPanel_Form(new HashSet<Budget>()).Show();
+            new AppPanel_Form((HashSet<Budget>)this.Tag).Show();
             this.Hide();
         }
     }

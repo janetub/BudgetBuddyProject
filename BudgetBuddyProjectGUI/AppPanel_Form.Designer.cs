@@ -32,7 +32,6 @@
             MenuButton = new Button();
             Amount_Label = new Krypton.Toolkit.KryptonLabel();
             Name_Label = new Krypton.Toolkit.KryptonLabel();
-            Placeholder_Panel = new Krypton.Toolkit.KryptonPanel();
             Add_Button = new RoundButton();
             Exit_Button = new Button();
             PageName_Label = new Label();
@@ -41,6 +40,7 @@
             AddActivityLabel = new Label();
             AddItemButton = new RoundButton();
             CollapseButton = new RoundButton();
+            Placeholder_Panel = new Krypton.Toolkit.KryptonPanel();
             modalPanel = new SemiTransparentPanel();
             ((System.ComponentModel.ISupportInitialize)AppBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).BeginInit();
@@ -49,7 +49,6 @@
             // AppBar
             // 
             AppBar.BackColor = Color.FromArgb(255, 218, 70);
-            AppBar.Dock = DockStyle.Top;
             AppBar.Location = new Point(0, 0);
             AppBar.Name = "AppBar";
             AppBar.Size = new Size(360, 50);
@@ -92,14 +91,6 @@
             Name_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             Name_Label.TabIndex = 31;
             Name_Label.Values.Text = "Name";
-            // 
-            // Placeholder_Panel
-            // 
-            Placeholder_Panel.Location = new Point(0, 48);
-            Placeholder_Panel.Name = "Placeholder_Panel";
-            Placeholder_Panel.Size = new Size(360, 592);
-            Placeholder_Panel.StateCommon.Color1 = Color.White;
-            Placeholder_Panel.TabIndex = 0;
             // 
             // Add_Button
             // 
@@ -146,6 +137,9 @@
             PageName_Label.Text = "BudgetBuddy";
             PageName_Label.TextAlign = ContentAlignment.MiddleCenter;
             PageName_Label.SizeChanged += PageName_Label_SizeChanged;
+            PageName_Label.MouseDown += AppBar_MouseDown;
+            PageName_Label.MouseMove += AppBar_MouseMove;
+            PageName_Label.MouseUp += AppBar_MouseUp;
             // 
             // AddActivityButton
             // 
@@ -228,6 +222,15 @@
             CollapseButton.Visible = false;
             CollapseButton.Click += CollapseButton_Click;
             // 
+            // Placeholder_Panel
+            // 
+            Placeholder_Panel.Anchor = AnchorStyles.Bottom;
+            Placeholder_Panel.Location = new Point(0, 48);
+            Placeholder_Panel.Name = "Placeholder_Panel";
+            Placeholder_Panel.Size = new Size(360, 590);
+            Placeholder_Panel.StateCommon.Color1 = Color.White;
+            Placeholder_Panel.TabIndex = 0;
+            // 
             // modalPanel
             // 
             modalPanel.Location = new Point(0, 0);
@@ -243,6 +246,7 @@
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(360, 640);
+            Controls.Add(modalPanel);
             Controls.Add(AddActivityButton);
             Controls.Add(AddItemLabel);
             Controls.Add(AddActivityLabel);
@@ -254,7 +258,6 @@
             Controls.Add(MenuButton);
             Controls.Add(AppBar);
             Controls.Add(Placeholder_Panel);
-            Controls.Add(modalPanel);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
@@ -273,7 +276,6 @@
         private Button MenuButton;
         private Krypton.Toolkit.KryptonLabel Amount_Label;
         private Krypton.Toolkit.KryptonLabel Name_Label;
-        private Krypton.Toolkit.KryptonPanel Placeholder_Panel;
         private RoundButton Add_Button;
         private Button Exit_Button;
         private Label PageName_Label;
@@ -282,6 +284,7 @@
         private Label AddActivityLabel;
         private RoundButton AddItemButton;
         private RoundButton CollapseButton;
+        private Krypton.Toolkit.KryptonPanel Placeholder_Panel;
         private SemiTransparentPanel modalPanel;
     }
 }

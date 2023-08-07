@@ -21,7 +21,9 @@ namespace Budget_Buddy_GUI
             this.ItemName_Label.Text = item.Name;
             double price = item.Cost * item.Quantity;
             this.ItemPriceAmount_Label.Text = price.ToString("N2");
-            this.ItemQuantity_Label.Text = item.Cost.ToString("N2") + item.Quantity + "qty";
+            this.ItemQuantity_Label.Text = item.Cost.ToString("N2") + "x" + item.Quantity + "qty";
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(ItemName_Label, item.Name);
             this.Tag = item;
         }
 
@@ -37,11 +39,6 @@ namespace Budget_Buddy_GUI
         private void Entry_Control_Click(object sender, EventArgs e)
         {
             OnControlClicked?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void ItemQuantity_Label_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

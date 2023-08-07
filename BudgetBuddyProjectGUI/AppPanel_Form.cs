@@ -31,8 +31,8 @@ namespace Budget_Buddy_GUI
         {
             InitializeComponent();
             this.budgets = budgets;
-            ShowPlaceholder_BudgetEntries();
             this.Add_Button.Visible = true;
+            ShowPlaceholder_BudgetEntries();
         }
 
         private void ShowCreateBudgetControl()
@@ -152,7 +152,7 @@ namespace Budget_Buddy_GUI
                         return;
                     }
                 }
-                if(!this.currentDirectory.Last!.Value.AddItem(newItem))
+                if (!this.currentDirectory.Last!.Value.AddItem(newItem))
                 {
                     MessageBox.Show("Please check your balance and try again.\n", "Not Enough Funds");
                     return;
@@ -168,10 +168,10 @@ namespace Budget_Buddy_GUI
 
         private void ShowPlaceholder_BudgetEntries()
         {
-            this.Placeholder_Panel.Controls.Clear();
             Placeholder_BudgetEntries_Control placeholder_BudgetEntries_Control = new Placeholder_BudgetEntries_Control(this.budgets);
             placeholder_BudgetEntries_Control.OnControlClicked += Open_BudgetEntry;
             placeholder_BudgetEntries_Control.OnControlUpdated += Refresh_BudgetEntriesPlaceholder;
+            this.Placeholder_Panel.Controls.Clear();
             this.Placeholder_Panel.Controls.Add(placeholder_BudgetEntries_Control);
             this.Add_Button.Visible = true;
             this.PageName_Label.Text = "Budgets";

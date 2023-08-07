@@ -36,26 +36,5 @@ namespace Budget_Buddy_GUI
                 OnDeleteButtonClicked?.Invoke(this, EventArgs.Empty);
             }
         }
-
-        private void BudgetName_Label_Click(object sender, EventArgs e)
-        {
-            this.BudgetEntry_Control_Click(sender, e);
-        }
-
-        private void BudgetFundsStatus_Panel_Click(object sender, EventArgs e)
-        {
-            this.BudgetEntry_Control_Click(sender, e);
-        }
-
-        private void Balance_Label_Click(object sender, EventArgs e)
-        {
-            this.BudgetEntry_Control_Click(sender, e);
-        }
-
-        private void BudgetBalanceAmount_Label_Click(object sender, EventArgs e)
-        {
-            this.BudgetEntry_Control_Click(sender, e);
-        }
-
     }
 }

@@ -54,6 +54,7 @@
             // 
             // NoBudget_label
             // 
+            NoBudget_label.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             NoBudget_label.AutoSize = true;
             NoBudget_label.BackColor = SystemColors.Control;
             NoBudget_label.Enabled = false;

@@ -29,47 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntryActivity_Control));
-            DeleteBudget_Button = new Button();
-            ActivityName_Label = new Krypton.Toolkit.KryptonLabel();
             Delete_Button = new Button();
             ProjectedBalanceAmount_Label = new Krypton.Toolkit.KryptonLabel();
-            ActualBalanceAmount_Label = new Krypton.Toolkit.KryptonLabel();
             Balance_Label = new Krypton.Toolkit.KryptonLabel();
             ActivityFundStatus_TLPanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
+            ActualBalanceAmount_Label = new Krypton.Toolkit.KryptonLabel();
             BudgetActivityType_Label = new Krypton.Toolkit.KryptonLabel();
+            ActivityName_Label = new Krypton.Toolkit.KryptonWrapLabel();
             ActivityFundStatus_TLPanel.SuspendLayout();
             SuspendLayout();
-            // 
-            // DeleteBudget_Button
-            // 
-            DeleteBudget_Button.BackColor = Color.Transparent;
-            DeleteBudget_Button.BackgroundImage = Properties.Resources.delete3;
-            DeleteBudget_Button.BackgroundImageLayout = ImageLayout.Center;
-            DeleteBudget_Button.Dock = DockStyle.Right;
-            DeleteBudget_Button.FlatAppearance.BorderSize = 0;
-            DeleteBudget_Button.FlatStyle = FlatStyle.Flat;
-            DeleteBudget_Button.Location = new Point(367, 0);
-            DeleteBudget_Button.Name = "DeleteBudget_Button";
-            DeleteBudget_Button.Size = new Size(26, 62);
-            DeleteBudget_Button.TabIndex = 39;
-            DeleteBudget_Button.UseVisualStyleBackColor = false;
-            // 
-            // ActivityName_Label
-            // 
-            ActivityName_Label.AutoSize = false;
-            ActivityName_Label.Enabled = false;
-            ActivityName_Label.Location = new Point(0, 0);
-            ActivityName_Label.Name = "ActivityName_Label";
-            ActivityName_Label.Size = new Size(358, 62);
-            ActivityName_Label.StateCommon.Padding = new Padding(10, 0, 30, 10);
-            ActivityName_Label.StateCommon.ShortText.Color1 = Color.Black;
-            ActivityName_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            ActivityName_Label.StateNormal.ShortText.ColorAlign = Krypton.Toolkit.PaletteRectangleAlign.Local;
-            ActivityName_Label.StateNormal.ShortText.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            ActivityName_Label.StateNormal.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            ActivityName_Label.StateNormal.ShortText.Trim = Krypton.Toolkit.PaletteTextTrim.EllipsisCharacter;
-            ActivityName_Label.TabIndex = 37;
-            ActivityName_Label.Values.Text = "Activity Name";
             // 
             // Delete_Button
             // 
@@ -79,7 +47,7 @@
             Delete_Button.BackgroundImageLayout = ImageLayout.Center;
             Delete_Button.FlatAppearance.BorderSize = 0;
             Delete_Button.FlatStyle = FlatStyle.Flat;
-            Delete_Button.Location = new Point(364, 3);
+            Delete_Button.Location = new Point(321, 3);
             Delete_Button.Name = "Delete_Button";
             Delete_Button.Size = new Size(26, 30);
             Delete_Button.TabIndex = 39;
@@ -90,35 +58,22 @@
             // 
             ProjectedBalanceAmount_Label.Anchor = AnchorStyles.Left;
             ProjectedBalanceAmount_Label.Enabled = false;
-            ProjectedBalanceAmount_Label.Location = new Point(244, 3);
-            ProjectedBalanceAmount_Label.MaximumSize = new Size(125, 19);
+            ProjectedBalanceAmount_Label.Location = new Point(217, 3);
             ProjectedBalanceAmount_Label.Name = "ProjectedBalanceAmount_Label";
-            ProjectedBalanceAmount_Label.Size = new Size(113, 19);
+            ProjectedBalanceAmount_Label.Size = new Size(130, 22);
             ProjectedBalanceAmount_Label.StateCommon.Padding = new Padding(0, 0, 0, 3);
             ProjectedBalanceAmount_Label.StateCommon.ShortText.Color1 = Color.Black;
             ProjectedBalanceAmount_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             ProjectedBalanceAmount_Label.TabIndex = 41;
-            ProjectedBalanceAmount_Label.Values.Text = "/ 000000000.00";
-            // 
-            // ActualBalanceAmount_Label
-            // 
-            ActualBalanceAmount_Label.Anchor = AnchorStyles.Right;
-            ActualBalanceAmount_Label.Enabled = false;
-            ActualBalanceAmount_Label.Location = new Point(134, 3);
-            ActualBalanceAmount_Label.MaximumSize = new Size(125, 19);
-            ActualBalanceAmount_Label.Name = "ActualBalanceAmount_Label";
-            ActualBalanceAmount_Label.Size = new Size(104, 19);
-            ActualBalanceAmount_Label.StateCommon.Padding = new Padding(0, 0, 0, 3);
-            ActualBalanceAmount_Label.StateCommon.ShortText.Color1 = Color.Black;
-            ActualBalanceAmount_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            ActualBalanceAmount_Label.TabIndex = 40;
-            ActualBalanceAmount_Label.Values.Text = "000000000.00";
+            ProjectedBalanceAmount_Label.Values.Text = "/9,999,999,999.99";
+            ProjectedBalanceAmount_Label.Click += EntryActivity_Control_Click;
             // 
             // Balance_Label
             // 
             Balance_Label.Anchor = AnchorStyles.Right;
+            Balance_Label.AutoSize = false;
             Balance_Label.Enabled = false;
-            Balance_Label.Location = new Point(66, 3);
+            Balance_Label.Location = new Point(22, 4);
             Balance_Label.MaximumSize = new Size(125, 19);
             Balance_Label.Name = "Balance_Label";
             Balance_Label.Size = new Size(59, 19);
@@ -127,54 +82,92 @@
             Balance_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Balance_Label.TabIndex = 42;
             Balance_Label.Values.Text = "Balance:";
+            Balance_Label.Click += EntryActivity_Control_Click;
             // 
             // ActivityFundStatus_TLPanel
             // 
-            ActivityFundStatus_TLPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             ActivityFundStatus_TLPanel.AutoSize = true;
             ActivityFundStatus_TLPanel.BackgroundImage = (Image)resources.GetObject("ActivityFundStatus_TLPanel.BackgroundImage");
             ActivityFundStatus_TLPanel.BackgroundImageLayout = ImageLayout.None;
             ActivityFundStatus_TLPanel.ColumnCount = 4;
-            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.0005074F));
-            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 28.11057F));
-            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 46.888916F));
-            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 151F));
+            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 7.94392538F));
+            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 31.30841F));
+            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.7476654F));
+            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 135F));
+            ActivityFundStatus_TLPanel.Controls.Add(ActualBalanceAmount_Label, 2, 0);
             ActivityFundStatus_TLPanel.Controls.Add(BudgetActivityType_Label, 0, 0);
             ActivityFundStatus_TLPanel.Controls.Add(Balance_Label, 1, 0);
-            ActivityFundStatus_TLPanel.Controls.Add(ActualBalanceAmount_Label, 2, 0);
             ActivityFundStatus_TLPanel.Controls.Add(ProjectedBalanceAmount_Label, 3, 0);
-            ActivityFundStatus_TLPanel.Location = new Point(0, 37);
+            ActivityFundStatus_TLPanel.Dock = DockStyle.Bottom;
+            ActivityFundStatus_TLPanel.Location = new Point(0, 52);
             ActivityFundStatus_TLPanel.Name = "ActivityFundStatus_TLPanel";
             ActivityFundStatus_TLPanel.RowCount = 1;
             ActivityFundStatus_TLPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            ActivityFundStatus_TLPanel.Size = new Size(393, 25);
+            ActivityFundStatus_TLPanel.Size = new Size(350, 28);
             ActivityFundStatus_TLPanel.StateCommon.Color1 = Color.White;
             ActivityFundStatus_TLPanel.StateCommon.Color2 = Color.White;
             ActivityFundStatus_TLPanel.TabIndex = 45;
+            ActivityFundStatus_TLPanel.Click += EntryActivity_Control_Click;
+            // 
+            // ActualBalanceAmount_Label
+            // 
+            ActualBalanceAmount_Label.Anchor = AnchorStyles.Right;
+            ActualBalanceAmount_Label.Enabled = false;
+            ActualBalanceAmount_Label.Location = new Point(88, 3);
+            ActualBalanceAmount_Label.Margin = new Padding(3, 3, 0, 3);
+            ActualBalanceAmount_Label.Name = "ActualBalanceAmount_Label";
+            ActualBalanceAmount_Label.Size = new Size(126, 22);
+            ActualBalanceAmount_Label.StateCommon.Padding = new Padding(0, 0, 0, 3);
+            ActualBalanceAmount_Label.StateCommon.ShortText.Color1 = Color.Black;
+            ActualBalanceAmount_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            ActualBalanceAmount_Label.TabIndex = 46;
+            ActualBalanceAmount_Label.Values.Text = "9,999,999,999.99";
+            ActualBalanceAmount_Label.Click += EntryActivity_Control_Click;
             // 
             // BudgetActivityType_Label
             // 
             BudgetActivityType_Label.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            BudgetActivityType_Label.AutoSize = false;
             BudgetActivityType_Label.Enabled = false;
-            BudgetActivityType_Label.Location = new Point(3, 3);
+            BudgetActivityType_Label.Location = new Point(3, 4);
             BudgetActivityType_Label.MaximumSize = new Size(125, 19);
             BudgetActivityType_Label.Name = "BudgetActivityType_Label";
-            BudgetActivityType_Label.Size = new Size(54, 19);
+            BudgetActivityType_Label.Size = new Size(11, 19);
             BudgetActivityType_Label.StateCommon.Padding = new Padding(0, 0, -7, 3);
             BudgetActivityType_Label.StateCommon.ShortText.Color1 = Color.Gray;
             BudgetActivityType_Label.StateCommon.ShortText.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             BudgetActivityType_Label.TabIndex = 46;
-            BudgetActivityType_Label.Values.Text = "Type";
+            BudgetActivityType_Label.Values.Text = "Expense";
+            BudgetActivityType_Label.Click += EntryActivity_Control_Click;
+            // 
+            // ActivityName_Label
+            // 
+            ActivityName_Label.AutoEllipsis = true;
+            ActivityName_Label.AutoSize = false;
+            ActivityName_Label.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            ActivityName_Label.ForeColor = Color.Black;
+            ActivityName_Label.ImageAlign = ContentAlignment.MiddleLeft;
+            ActivityName_Label.LabelStyle = Krypton.Toolkit.LabelStyle.NormalControl;
+            ActivityName_Label.Location = new Point(0, 0);
+            ActivityName_Label.Margin = new Padding(3, 0, 0, 0);
+            ActivityName_Label.Name = "ActivityName_Label";
+            ActivityName_Label.Padding = new Padding(5, 10, 0, 0);
+            ActivityName_Label.Size = new Size(315, 52);
+            ActivityName_Label.StateCommon.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            ActivityName_Label.StateCommon.TextColor = Color.Black;
+            ActivityName_Label.Text = "Content length will be limited to 100 characters (including spaces)";
+            ActivityName_Label.TextAlign = ContentAlignment.MiddleLeft;
+            ActivityName_Label.Click += EntryActivity_Control_Click;
             // 
             // EntryActivity_Control
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
+            Controls.Add(ActivityName_Label);
             Controls.Add(Delete_Button);
             Controls.Add(ActivityFundStatus_TLPanel);
-            Controls.Add(ActivityName_Label);
             Name = "EntryActivity_Control";
-            Size = new Size(393, 62);
+            Size = new Size(350, 80);
             Load += ActivityEntry_Control_Load;
             Click += EntryActivity_Control_Click;
             ActivityFundStatus_TLPanel.ResumeLayout(false);
@@ -184,14 +177,12 @@
         }
 
         #endregion
-
-        private Button DeleteBudget_Button;
-        private Krypton.Toolkit.KryptonLabel ActivityName_Label;
         private Button Delete_Button;
         private Krypton.Toolkit.KryptonLabel ProjectedBalanceAmount_Label;
-        private Krypton.Toolkit.KryptonLabel ActualBalanceAmount_Label;
         private Krypton.Toolkit.KryptonLabel Balance_Label;
         private Krypton.Toolkit.KryptonTableLayoutPanel ActivityFundStatus_TLPanel;
         private Krypton.Toolkit.KryptonLabel BudgetActivityType_Label;
+        private Krypton.Toolkit.KryptonLabel ActualBalanceAmount_Label;
+        private Krypton.Toolkit.KryptonWrapLabel ActivityName_Label;
     }
 }
