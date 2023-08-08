@@ -28,7 +28,7 @@ namespace BudgetBuddyProject
            try
             {
                 string json = File.ReadAllText(Path.Combine(RootDirectory, BudgetFileName));
-                Budgets = JsonConvert.DeserializeObject<List<Budget>>(json);
+                Budgets = JsonConvert.DeserializeObject<List<Budget>>(json)!;
             }
             catch (Exception ex)
             {

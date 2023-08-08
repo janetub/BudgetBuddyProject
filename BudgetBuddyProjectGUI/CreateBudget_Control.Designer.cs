@@ -137,11 +137,7 @@
             Amount_NumUpDown.ThousandsSeparator = true;
             Amount_NumUpDown.UpDownButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             Amount_NumUpDown.UseMnemonic = false;
-<<<<<<< HEAD
-            Amount_NumUpDown.ValueChanged += Amount_NumUpDown_VueChanged;
-=======
             Amount_NumUpDown.ValueChanged += Amount_NumUpDown_ValueChanged;
->>>>>>> b8aa3b6d3dc42edf8a35ced1607afe359bddc020
             Amount_NumUpDown.KeyDown += Amount_NumUpDown_KeyDown;
             // 
             // CreateBudgetButton

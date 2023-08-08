@@ -59,6 +59,7 @@
             // 
             // ActivityEntriesPlaceHolder_TablePanel
             // 
+            ActivityEntriesPlaceHolder_TablePanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ActivityEntriesPlaceHolder_TablePanel.AutoScroll = true;
             ActivityEntriesPlaceHolder_TablePanel.BackgroundImage = (Image)resources.GetObject("ActivityEntriesPlaceHolder_TablePanel.BackgroundImage");
             ActivityEntriesPlaceHolder_TablePanel.BackgroundImageLayout = ImageLayout.None;

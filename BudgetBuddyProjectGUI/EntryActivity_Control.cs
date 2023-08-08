@@ -55,5 +55,14 @@ namespace Budget_Buddy_GUI
                 OnDeleteButtonClicked?.Invoke(this, EventArgs.Empty);
             }
         }
+
+        private void EntryActivity_Control_SizeChanged(object sender, EventArgs e)
+        {
+            int originalControlWidth = 350;
+            int originalButtonX = 321;
+            int currentControlWidth = this.Size.Width;
+            int newButtonX = originalButtonX - (originalControlWidth - currentControlWidth);
+            this.Delete_Button.Location = new Point(newButtonX, 3);
+        }
     }
 }

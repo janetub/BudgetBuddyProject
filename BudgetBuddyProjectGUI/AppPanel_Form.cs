@@ -494,30 +494,8 @@ namespace Budget_Buddy_GUI
         }
         private void AppPanel_Form_FormClosing(object sender, FormClosingEventArgs e)
         {
-<<<<<<< HEAD
             DataBase.Budgets = this.budgets.ToList();
-=======
-            // Update the budgets in the database
-            DataBase.Budgets = this.budgets.ToList();
-
-            // Save the budgets to the file
->>>>>>> b8aa3b6d3dc42edf8a35ced1607afe359bddc020
             DataBase.SaveBudget();
         }
-
-        /*private void BudgetEntry_BudgetClicked(object sender, EventArgs e)
-        {
-            EntryBudget_Control budgetEntry = (EntryBudget_Control)sender;
-            selectedBudget = (Budget)budgetEntry.Tag;
-
-            AppPanel_Form2 form = new AppPanel_Form2(selectedBudget);
-
-            form.ShowDialog();
-
-            // Update the budget entries after the form is closed
-            budgets = form.BudgetEntries;
-            this.Placeholder_Panel.Controls.Clear();
-            this.Placeholder_Panel.Controls.Add(new PlaceholderBudgetEntries_Control(budgets));
-        }*/
     }
 }

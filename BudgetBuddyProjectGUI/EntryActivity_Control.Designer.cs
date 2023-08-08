@@ -42,12 +42,13 @@
             // Delete_Button
             // 
             Delete_Button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            Delete_Button.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Delete_Button.BackColor = Color.Transparent;
             Delete_Button.BackgroundImage = Properties.Resources.delete3;
             Delete_Button.BackgroundImageLayout = ImageLayout.Center;
             Delete_Button.FlatAppearance.BorderSize = 0;
             Delete_Button.FlatStyle = FlatStyle.Flat;
-            Delete_Button.Location = new Point(300, 3);
+            Delete_Button.Location = new Point(321, 3);
             Delete_Button.Name = "Delete_Button";
             Delete_Button.Size = new Size(26, 30);
             Delete_Button.TabIndex = 39;
@@ -58,7 +59,7 @@
             // 
             ProjectedBalanceAmount_Label.Anchor = AnchorStyles.Left;
             ProjectedBalanceAmount_Label.Enabled = false;
-            ProjectedBalanceAmount_Label.Location = new Point(213, 4);
+            ProjectedBalanceAmount_Label.Location = new Point(232, 4);
             ProjectedBalanceAmount_Label.Name = "ProjectedBalanceAmount_Label";
             ProjectedBalanceAmount_Label.Size = new Size(113, 20);
             ProjectedBalanceAmount_Label.StateCommon.Padding = new Padding(0, 0, 0, 3);
@@ -73,7 +74,7 @@
             Balance_Label.Anchor = AnchorStyles.Right;
             Balance_Label.AutoSize = false;
             Balance_Label.Enabled = false;
-            Balance_Label.Location = new Point(19, 4);
+            Balance_Label.Location = new Point(26, 4);
             Balance_Label.Name = "Balance_Label";
             Balance_Label.Size = new Size(59, 19);
             Balance_Label.StateCommon.Padding = new Padding(0, 0, -7, 3);
@@ -102,7 +103,7 @@
             ActivityFundStatus_TLPanel.Name = "ActivityFundStatus_TLPanel";
             ActivityFundStatus_TLPanel.RowCount = 1;
             ActivityFundStatus_TLPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            ActivityFundStatus_TLPanel.Size = new Size(330, 28);
+            ActivityFundStatus_TLPanel.Size = new Size(350, 28);
             ActivityFundStatus_TLPanel.StateCommon.Color1 = Color.White;
             ActivityFundStatus_TLPanel.StateCommon.Color2 = Color.White;
             ActivityFundStatus_TLPanel.TabIndex = 45;
@@ -112,7 +113,7 @@
             // 
             ActualBalanceAmount_Label.Anchor = AnchorStyles.Right;
             ActualBalanceAmount_Label.Enabled = false;
-            ActualBalanceAmount_Label.Location = new Point(84, 3);
+            ActualBalanceAmount_Label.Location = new Point(103, 3);
             ActualBalanceAmount_Label.Margin = new Padding(3, 3, 0, 3);
             ActualBalanceAmount_Label.Name = "ActualBalanceAmount_Label";
             ActualBalanceAmount_Label.Size = new Size(126, 22);
@@ -131,7 +132,7 @@
             BudgetActivityType_Label.Location = new Point(3, 4);
             BudgetActivityType_Label.MaximumSize = new Size(125, 19);
             BudgetActivityType_Label.Name = "BudgetActivityType_Label";
-            BudgetActivityType_Label.Size = new Size(10, 19);
+            BudgetActivityType_Label.Size = new Size(11, 19);
             BudgetActivityType_Label.StateCommon.Padding = new Padding(0, 0, -7, 3);
             BudgetActivityType_Label.StateCommon.ShortText.Color1 = Color.Gray;
             BudgetActivityType_Label.StateCommon.ShortText.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -160,14 +161,17 @@
             // 
             // EntryActivity_Control
             // 
-            AutoScaleMode = AutoScaleMode.None;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.White;
             Controls.Add(ActivityName_Label);
             Controls.Add(Delete_Button);
             Controls.Add(ActivityFundStatus_TLPanel);
             Name = "EntryActivity_Control";
-            Size = new Size(330, 80);
+            Size = new Size(350, 80);
             Load += ActivityEntry_Control_Load;
+            SizeChanged += EntryActivity_Control_SizeChanged;
             Click += EntryActivity_Control_Click;
             ActivityFundStatus_TLPanel.ResumeLayout(false);
             ActivityFundStatus_TLPanel.PerformLayout();

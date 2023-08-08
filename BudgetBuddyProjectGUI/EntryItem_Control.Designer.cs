@@ -61,7 +61,7 @@
             ItemDetails_TLPanel.Padding = new Padding(0, 0, 0, 3);
             ItemDetails_TLPanel.RowCount = 1;
             ItemDetails_TLPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            ItemDetails_TLPanel.Size = new Size(330, 28);
+            ItemDetails_TLPanel.Size = new Size(350, 28);
             ItemDetails_TLPanel.StateCommon.Color1 = Color.White;
             ItemDetails_TLPanel.StateCommon.Color2 = Color.White;
             ItemDetails_TLPanel.TabIndex = 47;
@@ -74,7 +74,7 @@
             BudgetActivityType_Label.Location = new Point(3, 3);
             BudgetActivityType_Label.MaximumSize = new Size(125, 19);
             BudgetActivityType_Label.Name = "BudgetActivityType_Label";
-            BudgetActivityType_Label.Size = new Size(27, 19);
+            BudgetActivityType_Label.Size = new Size(30, 19);
             BudgetActivityType_Label.StateCommon.Padding = new Padding(0, 0, -7, 3);
             BudgetActivityType_Label.StateCommon.ShortText.Color1 = Color.Gray;
             BudgetActivityType_Label.StateCommon.ShortText.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -87,7 +87,7 @@
             ItemQuantity_Label.Anchor = AnchorStyles.Left;
             ItemQuantity_Label.AutoSize = false;
             ItemQuantity_Label.Enabled = false;
-            ItemQuantity_Label.Location = new Point(213, 3);
+            ItemQuantity_Label.Location = new Point(232, 3);
             ItemQuantity_Label.Name = "ItemQuantity_Label";
             ItemQuantity_Label.Size = new Size(114, 18);
             ItemQuantity_Label.StateCommon.Padding = new Padding(0, 0, -7, 3);
@@ -101,7 +101,7 @@
             // 
             ItemPrice_Label.Anchor = AnchorStyles.Right;
             ItemPrice_Label.Enabled = false;
-            ItemPrice_Label.Location = new Point(36, 3);
+            ItemPrice_Label.Location = new Point(43, 3);
             ItemPrice_Label.MaximumSize = new Size(125, 19);
             ItemPrice_Label.Name = "ItemPrice_Label";
             ItemPrice_Label.Size = new Size(42, 19);
@@ -116,7 +116,7 @@
             // 
             ItemPriceAmount_Label.Anchor = AnchorStyles.Right;
             ItemPriceAmount_Label.Enabled = false;
-            ItemPriceAmount_Label.Location = new Point(84, 3);
+            ItemPriceAmount_Label.Location = new Point(103, 3);
             ItemPriceAmount_Label.Margin = new Padding(3, 3, 0, 3);
             ItemPriceAmount_Label.Name = "ItemPriceAmount_Label";
             ItemPriceAmount_Label.Size = new Size(126, 19);
@@ -135,7 +135,7 @@
             Delete_Button.BackgroundImageLayout = ImageLayout.Center;
             Delete_Button.FlatAppearance.BorderSize = 0;
             Delete_Button.FlatStyle = FlatStyle.Flat;
-            Delete_Button.Location = new Point(301, 3);
+            Delete_Button.Location = new Point(320, 3);
             Delete_Button.Name = "Delete_Button";
             Delete_Button.Size = new Size(26, 30);
             Delete_Button.TabIndex = 48;
@@ -162,14 +162,16 @@
             // 
             // EntryItem_Control
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.White;
             Controls.Add(Delete_Button);
             Controls.Add(ItemDetails_TLPanel);
             Controls.Add(ItemName_Label);
             Name = "EntryItem_Control";
-            Size = new Size(330, 80);
+            Size = new Size(350, 80);
+            SizeChanged += EntryItem_Control_SizeChanged;
             Click += Entry_Control_Click;
             ItemDetails_TLPanel.ResumeLayout(false);
             ItemDetails_TLPanel.PerformLayout();

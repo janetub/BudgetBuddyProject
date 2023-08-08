@@ -44,7 +44,7 @@ namespace Budget_Buddy_GUI
             }
         }
 
-        private void Amount_NumUpDown_VueChanged(object sender, EventArgs e)
+        /*private void Amount_NumUpDown_VueChanged(object sender, EventArgs e)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace Budget_Buddy_GUI
             {
                 Console.WriteLine(ex.Message);
             }
-        }
+        }*/
 
         private void CreateBudgetButton_Click(object sender, EventArgs e)
         {
