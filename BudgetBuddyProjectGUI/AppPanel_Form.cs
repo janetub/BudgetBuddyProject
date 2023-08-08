@@ -494,7 +494,14 @@ namespace Budget_Buddy_GUI
         }
         private void AppPanel_Form_FormClosing(object sender, FormClosingEventArgs e)
         {
+<<<<<<< HEAD
             DataBase.Budgets = this.budgets.ToList();
+=======
+            // Update the budgets in the database
+            DataBase.Budgets = this.budgets.ToList();
+
+            // Save the budgets to the file
+>>>>>>> b8aa3b6d3dc42edf8a35ced1607afe359bddc020
             DataBase.SaveBudget();
         }
 

@@ -9,14 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Student_Financial_Assisstance;
+using BudgetBuddyProject;
 
 namespace Budget_Buddy_GUI
 {
     public partial class AppPanel_Form3 : Form
     {
-        public AppPanel_Form3()
+        public AppPanel_Form3(HashSet<Budget> budgets)
         {
             InitializeComponent();
+            this.Tag = budgets;
             //CreateBudgetActivity_Control control = new(false);
             //control.Enabled = false;
         }
@@ -28,7 +30,7 @@ namespace Budget_Buddy_GUI
 
         private void Start_Button_Click(object sender, EventArgs e)
         {
-            new AppPanel_Form(new HashSet<Budget>()).Show();
+            new AppPanel_Form(DataBase.Budgets.ToHashSet());
             this.Hide();
         }
     }

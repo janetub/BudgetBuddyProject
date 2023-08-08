@@ -13,15 +13,18 @@ namespace Budget_Buddy_GUI
 {
     public partial class EntryItem_Control : UserControl
     {
-        public event EventHandler OnControlClicked;
-        public event EventHandler OnDeleteButtonClicked;
+        public event EventHandler? OnControlClicked;
+        public event EventHandler? OnDeleteButtonClicked;
         public EntryItem_Control(Item item)
         {
             InitializeComponent();
             this.ItemName_Label.Text = item.Name;
             double price = item.Cost * item.Quantity;
-            this.ItemPriceAmount_Label.Text = price.ToString().Contains(".") ? price.ToString() : price.ToString() + ".00";
-            this.ItemQuantity_Label.Text = item.Cost.ToString().Contains(".") ? item.Cost.ToString() + item.Quantity + "qty" : item.Cost + ".00 x " + item.Quantity + "qty";
+            this.ItemPriceAmount_Label.Text = price.ToString("N2");
+            this.ItemQuantity_Label.Text = item.Cost.ToString("N2") + "x" + item.Quantity + "qty";
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(ItemName_Label, item.Name);
+            this.Tag = item;
         }
 
         private void Delete_Button_Click(object sender, EventArgs e)
@@ -36,11 +39,6 @@ namespace Budget_Buddy_GUI
         private void Entry_Control_Click(object sender, EventArgs e)
         {
             OnControlClicked?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void ItemQuantity_Label_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -132,7 +132,11 @@
             PageName_Label.AutoSize = true;
             PageName_Label.BackColor = Color.FromArgb(255, 218, 70);
             PageName_Label.CausesValidation = false;
+<<<<<<< HEAD
             PageName_Label.Font = new Font("Arial", 13F, FontStyle.Bold, GraphicsUnit.Point);
+=======
+            PageName_Label.Font = new Font("Segoe UI Semibold", 13.25F, FontStyle.Bold, GraphicsUnit.Point);
+>>>>>>> b8aa3b6d3dc42edf8a35ced1607afe359bddc020
             PageName_Label.ForeColor = Color.Black;
             PageName_Label.Location = new Point(115, 15);
             PageName_Label.Name = "PageName_Label";

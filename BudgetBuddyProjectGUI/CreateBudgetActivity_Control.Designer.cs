@@ -280,6 +280,7 @@
             Back_Button.BackColor = Color.Transparent;
             Back_Button.BackgroundImage = (Image)resources.GetObject("Back_Button.BackgroundImage");
             Back_Button.BackgroundImageLayout = ImageLayout.Center;
+            Back_Button.CausesValidation = false;
             Back_Button.FlatAppearance.BorderSize = 0;
             Back_Button.FlatStyle = FlatStyle.Flat;
             Back_Button.Location = new Point(12, 7);

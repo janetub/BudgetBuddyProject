@@ -16,6 +16,7 @@ using Timer = System.Windows.Forms.Timer;
 using System.Windows.Media.TextFormatting;
 using MessageBox = System.Windows.Forms.MessageBox;
 using Student_Financial_Assisstance;
+using BudgetBuddyProject;
 
 namespace Budget_Buddy_GUI
 {
@@ -78,7 +79,7 @@ namespace Budget_Buddy_GUI
 
         private void MenuButton_Click(object sender, EventArgs e)
         {
-            new AppPanel_Form(new HashSet<Budget>()).Show();
+            new AppPanel_Form(DataBase.Budgets.ToHashSet());
         }
 
         private async void Animate(Control control1, int endX1, int endY1, Control control2, int endX2, int endY2, int duration)

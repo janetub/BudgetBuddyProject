@@ -36,6 +36,7 @@
             // BudgetEntriesPlaceHolder_TablePanel
             // 
             BudgetEntriesPlaceHolder_TablePanel.AutoScroll = true;
+            BudgetEntriesPlaceHolder_TablePanel.AutoScrollMargin = new Size(20, 20);
             BudgetEntriesPlaceHolder_TablePanel.BackgroundImage = (Image)resources.GetObject("BudgetEntriesPlaceHolder_TablePanel.BackgroundImage");
             BudgetEntriesPlaceHolder_TablePanel.BackgroundImageLayout = ImageLayout.None;
             BudgetEntriesPlaceHolder_TablePanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
@@ -53,6 +54,7 @@
             // 
             // NoBudget_label
             // 
+            NoBudget_label.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             NoBudget_label.AutoSize = true;
             NoBudget_label.BackColor = SystemColors.Control;
             NoBudget_label.Enabled = false;

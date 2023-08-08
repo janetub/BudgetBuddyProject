@@ -48,6 +48,7 @@
             // 
             // Name_Label
             // 
+            Name_Label.AutoEllipsis = true;
             Name_Label.AutoSize = false;
             Name_Label.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             Name_Label.ForeColor = Color.Black;

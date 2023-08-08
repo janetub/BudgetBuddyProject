@@ -44,6 +44,7 @@
             // CreateBudgetInputFields_TableLayoutPanel
             // 
             CreateBudgetInputFields_TableLayoutPanel.Anchor = AnchorStyles.None;
+            CreateBudgetInputFields_TableLayoutPanel.CausesValidation = false;
             CreateBudgetInputFields_TableLayoutPanel.ColumnCount = 1;
             CreateBudgetInputFields_TableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Amount_Label, 0, 2);
@@ -70,6 +71,7 @@
             // Amount_Label
             // 
             Amount_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            Amount_Label.CausesValidation = false;
             Amount_Label.Location = new Point(23, 170);
             Amount_Label.Name = "Amount_Label";
             Amount_Label.Size = new Size(70, 21);
@@ -81,6 +83,7 @@
             // Name_Label
             // 
             Name_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            Name_Label.CausesValidation = false;
             Name_Label.Location = new Point(23, 48);
             Name_Label.Name = "Name_Label";
             Name_Label.Size = new Size(54, 21);
@@ -117,7 +120,7 @@
             Amount_NumUpDown.DecimalPlaces = 2;
             Amount_NumUpDown.Location = new Point(20, 194);
             Amount_NumUpDown.Margin = new Padding(0);
-            Amount_NumUpDown.Maximum = new decimal(new int[] { 1215752192, 23, 0, 131072 });
+            Amount_NumUpDown.Maximum = new decimal(new int[] { 276447231, 23283, 0, 131072 });
             Amount_NumUpDown.Name = "Amount_NumUpDown";
             Amount_NumUpDown.PaletteMode = Krypton.Toolkit.PaletteMode.Office365White;
             Amount_NumUpDown.Size = new Size(317, 23);
@@ -134,7 +137,11 @@
             Amount_NumUpDown.ThousandsSeparator = true;
             Amount_NumUpDown.UpDownButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             Amount_NumUpDown.UseMnemonic = false;
+<<<<<<< HEAD
             Amount_NumUpDown.ValueChanged += Amount_NumUpDown_VueChanged;
+=======
+            Amount_NumUpDown.ValueChanged += Amount_NumUpDown_ValueChanged;
+>>>>>>> b8aa3b6d3dc42edf8a35ced1607afe359bddc020
             Amount_NumUpDown.KeyDown += Amount_NumUpDown_KeyDown;
             // 
             // CreateBudgetButton
@@ -156,6 +163,7 @@
             // RequiredAmount_Label
             // 
             RequiredAmount_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            RequiredAmount_Label.CausesValidation = false;
             RequiredAmount_Label.Location = new Point(84, 170);
             RequiredAmount_Label.Name = "RequiredAmount_Label";
             RequiredAmount_Label.Size = new Size(18, 21);
@@ -168,6 +176,7 @@
             // RequiredName_Label
             // 
             RequiredName_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            RequiredName_Label.CausesValidation = false;
             RequiredName_Label.Location = new Point(68, 49);
             RequiredName_Label.Name = "RequiredName_Label";
             RequiredName_Label.Size = new Size(18, 21);
@@ -182,6 +191,7 @@
             Back_Button.BackColor = Color.Transparent;
             Back_Button.BackgroundImage = (Image)resources.GetObject("Back_Button.BackgroundImage");
             Back_Button.BackgroundImageLayout = ImageLayout.Center;
+            Back_Button.CausesValidation = false;
             Back_Button.FlatAppearance.BorderSize = 0;
             Back_Button.FlatStyle = FlatStyle.Flat;
             Back_Button.Location = new Point(12, 7);

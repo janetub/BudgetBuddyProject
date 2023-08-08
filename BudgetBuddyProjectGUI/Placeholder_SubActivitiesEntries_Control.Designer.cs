@@ -31,11 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Placeholder_SubActivitiesEntries_Control));
             NoContent_label = new Label();
             ActivityItemEntriesPlaceHolder_TablePanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
-            button1 = new Button();
             PlaceHolder_StatusBar_Control = new Krypton.Toolkit.KryptonPanel();
             Back_Button = new Button();
             Edit_Button = new Button();
-            ActivityItemEntriesPlaceHolder_TablePanel.SuspendLayout();
+            Information_Button = new Button();
+            button2 = new Button();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)PlaceHolder_StatusBar_Control).BeginInit();
             SuspendLayout();
             // 
@@ -62,7 +63,6 @@
             ActivityItemEntriesPlaceHolder_TablePanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             ActivityItemEntriesPlaceHolder_TablePanel.ColumnCount = 1;
             ActivityItemEntriesPlaceHolder_TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            ActivityItemEntriesPlaceHolder_TablePanel.Controls.Add(button1, 0, 1);
             ActivityItemEntriesPlaceHolder_TablePanel.Location = new Point(0, 168);
             ActivityItemEntriesPlaceHolder_TablePanel.Name = "ActivityItemEntriesPlaceHolder_TablePanel";
             ActivityItemEntriesPlaceHolder_TablePanel.RowCount = 2;
@@ -72,16 +72,6 @@
             ActivityItemEntriesPlaceHolder_TablePanel.StateCommon.Draw = Krypton.Toolkit.InheritBool.False;
             ActivityItemEntriesPlaceHolder_TablePanel.StateNormal.Color1 = Color.White;
             ActivityItemEntriesPlaceHolder_TablePanel.TabIndex = 5;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(4, 5);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // PlaceHolder_StatusBar_Control
             // 
@@ -120,11 +110,57 @@
             Edit_Button.UseVisualStyleBackColor = false;
             Edit_Button.Click += Edit_Button_Click;
             // 
+            // Information_Button
+            // 
+            Information_Button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            Information_Button.BackColor = Color.Transparent;
+            Information_Button.BackgroundImage = (Image)resources.GetObject("Information_Button.BackgroundImage");
+            Information_Button.BackgroundImageLayout = ImageLayout.Zoom;
+            Information_Button.FlatAppearance.BorderSize = 0;
+            Information_Button.FlatStyle = FlatStyle.Flat;
+            Information_Button.Location = new Point(282, 7);
+            Information_Button.Name = "Information_Button";
+            Information_Button.Size = new Size(30, 26);
+            Information_Button.TabIndex = 56;
+            Information_Button.UseVisualStyleBackColor = false;
+            Information_Button.Click += Information_Button_Click;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button2.BackColor = Color.Transparent;
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Location = new Point(246, 7);
+            button2.Name = "button2";
+            button2.Size = new Size(30, 26);
+            button2.TabIndex = 57;
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button3.BackColor = Color.Transparent;
+            button3.BackgroundImage = (Image)resources.GetObject("button3.BackgroundImage");
+            button3.BackgroundImageLayout = ImageLayout.Zoom;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Location = new Point(210, 7);
+            button3.Name = "button3";
+            button3.Size = new Size(30, 26);
+            button3.TabIndex = 57;
+            button3.UseVisualStyleBackColor = false;
+            // 
             // Placeholder_SubActivitiesEntries_Control
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(button2);
+            Controls.Add(button3);
+            Controls.Add(Information_Button);
             Controls.Add(Edit_Button);
             Controls.Add(Back_Button);
             Controls.Add(PlaceHolder_StatusBar_Control);
@@ -133,7 +169,6 @@
             Name = "Placeholder_SubActivitiesEntries_Control";
             Size = new Size(360, 590);
             Load += ActivityItemEntries_Control_Load;
-            ActivityItemEntriesPlaceHolder_TablePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PlaceHolder_StatusBar_Control).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -147,5 +182,8 @@
         private Button button1;
         private Button Back_Button;
         private Button Edit_Button;
+        private Button Information_Button;
+        private Button button2;
+        private Button button3;
     }
 }

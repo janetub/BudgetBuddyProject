@@ -13,28 +13,22 @@ namespace Budget_Buddy_GUI
 {
     public partial class StatusPanel : UserControl
     {
-        public StatusPanel(Placeholder_SubActivitiesEntries_Control placeholder_BudgetActivitiesEntries_Control)
+        public StatusPanel(BudgetActivity act)
         {
             InitializeComponent();
-            placeholder_BudgetActivitiesEntries_Control.OnEntriesUpdated += UpdateStatusBar;
-            BudgetActivity act = (BudgetActivity)placeholder_BudgetActivitiesEntries_Control.Tag;
             this.Name_Label.Text = act.Name;
-            this.ActualBalanceAmount_Label.Text = act.Actual.ToString().Contains(".") ? act.Actual.ToString() : act.Actual + ".00";
-            this.ProjectedAmount_Label.Text = act.GetSummedProjectedsItems().ToString().Contains(".") ? act.GetSummedProjectedsItems().ToString() : act.GetSummedProjectedsItems() + ".00";
-            this.AllocatedAmount_Label1.Text = "/" + (act.Projected.ToString().Contains(".") ? act.Projected.ToString() : act.Projected + ".00");
-            this.AllocatedAmount_Label2.Text = "/" + (act.Projected.ToString().Contains(".") ? act.Projected.ToString() : act.Projected + ".00");
-        }
+            this.ActualBalanceAmount_Label.Text = act.Actual.ToString("N2");
+            this.ProjectedAmount_Label.Text = act.GetSummedProjectedsItems().ToString("N2");
+            this.AllocatedAmount_Label1.Text = "/" + (act.Projected.ToString("N2"));
+            this.AllocatedAmount_Label2.Text = "/" + (act.Projected.ToString("N2"));
 
-        private void UpdateStatusBar(object? sender, EventArgs e)
-        {
-            try
+            double maxBudget = act.Projected, projected = act.GetSummedProjectedsItems(), actual = act.Actual;
+
+            // Attach an event handler to the Paint event of the PictureBox control
+            this.StatusBar_PicBox.Paint += (s, e) =>
             {
-                Placeholder_SubActivitiesEntries_Control control = (Placeholder_SubActivitiesEntries_Control)sender!;
-                BudgetActivity act = (BudgetActivity)control.Tag;
-                this.Name_Label.Text = act.Name;
-                double maxBudget = act.Projected, projected = act.GetSummedProjectedsItems(), actual = act.Actual;
-
-                Graphics g = this.StatusBar_PicBox.CreateGraphics();
+                // Get the Graphics object from the PaintEventArgs
+                Graphics g = e.Graphics;
 
                 // Projected
                 float projectedWidth = this.StatusBar_PicBox.Width * (float)(projected / maxBudget);
@@ -53,13 +47,7 @@ namespace Budget_Buddy_GUI
                 SizeF actualLabelSize = g.MeasureString(actualLabel, this.Font);
                 PointF actualLabelLocation = new PointF(actualWidth - actualLabelSize.Width, 0);
                 g.DrawString(actualLabel, this.Font, Brushes.Black, actualLabelLocation);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                MessageBox.Show("An error occurred while loading the Budget Activity's Status Panel. Please try again.\n" + ex.Message, "Error");
-            }
+            };
         }
-
     }
 }

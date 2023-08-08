@@ -79,6 +79,7 @@
             // 
             PlaceHolder_StatusBar_Control.Controls.Add(Back_Button);
             PlaceHolder_StatusBar_Control.Controls.Add(ActivityFundStatus_TLPanel);
+            PlaceHolder_StatusBar_Control.Controls.Add(Edit_Button);
             PlaceHolder_StatusBar_Control.Controls.Add(Name_Label);
             PlaceHolder_StatusBar_Control.Location = new Point(0, 0);
             PlaceHolder_StatusBar_Control.Name = "PlaceHolder_StatusBar_Control";
@@ -105,12 +106,11 @@
             ActivityFundStatus_TLPanel.BackgroundImage = (Image)resources.GetObject("ActivityFundStatus_TLPanel.BackgroundImage");
             ActivityFundStatus_TLPanel.BackgroundImageLayout = ImageLayout.None;
             ActivityFundStatus_TLPanel.ColumnCount = 3;
-            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 44F));
-            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 56F));
-            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 118F));
+            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.87013F));
+            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70.12987F));
+            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 94F));
             ActivityFundStatus_TLPanel.Controls.Add(Balance_Label, 0, 0);
             ActivityFundStatus_TLPanel.Controls.Add(BalanceAmount_Label, 1, 0);
-            ActivityFundStatus_TLPanel.Controls.Add(Edit_Button, 2, 0);
             ActivityFundStatus_TLPanel.Location = new Point(17, 80);
             ActivityFundStatus_TLPanel.Name = "ActivityFundStatus_TLPanel";
             ActivityFundStatus_TLPanel.RowCount = 1;
@@ -123,9 +123,9 @@
             // 
             // Balance_Label
             // 
-            Balance_Label.Anchor = AnchorStyles.Left;
+            Balance_Label.Anchor = AnchorStyles.Right;
             Balance_Label.Enabled = false;
-            Balance_Label.Location = new Point(3, 6);
+            Balance_Label.Location = new Point(7, 6);
             Balance_Label.MaximumSize = new Size(125, 19);
             Balance_Label.Name = "Balance_Label";
             Balance_Label.Size = new Size(59, 19);
@@ -139,15 +139,14 @@
             // 
             BalanceAmount_Label.Anchor = AnchorStyles.Right;
             BalanceAmount_Label.Enabled = false;
-            BalanceAmount_Label.Location = new Point(100, 6);
-            BalanceAmount_Label.MaximumSize = new Size(125, 19);
+            BalanceAmount_Label.Location = new Point(85, 5);
             BalanceAmount_Label.Name = "BalanceAmount_Label";
-            BalanceAmount_Label.Size = new Size(104, 19);
+            BalanceAmount_Label.Size = new Size(143, 22);
             BalanceAmount_Label.StateCommon.Padding = new Padding(0, 0, 0, 3);
             BalanceAmount_Label.StateCommon.ShortText.Color1 = Color.Black;
             BalanceAmount_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             BalanceAmount_Label.TabIndex = 40;
-            BalanceAmount_Label.Values.Text = "000000000.00";
+            BalanceAmount_Label.Values.Text = "999,999,999,999.99";
             // 
             // Edit_Button
             // 
@@ -157,7 +156,7 @@
             Edit_Button.BackgroundImageLayout = ImageLayout.Zoom;
             Edit_Button.FlatAppearance.BorderSize = 0;
             Edit_Button.FlatStyle = FlatStyle.Flat;
-            Edit_Button.Location = new Point(293, 3);
+            Edit_Button.Location = new Point(318, 7);
             Edit_Button.Name = "Edit_Button";
             Edit_Button.Size = new Size(30, 26);
             Edit_Button.TabIndex = 43;
@@ -166,6 +165,7 @@
             // 
             // Name_Label
             // 
+            Name_Label.AutoEllipsis = true;
             Name_Label.AutoSize = false;
             Name_Label.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             Name_Label.ForeColor = Color.Black;

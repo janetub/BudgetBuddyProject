@@ -19,11 +19,7 @@ namespace Budget_Buddy_GUI
         {
             InitializeComponent();
             this.BudgetName_Label.Text = budget.Name;
-            this.BudgetBalanceAmount_Label.Text = budget.Amount.ToString();
-            if (!this.BudgetBalanceAmount_Label.Text.Contains("."))
-            {
-                this.BudgetBalanceAmount_Label.Text += ".00";
-            }
+            this.BudgetBalanceAmount_Label.Text = budget.Amount.ToString("N2");
             this.Tag = budget;
         }
 
@@ -40,26 +36,5 @@ namespace Budget_Buddy_GUI
                 OnDeleteButtonClicked?.Invoke(this, EventArgs.Empty);
             }
         }
-
-        private void BudgetName_Label_Click(object sender, EventArgs e)
-        {
-            this.BudgetEntry_Control_Click(sender, e);
-        }
-
-        private void BudgetFundsStatus_Panel_Click(object sender, EventArgs e)
-        {
-            this.BudgetEntry_Control_Click(sender, e);
-        }
-
-        private void Balance_Label_Click(object sender, EventArgs e)
-        {
-            this.BudgetEntry_Control_Click(sender, e);
-        }
-
-        private void BudgetBalanceAmount_Label_Click(object sender, EventArgs e)
-        {
-            this.BudgetEntry_Control_Click(sender, e);
-        }
-
     }
 }
