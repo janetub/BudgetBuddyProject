@@ -44,9 +44,9 @@ namespace Budget_Buddy_GUI
             createBudgetControl.Dock = DockStyle.Fill;
             this.PageName_Label.Text = "Create a Budget";
         }
-        private void ShowCreateBudgetActivityControl()
+        private void ShowCreateBudgetActivityControl(bool canCreateSavings)
         {
-            CreateBudgetActivity_Control createBudgetActivityControl = new CreateBudgetActivity_Control(true);
+            CreateBudgetActivity_Control createBudgetActivityControl = new CreateBudgetActivity_Control(canCreateSavings);
             createBudgetActivityControl.OnActivityEntered += Add_BudgetActivityEntry;
             createBudgetActivityControl.OnBackButtonClicked += Refresh_BudgetActivityEntriesPlaceholder;
             this.Placeholder_Panel.Controls.Add(createBudgetActivityControl);
@@ -402,10 +402,10 @@ namespace Budget_Buddy_GUI
                 else if (placeholderContent is Placeholder_ActivityEntries_Control)
                 {
                     this.Placeholder_Panel.Controls.Clear();
-                    this.ShowCreateBudgetActivityControl();
+                    this.ShowCreateBudgetActivityControl(true);
                     this.Add_Button.Visible = false;
                 }
-                else if (placeholderContent is Placeholder_SubActivitiesEntries_Control) // TODO do not show add activity button if activity is type savings
+                else if (placeholderContent is Placeholder_SubActivitiesEntries_Control)
                 {
                     BudgetActivity act = (BudgetActivity)placeholderContent!.Tag;
                     if (act.ActivityType == BudgetActivityType.Savings)
@@ -452,7 +452,7 @@ namespace Budget_Buddy_GUI
                 this.CollapseButton.Visible = false;
             this.Add_Button.Visible = false;
             this.Placeholder_Panel.Controls.Clear();
-            this.ShowCreateBudgetActivityControl();
+            this.ShowCreateBudgetActivityControl(false);
         }
 
         private void MenuButton_Click(object? sender, EventArgs e)
@@ -491,6 +491,14 @@ namespace Budget_Buddy_GUI
         private void Exit_Button_Click(object? sender, EventArgs e)
         {
             this.Close();
+        }
+        private void AppPanel_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Update the budgets in the database
+            DataBase.Budgets = this.budgets.ToList();
+
+            // Save the budgets to the file
+            DataBase.SaveBudget();
         }
 
         /*private void BudgetEntry_BudgetClicked(object sender, EventArgs e)

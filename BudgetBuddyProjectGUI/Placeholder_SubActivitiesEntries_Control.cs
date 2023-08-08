@@ -131,14 +131,12 @@ namespace Budget_Buddy_GUI
                 EntryItem_Control budgetEntry = (EntryItem_Control)sender!;
                 Item item = (Item)budgetEntry.Tag;
                 BudgetActivity act = (BudgetActivity)this.Tag;
-                MessageBox.Show($"{act.Items.Contains(item)} --{act.Items.Count} -- {displayedControls.Count}");
                 if (!act.RemoveItem(item))
                 {
                     MessageBox.Show("An error occurred while deleting the item entry. Please try again.\n", "Error");
                 }
                 this.Tag = act;
                 ReloadStatusPanel();
-                MessageBox.Show($"{act.Items.Contains(item)} --{act.Items.Count} -- {displayedControls.Count}");
                 OnEntriesUpdated?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)

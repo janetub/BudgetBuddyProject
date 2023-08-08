@@ -44,6 +44,7 @@
             // CreateBudgetInputFields_TableLayoutPanel
             // 
             CreateBudgetInputFields_TableLayoutPanel.Anchor = AnchorStyles.None;
+            CreateBudgetInputFields_TableLayoutPanel.CausesValidation = false;
             CreateBudgetInputFields_TableLayoutPanel.ColumnCount = 1;
             CreateBudgetInputFields_TableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Amount_Label, 0, 2);
@@ -70,6 +71,7 @@
             // Amount_Label
             // 
             Amount_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            Amount_Label.CausesValidation = false;
             Amount_Label.Location = new Point(23, 170);
             Amount_Label.Name = "Amount_Label";
             Amount_Label.Size = new Size(70, 21);
@@ -81,6 +83,7 @@
             // Name_Label
             // 
             Name_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            Name_Label.CausesValidation = false;
             Name_Label.Location = new Point(23, 48);
             Name_Label.Name = "Name_Label";
             Name_Label.Size = new Size(54, 21);
@@ -134,8 +137,8 @@
             Amount_NumUpDown.ThousandsSeparator = true;
             Amount_NumUpDown.UpDownButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             Amount_NumUpDown.UseMnemonic = false;
+            Amount_NumUpDown.ValueChanged += Amount_NumUpDown_ValueChanged;
             Amount_NumUpDown.KeyDown += Amount_NumUpDown_KeyDown;
-            Amount_NumUpDown.Validating += Amount_NumUpDown_Validating;
             // 
             // CreateBudgetButton
             // 
@@ -156,6 +159,7 @@
             // RequiredAmount_Label
             // 
             RequiredAmount_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            RequiredAmount_Label.CausesValidation = false;
             RequiredAmount_Label.Location = new Point(84, 170);
             RequiredAmount_Label.Name = "RequiredAmount_Label";
             RequiredAmount_Label.Size = new Size(18, 21);
@@ -168,6 +172,7 @@
             // RequiredName_Label
             // 
             RequiredName_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            RequiredName_Label.CausesValidation = false;
             RequiredName_Label.Location = new Point(68, 49);
             RequiredName_Label.Name = "RequiredName_Label";
             RequiredName_Label.Size = new Size(18, 21);

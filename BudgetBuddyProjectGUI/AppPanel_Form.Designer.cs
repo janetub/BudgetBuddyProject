@@ -63,6 +63,7 @@
             MenuButton.BackColor = Color.FromArgb(255, 218, 70);
             MenuButton.BackgroundImage = Properties.Resources.MenuButton_Image;
             MenuButton.BackgroundImageLayout = ImageLayout.Center;
+            MenuButton.CausesValidation = false;
             MenuButton.FlatAppearance.BorderSize = 0;
             MenuButton.FlatStyle = FlatStyle.Flat;
             MenuButton.Location = new Point(12, 12);
@@ -98,6 +99,7 @@
             Add_Button.BackColor = Color.LightGray;
             Add_Button.BackgroundImage = Properties.Resources.PlusButton_Image;
             Add_Button.BackgroundImageLayout = ImageLayout.Center;
+            Add_Button.CausesValidation = false;
             Add_Button.FlatAppearance.BorderSize = 0;
             Add_Button.FlatStyle = FlatStyle.Flat;
             Add_Button.ForeColor = Color.Transparent;
@@ -114,6 +116,7 @@
             Exit_Button.BackColor = Color.FromArgb(255, 218, 70);
             Exit_Button.BackgroundImage = Properties.Resources.XButton_Image;
             Exit_Button.BackgroundImageLayout = ImageLayout.Zoom;
+            Exit_Button.CausesValidation = false;
             Exit_Button.FlatAppearance.BorderSize = 0;
             Exit_Button.FlatStyle = FlatStyle.Flat;
             Exit_Button.Location = new Point(318, 12);
@@ -128,6 +131,7 @@
             PageName_Label.Anchor = AnchorStyles.None;
             PageName_Label.AutoSize = true;
             PageName_Label.BackColor = Color.FromArgb(255, 218, 70);
+            PageName_Label.CausesValidation = false;
             PageName_Label.Font = new Font("Segoe UI Semibold", 13.25F, FontStyle.Bold, GraphicsUnit.Point);
             PageName_Label.ForeColor = Color.Black;
             PageName_Label.Location = new Point(122, 14);
@@ -264,6 +268,7 @@
             Name = "AppPanel_Form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "NotificationPanelForm";
+            FormClosing += AppPanel_Form_FormClosing;
             ((System.ComponentModel.ISupportInitialize)AppBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).EndInit();
             ResumeLayout(false);

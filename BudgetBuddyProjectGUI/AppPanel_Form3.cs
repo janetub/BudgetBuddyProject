@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Student_Financial_Assisstance;
+using BudgetBuddyProject;
 
 namespace Budget_Buddy_GUI
 {
@@ -29,7 +30,7 @@ namespace Budget_Buddy_GUI
 
         private void Start_Button_Click(object sender, EventArgs e)
         {
-            new AppPanel_Form((HashSet<Budget>)this.Tag).Show();
+            new AppPanel_Form(DataBase.Budgets.ToHashSet());
             this.Hide();
         }
     }

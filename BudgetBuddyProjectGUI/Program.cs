@@ -13,7 +13,7 @@ namespace Budget_Buddy_GUI
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+            /*ApplicationConfiguration.Initialize();
             HashSet<Budget> budgets = new();
             Item item1 = new("1", 1, 1);
             BudgetActivity buda1 = new("1", "", 3, BudgetActivityType.Expense);
@@ -46,9 +46,10 @@ namespace Budget_Buddy_GUI
             BudgetActivity foodAndBeverage = new("Food and Beverage", "steak for 99 people", 125000, BudgetActivityType.Expense);
             Item steak = new("steak", 899, 99);
             wedding.AddActivity(foodAndBeverage);
-            foodAndBeverage.AddItem(steak);
+            foodAndBeverage.AddItem(steak);*/
 
-            Application.Run(new AppPanel_Form(budgets));
+            DataBase.LoadBudget();
+            Application.Run(new AppPanel_Form(DataBase.Budgets.ToHashSet()));
             //Application.Run(new AppPanel_SampleForm());
         }
     }

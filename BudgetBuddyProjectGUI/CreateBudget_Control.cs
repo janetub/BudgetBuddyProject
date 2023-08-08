@@ -11,10 +11,11 @@ using System.Windows.Forms;
 
 namespace Budget_Buddy_GUI
 {
+    // TODO cleanup validations
     public partial class CreateBudget_Control : UserControl
     {
-        public event EventHandler OnBudgetCreated;
-        public event EventHandler OnBackButtonClicked;
+        public event EventHandler? OnBudgetCreated;
+        public event EventHandler? OnBackButtonClicked;
 
         public CreateBudget_Control()
         {
@@ -68,8 +69,7 @@ namespace Budget_Buddy_GUI
                 {
                     if (budgetAmount > 1000000000.00)
                     {
-                        MessageBox.Show("You have reached the maximum budget/funds allowed in the app.");
-                        this.Amount_NumUpDown = null;
+                        MessageBox.Show("You have reached the maximum budget/funds allowed in the app.", "Maximum Funds", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                 }
@@ -94,13 +94,17 @@ namespace Budget_Buddy_GUI
                 }
                 else if (string.IsNullOrEmpty(this.Name_TextBox.Text))
                 {
-                    MessageBox.Show("Please fill up all required fields");
+                    MessageBox.Show("Please fill up all required fields.");
                     this.RequiredName_Label.Visible = true;
+                    if ((string.IsNullOrEmpty(Amount_NumUpDown.Text) || Amount_NumUpDown.Text == "0.00"))
+                    {
+                        this.RequiredAmount_Label.Visible = true;
+                    }
                     return;
                 }
                 else if (string.IsNullOrEmpty(Amount_NumUpDown.Text) || Amount_NumUpDown.Text == "0.00")
                 {
-                    MessageBox.Show("Please fill up all required fields");
+                    MessageBox.Show("Please fill up all required fields.");
                     this.RequiredAmount_Label.Visible = true;
                     return;
                 }
@@ -108,8 +112,7 @@ namespace Budget_Buddy_GUI
                 {
                     if (budgetAmount > 1000000000.00)
                     {
-                        MessageBox.Show("You have reached the maximum budget/funds allowed in the app.");
-                        this.Amount_NumUpDown = null;
+                        MessageBox.Show("You have reached the maximum budget/funds allowed in the app.", "Maximum Funds", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                 }
@@ -123,6 +126,7 @@ namespace Budget_Buddy_GUI
                 Console.WriteLine(ex.Message);
             }
         }
+
         public void CloseControl()
         {
             ((Form)this.TopLevelControl).Close();
@@ -151,5 +155,40 @@ namespace Budget_Buddy_GUI
         {
             OnBackButtonClicked?.Invoke(this, EventArgs.Empty);
         }
+
+        private void Amount_NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(Amount_NumUpDown.Text) || Amount_NumUpDown.Text == "0.00")
+                {
+                    MessageBox.Show("Budget amount is required.");
+                    this.RequiredAmount_Label.Visible = true;
+                    return;
+                }
+                if (this.Amount_NumUpDown.Text.Contains("-"))
+                {
+                    MessageBox.Show("Budget amount must be a positive number.");
+                    this.RequiredAmount_Label.Visible = true;
+                    return;
+                }
+                if (!this.Amount_NumUpDown.Text.Contains("."))
+                    this.Amount_NumUpDown.Text += ".00";
+                double budgetAmount;
+                if (Double.TryParse(this.Amount_NumUpDown.Text, out budgetAmount))
+                {
+                    if (budgetAmount > 1000000000.00)
+                    {
+                        MessageBox.Show("You have reached the maximum budget/funds allowed in the app.", "Maximum Funds", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
     }
 }
