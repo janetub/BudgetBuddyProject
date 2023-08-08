@@ -36,21 +36,19 @@ namespace Budget_Buddy_GUI
             }
         }
 
-        private void Amount_NumUpDown_Validating(object sender, CancelEventArgs e)
+        private void Amount_NumUpDown_VueChanged(object sender, EventArgs e)
         {
             try
             {
                 if (string.IsNullOrEmpty(Amount_NumUpDown.Text) || Amount_NumUpDown.Text == "0.00")
                 {
                     MessageBox.Show("Budget amount is required.");
-                    e.Cancel = true;
                     this.RequiredAmount_Label.Visible = true;
                     return;
                 }
                 if (this.Amount_NumUpDown.Text.Contains("-"))
                 {
                     MessageBox.Show("Budget amount must be a positive number.");
-                    e.Cancel = true;
                     this.RequiredAmount_Label.Visible = true;
                     return;
                 }
@@ -62,7 +60,6 @@ namespace Budget_Buddy_GUI
                     if (budgetAmount > 1000000000.00)
                     {
                         MessageBox.Show("You have reached the maximum budget/funds allowed in the app.");
-                        this.Amount_NumUpDown = null;
                         return;
                     }
                 }

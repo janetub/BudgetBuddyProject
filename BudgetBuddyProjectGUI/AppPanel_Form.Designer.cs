@@ -32,7 +32,6 @@
             MenuButton = new Button();
             Amount_Label = new Krypton.Toolkit.KryptonLabel();
             Name_Label = new Krypton.Toolkit.KryptonLabel();
-            Placeholder_Panel = new Krypton.Toolkit.KryptonPanel();
             Add_Button = new RoundButton();
             Exit_Button = new Button();
             PageName_Label = new Label();
@@ -41,6 +40,7 @@
             AddActivityLabel = new Label();
             AddItemButton = new RoundButton();
             CollapseButton = new RoundButton();
+            Placeholder_Panel = new Krypton.Toolkit.KryptonPanel();
             modalPanel = new SemiTransparentPanel();
             ((System.ComponentModel.ISupportInitialize)AppBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).BeginInit();
@@ -49,7 +49,6 @@
             // AppBar
             // 
             AppBar.BackColor = Color.FromArgb(255, 218, 70);
-            AppBar.Dock = DockStyle.Top;
             AppBar.Location = new Point(0, 0);
             AppBar.Name = "AppBar";
             AppBar.Size = new Size(360, 50);
@@ -64,6 +63,7 @@
             MenuButton.BackColor = Color.FromArgb(255, 218, 70);
             MenuButton.BackgroundImage = Properties.Resources.MenuButton_Image;
             MenuButton.BackgroundImageLayout = ImageLayout.Center;
+            MenuButton.CausesValidation = false;
             MenuButton.FlatAppearance.BorderSize = 0;
             MenuButton.FlatStyle = FlatStyle.Flat;
             MenuButton.Location = new Point(12, 12);
@@ -93,20 +93,13 @@
             Name_Label.TabIndex = 31;
             Name_Label.Values.Text = "Name";
             // 
-            // Placeholder_Panel
-            // 
-            Placeholder_Panel.Location = new Point(0, 48);
-            Placeholder_Panel.Name = "Placeholder_Panel";
-            Placeholder_Panel.Size = new Size(360, 592);
-            Placeholder_Panel.StateCommon.Color1 = Color.White;
-            Placeholder_Panel.TabIndex = 0;
-            // 
             // Add_Button
             // 
             Add_Button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             Add_Button.BackColor = Color.LightGray;
             Add_Button.BackgroundImage = Properties.Resources.PlusButton_Image;
             Add_Button.BackgroundImageLayout = ImageLayout.Center;
+            Add_Button.CausesValidation = false;
             Add_Button.FlatAppearance.BorderSize = 0;
             Add_Button.FlatStyle = FlatStyle.Flat;
             Add_Button.ForeColor = Color.Transparent;
@@ -123,6 +116,7 @@
             Exit_Button.BackColor = Color.FromArgb(255, 218, 70);
             Exit_Button.BackgroundImage = Properties.Resources.XButton_Image;
             Exit_Button.BackgroundImageLayout = ImageLayout.Zoom;
+            Exit_Button.CausesValidation = false;
             Exit_Button.FlatAppearance.BorderSize = 0;
             Exit_Button.FlatStyle = FlatStyle.Flat;
             Exit_Button.Location = new Point(318, 12);
@@ -137,15 +131,19 @@
             PageName_Label.Anchor = AnchorStyles.None;
             PageName_Label.AutoSize = true;
             PageName_Label.BackColor = Color.FromArgb(255, 218, 70);
-            PageName_Label.Font = new Font("Segoe UI Semibold", 13.25F, FontStyle.Bold, GraphicsUnit.Point);
+            PageName_Label.CausesValidation = false;
+            PageName_Label.Font = new Font("Arial", 13F, FontStyle.Bold, GraphicsUnit.Point);
             PageName_Label.ForeColor = Color.Black;
-            PageName_Label.Location = new Point(122, 14);
+            PageName_Label.Location = new Point(115, 15);
             PageName_Label.Name = "PageName_Label";
-            PageName_Label.Size = new Size(126, 25);
+            PageName_Label.Size = new Size(130, 21);
             PageName_Label.TabIndex = 0;
             PageName_Label.Text = "BudgetBuddy";
             PageName_Label.TextAlign = ContentAlignment.MiddleCenter;
             PageName_Label.SizeChanged += PageName_Label_SizeChanged;
+            PageName_Label.MouseDown += AppBar_MouseDown;
+            PageName_Label.MouseMove += AppBar_MouseMove;
+            PageName_Label.MouseUp += AppBar_MouseUp;
             // 
             // AddActivityButton
             // 
@@ -228,6 +226,15 @@
             CollapseButton.Visible = false;
             CollapseButton.Click += CollapseButton_Click;
             // 
+            // Placeholder_Panel
+            // 
+            Placeholder_Panel.Anchor = AnchorStyles.Bottom;
+            Placeholder_Panel.Location = new Point(0, 48);
+            Placeholder_Panel.Name = "Placeholder_Panel";
+            Placeholder_Panel.Size = new Size(360, 590);
+            Placeholder_Panel.StateCommon.Color1 = Color.White;
+            Placeholder_Panel.TabIndex = 0;
+            // 
             // modalPanel
             // 
             modalPanel.Location = new Point(0, 0);
@@ -243,6 +250,7 @@
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(360, 640);
+            Controls.Add(modalPanel);
             Controls.Add(AddActivityButton);
             Controls.Add(AddItemLabel);
             Controls.Add(AddActivityLabel);
@@ -254,13 +262,13 @@
             Controls.Add(MenuButton);
             Controls.Add(AppBar);
             Controls.Add(Placeholder_Panel);
-            Controls.Add(modalPanel);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "AppPanel_Form";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "NotificationPanelForm";
+            FormClosing += AppPanel_Form_FormClosing;
             ((System.ComponentModel.ISupportInitialize)AppBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)Placeholder_Panel).EndInit();
             ResumeLayout(false);
@@ -273,7 +281,6 @@
         private Button MenuButton;
         private Krypton.Toolkit.KryptonLabel Amount_Label;
         private Krypton.Toolkit.KryptonLabel Name_Label;
-        private Krypton.Toolkit.KryptonPanel Placeholder_Panel;
         private RoundButton Add_Button;
         private Button Exit_Button;
         private Label PageName_Label;
@@ -282,6 +289,7 @@
         private Label AddActivityLabel;
         private RoundButton AddItemButton;
         private RoundButton CollapseButton;
+        private Krypton.Toolkit.KryptonPanel Placeholder_Panel;
         private SemiTransparentPanel modalPanel;
     }
 }

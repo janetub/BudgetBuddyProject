@@ -19,6 +19,8 @@ namespace Budget_Buddy_GUI
     // TODO add a dialog box w option to redirect to page of control
     // TODO add messagebox when creation is not processed or maximum amount is exceeded
     // FIXME bug, sometimes after creating an entry, it does not get added || actually add a messagebox if the entry was not added or a snackbar. see classes, use the bool return of the function
+    // TODO put appropriate texts such as when inside savings, instead of add item when creating an item, put contribution
+
     public partial class AppPanel_Form : Form
     {
         private HashSet<Budget> budgets = new HashSet<Budget>();
@@ -29,8 +31,8 @@ namespace Budget_Buddy_GUI
         {
             InitializeComponent();
             this.budgets = budgets;
-            this.Placeholder_Panel.Controls.Add(new Placeholder_BudgetEntries_Control(budgets));
             this.Add_Button.Visible = true;
+            ShowPlaceholder_BudgetEntries();
         }
 
         private void ShowCreateBudgetControl()
@@ -42,9 +44,9 @@ namespace Budget_Buddy_GUI
             createBudgetControl.Dock = DockStyle.Fill;
             this.PageName_Label.Text = "Create a Budget";
         }
-        private void ShowCreateBudgetActivityControl()
+        private void ShowCreateBudgetActivityControl(bool canCreateSavings)
         {
-            CreateBudgetActivity_Control createBudgetActivityControl = new CreateBudgetActivity_Control(true);
+            CreateBudgetActivity_Control createBudgetActivityControl = new CreateBudgetActivity_Control(canCreateSavings);
             createBudgetActivityControl.OnActivityEntered += Add_BudgetActivityEntry;
             createBudgetActivityControl.OnBackButtonClicked += Refresh_BudgetActivityEntriesPlaceholder;
             this.Placeholder_Panel.Controls.Add(createBudgetActivityControl);
@@ -86,12 +88,62 @@ namespace Budget_Buddy_GUI
             }
         }
 
+        private void Add_BudgetActivityEntry(object? sender, EventArgs e)
+        {
+            try
+            {
+                CreateBudgetActivity_Control control = (CreateBudgetActivity_Control)sender!;
+                BudgetActivity activity = (BudgetActivity)control.Tag;
+                if (this.currentDirectory.Count > 0)
+                {
+                    foreach (BudgetActivity a in currentDirectory.Last!.Value.SubActivities)
+                    {
+                        if (a.Name == activity.Name)
+                        {
+                            MessageBox.Show("An activity with the same name already exists.");
+                            return;
+                        }
+                    }
+                    BudgetActivity currentActivity = currentDirectory.Last.Value;
+                    if (!currentActivity.AddSubActivity(activity))
+                    {
+                        MessageBox.Show("Projected amount cannot be funded. Please check funds and try again.", "Cannot Add Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    ShowPlaceholder_SubActivityEntries(this.currentDirectory.Last.Value);
+                }
+                else
+                {
+                    foreach (BudgetActivity a in this.activeBudget!.Activities)
+                    {
+                        if (a.Name == activity.Name)
+                        {
+                            MessageBox.Show("An activity with the same name already exists.");
+                            return;
+                        }
+                    }
+                    if (!this.activeBudget!.AddActivity(activity))
+                    {
+                        MessageBox.Show("Projected amount cannot be funded. Please check balance and try again.", "Cannot Add Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        return;
+                    }
+                    ShowPlaceholder_BudgetActivityEntries(this.activeBudget);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while creating the Budget Activity entry. Please try again.\n" + ex.Message, "Error");
+            }
+        }
+
         private void Add_ItemEntry(object? sender, EventArgs e)
         {
             try
             {
                 CreateItem_Control control = (CreateItem_Control)sender!;
-                Item newItem= (Item)control.Tag;
+                Item newItem = (Item)control.Tag;
                 foreach (Item i in this.currentDirectory.Last!.Value.Items)
                 {
                     if (i.Name == newItem.Name)
@@ -100,28 +152,32 @@ namespace Budget_Buddy_GUI
                         return;
                     }
                 }
-                this.currentDirectory.Last!.Value.AddItem(newItem);
+                if (!this.currentDirectory.Last!.Value.AddItem(newItem))
+                {
+                    MessageBox.Show("Please check your balance and try again.\n", "Not Enough Funds");
+                    return;
+                }
                 ShowPlaceholder_SubActivityEntries(this.currentDirectory.Last!.Value);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                MessageBox.Show("An error occurred while creating the Item entry. Please try again.\n" + ex.Message, "Error");
+                MessageBox.Show("An error occurred while creating the item entry. Please try again.\n" + ex.Message, "Error");
             }
         }
 
         private void ShowPlaceholder_BudgetEntries()
         {
-            this.Placeholder_Panel.Controls.Clear();
             Placeholder_BudgetEntries_Control placeholder_BudgetEntries_Control = new Placeholder_BudgetEntries_Control(this.budgets);
             placeholder_BudgetEntries_Control.OnControlClicked += Open_BudgetEntry;
             placeholder_BudgetEntries_Control.OnControlUpdated += Refresh_BudgetEntriesPlaceholder;
+            this.Placeholder_Panel.Controls.Clear();
             this.Placeholder_Panel.Controls.Add(placeholder_BudgetEntries_Control);
             this.Add_Button.Visible = true;
             this.PageName_Label.Text = "Budgets";
         }
         private void ShowPlaceholder_BudgetActivityEntries(Budget budget)
-        {   
+        {
             try
             {
                 Placeholder_ActivityEntries_Control activities = new Placeholder_ActivityEntries_Control(budget);
@@ -148,13 +204,13 @@ namespace Budget_Buddy_GUI
                 Placeholder_SubActivitiesEntries_Control activities = new(activity);
                 // CollapseButton.performCLick() when other elements are clicked
                 activities.OnBackButtonClicked += Refresh_SubActivityEntriesPlaceholder;
+                activities.OnEntriesUpdated += Refresh_SubActivityEntries;
                 /*activities.OnEditButtonClicked += ;
-                activities.OnEntriesUpdated += ;
                 activities.OnEntryClicked += ;*/
                 this.Placeholder_Panel.Controls.Clear();
                 this.Placeholder_Panel.Controls.Add(activities);
                 this.Add_Button.Visible = true;
-                this.PageName_Label.Text = "Budget Activities";
+                this.PageName_Label.Text = "Subactivities";
             }
             catch (Exception ex)
             {
@@ -194,52 +250,6 @@ namespace Budget_Buddy_GUI
             }
         }
 
-        private void Add_BudgetActivityEntry(object? sender, EventArgs e)
-        {
-            try
-            {
-                CreateBudgetActivity_Control control = (CreateBudgetActivity_Control)sender!;
-                BudgetActivity activity = (BudgetActivity)control.Tag;
-                if (this.currentDirectory.Count > 0)
-                {
-                    foreach (BudgetActivity a in currentDirectory.Last!.Value.SubActivities)
-                    {
-                        if (a.Name == activity.Name)
-                        {
-                            MessageBox.Show("An activity with the same name already exists.");
-                            return;
-                        }
-                    }
-                    BudgetActivity currentActivity = currentDirectory.Last.Value;
-                    currentActivity.SubActivities.Add(activity);
-                    ShowPlaceholder_SubActivityEntries(this.currentDirectory.Last.Value);
-                }
-                else
-                {
-                    foreach (BudgetActivity a in this.activeBudget!.Activities)
-                    {
-                        if (a.Name == activity.Name)
-                        {
-                            MessageBox.Show("An activity with the same name already exists.");
-                            return;
-                        }
-                    }
-                    if (!this.activeBudget!.AddActivity(activity))
-                    {
-                        MessageBox.Show("Projected amount cannot be funded. Please check balance and try again.", "Cannot Add Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                        return;
-                    }
-                    ShowPlaceholder_BudgetActivityEntries(this.activeBudget);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                MessageBox.Show("An error occurred while creating the Budget Activity entry. Please try again.\n" + ex.Message, "Error");
-            }
-        }
-
         private void Refresh_BudgetEntriesPlaceholder(object? sender, EventArgs e)
         {
             ShowPlaceholder_BudgetEntries();
@@ -265,25 +275,30 @@ namespace Budget_Buddy_GUI
             }
         }
 
+        private void Refresh_SubActivityEntries(object? sender, EventArgs e)
+        {
+            ShowPlaceholder_SubActivityEntries(this.currentDirectory.Last!.Value);
+        }
+
         private void Refresh_SubActivityEntriesPlaceholder(object? sender, EventArgs e)
         {
             try
             {
                 // if placeholder is type create control of item and activity then remain in the currentDirectory
                 // if placeholder is type subactivities control then go to previous by removing the last of current directory
-                    // if currentdirectory count would be zero means it goes out and loads the subactivities of the active budget
+                // if currentdirectory count would be zero means it goes out and loads the subactivities of the active budget
                 // else generate message box
                 var placeholderContent = this.Placeholder_Panel.Controls.OfType<System.Windows.Forms.UserControl>().FirstOrDefault();
-                if(placeholderContent is CreateItem_Control || placeholderContent is CreateBudgetActivity_Control)
+                if (placeholderContent is CreateItem_Control || placeholderContent is CreateBudgetActivity_Control)
                 {
                     ShowPlaceholder_SubActivityEntries(this.currentDirectory.Last!.Value);
                 }
                 else if (placeholderContent is Placeholder_SubActivitiesEntries_Control)
                 {
-                    if(this.currentDirectory.Count > 0)
+                    if (this.currentDirectory.Count > 0)
                     {
                         this.currentDirectory.RemoveLast();
-                        if(this.currentDirectory.Count > 0)
+                        if (this.currentDirectory.Count > 0)
                         {
                             ShowPlaceholder_SubActivityEntries(this.currentDirectory.Last!.Value);
                         }
@@ -387,18 +402,28 @@ namespace Budget_Buddy_GUI
                 else if (placeholderContent is Placeholder_ActivityEntries_Control)
                 {
                     this.Placeholder_Panel.Controls.Clear();
-                    this.ShowCreateBudgetActivityControl();
+                    this.ShowCreateBudgetActivityControl(true);
                     this.Add_Button.Visible = false;
                 }
-                else if (placeholderContent is Placeholder_SubActivitiesEntries_Control) // TODO do not show add activity button if activity is type savings
+                else if (placeholderContent is Placeholder_SubActivitiesEntries_Control)
                 {
-                    this.Add_Button.Visible = false;
-                    this.CollapseButton.Visible = this.AddItemButton.Visible = this.AddActivityButton.Visible = this.AddActivityLabel.Visible = this.AddItemLabel.Visible = true;
-                    this.CollapseButton.BringToFront();
-                    this.AddItemLabel.BringToFront();
-                    this.AddActivityButton.BringToFront();
-                    this.AddActivityLabel.BringToFront();
-                    this.AddItemButton.BringToFront();
+                    BudgetActivity act = (BudgetActivity)placeholderContent!.Tag;
+                    if (act.ActivityType == BudgetActivityType.Savings)
+                    {
+                        this.Placeholder_Panel.Controls.Clear();
+                        this.ShowCreateItemControl();
+                        this.Add_Button.Visible = false;
+                    }
+                    else if (act.ActivityType == BudgetActivityType.Expense)
+                    {
+                        this.Add_Button.Visible = false;
+                        this.CollapseButton.Visible = this.AddItemButton.Visible = this.AddActivityButton.Visible = this.AddActivityLabel.Visible = this.AddItemLabel.Visible = true;
+                        this.CollapseButton.BringToFront();
+                        this.AddItemLabel.BringToFront();
+                        this.AddActivityButton.BringToFront();
+                        this.AddActivityLabel.BringToFront();
+                        this.AddItemButton.BringToFront();
+                    }
                 }
                 else
                     MessageBox.Show($"");
@@ -427,7 +452,7 @@ namespace Budget_Buddy_GUI
                 this.CollapseButton.Visible = false;
             this.Add_Button.Visible = false;
             this.Placeholder_Panel.Controls.Clear();
-            this.ShowCreateBudgetActivityControl();
+            this.ShowCreateBudgetActivityControl(false);
         }
 
         private void MenuButton_Click(object? sender, EventArgs e)
@@ -466,6 +491,11 @@ namespace Budget_Buddy_GUI
         private void Exit_Button_Click(object? sender, EventArgs e)
         {
             this.Close();
+        }
+        private void AppPanel_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DataBase.Budgets = this.budgets.ToList();
+            DataBase.SaveBudget();
         }
 
         /*private void BudgetEntry_BudgetClicked(object sender, EventArgs e)

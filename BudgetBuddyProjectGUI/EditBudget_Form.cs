@@ -15,7 +15,7 @@ namespace Budget_Buddy_GUI
     {
         private bool isDragging;
         private Point startPoint;
-        public event EventHandler OnConfirmButtonClicked;
+        public event EventHandler? OnConfirmButtonClicked;
 
         public EditBudget_Form(Budget budget)
         {
@@ -121,7 +121,6 @@ namespace Budget_Buddy_GUI
                     if (budgetAmount > 1000000000.00)
                     {
                         MessageBox.Show("You have reached the maximum budget/funds allowed in the app.");
-                        this.Amount_NumUpDown = null;
                         return;
                     }
                 }

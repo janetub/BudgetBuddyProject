@@ -153,7 +153,7 @@
             // RequiredName_Label
             // 
             RequiredName_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            RequiredName_Label.Location = new Point(68, 70);
+            RequiredName_Label.Location = new Point(68, 68);
             RequiredName_Label.Name = "RequiredName_Label";
             RequiredName_Label.Size = new Size(18, 21);
             RequiredName_Label.StateCommon.ShortText.Color1 = Color.Red;
@@ -165,7 +165,7 @@
             // RequiredAmount_Label
             // 
             RequiredAmount_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            RequiredAmount_Label.Location = new Point(84, 147);
+            RequiredAmount_Label.Location = new Point(84, 146);
             RequiredAmount_Label.Name = "RequiredAmount_Label";
             RequiredAmount_Label.Size = new Size(18, 21);
             RequiredAmount_Label.StateCommon.ShortText.Color1 = Color.Red;
@@ -210,7 +210,7 @@
             PageName_Label.BackColor = Color.FromArgb(255, 218, 70);
             PageName_Label.Font = new Font("Segoe UI Semibold", 13.25F, FontStyle.Bold, GraphicsUnit.Point);
             PageName_Label.ForeColor = Color.Black;
-            PageName_Label.Location = new Point(125, 15);
+            PageName_Label.Location = new Point(125, 11);
             PageName_Label.Name = "PageName_Label";
             PageName_Label.Size = new Size(110, 25);
             PageName_Label.TabIndex = 51;
