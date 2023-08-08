@@ -95,7 +95,7 @@
             Delete_Button.BackgroundImageLayout = ImageLayout.Center;
             Delete_Button.FlatAppearance.BorderSize = 0;
             Delete_Button.FlatStyle = FlatStyle.Flat;
-            Delete_Button.Location = new Point(321, 1);
+            Delete_Button.Location = new Point(321, 3);
             Delete_Button.Name = "Delete_Button";
             Delete_Button.Size = new Size(26, 30);
             Delete_Button.TabIndex = 40;
@@ -114,7 +114,7 @@
             BudgetName_Label.Margin = new Padding(0);
             BudgetName_Label.Name = "BudgetName_Label";
             BudgetName_Label.Padding = new Padding(5, 15, 0, 0);
-            BudgetName_Label.Size = new Size(315, 55);
+            BudgetName_Label.Size = new Size(318, 55);
             BudgetName_Label.StateCommon.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             BudgetName_Label.StateCommon.TextColor = Color.Black;
             BudgetName_Label.Text = "Content length will be limited to 100 characters (including spaces)";

@@ -47,7 +47,7 @@
             Delete_Button.BackgroundImageLayout = ImageLayout.Center;
             Delete_Button.FlatAppearance.BorderSize = 0;
             Delete_Button.FlatStyle = FlatStyle.Flat;
-            Delete_Button.Location = new Point(321, 3);
+            Delete_Button.Location = new Point(300, 3);
             Delete_Button.Name = "Delete_Button";
             Delete_Button.Size = new Size(26, 30);
             Delete_Button.TabIndex = 39;
@@ -58,12 +58,12 @@
             // 
             ProjectedBalanceAmount_Label.Anchor = AnchorStyles.Left;
             ProjectedBalanceAmount_Label.Enabled = false;
-            ProjectedBalanceAmount_Label.Location = new Point(217, 3);
+            ProjectedBalanceAmount_Label.Location = new Point(213, 4);
             ProjectedBalanceAmount_Label.Name = "ProjectedBalanceAmount_Label";
-            ProjectedBalanceAmount_Label.Size = new Size(130, 22);
+            ProjectedBalanceAmount_Label.Size = new Size(113, 20);
             ProjectedBalanceAmount_Label.StateCommon.Padding = new Padding(0, 0, 0, 3);
             ProjectedBalanceAmount_Label.StateCommon.ShortText.Color1 = Color.Black;
-            ProjectedBalanceAmount_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            ProjectedBalanceAmount_Label.StateCommon.ShortText.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             ProjectedBalanceAmount_Label.TabIndex = 41;
             ProjectedBalanceAmount_Label.Values.Text = "/9,999,999,999.99";
             ProjectedBalanceAmount_Label.Click += EntryActivity_Control_Click;
@@ -73,8 +73,7 @@
             Balance_Label.Anchor = AnchorStyles.Right;
             Balance_Label.AutoSize = false;
             Balance_Label.Enabled = false;
-            Balance_Label.Location = new Point(22, 4);
-            Balance_Label.MaximumSize = new Size(125, 19);
+            Balance_Label.Location = new Point(19, 4);
             Balance_Label.Name = "Balance_Label";
             Balance_Label.Size = new Size(59, 19);
             Balance_Label.StateCommon.Padding = new Padding(0, 0, -7, 3);
@@ -90,10 +89,10 @@
             ActivityFundStatus_TLPanel.BackgroundImage = (Image)resources.GetObject("ActivityFundStatus_TLPanel.BackgroundImage");
             ActivityFundStatus_TLPanel.BackgroundImageLayout = ImageLayout.None;
             ActivityFundStatus_TLPanel.ColumnCount = 4;
-            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 7.94392538F));
-            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 31.30841F));
-            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.7476654F));
-            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 135F));
+            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 7.61904764F));
+            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.9523811F));
+            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 61.42857F));
+            ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 119F));
             ActivityFundStatus_TLPanel.Controls.Add(ActualBalanceAmount_Label, 2, 0);
             ActivityFundStatus_TLPanel.Controls.Add(BudgetActivityType_Label, 0, 0);
             ActivityFundStatus_TLPanel.Controls.Add(Balance_Label, 1, 0);
@@ -103,7 +102,7 @@
             ActivityFundStatus_TLPanel.Name = "ActivityFundStatus_TLPanel";
             ActivityFundStatus_TLPanel.RowCount = 1;
             ActivityFundStatus_TLPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            ActivityFundStatus_TLPanel.Size = new Size(350, 28);
+            ActivityFundStatus_TLPanel.Size = new Size(330, 28);
             ActivityFundStatus_TLPanel.StateCommon.Color1 = Color.White;
             ActivityFundStatus_TLPanel.StateCommon.Color2 = Color.White;
             ActivityFundStatus_TLPanel.TabIndex = 45;
@@ -113,7 +112,7 @@
             // 
             ActualBalanceAmount_Label.Anchor = AnchorStyles.Right;
             ActualBalanceAmount_Label.Enabled = false;
-            ActualBalanceAmount_Label.Location = new Point(88, 3);
+            ActualBalanceAmount_Label.Location = new Point(84, 3);
             ActualBalanceAmount_Label.Margin = new Padding(3, 3, 0, 3);
             ActualBalanceAmount_Label.Name = "ActualBalanceAmount_Label";
             ActualBalanceAmount_Label.Size = new Size(126, 22);
@@ -132,10 +131,10 @@
             BudgetActivityType_Label.Location = new Point(3, 4);
             BudgetActivityType_Label.MaximumSize = new Size(125, 19);
             BudgetActivityType_Label.Name = "BudgetActivityType_Label";
-            BudgetActivityType_Label.Size = new Size(11, 19);
+            BudgetActivityType_Label.Size = new Size(10, 19);
             BudgetActivityType_Label.StateCommon.Padding = new Padding(0, 0, -7, 3);
             BudgetActivityType_Label.StateCommon.ShortText.Color1 = Color.Gray;
-            BudgetActivityType_Label.StateCommon.ShortText.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            BudgetActivityType_Label.StateCommon.ShortText.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
             BudgetActivityType_Label.TabIndex = 46;
             BudgetActivityType_Label.Values.Text = "Expense";
             BudgetActivityType_Label.Click += EntryActivity_Control_Click;
@@ -152,7 +151,7 @@
             ActivityName_Label.Margin = new Padding(3, 0, 0, 0);
             ActivityName_Label.Name = "ActivityName_Label";
             ActivityName_Label.Padding = new Padding(5, 10, 0, 0);
-            ActivityName_Label.Size = new Size(315, 52);
+            ActivityName_Label.Size = new Size(297, 52);
             ActivityName_Label.StateCommon.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             ActivityName_Label.StateCommon.TextColor = Color.Black;
             ActivityName_Label.Text = "Content length will be limited to 100 characters (including spaces)";
@@ -167,7 +166,7 @@
             Controls.Add(Delete_Button);
             Controls.Add(ActivityFundStatus_TLPanel);
             Name = "EntryActivity_Control";
-            Size = new Size(350, 80);
+            Size = new Size(330, 80);
             Load += ActivityEntry_Control_Load;
             Click += EntryActivity_Control_Click;
             ActivityFundStatus_TLPanel.ResumeLayout(false);
