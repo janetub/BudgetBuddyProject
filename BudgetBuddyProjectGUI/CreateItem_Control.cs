@@ -101,6 +101,12 @@ namespace Budget_Buddy_GUI
         {
             try
             {
+                if (this.Price_Label.Text.Contains("-"))
+                {
+                    MessageBox.Show("Budget amount must be a positive number.");
+                    this.Price_Label.Visible = true;
+                    return;
+                }
                 if (string.IsNullOrEmpty(this.Name_TextBox.Text) && (string.IsNullOrEmpty(Price_NumUpDown.Text) || Price_NumUpDown.Text == "0.00"))
                 {
                     MessageBox.Show("Please fill up all required fields to create an item entry.");

@@ -185,6 +185,8 @@ namespace Budget_Buddy_GUI
                 activities.OnEditBudgetClicked += Show_EditBudgetForm;
                 activities.OnEntriesUpdated += Refresh_BudgetActivityEntriesPlaceholder;
                 activities.OnEntryClicked += Open_BudgetActivityEntry;
+                activities.OnAddAmountClicked += Show_AddBudgetAmountForm;
+                activities.OnRemoveAmountClicked += Show_RemoveBudgetForm;
                 this.Placeholder_Panel.Controls.Clear();
                 this.Placeholder_Panel.Controls.Add(activities);
                 this.Add_Button.Visible = true;
@@ -331,7 +333,7 @@ namespace Budget_Buddy_GUI
             this.modalPanel.BringToFront();
             if (this.activeBudget == null || !this.budgets.Contains(this.activeBudget))
             {
-                MessageBox.Show("Cannot edit Budget");
+                MessageBox.Show("An error occured while editing budget", "Budget does not exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             EditBudget_Form form = new(this.activeBudget);
@@ -340,17 +342,48 @@ namespace Budget_Buddy_GUI
             this.modalPanel.Visible = false;
         }
 
+        private void Show_AddBudgetAmountForm(object? sender, EventArgs e)
+        {
+            this.modalPanel.Visible = true;
+            this.modalPanel.BringToFront();
+            if (this.activeBudget == null || !this.budgets.Contains(this.activeBudget))
+            {
+                MessageBox.Show("An error occured while adding amount to budget funds", "Budget does not exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            EditBudgetmount_Form form = new("add");
+            form.OnConfirmAddButtonClicked += AddAmount_BudgetEntry;
+            form.ShowDialog();
+            this.modalPanel.Visible = false;
+        }
+
+        private void Show_RemoveBudgetForm(object? sender, EventArgs e)
+        {
+            this.modalPanel.Visible = true;
+            this.modalPanel.BringToFront();
+            if (this.activeBudget == null || !this.budgets.Contains(this.activeBudget))
+            {
+                MessageBox.Show("An error occured while removing amount to budget funds", "Budget does not exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            EditBudgetmount_Form form = new("remove");
+            form.OnConfirmRemoveButtonClicked += RemoveAmount_BudgetEntry;
+            form.ShowDialog();
+            this.modalPanel.Visible = false;
+        }
+
         private void Edit_BudgetEntry(object? sender, EventArgs e)
         {
             try
             {
-                EditBudget_Form form = (EditBudget_Form)sender!;
-                Budget update = (Budget)form.Tag;
+                var senderForm = sender;
                 if (!this.budgets.Contains(this.activeBudget!))
                 {
                     MessageBox.Show("An error occurred while editing the Budget entry. Please try again.\n", "Missing Budget");
                     return;
                 }
+                EditBudget_Form form = (EditBudget_Form)sender!;
+                Budget update = (Budget)form.Tag;
                 foreach (Budget b in this.budgets)
                 {
                     if (b.Name == update.Name)
@@ -373,6 +406,66 @@ namespace Budget_Buddy_GUI
                         {
                             b.AddBudgetAmount(update.Amount - b.Amount);
                         }
+                        this.activeBudget = b;
+                        ShowPlaceholder_BudgetActivityEntries(this.activeBudget);
+                        form.Close();
+                        return;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while editing the Budget entry. Please try again.\n" + ex.Message, "Error");
+            }
+        }
+        
+        private void AddAmount_BudgetEntry(object? sender, EventArgs e)
+        {
+            try
+            {
+                var senderForm = sender;
+                if (!this.budgets.Contains(this.activeBudget!))
+                {
+                    MessageBox.Show("An error occurred while editing the Budget entry. Please try again.\n", "Missing Budget");
+                    return;
+                }
+                EditBudgetmount_Form form = (EditBudgetmount_Form)sender!;
+                foreach (Budget b in this.budgets)
+                {
+                    if (b.Name == this.activeBudget!.Name)
+                    {
+                        b.AddBudgetAmount(form.Amount);
+                        this.activeBudget = b;
+                        ShowPlaceholder_BudgetActivityEntries(this.activeBudget);
+                        form.Close();
+                        return;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while editing the Budget entry. Please try again.\n" + ex.Message, "Error");
+            }
+        }
+        
+        private void RemoveAmount_BudgetEntry(object? sender, EventArgs e)
+        {
+            try
+            {
+                var senderForm = sender;
+                if (!this.budgets.Contains(this.activeBudget!))
+                {
+                    MessageBox.Show("An error occurred while editing the Budget entry. Please try again.\n", "Missing Budget");
+                    return;
+                }
+                EditBudgetmount_Form form = (EditBudgetmount_Form)sender!;
+                foreach (Budget b in this.budgets)
+                {
+                    if (b.Name == this.activeBudget!.Name)
+                    {
+                        b.RemoveBudgetAmount(form.Amount);
                         this.activeBudget = b;
                         ShowPlaceholder_BudgetActivityEntries(this.activeBudget);
                         form.Close();

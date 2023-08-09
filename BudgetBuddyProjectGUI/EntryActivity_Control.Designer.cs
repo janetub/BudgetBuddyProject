@@ -153,7 +153,7 @@
             ActivityName_Label.Margin = new Padding(3, 0, 0, 0);
             ActivityName_Label.Name = "ActivityName_Label";
             ActivityName_Label.Padding = new Padding(5, 10, 0, 0);
-            ActivityName_Label.Size = new Size(297, 52);
+            ActivityName_Label.Size = new Size(297, 49);
             ActivityName_Label.StateCommon.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             ActivityName_Label.StateCommon.TextColor = Color.Black;
             ActivityName_Label.Text = "Content length will be limited to 100 characters (including spaces)";

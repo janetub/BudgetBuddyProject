@@ -34,12 +34,15 @@
             ActivityItemEntriesPlaceHolder_TablePanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
             PlaceHolder_StatusBar_Control = new Krypton.Toolkit.KryptonPanel();
             Back_Button = new Button();
-            Edit_Button = new Button();
-            Information_Button = new Button();
-            button2 = new Button();
             ContextMenu_Button = new Button();
             Activity_ContextMenu = new ContextMenuStrip(components);
-            toolStripMenuItem1 = new ToolStripMenuItem();
+            Edit_toolStripMenuItem = new ToolStripMenuItem();
+            Details_toolStripMenuItem = new ToolStripMenuItem();
+            Transfer_toolStripMenuItem = new ToolStripMenuItem();
+            ToBudget_ToolStripMenuItem = new ToolStripMenuItem();
+            ToSavings_ToolStripMenuItem = new ToolStripMenuItem();
+            Archive_toolStripMenuItem = new ToolStripMenuItem();
+            CancelSavings_ToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)PlaceHolder_StatusBar_Control).BeginInit();
             Activity_ContextMenu.SuspendLayout();
             SuspendLayout();
@@ -81,6 +84,8 @@
             // 
             PlaceHolder_StatusBar_Control.Location = new Point(0, 27);
             PlaceHolder_StatusBar_Control.Name = "PlaceHolder_StatusBar_Control";
+            PlaceHolder_StatusBar_Control.PaletteMode = Krypton.Toolkit.PaletteMode.Office2013White;
+            PlaceHolder_StatusBar_Control.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.ControlRibbonAppMenu;
             PlaceHolder_StatusBar_Control.Size = new Size(360, 141);
             PlaceHolder_StatusBar_Control.StateCommon.Color1 = Color.Transparent;
             PlaceHolder_StatusBar_Control.TabIndex = 8;
@@ -99,50 +104,6 @@
             Back_Button.UseVisualStyleBackColor = false;
             Back_Button.Click += Back_Button_Click;
             // 
-            // Edit_Button
-            // 
-            Edit_Button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Edit_Button.BackColor = Color.Transparent;
-            Edit_Button.BackgroundImage = (Image)resources.GetObject("Edit_Button.BackgroundImage");
-            Edit_Button.BackgroundImageLayout = ImageLayout.Zoom;
-            Edit_Button.FlatAppearance.BorderSize = 0;
-            Edit_Button.FlatStyle = FlatStyle.Flat;
-            Edit_Button.Location = new Point(318, 7);
-            Edit_Button.Name = "Edit_Button";
-            Edit_Button.Size = new Size(30, 26);
-            Edit_Button.TabIndex = 55;
-            Edit_Button.UseVisualStyleBackColor = false;
-            Edit_Button.Click += Edit_Button_Click;
-            // 
-            // Information_Button
-            // 
-            Information_Button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Information_Button.BackColor = Color.Transparent;
-            Information_Button.BackgroundImage = (Image)resources.GetObject("Information_Button.BackgroundImage");
-            Information_Button.BackgroundImageLayout = ImageLayout.Zoom;
-            Information_Button.FlatAppearance.BorderSize = 0;
-            Information_Button.FlatStyle = FlatStyle.Flat;
-            Information_Button.Location = new Point(282, 7);
-            Information_Button.Name = "Information_Button";
-            Information_Button.Size = new Size(30, 26);
-            Information_Button.TabIndex = 56;
-            Information_Button.UseVisualStyleBackColor = false;
-            Information_Button.Click += Information_Button_Click;
-            // 
-            // button2
-            // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button2.BackColor = Color.Transparent;
-            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
-            button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(246, 7);
-            button2.Name = "button2";
-            button2.Size = new Size(30, 26);
-            button2.TabIndex = 57;
-            button2.UseVisualStyleBackColor = false;
-            // 
             // ContextMenu_Button
             // 
             ContextMenu_Button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -151,9 +112,9 @@
             ContextMenu_Button.BackgroundImageLayout = ImageLayout.Center;
             ContextMenu_Button.FlatAppearance.BorderSize = 0;
             ContextMenu_Button.FlatStyle = FlatStyle.Flat;
-            ContextMenu_Button.Location = new Point(210, 7);
+            ContextMenu_Button.Location = new Point(318, 7);
             ContextMenu_Button.Name = "ContextMenu_Button";
-            ContextMenu_Button.Size = new Size(30, 26);
+            ContextMenu_Button.Size = new Size(30, 28);
             ContextMenu_Button.TabIndex = 57;
             ContextMenu_Button.UseVisualStyleBackColor = false;
             ContextMenu_Button.Click += ContextMenu_Button_Click;
@@ -161,27 +122,75 @@
             // Activity_ContextMenu
             // 
             Activity_ContextMenu.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            Activity_ContextMenu.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
+            Activity_ContextMenu.ImeMode = ImeMode.NoControl;
+            Activity_ContextMenu.Items.AddRange(new ToolStripItem[] { Edit_toolStripMenuItem, Details_toolStripMenuItem, Transfer_toolStripMenuItem, Archive_toolStripMenuItem, CancelSavings_ToolStripMenuItem });
             Activity_ContextMenu.Name = "Activity_ContextMenu";
-            Activity_ContextMenu.Size = new Size(181, 48);
+            Activity_ContextMenu.Size = new Size(172, 114);
+            Activity_ContextMenu.Text = "Menu";
             // 
-            // toolStripMenuItem1
+            // Edit_toolStripMenuItem
             // 
-            toolStripMenuItem1.BackColor = Color.White;
-            toolStripMenuItem1.Image = (Image)resources.GetObject("toolStripMenuItem1.Image");
-            toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(180, 22);
-            toolStripMenuItem1.Text = "Edit";
+            Edit_toolStripMenuItem.BackColor = Color.White;
+            Edit_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            Edit_toolStripMenuItem.Image = (Image)resources.GetObject("Edit_toolStripMenuItem.Image");
+            Edit_toolStripMenuItem.Name = "Edit_toolStripMenuItem";
+            Edit_toolStripMenuItem.Size = new Size(171, 22);
+            Edit_toolStripMenuItem.Text = "Edit";
+            // 
+            // Details_toolStripMenuItem
+            // 
+            Details_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            Details_toolStripMenuItem.Image = (Image)resources.GetObject("Details_toolStripMenuItem.Image");
+            Details_toolStripMenuItem.Name = "Details_toolStripMenuItem";
+            Details_toolStripMenuItem.Size = new Size(171, 22);
+            Details_toolStripMenuItem.Text = "Details";
+            // 
+            // Transfer_toolStripMenuItem
+            // 
+            Transfer_toolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ToBudget_ToolStripMenuItem, ToSavings_ToolStripMenuItem });
+            Transfer_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            Transfer_toolStripMenuItem.Image = (Image)resources.GetObject("Transfer_toolStripMenuItem.Image");
+            Transfer_toolStripMenuItem.Name = "Transfer_toolStripMenuItem";
+            Transfer_toolStripMenuItem.Size = new Size(171, 22);
+            Transfer_toolStripMenuItem.Text = "Transfer Balance";
+            // 
+            // ToBudget_ToolStripMenuItem
+            // 
+            ToBudget_ToolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            ToBudget_ToolStripMenuItem.Name = "ToBudget_ToolStripMenuItem";
+            ToBudget_ToolStripMenuItem.Size = new Size(134, 22);
+            ToBudget_ToolStripMenuItem.Text = "To Budget";
+            // 
+            // ToSavings_ToolStripMenuItem
+            // 
+            ToSavings_ToolStripMenuItem.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            ToSavings_ToolStripMenuItem.Name = "ToSavings_ToolStripMenuItem";
+            ToSavings_ToolStripMenuItem.Size = new Size(134, 22);
+            ToSavings_ToolStripMenuItem.Text = "To Savings";
+            // 
+            // Archive_toolStripMenuItem
+            // 
+            Archive_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            Archive_toolStripMenuItem.Image = (Image)resources.GetObject("Archive_toolStripMenuItem.Image");
+            Archive_toolStripMenuItem.Name = "Archive_toolStripMenuItem";
+            Archive_toolStripMenuItem.Size = new Size(171, 22);
+            Archive_toolStripMenuItem.Text = "Archive";
+            // 
+            // CancelSavings_ToolStripMenuItem
+            // 
+            CancelSavings_ToolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            CancelSavings_ToolStripMenuItem.Image = (Image)resources.GetObject("CancelSavings_ToolStripMenuItem.Image");
+            CancelSavings_ToolStripMenuItem.Name = "CancelSavings_ToolStripMenuItem";
+            CancelSavings_ToolStripMenuItem.Size = new Size(171, 22);
+            CancelSavings_ToolStripMenuItem.Text = "Cancel Savings";
+            CancelSavings_ToolStripMenuItem.Visible = false;
             // 
             // Placeholder_SubActivitiesEntries_Control
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(button2);
             Controls.Add(ContextMenu_Button);
-            Controls.Add(Information_Button);
-            Controls.Add(Edit_Button);
             Controls.Add(Back_Button);
             Controls.Add(PlaceHolder_StatusBar_Control);
             Controls.Add(NoContent_label);
@@ -202,11 +211,14 @@
         private Krypton.Toolkit.KryptonPanel PlaceHolder_StatusBar_Control;
         private Button button1;
         private Button Back_Button;
-        private Button Edit_Button;
-        private Button Information_Button;
-        private Button button2;
         private Button ContextMenu_Button;
         private ContextMenuStrip Activity_ContextMenu;
-        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem Edit_toolStripMenuItem;
+        private ToolStripMenuItem Details_toolStripMenuItem;
+        private ToolStripMenuItem Archive_toolStripMenuItem;
+        private ToolStripMenuItem Transfer_toolStripMenuItem;
+        private ToolStripMenuItem CancelSavings_ToolStripMenuItem;
+        private ToolStripMenuItem ToBudget_ToolStripMenuItem;
+        private ToolStripMenuItem ToSavings_ToolStripMenuItem;
     }
 }

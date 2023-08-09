@@ -30,8 +30,6 @@
         {
             AppBar = new PictureBox();
             MenuButton = new Button();
-            Amount_Label = new Krypton.Toolkit.KryptonLabel();
-            Name_Label = new Krypton.Toolkit.KryptonLabel();
             Add_Button = new RoundButton();
             Exit_Button = new Button();
             PageName_Label = new Label();
@@ -73,26 +71,6 @@
             MenuButton.UseVisualStyleBackColor = false;
             MenuButton.Click += MenuButton_Click;
             // 
-            // Amount_Label
-            // 
-            Amount_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            Amount_Label.Location = new Point(3, 76);
-            Amount_Label.Name = "Amount_Label";
-            Amount_Label.Size = new Size(70, 21);
-            Amount_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            Amount_Label.TabIndex = 33;
-            Amount_Label.Values.Text = "Amount";
-            // 
-            // Name_Label
-            // 
-            Name_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            Name_Label.Location = new Point(23, 3);
-            Name_Label.Name = "Name_Label";
-            Name_Label.Size = new Size(54, 21);
-            Name_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            Name_Label.TabIndex = 31;
-            Name_Label.Values.Text = "Name";
-            // 
             // Add_Button
             // 
             Add_Button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -132,11 +110,12 @@
             PageName_Label.AutoSize = true;
             PageName_Label.BackColor = Color.FromArgb(255, 218, 70);
             PageName_Label.CausesValidation = false;
-            PageName_Label.Font = new Font("Arial", 13F, FontStyle.Bold, GraphicsUnit.Point);
+            PageName_Label.FlatStyle = FlatStyle.Flat;
+            PageName_Label.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             PageName_Label.ForeColor = Color.Black;
-            PageName_Label.Location = new Point(115, 15);
+            PageName_Label.Location = new Point(115, 17);
             PageName_Label.Name = "PageName_Label";
-            PageName_Label.Size = new Size(130, 21);
+            PageName_Label.Size = new Size(116, 19);
             PageName_Label.TabIndex = 0;
             PageName_Label.Text = "BudgetBuddy";
             PageName_Label.TextAlign = ContentAlignment.MiddleCenter;
@@ -279,8 +258,6 @@
 
         private PictureBox AppBar;
         private Button MenuButton;
-        private Krypton.Toolkit.KryptonLabel Amount_Label;
-        private Krypton.Toolkit.KryptonLabel Name_Label;
         private RoundButton Add_Button;
         private Button Exit_Button;
         private Label PageName_Label;

@@ -13,13 +13,15 @@ namespace Budget_Buddy_GUI
 {
     public partial class EntryBudget_Control : UserControl
     {
-        public event EventHandler OnEntryClicked;
-        public event EventHandler OnDeleteButtonClicked;
+        public event EventHandler? OnEntryClicked;
+        public event EventHandler? OnDeleteButtonClicked;
         public EntryBudget_Control(Budget budget)
         {
             InitializeComponent();
             this.BudgetName_Label.Text = budget.Name;
             this.BudgetBalanceAmount_Label.Text = budget.Amount.ToString("N2");
+            ToolTip nameLabel_toolTip = new ToolTip();
+            nameLabel_toolTip.SetToolTip(BudgetName_Label, BudgetName_Label.Text);
             this.Tag = budget;
         }
 

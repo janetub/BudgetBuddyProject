@@ -21,6 +21,8 @@ namespace Budget_Buddy_GUI
             this.ProjectedAmount_Label.Text = act.GetSummedProjectedsItems().ToString("N2");
             this.AllocatedAmount_Label1.Text = "/" + (act.Projected.ToString("N2"));
             this.AllocatedAmount_Label2.Text = "/" + (act.Projected.ToString("N2"));
+            ToolTip nameLabel_toolTip = new ToolTip();
+            nameLabel_toolTip.SetToolTip(Name_Label, Name_Label.Text);
 
             double maxBudget = act.Projected, projected = act.GetSummedProjectedsItems(), actual = act.Actual;
 

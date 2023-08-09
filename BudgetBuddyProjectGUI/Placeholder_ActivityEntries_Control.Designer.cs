@@ -28,19 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Placeholder_ActivityEntries_Control));
             NoContent_label = new Label();
             ActivityEntriesPlaceHolder_TablePanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
             PlaceHolder_StatusBar_Control = new Krypton.Toolkit.KryptonPanel();
+            ContextMenu_Button = new Button();
             Back_Button = new Button();
             ActivityFundStatus_TLPanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
             Balance_Label = new Krypton.Toolkit.KryptonLabel();
             BalanceAmount_Label = new Krypton.Toolkit.KryptonLabel();
-            Edit_Button = new Button();
             Name_Label = new Krypton.Toolkit.KryptonWrapLabel();
+            Activity_ContextMenu = new ContextMenuStrip(components);
+            Edit_toolStripMenuItem = new ToolStripMenuItem();
+            AddAmount_toolStripMenuItem = new ToolStripMenuItem();
+            RemoveAmount_toolStripMenuItem = new ToolStripMenuItem();
+            Details_toolStripMenuItem = new ToolStripMenuItem();
+            Archive_toolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)PlaceHolder_StatusBar_Control).BeginInit();
             PlaceHolder_StatusBar_Control.SuspendLayout();
             ActivityFundStatus_TLPanel.SuspendLayout();
+            Activity_ContextMenu.SuspendLayout();
             SuspendLayout();
             // 
             // NoContent_label
@@ -78,15 +86,33 @@
             // 
             // PlaceHolder_StatusBar_Control
             // 
+            PlaceHolder_StatusBar_Control.AutoScroll = true;
+            PlaceHolder_StatusBar_Control.Controls.Add(ContextMenu_Button);
             PlaceHolder_StatusBar_Control.Controls.Add(Back_Button);
             PlaceHolder_StatusBar_Control.Controls.Add(ActivityFundStatus_TLPanel);
-            PlaceHolder_StatusBar_Control.Controls.Add(Edit_Button);
             PlaceHolder_StatusBar_Control.Controls.Add(Name_Label);
             PlaceHolder_StatusBar_Control.Location = new Point(0, 0);
             PlaceHolder_StatusBar_Control.Name = "PlaceHolder_StatusBar_Control";
+            PlaceHolder_StatusBar_Control.PaletteMode = Krypton.Toolkit.PaletteMode.Office2013White;
+            PlaceHolder_StatusBar_Control.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.ControlRibbonAppMenu;
             PlaceHolder_StatusBar_Control.Size = new Size(360, 115);
             PlaceHolder_StatusBar_Control.StateCommon.Color1 = Color.Transparent;
             PlaceHolder_StatusBar_Control.TabIndex = 9;
+            // 
+            // ContextMenu_Button
+            // 
+            ContextMenu_Button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ContextMenu_Button.BackColor = Color.Transparent;
+            ContextMenu_Button.BackgroundImage = (Image)resources.GetObject("ContextMenu_Button.BackgroundImage");
+            ContextMenu_Button.BackgroundImageLayout = ImageLayout.Center;
+            ContextMenu_Button.FlatAppearance.BorderSize = 0;
+            ContextMenu_Button.FlatStyle = FlatStyle.Flat;
+            ContextMenu_Button.Location = new Point(318, 7);
+            ContextMenu_Button.Name = "ContextMenu_Button";
+            ContextMenu_Button.Size = new Size(30, 28);
+            ContextMenu_Button.TabIndex = 58;
+            ContextMenu_Button.UseVisualStyleBackColor = false;
+            ContextMenu_Button.Click += ContextMenu_Button_Click;
             // 
             // Back_Button
             // 
@@ -112,14 +138,14 @@
             ActivityFundStatus_TLPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 94F));
             ActivityFundStatus_TLPanel.Controls.Add(Balance_Label, 0, 0);
             ActivityFundStatus_TLPanel.Controls.Add(BalanceAmount_Label, 1, 0);
-            ActivityFundStatus_TLPanel.Location = new Point(17, 80);
+            ActivityFundStatus_TLPanel.Location = new Point(17, 79);
             ActivityFundStatus_TLPanel.Name = "ActivityFundStatus_TLPanel";
             ActivityFundStatus_TLPanel.RowCount = 1;
             ActivityFundStatus_TLPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             ActivityFundStatus_TLPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             ActivityFundStatus_TLPanel.Size = new Size(326, 32);
             ActivityFundStatus_TLPanel.StateCommon.Color1 = Color.White;
-            ActivityFundStatus_TLPanel.StateCommon.Color2 = Color.White;
+            ActivityFundStatus_TLPanel.StateCommon.Color2 = Color.Transparent;
             ActivityFundStatus_TLPanel.TabIndex = 50;
             // 
             // Balance_Label
@@ -149,21 +175,6 @@
             BalanceAmount_Label.TabIndex = 40;
             BalanceAmount_Label.Values.Text = "999,999,999,999.99";
             // 
-            // Edit_Button
-            // 
-            Edit_Button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Edit_Button.BackColor = Color.Transparent;
-            Edit_Button.BackgroundImage = (Image)resources.GetObject("Edit_Button.BackgroundImage");
-            Edit_Button.BackgroundImageLayout = ImageLayout.Center;
-            Edit_Button.FlatAppearance.BorderSize = 0;
-            Edit_Button.FlatStyle = FlatStyle.Flat;
-            Edit_Button.Location = new Point(318, 7);
-            Edit_Button.Name = "Edit_Button";
-            Edit_Button.Size = new Size(30, 26);
-            Edit_Button.TabIndex = 43;
-            Edit_Button.UseVisualStyleBackColor = false;
-            Edit_Button.Click += Edit_Button_Click;
-            // 
             // Name_Label
             // 
             Name_Label.AutoEllipsis = true;
@@ -179,6 +190,58 @@
             Name_Label.StateCommon.TextColor = Color.Black;
             Name_Label.Text = "Content length will be limited to 100 characters (including spaces)";
             Name_Label.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Activity_ContextMenu
+            // 
+            Activity_ContextMenu.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Activity_ContextMenu.ImeMode = ImeMode.NoControl;
+            Activity_ContextMenu.Items.AddRange(new ToolStripItem[] { Edit_toolStripMenuItem, AddAmount_toolStripMenuItem, RemoveAmount_toolStripMenuItem, Details_toolStripMenuItem, Archive_toolStripMenuItem });
+            Activity_ContextMenu.Name = "Activity_ContextMenu";
+            Activity_ContextMenu.Size = new Size(169, 114);
+            Activity_ContextMenu.Text = "Menu";
+            // 
+            // Edit_toolStripMenuItem
+            // 
+            Edit_toolStripMenuItem.BackColor = Color.White;
+            Edit_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            Edit_toolStripMenuItem.Image = (Image)resources.GetObject("Edit_toolStripMenuItem.Image");
+            Edit_toolStripMenuItem.Name = "Edit_toolStripMenuItem";
+            Edit_toolStripMenuItem.Size = new Size(168, 22);
+            Edit_toolStripMenuItem.Text = "Edit";
+            // 
+            // AddAmount_toolStripMenuItem
+            // 
+            AddAmount_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            AddAmount_toolStripMenuItem.Image = (Image)resources.GetObject("AddAmount_toolStripMenuItem.Image");
+            AddAmount_toolStripMenuItem.Name = "AddAmount_toolStripMenuItem";
+            AddAmount_toolStripMenuItem.Size = new Size(168, 22);
+            AddAmount_toolStripMenuItem.Text = "Add Amount";
+            AddAmount_toolStripMenuItem.Click += AddAmount_toolStripMenuItem_Click;
+            // 
+            // RemoveAmount_toolStripMenuItem
+            // 
+            RemoveAmount_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            RemoveAmount_toolStripMenuItem.Image = (Image)resources.GetObject("RemoveAmount_toolStripMenuItem.Image");
+            RemoveAmount_toolStripMenuItem.Name = "RemoveAmount_toolStripMenuItem";
+            RemoveAmount_toolStripMenuItem.Size = new Size(168, 22);
+            RemoveAmount_toolStripMenuItem.Text = "Remove Amount";
+            RemoveAmount_toolStripMenuItem.Click += RemoveAmount_toolStripMenuItem_Click;
+            // 
+            // Details_toolStripMenuItem
+            // 
+            Details_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            Details_toolStripMenuItem.Image = (Image)resources.GetObject("Details_toolStripMenuItem.Image");
+            Details_toolStripMenuItem.Name = "Details_toolStripMenuItem";
+            Details_toolStripMenuItem.Size = new Size(168, 22);
+            Details_toolStripMenuItem.Text = "Details";
+            // 
+            // Archive_toolStripMenuItem
+            // 
+            Archive_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            Archive_toolStripMenuItem.Image = (Image)resources.GetObject("Archive_toolStripMenuItem.Image");
+            Archive_toolStripMenuItem.Name = "Archive_toolStripMenuItem";
+            Archive_toolStripMenuItem.Size = new Size(168, 22);
+            Archive_toolStripMenuItem.Text = "Archive";
             // 
             // Placeholder_ActivityEntries_Control
             // 
@@ -196,6 +259,7 @@
             PlaceHolder_StatusBar_Control.ResumeLayout(false);
             ActivityFundStatus_TLPanel.ResumeLayout(false);
             ActivityFundStatus_TLPanel.PerformLayout();
+            Activity_ContextMenu.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -209,7 +273,13 @@
         private Krypton.Toolkit.KryptonLabel Balance_Label;
         private Krypton.Toolkit.KryptonLabel BalanceAmount_Label;
         private Krypton.Toolkit.KryptonWrapLabel Name_Label;
-        private Button Edit_Button;
         private Button Back_Button;
+        private ContextMenuStrip Activity_ContextMenu;
+        private ToolStripMenuItem Edit_toolStripMenuItem;
+        private ToolStripMenuItem Details_toolStripMenuItem;
+        private Button ContextMenu_Button;
+        private ToolStripMenuItem AddAmount_toolStripMenuItem;
+        private ToolStripMenuItem RemoveAmount_toolStripMenuItem;
+        private ToolStripMenuItem Archive_toolStripMenuItem;
     }
 }

@@ -85,6 +85,12 @@ namespace Budget_Buddy_GUI
             try
             {
                 double budgetAmount;
+                if (this.Amount_NumUpDown.Text.Contains("-"))
+                {
+                    MessageBox.Show("Budget amount must be a positive number.");
+                    this.RequiredAmount_Label.Visible = true;
+                    return;
+                }
                 if (string.IsNullOrEmpty(this.Name_TextBox.Text) && (string.IsNullOrEmpty(Amount_NumUpDown.Text) || Amount_NumUpDown.Text == "0.00"))
                 {
                     MessageBox.Show("Please fill up all required fields to create a budget entry.");

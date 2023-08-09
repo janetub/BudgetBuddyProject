@@ -216,6 +216,9 @@
             PageName_Label.TabIndex = 51;
             PageName_Label.Text = "Edit Budget";
             PageName_Label.TextAlign = ContentAlignment.MiddleCenter;
+            PageName_Label.MouseDown += AppBar_MouseDown;
+            PageName_Label.MouseMove += AppBar_MouseMove;
+            PageName_Label.MouseUp += AppBar_MouseUp;
             // 
             // EditBudget_Form
             // 

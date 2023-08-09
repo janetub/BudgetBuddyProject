@@ -1,4 +1,5 @@
-﻿using Student_Financial_Assisstance;
+﻿using Krypton.Toolkit;
+using Student_Financial_Assisstance;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,8 @@ namespace Budget_Buddy_GUI
 
         public event EventHandler? OnEntriesUpdated;
         public event EventHandler? OnEditBudgetClicked;
+        public event EventHandler? OnAddAmountClicked;
+        public event EventHandler? OnRemoveAmountClicked;
         public event EventHandler? OnBackButtonClicked;
         public event EventHandler? OnEntryClicked;
 
@@ -40,6 +43,12 @@ namespace Budget_Buddy_GUI
             {
                 this.Name_Label.Text = ((Budget)Tag).Name.ToString();
                 this.BalanceAmount_Label.Text = ((Budget)Tag).Amount.ToString("N2");
+                ToolTip nameLabel_toolTip = new ToolTip();
+                nameLabel_toolTip.SetToolTip(Name_Label, Name_Label.Text);
+                /*ToolTip editButton_toolTip = new ToolTip();
+                editButton_toolTip.SetToolTip(this.Edit_Button, "Edit Budget");*/
+                ToolTip amount_toolTip = new ToolTip();
+                amount_toolTip.SetToolTip(this.BalanceAmount_Label, "Remaining Budget funds");
             }
         }
 
@@ -68,7 +77,9 @@ namespace Budget_Buddy_GUI
                     OnEntriesUpdated?.Invoke(this, EventArgs.Empty);
                 }
             }
-
+            Panel spacer = new Panel();
+            spacer.Height = 80;
+            this.ActivityEntriesPlaceHolder_TablePanel.Controls.Add(spacer);
             NoContent_label.Visible = (this.displayedControls.Count == 0);
         }
 
@@ -152,6 +163,20 @@ namespace Budget_Buddy_GUI
         private void Back_Button_Click(object sender, EventArgs e)
         {
             OnBackButtonClicked?.Invoke(this, EventArgs.Empty);
+        }
+        private void ContextMenu_Button_Click(object sender, EventArgs e)
+        {
+            this.Activity_ContextMenu.Show(this.ContextMenu_Button, this.ContextMenu_Button.Width, this.ContextMenu_Button.Height);
+        }
+
+        private void AddAmount_toolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.OnAddAmountClicked?.Invoke(sender, EventArgs.Empty);
+        }
+
+        private void RemoveAmount_toolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.OnRemoveAmountClicked?.Invoke(sender, EventArgs.Empty);
         }
     }
 }

@@ -20,7 +20,6 @@ namespace Budget_Buddy_GUI
         public EditBudget_Form(Budget budget)
         {
             InitializeComponent();
-            Back_Button.DialogResult = DialogResult.Cancel;
             this.Name_TextBox.Text = budget.Name;
             this.Amount_NumUpDown.Text = budget.Amount.ToString("F2");
         }

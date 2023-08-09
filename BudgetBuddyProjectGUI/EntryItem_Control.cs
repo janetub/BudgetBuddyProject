@@ -23,7 +23,7 @@ namespace Budget_Buddy_GUI
             this.ItemPriceAmount_Label.Text = price.ToString("N2");
             this.ItemQuantity_Label.Text = item.Cost.ToString("N2") + "x" + item.Quantity + "qty";
             ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(ItemName_Label, item.Name);
+            toolTip.SetToolTip(ItemName_Label, ItemName_Label.Text);
             this.Tag = item;
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace Budget_Buddy_GUI
 {
-    partial class Edit_Form
+    partial class EditBudgetmount_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Edit_Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditBudgetmount_Form));
             FormCanvas_TableLayoutPanel = new TableLayoutPanel();
             Field_Label = new Krypton.Toolkit.KryptonLabel();
             Amount_NumUpDown = new Krypton.Toolkit.KryptonNumericUpDown();
@@ -63,10 +63,11 @@
             Field_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             Field_Label.Location = new Point(23, 46);
             Field_Label.Name = "Field_Label";
-            Field_Label.Size = new Size(52, 21);
+            Field_Label.Size = new Size(70, 21);
             Field_Label.StateCommon.ShortText.Color1 = Color.Black;
             Field_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             Field_Label.TabIndex = 33;
+            Field_Label.Values.Text = "Amount";
             // 
             // Amount_NumUpDown
             // 
@@ -104,9 +105,9 @@
             FormName_Label.ForeColor = Color.Black;
             FormName_Label.Location = new Point(120, 15);
             FormName_Label.Name = "FormName_Label";
-            FormName_Label.Size = new Size(92, 25);
+            FormName_Label.Size = new Size(119, 25);
             FormName_Label.TabIndex = 58;
-            FormName_Label.Text = "Edit Form";
+            FormName_Label.Text = "Add Amount";
             FormName_Label.TextAlign = ContentAlignment.MiddleCenter;
             FormName_Label.MouseDown += AppBar_MouseDown;
             FormName_Label.MouseMove += AppBar_MouseMove;
@@ -138,8 +139,9 @@
             ConfirmEdit_Button.Name = "ConfirmEdit_Button";
             ConfirmEdit_Button.Size = new Size(360, 50);
             ConfirmEdit_Button.TabIndex = 53;
-            ConfirmEdit_Button.Text = "Confirm Edit";
+            ConfirmEdit_Button.Text = "Confirm Addition";
             ConfirmEdit_Button.UseVisualStyleBackColor = false;
+            ConfirmEdit_Button.Click += ConfirmEdit_Button_Click;
             // 
             // AppBar
             // 
@@ -154,7 +156,7 @@
             AppBar.MouseMove += AppBar_MouseMove;
             AppBar.MouseUp += AppBar_MouseUp;
             // 
-            // Edit_Form
+            // EditAddAmount_Form
             // 
             AcceptButton = ConfirmEdit_Button;
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -169,7 +171,7 @@
             Controls.Add(AppBar);
             Controls.Add(FormCanvas_TableLayoutPanel);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Edit_Form";
+            Name = "EditAddAmount_Form";
             StartPosition = FormStartPosition.CenterParent;
             Text = "AddAmount_Form";
             FormCanvas_TableLayoutPanel.ResumeLayout(false);

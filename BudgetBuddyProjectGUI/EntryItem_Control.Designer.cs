@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntryItem_Control));
             ItemDetails_TLPanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
             BudgetActivityType_Label = new Krypton.Toolkit.KryptonLabel();
@@ -36,7 +35,6 @@
             ItemPrice_Label = new Krypton.Toolkit.KryptonLabel();
             ItemPriceAmount_Label = new Krypton.Toolkit.KryptonLabel();
             Delete_Button = new Button();
-            ItemName_Tooltip = new ToolTip(components);
             ItemName_Label = new Krypton.Toolkit.KryptonWrapLabel();
             ItemDetails_TLPanel.SuspendLayout();
             SuspendLayout();
@@ -156,7 +154,7 @@
             ItemName_Label.Margin = new Padding(3, 0, 0, 0);
             ItemName_Label.Name = "ItemName_Label";
             ItemName_Label.Padding = new Padding(5, 10, 0, 0);
-            ItemName_Label.Size = new Size(298, 52);
+            ItemName_Label.Size = new Size(298, 49);
             ItemName_Label.StateCommon.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             ItemName_Label.StateCommon.TextColor = Color.Black;
             ItemName_Label.Text = "Content length will be limited to 100 characters (including spaces)";
@@ -187,7 +185,6 @@
         private Button Delete_Button;
         private Krypton.Toolkit.KryptonLabel BudgetActivityType_Label;
         private Krypton.Toolkit.KryptonLabel ItemPriceAmount_Label;
-        private ToolTip ItemName_Tooltip;
         private Krypton.Toolkit.KryptonWrapLabel ItemName_Label;
     }
 }

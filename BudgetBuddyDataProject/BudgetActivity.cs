@@ -201,7 +201,7 @@ namespace Student_Financial_Assisstance
             }
             this.items.Add(item);
             this.computeActual();
-            return true;
+            return this.items.Contains(item);
         }
 
         /// <summary>
@@ -231,7 +231,7 @@ namespace Student_Financial_Assisstance
                 return false;
             this.subActivities.Add(subActivity);
             this.computeActual();
-            return true;
+            return this.subActivities.Contains(subActivity);
         }
 
         /// <summary>
@@ -262,8 +262,7 @@ namespace Student_Financial_Assisstance
             // should be Savings type, funds to move can be supported, and destination funds will not exceed projected if added
             if (activity.ActivityType != BudgetActivityType.Savings || (this.Projected - this.GetSummedProjectedsItems()) < amount || (activity.Projected - activity.Actual) < amount)  
                 return false;
-            Item savings = new Item($"Saved amount {amount} from activity {this.name} for {activity.name}", amount, 1);
-
+            Item savings = new Item($"Saved amount {amount} for {activity.name}", amount, 1);
             this.AddItem(savings);
             activity.AddItem(savings);
             return true;

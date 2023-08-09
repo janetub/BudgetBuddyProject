@@ -77,6 +77,12 @@ namespace Budget_Buddy_GUI
         {
             try
             {
+                if (this.ProjectedAmount_NumUpDown.Text.Contains("-"))
+                {
+                    MessageBox.Show("Budget amount must be a positive number.");
+                    this.ProjectedAmount_NumUpDown.Visible = true;
+                    return;
+                }
                 if (this.ActivityType_ComboBox == null)
                 {
                     this.RequiredActivityType_Label.Visible = true;

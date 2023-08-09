@@ -38,6 +38,7 @@
             RequiredAmount_Label = new Krypton.Toolkit.KryptonLabel();
             RequiredName_Label = new Krypton.Toolkit.KryptonLabel();
             Back_Button = new Button();
+            Bck_Button = new Button();
             CreateBudgetInputFields_TableLayoutPanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -185,7 +186,6 @@
             // Back_Button
             // 
             Back_Button.BackColor = Color.Transparent;
-            Back_Button.BackgroundImage = (Image)resources.GetObject("Back_Button.BackgroundImage");
             Back_Button.BackgroundImageLayout = ImageLayout.Center;
             Back_Button.CausesValidation = false;
             Back_Button.FlatAppearance.BorderSize = 0;
@@ -197,10 +197,26 @@
             Back_Button.UseVisualStyleBackColor = false;
             Back_Button.Click += Back_Button_Click;
             // 
+            // Bck_Button
+            // 
+            Bck_Button.BackColor = Color.Transparent;
+            Bck_Button.BackgroundImage = (Image)resources.GetObject("Bck_Button.BackgroundImage");
+            Bck_Button.BackgroundImageLayout = ImageLayout.Center;
+            Bck_Button.CausesValidation = false;
+            Bck_Button.FlatAppearance.BorderSize = 0;
+            Bck_Button.FlatStyle = FlatStyle.Flat;
+            Bck_Button.Location = new Point(12, 7);
+            Bck_Button.Name = "Bck_Button";
+            Bck_Button.Size = new Size(31, 30);
+            Bck_Button.TabIndex = 46;
+            Bck_Button.UseVisualStyleBackColor = false;
+            Bck_Button.Click += Back_Button_Click;
+            // 
             // CreateBudget_Control
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
+            Controls.Add(Bck_Button);
             Controls.Add(Back_Button);
             Controls.Add(RequiredAmount_Label);
             Controls.Add(RequiredName_Label);
@@ -225,5 +241,6 @@
         private Krypton.Toolkit.KryptonLabel RequiredName_Label;
         private Krypton.Toolkit.KryptonNumericUpDown Amount_NumUpDown;
         private Button Back_Button;
+        private Button Bck_Button;
     }
 }

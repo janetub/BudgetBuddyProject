@@ -24,6 +24,8 @@ namespace Budget_Buddy_GUI
             double balance = activity.Projected - activity.Actual;
             this.ActualBalanceAmount_Label.Text = balance.ToString("N2");
             this.ActivityName_Label.Text = activity.Name;
+            ToolTip nameLabel_toolTip = new ToolTip();
+            nameLabel_toolTip.SetToolTip(ActivityName_Label, ActivityName_Label.Text);
             if (activity.ActivityType == BudgetActivityType.Savings)
             {
                 this.BudgetActivityType_Label.Text = "Savings";
