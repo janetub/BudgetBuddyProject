@@ -205,8 +205,8 @@ namespace Budget_Buddy_GUI
                 // CollapseButton.performCLick() when other elements are clicked
                 activities.OnBackButtonClicked += Refresh_SubActivityEntriesPlaceholder;
                 activities.OnEntriesUpdated += Refresh_SubActivityEntries;
-                /*activities.OnEditButtonClicked += ;
-                activities.OnEntryClicked += ;*/
+                /*activities.OnEditButtonClicked += ;*/
+                activities.OnEntryClicked += Open_BudgetActivityEntry;
                 this.Placeholder_Panel.Controls.Clear();
                 this.Placeholder_Panel.Controls.Add(activities);
                 this.Add_Button.Visible = true;

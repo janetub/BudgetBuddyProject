@@ -24,15 +24,16 @@ namespace Budget_Buddy_GUI
             double balance = activity.Projected - activity.Actual;
             this.ActualBalanceAmount_Label.Text = balance.ToString("N2");
             this.ActivityName_Label.Text = activity.Name;
-            this.ProjectedBalanceAmount_Label.Text = "/" + (activity.Projected.ToString("N2"));
             if (activity.ActivityType == BudgetActivityType.Savings)
             {
                 this.BudgetActivityType_Label.Text = "Savings";
                 this.Balance_Label.Text = "Target:";
+                this.ProjectedBalanceAmount_Label.Text = "till " + (activity.Projected.ToString("N2"));
             }
             else
             {
                 this.BudgetActivityType_Label.Text = "Expense";
+                this.ProjectedBalanceAmount_Label.Text = "/" + (activity.Projected.ToString("N2"));
             }
             this.Tag = activity;
         }

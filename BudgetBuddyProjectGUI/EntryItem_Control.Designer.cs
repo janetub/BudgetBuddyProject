@@ -58,7 +58,6 @@
             ItemDetails_TLPanel.Enabled = false;
             ItemDetails_TLPanel.Location = new Point(0, 52);
             ItemDetails_TLPanel.Name = "ItemDetails_TLPanel";
-            ItemDetails_TLPanel.Padding = new Padding(0, 0, 0, 3);
             ItemDetails_TLPanel.RowCount = 1;
             ItemDetails_TLPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             ItemDetails_TLPanel.Size = new Size(350, 28);
@@ -71,11 +70,12 @@
             // 
             BudgetActivityType_Label.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             BudgetActivityType_Label.Enabled = false;
-            BudgetActivityType_Label.Location = new Point(3, 3);
+            BudgetActivityType_Label.Location = new Point(0, 5);
+            BudgetActivityType_Label.Margin = new Padding(0);
             BudgetActivityType_Label.MaximumSize = new Size(125, 19);
             BudgetActivityType_Label.Name = "BudgetActivityType_Label";
-            BudgetActivityType_Label.Size = new Size(30, 19);
-            BudgetActivityType_Label.StateCommon.Padding = new Padding(0, 0, -7, 3);
+            BudgetActivityType_Label.Size = new Size(36, 17);
+            BudgetActivityType_Label.StateCommon.Padding = new Padding(0);
             BudgetActivityType_Label.StateCommon.ShortText.Color1 = Color.Gray;
             BudgetActivityType_Label.StateCommon.ShortText.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             BudgetActivityType_Label.TabIndex = 48;
@@ -87,10 +87,11 @@
             ItemQuantity_Label.Anchor = AnchorStyles.Left;
             ItemQuantity_Label.AutoSize = false;
             ItemQuantity_Label.Enabled = false;
-            ItemQuantity_Label.Location = new Point(232, 3);
+            ItemQuantity_Label.Location = new Point(229, 5);
+            ItemQuantity_Label.Margin = new Padding(0);
             ItemQuantity_Label.Name = "ItemQuantity_Label";
-            ItemQuantity_Label.Size = new Size(114, 18);
-            ItemQuantity_Label.StateCommon.Padding = new Padding(0, 0, -7, 3);
+            ItemQuantity_Label.Size = new Size(121, 18);
+            ItemQuantity_Label.StateCommon.Padding = new Padding(0);
             ItemQuantity_Label.StateCommon.ShortText.Color1 = Color.DimGray;
             ItemQuantity_Label.StateCommon.ShortText.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
             ItemQuantity_Label.TabIndex = 42;
@@ -101,11 +102,12 @@
             // 
             ItemPrice_Label.Anchor = AnchorStyles.Right;
             ItemPrice_Label.Enabled = false;
-            ItemPrice_Label.Location = new Point(43, 3);
+            ItemPrice_Label.Location = new Point(46, 4);
+            ItemPrice_Label.Margin = new Padding(0);
             ItemPrice_Label.MaximumSize = new Size(125, 19);
             ItemPrice_Label.Name = "ItemPrice_Label";
             ItemPrice_Label.Size = new Size(42, 19);
-            ItemPrice_Label.StateCommon.Padding = new Padding(0, 0, 0, 3);
+            ItemPrice_Label.StateCommon.Padding = new Padding(0);
             ItemPrice_Label.StateCommon.ShortText.Color1 = Color.Black;
             ItemPrice_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             ItemPrice_Label.TabIndex = 40;
@@ -116,11 +118,11 @@
             // 
             ItemPriceAmount_Label.Anchor = AnchorStyles.Right;
             ItemPriceAmount_Label.Enabled = false;
-            ItemPriceAmount_Label.Location = new Point(103, 3);
-            ItemPriceAmount_Label.Margin = new Padding(3, 3, 0, 3);
+            ItemPriceAmount_Label.Location = new Point(103, 4);
+            ItemPriceAmount_Label.Margin = new Padding(0);
             ItemPriceAmount_Label.Name = "ItemPriceAmount_Label";
             ItemPriceAmount_Label.Size = new Size(126, 19);
-            ItemPriceAmount_Label.StateCommon.Padding = new Padding(0, 0, 0, 3);
+            ItemPriceAmount_Label.StateCommon.Padding = new Padding(0);
             ItemPriceAmount_Label.StateCommon.ShortText.Color1 = Color.Black;
             ItemPriceAmount_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             ItemPriceAmount_Label.TabIndex = 49;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Placeholder_SubActivitiesEntries_Control));
             NoContent_label = new Label();
             ActivityItemEntriesPlaceHolder_TablePanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
@@ -36,8 +37,11 @@
             Edit_Button = new Button();
             Information_Button = new Button();
             button2 = new Button();
-            button3 = new Button();
+            ContextMenu_Button = new Button();
+            Activity_ContextMenu = new ContextMenuStrip(components);
+            toolStripMenuItem1 = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)PlaceHolder_StatusBar_Control).BeginInit();
+            Activity_ContextMenu.SuspendLayout();
             SuspendLayout();
             // 
             // NoContent_label
@@ -139,19 +143,35 @@
             button2.TabIndex = 57;
             button2.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // ContextMenu_Button
             // 
-            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button3.BackColor = Color.Transparent;
-            button3.BackgroundImage = (Image)resources.GetObject("button3.BackgroundImage");
-            button3.BackgroundImageLayout = ImageLayout.Zoom;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(210, 7);
-            button3.Name = "button3";
-            button3.Size = new Size(30, 26);
-            button3.TabIndex = 57;
-            button3.UseVisualStyleBackColor = false;
+            ContextMenu_Button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ContextMenu_Button.BackColor = Color.Transparent;
+            ContextMenu_Button.BackgroundImage = (Image)resources.GetObject("ContextMenu_Button.BackgroundImage");
+            ContextMenu_Button.BackgroundImageLayout = ImageLayout.Center;
+            ContextMenu_Button.FlatAppearance.BorderSize = 0;
+            ContextMenu_Button.FlatStyle = FlatStyle.Flat;
+            ContextMenu_Button.Location = new Point(210, 7);
+            ContextMenu_Button.Name = "ContextMenu_Button";
+            ContextMenu_Button.Size = new Size(30, 26);
+            ContextMenu_Button.TabIndex = 57;
+            ContextMenu_Button.UseVisualStyleBackColor = false;
+            ContextMenu_Button.Click += ContextMenu_Button_Click;
+            // 
+            // Activity_ContextMenu
+            // 
+            Activity_ContextMenu.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Activity_ContextMenu.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
+            Activity_ContextMenu.Name = "Activity_ContextMenu";
+            Activity_ContextMenu.Size = new Size(181, 48);
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.BackColor = Color.White;
+            toolStripMenuItem1.Image = (Image)resources.GetObject("toolStripMenuItem1.Image");
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(180, 22);
+            toolStripMenuItem1.Text = "Edit";
             // 
             // Placeholder_SubActivitiesEntries_Control
             // 
@@ -159,7 +179,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             Controls.Add(button2);
-            Controls.Add(button3);
+            Controls.Add(ContextMenu_Button);
             Controls.Add(Information_Button);
             Controls.Add(Edit_Button);
             Controls.Add(Back_Button);
@@ -170,6 +190,7 @@
             Size = new Size(360, 590);
             Load += ActivityItemEntries_Control_Load;
             ((System.ComponentModel.ISupportInitialize)PlaceHolder_StatusBar_Control).EndInit();
+            Activity_ContextMenu.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -184,6 +205,8 @@
         private Button Edit_Button;
         private Button Information_Button;
         private Button button2;
-        private Button button3;
+        private Button ContextMenu_Button;
+        private ContextMenuStrip Activity_ContextMenu;
+        private ToolStripMenuItem toolStripMenuItem1;
     }
 }

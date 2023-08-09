@@ -59,14 +59,15 @@
             // 
             ProjectedBalanceAmount_Label.Anchor = AnchorStyles.Left;
             ProjectedBalanceAmount_Label.Enabled = false;
-            ProjectedBalanceAmount_Label.Location = new Point(232, 4);
+            ProjectedBalanceAmount_Label.Location = new Point(229, 4);
+            ProjectedBalanceAmount_Label.Margin = new Padding(0);
             ProjectedBalanceAmount_Label.Name = "ProjectedBalanceAmount_Label";
-            ProjectedBalanceAmount_Label.Size = new Size(113, 20);
+            ProjectedBalanceAmount_Label.Size = new Size(121, 20);
             ProjectedBalanceAmount_Label.StateCommon.Padding = new Padding(0, 0, 0, 3);
             ProjectedBalanceAmount_Label.StateCommon.ShortText.Color1 = Color.Black;
             ProjectedBalanceAmount_Label.StateCommon.ShortText.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             ProjectedBalanceAmount_Label.TabIndex = 41;
-            ProjectedBalanceAmount_Label.Values.Text = "/9,999,999,999.99";
+            ProjectedBalanceAmount_Label.Values.Text = "till 9,999,999,999.99";
             ProjectedBalanceAmount_Label.Click += EntryActivity_Control_Click;
             // 
             // Balance_Label
@@ -74,10 +75,11 @@
             Balance_Label.Anchor = AnchorStyles.Right;
             Balance_Label.AutoSize = false;
             Balance_Label.Enabled = false;
-            Balance_Label.Location = new Point(26, 4);
+            Balance_Label.Location = new Point(17, 4);
+            Balance_Label.Margin = new Padding(0);
             Balance_Label.Name = "Balance_Label";
-            Balance_Label.Size = new Size(59, 19);
-            Balance_Label.StateCommon.Padding = new Padding(0, 0, -7, 3);
+            Balance_Label.Size = new Size(71, 19);
+            Balance_Label.StateCommon.Padding = new Padding(0);
             Balance_Label.StateCommon.ShortText.Color1 = Color.Black;
             Balance_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Balance_Label.TabIndex = 42;
@@ -86,7 +88,6 @@
             // 
             // ActivityFundStatus_TLPanel
             // 
-            ActivityFundStatus_TLPanel.AutoSize = true;
             ActivityFundStatus_TLPanel.BackgroundImage = (Image)resources.GetObject("ActivityFundStatus_TLPanel.BackgroundImage");
             ActivityFundStatus_TLPanel.BackgroundImageLayout = ImageLayout.None;
             ActivityFundStatus_TLPanel.ColumnCount = 4;
@@ -113,11 +114,11 @@
             // 
             ActualBalanceAmount_Label.Anchor = AnchorStyles.Right;
             ActualBalanceAmount_Label.Enabled = false;
-            ActualBalanceAmount_Label.Location = new Point(103, 3);
-            ActualBalanceAmount_Label.Margin = new Padding(3, 3, 0, 3);
+            ActualBalanceAmount_Label.Location = new Point(103, 4);
+            ActualBalanceAmount_Label.Margin = new Padding(0);
             ActualBalanceAmount_Label.Name = "ActualBalanceAmount_Label";
-            ActualBalanceAmount_Label.Size = new Size(126, 22);
-            ActualBalanceAmount_Label.StateCommon.Padding = new Padding(0, 0, 0, 3);
+            ActualBalanceAmount_Label.Size = new Size(126, 19);
+            ActualBalanceAmount_Label.StateCommon.Padding = new Padding(0);
             ActualBalanceAmount_Label.StateCommon.ShortText.Color1 = Color.Black;
             ActualBalanceAmount_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             ActualBalanceAmount_Label.TabIndex = 46;
@@ -176,7 +177,6 @@
             ActivityFundStatus_TLPanel.ResumeLayout(false);
             ActivityFundStatus_TLPanel.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

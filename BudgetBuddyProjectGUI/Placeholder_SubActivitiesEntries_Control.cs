@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using Krypton.Toolkit;
 using Student_Financial_Assisstance;
 using Label = System.Windows.Forms.Label;
 using UserControl = System.Windows.Forms.UserControl;
@@ -47,7 +48,7 @@ namespace Budget_Buddy_GUI
             {
                 try
                 {
-                    if(control.Tag is BudgetActivity)
+                    if (control.Tag is BudgetActivity)
                     {
                         if (!activity.GetSubActivities().Any(a => a == (BudgetActivity)control.Tag))
                         {
@@ -65,7 +66,7 @@ namespace Budget_Buddy_GUI
                 }
                 try
                 {
-                    if(control.Tag is Item)
+                    if (control.Tag is Item)
                     {
                         if (!activity.GetItems().Any(i => i == (Item)control.Tag))
                         {
@@ -91,6 +92,7 @@ namespace Budget_Buddy_GUI
                     {
                         EntryActivity_Control act = new(subactivity);
                         act.OnDeleteButtonClicked += ActivitytEntry_Deleted;
+                        act.OnControlClicked += SubactivityEntry_Click;
                         this.ActivityItemEntriesPlaceHolder_TablePanel.Controls.Add(act);
                         this.ActivityItemEntriesPlaceHolder_TablePanel.Controls.SetChildIndex(act, 0);
                         displayedControls.Add(act);
@@ -186,6 +188,11 @@ namespace Budget_Buddy_GUI
 
         }
 
+        private void SubactivityEntry_Click(object sender, EventArgs e)
+        {
+            OnEntryClicked?.Invoke(sender, new EventArgs());
+        }
+
         private void Edit_Button_Click(object sender, EventArgs e)
         {
             OnEditButtonClicked?.Invoke(this, new EventArgs());
@@ -261,6 +268,11 @@ namespace Budget_Buddy_GUI
 
             // Show the form as a dialog box
             detailsForm.ShowDialog();
+        }
+
+        private void ContextMenu_Button_Click(object sender, EventArgs e)
+        {
+            Activity_ContextMenu.Show(this.ContextMenu_Button, this.ContextMenu_Button.Width, this.ContextMenu_Button.Height);
         }
     }
 }

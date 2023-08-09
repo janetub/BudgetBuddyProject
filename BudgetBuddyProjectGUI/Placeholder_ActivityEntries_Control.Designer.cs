@@ -154,7 +154,7 @@
             Edit_Button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Edit_Button.BackColor = Color.Transparent;
             Edit_Button.BackgroundImage = (Image)resources.GetObject("Edit_Button.BackgroundImage");
-            Edit_Button.BackgroundImageLayout = ImageLayout.Zoom;
+            Edit_Button.BackgroundImageLayout = ImageLayout.Center;
             Edit_Button.FlatAppearance.BorderSize = 0;
             Edit_Button.FlatStyle = FlatStyle.Flat;
             Edit_Button.Location = new Point(318, 7);

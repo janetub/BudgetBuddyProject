@@ -21,22 +21,24 @@ namespace Budget_Buddy_GUI
         {
             InitializeComponent();
             this.FormName_Label.Text = formName;
-            if(formName == "Add Budget Amount")
+            if (formName == "Add Budget Amount")
             {
-                ShowAddBudgetAmount(budget);
+                ShowAddBudgetAmount(budget, formName);
             }
             else
             {
                 MessageBox.Show("An error occured while loading the edit form.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            FormName_Label.Left = (this.ClientSize.Width - FormName_Label.Size.Width) / 2;
+            PageName_Label_SizeChanged(null, new EventArgs());
         }
 
-        public void ShowAddBudgetAmount(Budget budget)
+        public void ShowAddBudgetAmount(Budget budget, String formName)
         {
-
+            this.FormName_Label.Text = formName;
+            this.Field_Label.Text = $"Amount";
         }
+
 
         private void AppBar_MouseDown(object sender, MouseEventArgs e)
         {

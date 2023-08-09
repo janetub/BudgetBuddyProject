@@ -183,7 +183,7 @@ namespace Student_Financial_Assisstance
             this.isActive = true;
             this.DateAdded = DateTime.Now;
             this.activityType = type;
-            this.DeadLine = DeadLine;
+            //this.DeadLine = DeadLine;
         }
 
 
@@ -276,7 +276,7 @@ namespace Student_Financial_Assisstance
         /// </summary>
         private void computeActual()
         {
-            this.actual = this.items.Sum(item => (item.Cost * item.Quantity)) + this.subActivities.Sum(subActivities => subActivities.actual); //** changed to actual so that the actual for this item will be thesum of actual of its subactivities and items
+            this.actual = this.items.Sum(item => (item.Cost * item.Quantity)) + this.subActivities.Sum(subActivities => subActivities.actual); //** changed to actual so that the actual for this item will be the sum of actual of its subactivities and items
         }
 
         /// <summary>
@@ -305,7 +305,7 @@ namespace Student_Financial_Assisstance
             return items.AsReadOnly();
         }
 
-        public void setDeadLine(DateTime date)
+        public void SetDeadLine(DateTime date)
         {
             this.DeadLine = date;
         }

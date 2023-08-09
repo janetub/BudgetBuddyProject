@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Edit_Form));
             FormCanvas_TableLayoutPanel = new TableLayoutPanel();
-            Amount_Label = new Krypton.Toolkit.KryptonLabel();
+            Field_Label = new Krypton.Toolkit.KryptonLabel();
             Amount_NumUpDown = new Krypton.Toolkit.KryptonNumericUpDown();
             FormName_Label = new Label();
             Exit_Button = new Button();
@@ -45,7 +45,7 @@
             FormCanvas_TableLayoutPanel.CausesValidation = false;
             FormCanvas_TableLayoutPanel.ColumnCount = 1;
             FormCanvas_TableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            FormCanvas_TableLayoutPanel.Controls.Add(Amount_Label, 0, 0);
+            FormCanvas_TableLayoutPanel.Controls.Add(Field_Label, 0, 0);
             FormCanvas_TableLayoutPanel.Controls.Add(Amount_NumUpDown, 0, 1);
             FormCanvas_TableLayoutPanel.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormCanvas_TableLayoutPanel.Location = new Point(0, 50);
@@ -58,15 +58,15 @@
             FormCanvas_TableLayoutPanel.Size = new Size(360, 160);
             FormCanvas_TableLayoutPanel.TabIndex = 52;
             // 
-            // Amount_Label
+            // Field_Label
             // 
-            Amount_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            Amount_Label.Location = new Point(23, 46);
-            Amount_Label.Name = "Amount_Label";
-            Amount_Label.Size = new Size(52, 21);
-            Amount_Label.StateCommon.ShortText.Color1 = Color.Black;
-            Amount_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            Amount_Label.TabIndex = 33;
+            Field_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            Field_Label.Location = new Point(23, 46);
+            Field_Label.Name = "Field_Label";
+            Field_Label.Size = new Size(52, 21);
+            Field_Label.StateCommon.ShortText.Color1 = Color.Black;
+            Field_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            Field_Label.TabIndex = 33;
             // 
             // Amount_NumUpDown
             // 
@@ -76,7 +76,7 @@
             Amount_NumUpDown.DecimalPlaces = 2;
             Amount_NumUpDown.Location = new Point(20, 70);
             Amount_NumUpDown.Margin = new Padding(0);
-            Amount_NumUpDown.Maximum = new decimal(new int[] { 1215752192, 23, 0, 131072 });
+            Amount_NumUpDown.Maximum = new decimal(new int[] { -727379969, 232, 0, 131072 });
             Amount_NumUpDown.Name = "Amount_NumUpDown";
             Amount_NumUpDown.PaletteMode = Krypton.Toolkit.PaletteMode.Office365White;
             Amount_NumUpDown.Size = new Size(317, 23);
@@ -182,7 +182,7 @@
         #endregion
 
         private TableLayoutPanel FormCanvas_TableLayoutPanel;
-        private Krypton.Toolkit.KryptonLabel Amount_Label;
+        private Krypton.Toolkit.KryptonLabel Field_Label;
         private Krypton.Toolkit.KryptonNumericUpDown Amount_NumUpDown;
         private Label FormName_Label;
         private Button Exit_Button;
