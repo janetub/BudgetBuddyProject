@@ -29,28 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Placeholder_BudgetEntries_Control));
-            BudgetEntriesPlaceHolder_TablePanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
             NoBudget_label = new Label();
+            BudgetEntriesPlaceHolder_TablePanel = new Krypton.Toolkit.KryptonTableLayoutPanel();
             SuspendLayout();
-            // 
-            // BudgetEntriesPlaceHolder_TablePanel
-            // 
-            BudgetEntriesPlaceHolder_TablePanel.AutoScroll = true;
-            BudgetEntriesPlaceHolder_TablePanel.AutoScrollMargin = new Size(20, 20);
-            BudgetEntriesPlaceHolder_TablePanel.BackgroundImage = (Image)resources.GetObject("BudgetEntriesPlaceHolder_TablePanel.BackgroundImage");
-            BudgetEntriesPlaceHolder_TablePanel.BackgroundImageLayout = ImageLayout.None;
-            BudgetEntriesPlaceHolder_TablePanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            BudgetEntriesPlaceHolder_TablePanel.ColumnCount = 1;
-            BudgetEntriesPlaceHolder_TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            BudgetEntriesPlaceHolder_TablePanel.Location = new Point(0, 0);
-            BudgetEntriesPlaceHolder_TablePanel.Name = "BudgetEntriesPlaceHolder_TablePanel";
-            BudgetEntriesPlaceHolder_TablePanel.RowCount = 2;
-            BudgetEntriesPlaceHolder_TablePanel.RowStyles.Add(new RowStyle());
-            BudgetEntriesPlaceHolder_TablePanel.RowStyles.Add(new RowStyle());
-            BudgetEntriesPlaceHolder_TablePanel.Size = new Size(360, 590);
-            BudgetEntriesPlaceHolder_TablePanel.StateCommon.Draw = Krypton.Toolkit.InheritBool.False;
-            BudgetEntriesPlaceHolder_TablePanel.StateNormal.Color1 = Color.White;
-            BudgetEntriesPlaceHolder_TablePanel.TabIndex = 0;
             // 
             // NoBudget_label
             // 
@@ -67,10 +48,29 @@
             NoBudget_label.Text = "No budgets.";
             NoBudget_label.Visible = false;
             // 
+            // BudgetEntriesPlaceHolder_TablePanel
+            // 
+            BudgetEntriesPlaceHolder_TablePanel.AutoScroll = true;
+            BudgetEntriesPlaceHolder_TablePanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BudgetEntriesPlaceHolder_TablePanel.BackgroundImage = (Image)resources.GetObject("BudgetEntriesPlaceHolder_TablePanel.BackgroundImage");
+            BudgetEntriesPlaceHolder_TablePanel.BackgroundImageLayout = ImageLayout.None;
+            BudgetEntriesPlaceHolder_TablePanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            BudgetEntriesPlaceHolder_TablePanel.ColumnCount = 1;
+            BudgetEntriesPlaceHolder_TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            BudgetEntriesPlaceHolder_TablePanel.Location = new Point(0, 0);
+            BudgetEntriesPlaceHolder_TablePanel.Name = "BudgetEntriesPlaceHolder_TablePanel";
+            BudgetEntriesPlaceHolder_TablePanel.RowCount = 2;
+            BudgetEntriesPlaceHolder_TablePanel.RowStyles.Add(new RowStyle());
+            BudgetEntriesPlaceHolder_TablePanel.RowStyles.Add(new RowStyle());
+            BudgetEntriesPlaceHolder_TablePanel.Size = new Size(360, 590);
+            BudgetEntriesPlaceHolder_TablePanel.StateCommon.Draw = Krypton.Toolkit.InheritBool.False;
+            BudgetEntriesPlaceHolder_TablePanel.StateNormal.Color1 = Color.White;
+            BudgetEntriesPlaceHolder_TablePanel.TabIndex = 7;
+            // 
             // Placeholder_BudgetEntries_Control
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.Inherit;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.None;
             Controls.Add(NoBudget_label);
@@ -83,8 +83,7 @@
         }
 
         #endregion
-
-        private Krypton.Toolkit.KryptonTableLayoutPanel BudgetEntriesPlaceHolder_TablePanel;
         private Label NoBudget_label;
+        private Krypton.Toolkit.KryptonTableLayoutPanel BudgetEntriesPlaceHolder_TablePanel;
     }
 }

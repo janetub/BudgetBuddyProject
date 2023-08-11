@@ -40,26 +40,45 @@ namespace Budget_Buddy_GUI
                 e.Cancel = true;
                 this.RequiredName_Label.Visible = true;
             }
+            int maxLength = 100;
+            if (Name_TextBox.Text.Length > maxLength)
+            {
+                MessageBox.Show($"Budget name must be no more than {maxLength} characters.");
+                e.Cancel = true;
+                this.RequiredName_Label.Visible = true;
+            }
         }
 
-        private void ProjectedAmount_NumUpDown_Validating(object sender, CancelEventArgs e)
+        private void ProjectedAmount_NumUpDown_ValueChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(this.ProjectedAmount_NumUpDown.Text) || this.ProjectedAmount_NumUpDown.Text == "0.00")
+            try
             {
-                MessageBox.Show("Projected amount is required.");
-                e.Cancel = true;
-                this.RequiredProjectedAmount_Label.Visible = true;
-            }
-            if (!this.ProjectedAmount_NumUpDown.Text.Contains("."))
-                this.ProjectedAmount_NumUpDown.Text += ".00";
-            double budgetAmount;
-            if (Double.TryParse(this.ProjectedAmount_NumUpDown.Text, out budgetAmount))
-            {
-                if (budgetAmount > 1000000000.00)
+                if (string.IsNullOrEmpty(ProjectedAmount_NumUpDown.Text) || ProjectedAmount_NumUpDown.Text == "0.00")
                 {
-                    MessageBox.Show("You have reached the maximum funds allowed in the app.");
-                    this.ProjectedAmount_NumUpDown = null;
+                    MessageBox.Show("Projected amount is required.");
+                    this.RequiredProjectedAmount_Label.Visible = true;
+                    return;
                 }
+                if (this.ProjectedAmount_NumUpDown.Text.Contains("-"))
+                {
+                    MessageBox.Show("Projected amount must be a positive number.");
+                    this.RequiredProjectedAmount_Label.Visible = true;
+                    return;
+                }
+                double projectedAmount;
+                if (Double.TryParse(this.ProjectedAmount_NumUpDown.Text, out projectedAmount))
+                {
+                    if (projectedAmount > 9999999999.99)
+                    {
+                        MessageBox.Show("You have reached the maximum projected amount allowed in the app.", "Maximum Funds", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show($"Error: {ex.Message}", "Cannot Validate Amount", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -77,49 +96,42 @@ namespace Budget_Buddy_GUI
         {
             try
             {
+                this.RequiredName_Label.Visible = string.IsNullOrEmpty(this.Name_TextBox.Text);
+                this.RequiredProjectedAmount_Label.Visible = string.IsNullOrEmpty(this.ProjectedAmount_NumUpDown.Text) || this.ProjectedAmount_NumUpDown.Text == "0.00";
+                this.RequiredActivityType_Label.Visible = (this.ActivityType_ComboBox == null);
+                if (string.IsNullOrEmpty(this.Name_TextBox.Text) || (string.IsNullOrEmpty(ProjectedAmount_NumUpDown.Text) || ProjectedAmount_NumUpDown.Text == "0.00") || (this.ActivityType_ComboBox == null))
+                {
+                    MessageBox.Show("Please fill up all required fields to create an activity entry.", "Empty Field(s)", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
                 if (this.ProjectedAmount_NumUpDown.Text.Contains("-"))
                 {
-                    MessageBox.Show("Budget amount must be a positive number.");
+                    MessageBox.Show("Projected amount must be a positive number.");
                     this.ProjectedAmount_NumUpDown.Visible = true;
                     return;
                 }
-                if (this.ActivityType_ComboBox == null)
+                double projectedAmount;
+                if (Double.TryParse(this.ProjectedAmount_NumUpDown.Text, out projectedAmount))
                 {
-                    this.RequiredActivityType_Label.Visible = true;
-                    MessageBox.Show("Activity type is required.");
-                    return;
+                    if (projectedAmount > 9999999999.99)
+                    {
+                        MessageBox.Show("You have reached the maximum projected amount allowed in the app.", "Maximum Funds", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                }
+                if (string.IsNullOrEmpty(this.Description_RTextBox.Text))
+                {
+                    this.Description_RTextBox.Text += "";
                 }
                 BudgetActivityType activityType = (BudgetActivityType)Enum.Parse(typeof(BudgetActivityType), this.ActivityType_ComboBox.Text);
-                if (string.IsNullOrEmpty(this.Name_TextBox.Text) && (string.IsNullOrEmpty(ProjectedAmount_NumUpDown.Text) || ProjectedAmount_NumUpDown.Text == "0.00"))
-                {
-                    this.RequiredProjectedAmount_Label.Visible = this.RequiredName_Label.Visible = true;
-                    MessageBox.Show("Please fill up all required fields to create an activity entry.");
-                    return;
-                }
-                if (string.IsNullOrEmpty(this.Name_TextBox.Text))
-                {
-                    this.RequiredName_Label.Visible = true;
-                    MessageBox.Show("Please fill up all required fields.");
-                    return;
-                }
-                if (string.IsNullOrEmpty(ProjectedAmount_NumUpDown.Text) || ProjectedAmount_NumUpDown.Text == "0.00")
-                {
-                    this.RequiredProjectedAmount_Label.Visible = true;
-                    MessageBox.Show("Please fill up all required fields.");
-                    return;
-                }
-                if (!this.ProjectedAmount_NumUpDown.Text.Contains("."))
-                    this.ProjectedAmount_NumUpDown.Text += ".00";
-                if (string.IsNullOrEmpty(this.Description_RTextBox.Text))
-                    this.Description_RTextBox.Text += "";
                 double amount = double.Parse(ProjectedAmount_NumUpDown.Text);
                 this.Tag = new BudgetActivity(this.Name_TextBox.Text, this.Description_RTextBox.Text, amount, activityType);
                 OnActivityEntered?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 Console.WriteLine(ex.Message);
+                MessageBox.Show($"Error: {ex.Message}", "Cannot Validate Budget Activity Input Fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -118,22 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ActivityFundStatus_TLPanel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Back_Button.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAVQAAAA3CAYAAABThbL1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADLSURBVHhe7dQxAQAADMOg+TfdmcgJIrgBkBAqQESoABGh
-        AkSEChARKkBEqAARoQJEhAoQESpARKgAEaECRIQKEBEqQESoABGhAkSEChARKkBEqAARoQJEhAoQESpA
-        RKgAEaECRIQKEBEqQESoABGhAkSEChARKkBEqAARoQJEhAoQESpARKgAEaECRIQKEBEqQESoABGhAkSE
-        ChARKkBEqAARoQJEhAoQESpARKgAEaECRIQKEBEqQESoABGhAkSEChARKkBEqACJ7QF0NxzeaTSQOgAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="kryptonTableLayoutPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAWgAAAAZCAYAAAAc7LQFAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAAGxJREFUeF7t1DEBAAAMw6D5N93ZyAEiuAGQJGiAKEEDRAkaIErQAFGCBogSNECU
-        oAGiBA0QJWiAKEEDRAkaIErQAFGCBogSNECUoAGiBA0QJWiAKEEDRAkaIErQAFGCBogSNECUoAGiBA2Q
-        tD1tbhuVduhaLAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAACMAAAAiCAYAAADVhWD8AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        qAAAAKgBefSzxgAAAWFJREFUWEft1jlOAzEYxfFhX2qQEIvY90uEnoYDUHECOAMVDaLmMiC2AhoKloZj
+        gKAB/g9iaWT5G0LsiYTwk35SJoo9L8mMx0VOTs5/Th/Gv1/+Kv3QuJ6vowQZxBHucIJWSnVjBbdN++hF
+        VDTpNt7w0XSOqkIas45HuDHP2EQX2o4GH8BN6pwhVEhF1vAAf8weojOKe/iT+4WqilxgCEmyBKvQGFRk
+        FaEil5hD1F/kZxGhQrqGGrCKzEJlk8cq9BJ4r9YiLiqk27x84nfvuCNFXJbxhHIB5wYq0rHorrHKXGMS
+        tce6ff2/yVqHksUqIqELuLZCVUV0sW6glYUxOiqiZ41VZBr6zDysQhNIkhG0uqBZ65AKDSAqOlHoQVm1
+        jliFdhEVnWwHr3CTXuGnBU2Fyr+mthBbiH4+DeMY+ranmEFVEZcFuM3VIbRbTBJtH9tZyHSdTCHZtjMn
+        J+ePpSg+AXjwq7cQTYzyAAAAAElFTkSuQmCC
 </value>
   </data>
 </root>

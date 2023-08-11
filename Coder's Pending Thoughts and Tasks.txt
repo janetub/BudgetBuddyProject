@@ -19,6 +19,7 @@
 -attribution
 -use bool
 -add balance to creation forms
+-display balance
 
 so there are several reason why an activity cannot be deleted and i want it in a list form for user's guidance.
 - If expense-type activity: There is a remaining balance or ongoing savings in the activity or within its subactivity. User must go to options and choose transfer balance or amount back to budget funds or budget activity funds. 
@@ -30,7 +31,7 @@ so there are several reason why an activity cannot be deleted and i want it in a
 -item and subactivity count
 -date added
 -transfer balance to budget(only for activities)
--archive/inactive/hide (for activity, not subactivity)
+-archive/inactive/hide (for budget and activity, not subactivity)
 -transfer amount to savings
 -transfer balance to budget
 -cancel savings
@@ -38,6 +39,7 @@ so there are several reason why an activity cannot be deleted and i want it in a
 activity details
 -description
 -deadlien
+
 item details
 -date bought
 -tags

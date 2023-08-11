@@ -58,7 +58,6 @@
             // ProjectedBalanceAmount_Label
             // 
             ProjectedBalanceAmount_Label.Anchor = AnchorStyles.Left;
-            ProjectedBalanceAmount_Label.Enabled = false;
             ProjectedBalanceAmount_Label.Location = new Point(229, 4);
             ProjectedBalanceAmount_Label.Margin = new Padding(0);
             ProjectedBalanceAmount_Label.Name = "ProjectedBalanceAmount_Label";
@@ -74,7 +73,6 @@
             // 
             Balance_Label.Anchor = AnchorStyles.Right;
             Balance_Label.AutoSize = false;
-            Balance_Label.Enabled = false;
             Balance_Label.Location = new Point(17, 4);
             Balance_Label.Margin = new Padding(0);
             Balance_Label.Name = "Balance_Label";
@@ -88,6 +86,7 @@
             // 
             // ActivityFundStatus_TLPanel
             // 
+            ActivityFundStatus_TLPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ActivityFundStatus_TLPanel.BackgroundImage = (Image)resources.GetObject("ActivityFundStatus_TLPanel.BackgroundImage");
             ActivityFundStatus_TLPanel.BackgroundImageLayout = ImageLayout.None;
             ActivityFundStatus_TLPanel.ColumnCount = 4;
@@ -113,7 +112,6 @@
             // ActualBalanceAmount_Label
             // 
             ActualBalanceAmount_Label.Anchor = AnchorStyles.Right;
-            ActualBalanceAmount_Label.Enabled = false;
             ActualBalanceAmount_Label.Location = new Point(103, 4);
             ActualBalanceAmount_Label.Margin = new Padding(0);
             ActualBalanceAmount_Label.Name = "ActualBalanceAmount_Label";
@@ -129,7 +127,6 @@
             // 
             BudgetActivityType_Label.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             BudgetActivityType_Label.AutoSize = false;
-            BudgetActivityType_Label.Enabled = false;
             BudgetActivityType_Label.Location = new Point(3, 4);
             BudgetActivityType_Label.MaximumSize = new Size(125, 19);
             BudgetActivityType_Label.Name = "BudgetActivityType_Label";

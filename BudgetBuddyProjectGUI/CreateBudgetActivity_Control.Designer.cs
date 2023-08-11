@@ -170,7 +170,7 @@
             ProjectedAmount_NumUpDown.DecimalPlaces = 2;
             ProjectedAmount_NumUpDown.Location = new Point(20, 265);
             ProjectedAmount_NumUpDown.Margin = new Padding(0);
-            ProjectedAmount_NumUpDown.Maximum = new decimal(new int[] { 1000000000, 0, 0, 0 });
+            ProjectedAmount_NumUpDown.Maximum = new decimal(new int[] { -727379969, 232, 0, 131072 });
             ProjectedAmount_NumUpDown.Name = "ProjectedAmount_NumUpDown";
             ProjectedAmount_NumUpDown.PaletteMode = Krypton.Toolkit.PaletteMode.Office365White;
             ProjectedAmount_NumUpDown.Size = new Size(317, 23);
@@ -187,6 +187,7 @@
             ProjectedAmount_NumUpDown.ThousandsSeparator = true;
             ProjectedAmount_NumUpDown.UpDownButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             ProjectedAmount_NumUpDown.UseMnemonic = false;
+            ProjectedAmount_NumUpDown.ValueChanged += ProjectedAmount_NumUpDown_ValueChanged;
             ProjectedAmount_NumUpDown.KeyDown += ValidateField_KeyDown;
             // 
             // Description_Label
@@ -238,6 +239,7 @@
             Name_TextBox.StateCommon.Content.Padding = new Padding(5);
             Name_TextBox.TabIndex = 2;
             Name_TextBox.KeyDown += ValidateField_KeyDown;
+            Name_TextBox.Validating += Name_TextBox_Validating;
             // 
             // ProjectedAmount_Label
             // 

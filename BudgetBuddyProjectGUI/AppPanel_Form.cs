@@ -189,6 +189,7 @@ namespace Budget_Buddy_GUI
                 activities.OnRemoveAmountClicked += Show_RemoveBudgetForm;
                 this.Placeholder_Panel.Controls.Clear();
                 this.Placeholder_Panel.Controls.Add(activities);
+                
                 this.Add_Button.Visible = true;
                 this.PageName_Label.Text = "Budget Activities";
             }
@@ -419,7 +420,7 @@ namespace Budget_Buddy_GUI
                 MessageBox.Show("An error occurred while editing the Budget entry. Please try again.\n" + ex.Message, "Error");
             }
         }
-        
+
         private void AddAmount_BudgetEntry(object? sender, EventArgs e)
         {
             try
@@ -449,7 +450,7 @@ namespace Budget_Buddy_GUI
                 MessageBox.Show("An error occurred while editing the Budget entry. Please try again.\n" + ex.Message, "Error");
             }
         }
-        
+
         private void RemoveAmount_BudgetEntry(object? sender, EventArgs e)
         {
             try

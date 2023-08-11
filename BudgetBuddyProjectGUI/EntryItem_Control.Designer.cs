@@ -53,7 +53,6 @@
             ItemDetails_TLPanel.Controls.Add(ItemPrice_Label, 1, 0);
             ItemDetails_TLPanel.Controls.Add(ItemPriceAmount_Label, 2, 0);
             ItemDetails_TLPanel.Dock = DockStyle.Bottom;
-            ItemDetails_TLPanel.Enabled = false;
             ItemDetails_TLPanel.Location = new Point(0, 52);
             ItemDetails_TLPanel.Name = "ItemDetails_TLPanel";
             ItemDetails_TLPanel.RowCount = 1;
@@ -67,7 +66,6 @@
             // BudgetActivityType_Label
             // 
             BudgetActivityType_Label.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            BudgetActivityType_Label.Enabled = false;
             BudgetActivityType_Label.Location = new Point(0, 5);
             BudgetActivityType_Label.Margin = new Padding(0);
             BudgetActivityType_Label.MaximumSize = new Size(125, 19);
@@ -84,7 +82,6 @@
             // 
             ItemQuantity_Label.Anchor = AnchorStyles.Left;
             ItemQuantity_Label.AutoSize = false;
-            ItemQuantity_Label.Enabled = false;
             ItemQuantity_Label.Location = new Point(229, 5);
             ItemQuantity_Label.Margin = new Padding(0);
             ItemQuantity_Label.Name = "ItemQuantity_Label";
@@ -99,7 +96,6 @@
             // ItemPrice_Label
             // 
             ItemPrice_Label.Anchor = AnchorStyles.Right;
-            ItemPrice_Label.Enabled = false;
             ItemPrice_Label.Location = new Point(46, 4);
             ItemPrice_Label.Margin = new Padding(0);
             ItemPrice_Label.MaximumSize = new Size(125, 19);
@@ -115,7 +111,6 @@
             // ItemPriceAmount_Label
             // 
             ItemPriceAmount_Label.Anchor = AnchorStyles.Right;
-            ItemPriceAmount_Label.Enabled = false;
             ItemPriceAmount_Label.Location = new Point(103, 4);
             ItemPriceAmount_Label.Margin = new Padding(0);
             ItemPriceAmount_Label.Name = "ItemPriceAmount_Label";
@@ -135,7 +130,7 @@
             Delete_Button.BackgroundImageLayout = ImageLayout.Center;
             Delete_Button.FlatAppearance.BorderSize = 0;
             Delete_Button.FlatStyle = FlatStyle.Flat;
-            Delete_Button.Location = new Point(320, 3);
+            Delete_Button.Location = new Point(321, 3);
             Delete_Button.Name = "Delete_Button";
             Delete_Button.Size = new Size(26, 30);
             Delete_Button.TabIndex = 48;

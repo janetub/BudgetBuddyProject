@@ -23,6 +23,7 @@ namespace Budget_Buddy_GUI
             InitializeComponent();
             this.Tag = budgets;
             DisplayBudgets();
+            BudgetEntriesPlaceHolder_TablePanel.AutoScrollMargin = new Size(0, SystemInformation.VerticalScrollBarWidth);
         }
 
         public void DisplayBudgets()
@@ -37,7 +38,6 @@ namespace Budget_Buddy_GUI
                     OnControlUpdated?.Invoke(this, EventArgs.Empty);
                 }
             }
-
             foreach (var budget in budgets)
             {
                 if (!displayedControls.Any(c => (Budget)c.Tag == budget))
@@ -52,6 +52,13 @@ namespace Budget_Buddy_GUI
                 }
             }
             NoBudget_label.Visible = (budgets.Count == 0);
+            if (!NoBudget_label.Visible)
+            {
+                Panel spacer = new();
+                spacer.Height = 80;
+                spacer.BackColor = Color.Transparent;
+                this.BudgetEntriesPlaceHolder_TablePanel.Controls.Add(spacer);
+            }
         }
 
         private void BudgetEntry_Clicked(object? sender, EventArgs e)

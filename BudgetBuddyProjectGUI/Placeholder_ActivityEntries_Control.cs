@@ -77,10 +77,13 @@ namespace Budget_Buddy_GUI
                     OnEntriesUpdated?.Invoke(this, EventArgs.Empty);
                 }
             }
-            Panel spacer = new Panel();
-            spacer.Height = 80;
-            this.ActivityEntriesPlaceHolder_TablePanel.Controls.Add(spacer);
             NoContent_label.Visible = (this.displayedControls.Count == 0);
+            if (!NoContent_label.Visible)
+            {
+                Panel spacer = new();
+                spacer.Height = 80;
+                this.ActivityEntriesPlaceHolder_TablePanel.Controls.Add(spacer);
+            }
         }
 
         private void Act_OnControlClicked(object? sender, EventArgs e)

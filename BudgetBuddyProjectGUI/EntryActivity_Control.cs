@@ -24,19 +24,29 @@ namespace Budget_Buddy_GUI
             double balance = activity.Projected - activity.Actual;
             this.ActualBalanceAmount_Label.Text = balance.ToString("N2");
             this.ActivityName_Label.Text = activity.Name;
-            ToolTip nameLabel_toolTip = new ToolTip();
-            nameLabel_toolTip.SetToolTip(ActivityName_Label, ActivityName_Label.Text);
+            ToolTip budgetType_tooolTip = new();
+            ToolTip deleteButton_toolTip = new();
+            deleteButton_toolTip.SetToolTip(this.Delete_Button, "Delete Actiivity");
+            ToolTip actualBalanceLabel_toolTip = new();
+            ToolTip projectedLabel_toolTip = new();
             if (activity.ActivityType == BudgetActivityType.Savings)
             {
                 this.BudgetActivityType_Label.Text = "Savings";
                 this.Balance_Label.Text = "Target:";
                 this.ProjectedBalanceAmount_Label.Text = "till " + (activity.Projected.ToString("N2"));
+                actualBalanceLabel_toolTip.SetToolTip(this.ActualBalanceAmount_Label, "Remaining amount to reach your main target");
+                projectedLabel_toolTip.SetToolTip(this.ProjectedBalanceAmount_Label, $"Main Target Amount: {activity.Projected.ToString("N2")}");
             }
             else
             {
                 this.BudgetActivityType_Label.Text = "Expense";
                 this.ProjectedBalanceAmount_Label.Text = "/" + (activity.Projected.ToString("N2"));
+                ToolTip nameLabel_toolTip = new();
+                nameLabel_toolTip.SetToolTip(ActivityName_Label, ActivityName_Label.Text);
+                actualBalanceLabel_toolTip.SetToolTip(this.ActualBalanceAmount_Label, "Remaining Activity Funds");
+                projectedLabel_toolTip.SetToolTip(this.ProjectedBalanceAmount_Label, "Amount taken from Budget funds and allocated for the Activity");
             }
+            budgetType_tooolTip.SetToolTip(this.BudgetActivityType_Label, this.BudgetActivityType_Label.Text);
             this.Tag = activity;
         }
 

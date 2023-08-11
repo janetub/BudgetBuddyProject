@@ -208,7 +208,7 @@
             // Placeholder_Panel
             // 
             Placeholder_Panel.Anchor = AnchorStyles.Bottom;
-            Placeholder_Panel.Location = new Point(0, 48);
+            Placeholder_Panel.Location = new Point(0, 50);
             Placeholder_Panel.Name = "Placeholder_Panel";
             Placeholder_Panel.Size = new Size(360, 590);
             Placeholder_Panel.StateCommon.Color1 = Color.White;

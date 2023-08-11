@@ -110,7 +110,7 @@
             Name_TextBox.StateCommon.Content.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Name_TextBox.StateCommon.Content.Padding = new Padding(5);
             Name_TextBox.TabIndex = 1;
-            Name_TextBox.PreviewKeyDown += Name_TextBox_PreviewKeyDown;
+            Name_TextBox.KeyDown += Confirm_KeyDown;
             Name_TextBox.Validating += Name_TextBox_Validating;
             // 
             // Amount_NumUpDown
@@ -139,7 +139,7 @@
             Amount_NumUpDown.UpDownButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             Amount_NumUpDown.UseMnemonic = false;
             Amount_NumUpDown.ValueChanged += Amount_NumUpDown_ValueChanged;
-            Amount_NumUpDown.KeyDown += Amount_NumUpDown_KeyDown;
+            Amount_NumUpDown.KeyDown += Confirm_KeyDown;
             // 
             // CreateBudgetButton
             // 

@@ -24,6 +24,12 @@ namespace Budget_Buddy_GUI
             this.ItemQuantity_Label.Text = item.Cost.ToString("N2") + "x" + item.Quantity + "qty";
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(ItemName_Label, ItemName_Label.Text);
+            ToolTip deleteButton_toolTip = new();
+            deleteButton_toolTip.SetToolTip(this.Delete_Button, "Delete Item");
+            ToolTip quantity_toolTip = new();
+            quantity_toolTip.SetToolTip(this.ItemQuantity_Label, $"Cost: {item.Cost.ToString("N2")}\nQuantity: {item.Quantity}");
+            ToolTip totalCost_toolTip = new();
+            totalCost_toolTip.SetToolTip(this.ItemPriceAmount_Label, "Total Cost of Item (Original Cost x Quantity)");
             this.Tag = item;
         }
 

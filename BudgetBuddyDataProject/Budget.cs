@@ -106,10 +106,10 @@ namespace Student_Financial_Assisstance
         /// <param name="activity">the activity to be removed</param>
         /// <param name="records">Holder/recorder for expenses and savings.</param>
         /// <returns>returns confirmation if an intance of activity is in activities</returns>
-        public bool RemoveActivity(BudgetActivity activity) // TODO savings activity might not be detected
+        public bool RemoveActivity(BudgetActivity activity)
         {
             ReadOnlyCollection<BudgetActivity> subActs = (ReadOnlyCollection<BudgetActivity>)activity.GetSubActivities();
-            foreach (BudgetActivity act in subActs) // TODO create recursive function in BudgetActivity
+            foreach (BudgetActivity act in subActs)
             {
                 if (act.Projected > activity.Actual)
                     return false;
@@ -141,16 +141,18 @@ namespace Student_Financial_Assisstance
 
         /// <summary>
         /// If target amount is not met, the actual or saved amount of savings-type activity is moved to budget's funds.
+        /// The activity can then be deleted.
         /// </summary>
         /// <param name="activity">BudgetActivity to modify.</param>
         /// <returns>Confirmation of saved amount transfer</returns>
         public bool CancelSavings(BudgetActivity activity)
         {
-            if(activity.ActivityType != BudgetActivityType.Savings)
+            if(activity.ActivityType == BudgetActivityType.Savings)
             {
                 if (activity.Projected <= activity.Actual)
                 {
                     double balance = activity.Projected - activity.Actual;
+                    this.amount += activity.Actual;
                     Item transfer = new($"Transfer amount of {activity.Actual} to budget funds. Savings cancelled.", balance, 1);
                     activity.AddItem(transfer);
                     return true;

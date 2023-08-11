@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Krypton.Toolkit;
 using Student_Financial_Assisstance;
 using Label = System.Windows.Forms.Label;
+using Panel = System.Windows.Forms.Panel;
 using UserControl = System.Windows.Forms.UserControl;
 
 namespace Budget_Buddy_GUI
@@ -124,6 +125,12 @@ namespace Budget_Buddy_GUI
                 }
             }
             NoContent_label.Visible = (this.displayedControls.Count == 0);
+            if (!NoContent_label.Visible)
+            {
+                Panel spacer = new();
+                spacer.Height = 80;
+                this.ActivityItemEntriesPlaceHolder_TablePanel.Controls.Add(spacer);
+            }
         }
 
         private void ItemEntry_Deleted(object? sender, EventArgs e)

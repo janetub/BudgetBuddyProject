@@ -22,6 +22,10 @@ namespace Budget_Buddy_GUI
             this.BudgetBalanceAmount_Label.Text = budget.Amount.ToString("N2");
             ToolTip nameLabel_toolTip = new ToolTip();
             nameLabel_toolTip.SetToolTip(BudgetName_Label, BudgetName_Label.Text);
+            ToolTip budgetBalanceLabel_toolTip = new();
+            budgetBalanceLabel_toolTip.SetToolTip(this.BudgetBalanceAmount_Label, "Remaining Budget Funds");
+            ToolTip deleteButton_toolTip = new();
+            deleteButton_toolTip.SetToolTip(this.Delete_Button, "Delete Budget");
             this.Tag = budget;
         }
 
@@ -37,6 +41,15 @@ namespace Budget_Buddy_GUI
             {
                 OnDeleteButtonClicked?.Invoke(this, EventArgs.Empty);
             }
+        }
+
+        private void EntryBudget_Control_SizeChanged(object sender, EventArgs e)
+        {
+            int originalControlWidth = 350;
+            int originalButtonX = 321;
+            int currentControlWidth = this.Size.Width;
+            int newButtonX = originalButtonX - (originalControlWidth - currentControlWidth);
+            this.Delete_Button.Location = new Point(newButtonX, 3);
         }
     }
 }
