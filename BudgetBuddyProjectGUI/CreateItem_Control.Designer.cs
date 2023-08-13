@@ -32,15 +32,15 @@
             AddItem_Button = new Button();
             CreateBudgetInputFields_TableLayoutPanel = new TableLayoutPanel();
             Tags_Label = new Krypton.Toolkit.KryptonLabel();
-            Price_Label = new Krypton.Toolkit.KryptonLabel();
+            Cost_Label = new Krypton.Toolkit.KryptonLabel();
             Name_Label = new Krypton.Toolkit.KryptonLabel();
             Name_TextBox = new Krypton.Toolkit.KryptonMaskedTextBox();
-            Price_NumUpDown = new Krypton.Toolkit.KryptonNumericUpDown();
+            Cost_NumUpDown = new Krypton.Toolkit.KryptonNumericUpDown();
             Quantity_Label = new Krypton.Toolkit.KryptonLabel();
             Quantity_NumUpDown = new Krypton.Toolkit.KryptonNumericUpDown();
             Tags_ComboBox = new Krypton.Toolkit.KryptonComboBox();
             RequiredName_Label = new Krypton.Toolkit.KryptonLabel();
-            RequiredPrice_Label = new Krypton.Toolkit.KryptonLabel();
+            RequiredCost_Label = new Krypton.Toolkit.KryptonLabel();
             Back_Button = new Button();
             RequiredQuantity_Label = new Krypton.Toolkit.KryptonLabel();
             CreateBudgetInputFields_TableLayoutPanel.SuspendLayout();
@@ -68,10 +68,10 @@
             CreateBudgetInputFields_TableLayoutPanel.ColumnCount = 1;
             CreateBudgetInputFields_TableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Tags_Label, 0, 7);
-            CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Price_Label, 0, 2);
+            CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Cost_Label, 0, 2);
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Name_Label, 0, 0);
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Name_TextBox, 0, 1);
-            CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Price_NumUpDown, 0, 3);
+            CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Cost_NumUpDown, 0, 3);
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Quantity_Label, 0, 4);
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Quantity_NumUpDown, 0, 5);
             CreateBudgetInputFields_TableLayoutPanel.Controls.Add(Tags_ComboBox, 0, 8);
@@ -107,16 +107,16 @@
             Tags_Label.TabIndex = 37;
             Tags_Label.Values.Text = "Tags";
             // 
-            // Price_Label
+            // Cost_Label
             // 
-            Price_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            Price_Label.Location = new Point(23, 168);
-            Price_Label.Name = "Price_Label";
-            Price_Label.Size = new Size(49, 21);
-            Price_Label.StateCommon.ShortText.Color1 = Color.Black;
-            Price_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            Price_Label.TabIndex = 33;
-            Price_Label.Values.Text = "Price";
+            Cost_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            Cost_Label.Location = new Point(23, 168);
+            Cost_Label.Name = "Cost_Label";
+            Cost_Label.Size = new Size(46, 21);
+            Cost_Label.StateCommon.ShortText.Color1 = Color.Black;
+            Cost_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            Cost_Label.TabIndex = 33;
+            Cost_Label.Values.Text = "Cost";
             // 
             // Name_Label
             // 
@@ -149,33 +149,32 @@
             Name_TextBox.KeyDown += ValidateField_KeyDown;
             Name_TextBox.Validating += Name_TextBox_Validating;
             // 
-            // Price_NumUpDown
+            // Cost_NumUpDown
             // 
-            Price_NumUpDown.AllowDecimals = true;
-            Price_NumUpDown.AlwaysActive = false;
-            Price_NumUpDown.Cursor = Cursors.IBeam;
-            Price_NumUpDown.DecimalPlaces = 2;
-            Price_NumUpDown.Location = new Point(20, 192);
-            Price_NumUpDown.Margin = new Padding(0);
-            Price_NumUpDown.Maximum = new decimal(new int[] { 1000000000, 0, 0, 0 });
-            Price_NumUpDown.Name = "Price_NumUpDown";
-            Price_NumUpDown.PaletteMode = Krypton.Toolkit.PaletteMode.Office365White;
-            Price_NumUpDown.Size = new Size(317, 23);
-            Price_NumUpDown.StateActive.Back.Color1 = Color.WhiteSmoke;
-            Price_NumUpDown.StateActive.Content.Color1 = Color.Black;
-            Price_NumUpDown.StateActive.Content.Padding = new Padding(0);
-            Price_NumUpDown.StateCommon.Back.Color1 = Color.White;
-            Price_NumUpDown.StateCommon.Border.Color1 = Color.Black;
-            Price_NumUpDown.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Bottom;
-            Price_NumUpDown.StateCommon.Content.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Price_NumUpDown.StateCommon.Content.Padding = new Padding(5);
-            Price_NumUpDown.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            Price_NumUpDown.TabIndex = 2;
-            Price_NumUpDown.ThousandsSeparator = true;
-            Price_NumUpDown.UpDownButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
-            Price_NumUpDown.UseMnemonic = false;
-            Price_NumUpDown.KeyDown += ValidateField_KeyDown;
-            Price_NumUpDown.Validating += Price_NumUpDown_Validating;
+            Cost_NumUpDown.AllowDecimals = true;
+            Cost_NumUpDown.AlwaysActive = false;
+            Cost_NumUpDown.Cursor = Cursors.IBeam;
+            Cost_NumUpDown.DecimalPlaces = 2;
+            Cost_NumUpDown.Location = new Point(20, 192);
+            Cost_NumUpDown.Margin = new Padding(0);
+            Cost_NumUpDown.Maximum = new decimal(new int[] { 99999999, 0, 0, 131072 });
+            Cost_NumUpDown.Name = "Cost_NumUpDown";
+            Cost_NumUpDown.PaletteMode = Krypton.Toolkit.PaletteMode.Office365White;
+            Cost_NumUpDown.Size = new Size(317, 23);
+            Cost_NumUpDown.StateActive.Back.Color1 = Color.WhiteSmoke;
+            Cost_NumUpDown.StateActive.Content.Color1 = Color.Black;
+            Cost_NumUpDown.StateActive.Content.Padding = new Padding(0);
+            Cost_NumUpDown.StateCommon.Back.Color1 = Color.White;
+            Cost_NumUpDown.StateCommon.Border.Color1 = Color.Black;
+            Cost_NumUpDown.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Bottom;
+            Cost_NumUpDown.StateCommon.Content.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Cost_NumUpDown.StateCommon.Content.Padding = new Padding(5);
+            Cost_NumUpDown.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            Cost_NumUpDown.TabIndex = 2;
+            Cost_NumUpDown.ThousandsSeparator = true;
+            Cost_NumUpDown.UpDownButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
+            Cost_NumUpDown.UseMnemonic = false;
+            Cost_NumUpDown.KeyDown += ValidateField_KeyDown;
             // 
             // Quantity_Label
             // 
@@ -194,7 +193,7 @@
             Quantity_NumUpDown.Cursor = Cursors.IBeam;
             Quantity_NumUpDown.Location = new Point(20, 296);
             Quantity_NumUpDown.Margin = new Padding(0);
-            Quantity_NumUpDown.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            Quantity_NumUpDown.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             Quantity_NumUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             Quantity_NumUpDown.Name = "Quantity_NumUpDown";
             Quantity_NumUpDown.PaletteMode = Krypton.Toolkit.PaletteMode.Office365White;
@@ -214,7 +213,6 @@
             Quantity_NumUpDown.UseMnemonic = false;
             Quantity_NumUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
             Quantity_NumUpDown.KeyDown += ValidateField_KeyDown;
-            Quantity_NumUpDown.Validating += Quantity_NumUpDown_Validating;
             // 
             // Tags_ComboBox
             // 
@@ -257,17 +255,17 @@
             RequiredName_Label.Values.Text = "*";
             RequiredName_Label.Visible = false;
             // 
-            // RequiredPrice_Label
+            // RequiredCost_Label
             // 
-            RequiredPrice_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            RequiredPrice_Label.Location = new Point(64, 170);
-            RequiredPrice_Label.Name = "RequiredPrice_Label";
-            RequiredPrice_Label.Size = new Size(18, 21);
-            RequiredPrice_Label.StateCommon.ShortText.Color1 = Color.Red;
-            RequiredPrice_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            RequiredPrice_Label.TabIndex = 45;
-            RequiredPrice_Label.Values.Text = "*";
-            RequiredPrice_Label.Visible = false;
+            RequiredCost_Label.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            RequiredCost_Label.Location = new Point(64, 170);
+            RequiredCost_Label.Name = "RequiredCost_Label";
+            RequiredCost_Label.Size = new Size(18, 21);
+            RequiredCost_Label.StateCommon.ShortText.Color1 = Color.Red;
+            RequiredCost_Label.StateCommon.ShortText.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            RequiredCost_Label.TabIndex = 45;
+            RequiredCost_Label.Values.Text = "*";
+            RequiredCost_Label.Visible = false;
             // 
             // Back_Button
             // 
@@ -304,7 +302,7 @@
             BackColor = Color.White;
             Controls.Add(RequiredQuantity_Label);
             Controls.Add(Back_Button);
-            Controls.Add(RequiredPrice_Label);
+            Controls.Add(RequiredCost_Label);
             Controls.Add(RequiredName_Label);
             Controls.Add(CreateBudgetInputFields_TableLayoutPanel);
             Controls.Add(AddItem_Button);
@@ -321,16 +319,16 @@
 
         private Button AddItem_Button;
         private TableLayoutPanel CreateBudgetInputFields_TableLayoutPanel;
-        private Krypton.Toolkit.KryptonLabel Price_Label;
+        private Krypton.Toolkit.KryptonLabel Cost_Label;
         private Krypton.Toolkit.KryptonLabel Name_Label;
         private Krypton.Toolkit.KryptonMaskedTextBox Name_TextBox;
-        private Krypton.Toolkit.KryptonNumericUpDown Price_NumUpDown;
+        private Krypton.Toolkit.KryptonNumericUpDown Cost_NumUpDown;
         private Krypton.Toolkit.KryptonLabel Tags_Label;
         private Krypton.Toolkit.KryptonLabel Quantity_Label;
         private Krypton.Toolkit.KryptonNumericUpDown Quantity_NumUpDown;
         private Krypton.Toolkit.KryptonComboBox Tags_ComboBox;
         private Krypton.Toolkit.KryptonLabel RequiredName_Label;
-        private Krypton.Toolkit.KryptonLabel RequiredPrice_Label;
+        private Krypton.Toolkit.KryptonLabel RequiredCost_Label;
         private Button Back_Button;
         private Krypton.Toolkit.KryptonLabel RequiredQuantity_Label;
     }

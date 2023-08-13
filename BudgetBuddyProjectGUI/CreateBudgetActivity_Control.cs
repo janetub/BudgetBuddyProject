@@ -34,35 +34,34 @@ namespace Budget_Buddy_GUI
 
         private void Name_TextBox_Validating(object sender, CancelEventArgs e)
         {
+            this.RequiredName_Label.Visible = true;
             if (string.IsNullOrEmpty(this.Name_Label.Text))
             {
                 MessageBox.Show("Activity name is required.");
                 e.Cancel = true;
-                this.RequiredName_Label.Visible = true;
             }
             int maxLength = 100;
             if (Name_TextBox.Text.Length > maxLength)
             {
-                MessageBox.Show($"Budget name must be no more than {maxLength} characters.");
+                MessageBox.Show($"Activity name must be no more than {maxLength} characters.");
                 e.Cancel = true;
-                this.RequiredName_Label.Visible = true;
             }
+            this.RequiredName_Label.Visible = false;
         }
 
         private void ProjectedAmount_NumUpDown_ValueChanged(object sender, EventArgs e)
         {
             try
             {
+                this.RequiredProjectedAmount_Label.Visible = true;
                 if (string.IsNullOrEmpty(ProjectedAmount_NumUpDown.Text) || ProjectedAmount_NumUpDown.Text == "0.00")
                 {
                     MessageBox.Show("Projected amount is required.");
-                    this.RequiredProjectedAmount_Label.Visible = true;
                     return;
                 }
                 if (this.ProjectedAmount_NumUpDown.Text.Contains("-"))
                 {
                     MessageBox.Show("Projected amount must be a positive number.");
-                    this.RequiredProjectedAmount_Label.Visible = true;
                     return;
                 }
                 double projectedAmount;
@@ -74,6 +73,7 @@ namespace Budget_Buddy_GUI
                         return;
                     }
                 }
+                this.RequiredProjectedAmount_Label.Visible = false;
             }
             catch (Exception ex)
             {

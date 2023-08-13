@@ -195,7 +195,7 @@ namespace Budget_Buddy_GUI
 
         }
 
-        private void SubactivityEntry_Click(object sender, EventArgs e)
+        private void SubactivityEntry_Click(object? sender, EventArgs e)
         {
             OnEntryClicked?.Invoke(sender, new EventArgs());
         }

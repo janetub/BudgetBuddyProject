@@ -31,56 +31,78 @@ namespace Budget_Buddy_GUI
                 e.Cancel = true;
                 this.RequiredName_Label.Visible = true;
             }
-        }
-
-        private void Price_NumUpDown_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(Price_NumUpDown.Text) || Price_NumUpDown.Text == "0.00")
+            int maxLength = 100;
+            if (Name_TextBox.Text.Length > maxLength)
             {
-                MessageBox.Show("Item price is required.");
+                MessageBox.Show($"Item name must be no more than {maxLength} characters.");
                 e.Cancel = true;
-                this.RequiredPrice_Label.Visible = true;
-                return;
-            }
-            if (!this.Price_NumUpDown.Text.Contains("."))
-                this.Price_NumUpDown.Text += ".00";
-            double budgetAmount;
-            if (Double.TryParse(this.Price_NumUpDown.Text, out budgetAmount))
-            {
-                if (budgetAmount > 1000000000.00)
-                {
-                    MessageBox.Show("You have reached the maximum item cost allowed in the app.");
-                    this.Price_NumUpDown = null;
-                    return;
-                }
+                this.RequiredName_Label.Visible = true;
             }
         }
 
-        private void Quantity_NumUpDown_Validating(object sender, CancelEventArgs e)
+        private void Cost_NumUpDown_ValueChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Quantity_NumUpDown.Text) || Quantity_NumUpDown.Text == "0")
+            try
             {
-                MessageBox.Show("Quantity is required.");
-                e.Cancel = true;
-                this.RequiredQuantity_Label.Visible = true;
-                return;
-            }
-            if (this.Quantity_NumUpDown.Text.Contains("."))
-            {
-                MessageBox.Show("Quantity must be a whole number.");
-                e.Cancel = true;
-                this.RequiredQuantity_Label.Visible = true;
-                return;
-            }
-            double qty;
-            if (Double.TryParse(this.Quantity_NumUpDown.Text, out qty))
-            {
-                if (qty > 10000000)
+                this.RequiredCost_Label.Visible = true;
+                if (string.IsNullOrEmpty(Cost_NumUpDown.Text) || Cost_NumUpDown.Text == "0.00")
                 {
-                    MessageBox.Show("You have reached the maximum quantity allowed in the app.");
-                    this.Quantity_NumUpDown = null;
+                    MessageBox.Show("Item cost is required.");
                     return;
                 }
+                if (this.Cost_NumUpDown.Text.Contains("-"))
+                {
+                    MessageBox.Show("Item cost must be a positive number.");
+                    return;
+                }
+                double itemCost;
+                if (Double.TryParse(this.Cost_NumUpDown.Text, out itemCost))
+                {
+                    if (itemCost > 999999.99)
+                    {
+                        MessageBox.Show("You have reached the maximum item cost allowed in the app.", "Maximum Amount", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                }
+                this.RequiredCost_Label.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show($"Error: {ex.Message}", "Cannot Validate Cost", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Quantity_NumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.RequiredQuantity_Label.Visible = true;
+                if (string.IsNullOrEmpty(Quantity_NumUpDown.Text) || Quantity_NumUpDown.Text == "0.00")
+                {
+                    MessageBox.Show("Item quantity is required.");
+                    return;
+                }
+                if (this.Quantity_NumUpDown.Text.Contains("-") || this.Quantity_NumUpDown.Text.Contains("."))
+                {
+                    MessageBox.Show("Item quantity must be a positive whole number.");
+                    return;
+                }
+                double itemCost;
+                if (Double.TryParse(this.Quantity_NumUpDown.Text, out itemCost))
+                {
+                    if (itemCost > 999999.99)
+                    {
+                        MessageBox.Show("You have reached the maximum item cost allowed in the app.", "Maximum Amount", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                }
+                this.RequiredQuantity_Label.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show($"Error: {ex.Message}", "Cannot Validate Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -101,38 +123,28 @@ namespace Budget_Buddy_GUI
         {
             try
             {
-                if (this.Price_Label.Text.Contains("-"))
+                this.RequiredName_Label.Visible = string.IsNullOrEmpty(this.Name_TextBox.Text);
+                this.RequiredQuantity_Label.Visible = (string.IsNullOrEmpty(Quantity_NumUpDown.Text) || Quantity_NumUpDown.Text == "0.00");
+                this.RequiredCost_Label.Visible = (string.IsNullOrEmpty(Cost_NumUpDown.Text) || Cost_NumUpDown.Text == "0.00");
+                if (this.Quantity_NumUpDown.Text.Contains("-"))
                 {
-                    MessageBox.Show("Budget amount must be a positive number.");
-                    this.Price_Label.Visible = true;
+                    MessageBox.Show("Item quantity must be a positive number.");
+                    this.RequiredQuantity_Label.Visible = true;
                     return;
                 }
-                if (string.IsNullOrEmpty(this.Name_TextBox.Text) && (string.IsNullOrEmpty(Price_NumUpDown.Text) || Price_NumUpDown.Text == "0.00"))
+                if (string.IsNullOrEmpty(this.Name_TextBox.Text) || (string.IsNullOrEmpty(Cost_NumUpDown.Text) || Cost_NumUpDown.Text == "0.00"))
                 {
-                    MessageBox.Show("Please fill up all required fields to create an item entry.");
-                    this.RequiredName_Label.Visible = this.RequiredPrice_Label.Visible = true;
+                    MessageBox.Show("Please fill up all required fields to create an activity entry.", "Empty Field(s)", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
-                if (string.IsNullOrEmpty(this.Name_TextBox.Text))
+                if (this.Quantity_NumUpDown.Text.Contains("-") || this.Quantity_NumUpDown.Text.Contains("."))
                 {
-                    MessageBox.Show("Please fill up all required fields.");
-                    this.RequiredName_Label.Visible = true;
-                    return;
-                }
-                if (string.IsNullOrEmpty(Price_NumUpDown.Text) || Price_NumUpDown.Text == "0")
-                {
-                    MessageBox.Show("Please fill up all required fields.");
+                    MessageBox.Show("Item quantity must be a positive whole number.");
                     this.RequiredQuantity_Label.Visible = true;
                     return;
                 }
                 int qty = int.Parse(this.Quantity_NumUpDown.Text);
-                if (this.Quantity_NumUpDown.Text.Contains(".") || qty < 1)
-                {
-                    MessageBox.Show("Quantity must be a whole number greater than 0.");
-                    this.RequiredQuantity_Label.Visible = true;
-                    return;
-                }
-                double amount = double.Parse(Price_NumUpDown.Text);
+                double amount = double.Parse(Cost_NumUpDown.Text);
                 Item newItem = new(this.Name_TextBox.Text, amount, qty);
                 if (Tags_ComboBox.Items.Count > 0)
                 {
@@ -147,7 +159,7 @@ namespace Budget_Buddy_GUI
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                MessageBox.Show("An error occurred while validating the Item entry. Please try again.\n" + ex.Message, "Error");
+                MessageBox.Show($"An error occurred while validating the Item entry. Please try again.\nError: {ex.Message}", "Cannot Validate Amount", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

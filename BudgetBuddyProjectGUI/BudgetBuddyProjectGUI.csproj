@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows8.0</TargetFramework>
     <RootNamespace>Budget_Buddy_GUI</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
@@ -45,5 +45,10 @@
   <ItemGroup>
     <ProjectReference Include="..\BudgetBuddyDataProject\BudgetBuddyDataProject.csproj" />
   </ItemGroup>
+	
+  <PropertyGroup>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <GenerateDependencyFile>true</GenerateDependencyFile> 
+  </PropertyGroup>
 
 </Project>
