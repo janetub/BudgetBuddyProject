@@ -208,8 +208,9 @@ namespace Budget_Buddy_GUI
                 // CollapseButton.performCLick() when other elements are clicked
                 activities.OnBackButtonClicked += Refresh_SubActivityEntriesPlaceholder;
                 activities.OnEntriesUpdated += Refresh_SubActivityEntries;
-                /*activities.OnEditButtonClicked += ;*/
+                activities.OnEditButtonClicked += Show_EditActivityForm;
                 activities.OnEntryClicked += Open_BudgetActivityEntry;
+                activities.OnCancelSavingsButtonClicked += CancelSavings;
                 this.Placeholder_Panel.Controls.Clear();
                 this.Placeholder_Panel.Controls.Add(activities);
                 this.Add_Button.Visible = true;
@@ -219,6 +220,29 @@ namespace Budget_Buddy_GUI
             {
                 Console.WriteLine(ex.Message);
                 MessageBox.Show("An error occurred while loading the Budget activities. Please try again.\n" + ex.Message, "Error");
+            }
+        }
+
+        private void CancelSavings(object? sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Cancelling this savings will move all your saved funds back to your Budget funds. You may choose to delete this activity anytime.", "Are you sure you want to cancel this savings activity?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(result == DialogResult.Yes)
+                {
+                    if(!this.activeBudget!.CancelSavings(this.currentDirectory.Last!.Value))
+                    {
+                        MessageBox.Show("A problem occured while cancelling the savings activity. Please try again later.", "Cannot Cancel Savings");
+                        return;
+                    }
+                    this.currentDirectory.Last!.Value.isUsed = true;
+                    ShowPlaceholder_SubActivityEntries(this.currentDirectory.Last!.Value);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while cancelling the savings activity. Please try again.\n" + ex.Message, "Error");
             }
         }
 
@@ -352,7 +376,7 @@ namespace Budget_Buddy_GUI
                 MessageBox.Show("An error occured while adding amount to budget funds", "Budget does not exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            EditBudgetmount_Form form = new("add");
+            EditBudgetmount_Form form = new("add", this.activeBudget);
             form.OnConfirmAddButtonClicked += AddAmount_BudgetEntry;
             form.ShowDialog();
             this.modalPanel.Visible = false;
@@ -367,10 +391,33 @@ namespace Budget_Buddy_GUI
                 MessageBox.Show("An error occured while removing amount to budget funds", "Budget does not exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            EditBudgetmount_Form form = new("remove");
+            EditBudgetmount_Form form = new("remove", this.activeBudget);
             form.OnConfirmRemoveButtonClicked += RemoveAmount_BudgetEntry;
             form.ShowDialog();
             this.modalPanel.Visible = false;
+        }
+
+        private void Show_EditActivityForm(object? sender, EventArgs e)
+        {
+            try
+            {
+                this.modalPanel.Visible = true;
+                this.modalPanel.BringToFront();
+                if (this.activeBudget == null || !this.budgets.Contains(this.activeBudget) || this.currentDirectory.Count < 1)
+                {
+                    MessageBox.Show("An error occured while editing activity", "Budget or Activity does not exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                EditActivity_Form form = new(this.currentDirectory.Last!.Value);
+                form.OnConfirmEditClicked += Edit_ActivityEntry;
+                form.ShowDialog();
+                this.modalPanel.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while loading Edit Activity Form. Please try again.\nError: " + ex.Message, "Cannot Open Form", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Edit_BudgetEntry(object? sender, EventArgs e)
@@ -389,7 +436,7 @@ namespace Budget_Buddy_GUI
                 {
                     if (b.Name == update.Name)
                     {
-                        if (update.Name == this.activeBudget!.Name) break;
+                        if (b.Name == this.activeBudget!.Name) break;
                         MessageBox.Show("A budget with the same name already exists.");
                         return;
                     }
@@ -418,6 +465,58 @@ namespace Budget_Buddy_GUI
             {
                 Console.WriteLine(ex.Message);
                 MessageBox.Show("An error occurred while editing the Budget entry. Please try again.\n" + ex.Message, "Error");
+            }
+        }
+
+        private void Edit_ActivityEntry(object? sender, EventArgs e)
+        {
+            try
+            {
+                var senderForm = sender;
+                if (!this.budgets.Contains(this.activeBudget!) || this.currentDirectory.Count < 0)
+                {
+                    MessageBox.Show("An error occurred while editing the Activity entry. Please try again.\n", "Missing Budget or Activity");
+                    return;
+                }
+                EditActivity_Form form = (EditActivity_Form)sender!;
+                BudgetActivity update = (BudgetActivity)form.Tag;
+                if(this.currentDirectory.Count == 1)
+                {
+                    foreach (BudgetActivity a in this.activeBudget!.Activities)
+                    {
+                        if (a.Name == update.Name)
+                        {
+                            if (a.Name == this.currentDirectory.Last!.Value.Name) break;
+                            MessageBox.Show("An activity with the same name already exists.");
+                            return;
+                        }
+                    }
+                }
+                if(this.currentDirectory.Count > 1)
+                {
+                    BudgetActivity prev = this.currentDirectory.Last!.Value;
+                    this.currentDirectory.RemoveLast();
+                    foreach (BudgetActivity a in this.currentDirectory.Last!.Value.SubActivities)
+                    {
+                        if (a.Name == update.Name)
+                        {
+                            if (a.Name == this.activeBudget!.Name) break;
+                            MessageBox.Show("An activity with the same name already exists.");
+                            return;
+                        }
+                    }
+                    this.currentDirectory.AddLast(prev);
+                }
+                this.currentDirectory.Last!.Value.Name = update.Name;
+                this.currentDirectory.Last!.Value.Description = update.Description;
+                ShowPlaceholder_SubActivityEntries(this.currentDirectory.Last!.Value);
+                form.Close();
+                return;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while editing the Activity entry. Please try again.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

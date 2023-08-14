@@ -94,8 +94,13 @@ namespace Budget_Buddy_GUI
                 {
                     if (budgetAmount > 999999999999.99)
                     {
-                        MessageBox.Show("You have reached the maximum budget/funds allowed in the app.", "Maximum Funds", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("You have reached the maximum budget funds allowed in the app.", "Maximum Funds", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         this.RequiredAmount_Label.Visible = true;
+                        return;
+                    }
+                    if (budgetAmount < 1)
+                    {
+                        MessageBox.Show("You have reached the minimum budget funds allowed in the app.", "Minimum Funds", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                 }

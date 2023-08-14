@@ -10,7 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
+    <None Remove="dotnet" />
+    <None Remove="FodyWeavers.xml" />
+    <None Remove="FodyWeavers.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome.Sharp" Version="6.3.0">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
     <PackageReference Include="Krypton.Toolkit" Version="70.22.11.312" />
   </ItemGroup>
 

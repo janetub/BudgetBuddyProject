@@ -18,7 +18,7 @@
     <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
     <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing"">Blue</data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
         <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
@@ -200,7 +200,7 @@
   <data name="AddAmount_toolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        0gAADdIBb5L+jgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEKxSURBVHhe7d17
+        0QAADdEBwivf4wAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEKxSURBVHhe7d17
         0GVVeefx003TCC3aiEA1JFAqI4iKgAqmIiJSA6J/IBYiEmWiDjWM8UoF5aKMCKYKJiWRkimluERIWZSo
         USwTiJRFKUomFjEQQBkGBCJBBxFvCCKS+f2a9cLq/T7d/V7O5Vl7f5+qTxU87/ues9baaz179zn7MvqP
         //gPAMkpnia7yN5ysBwlJ8hp8gn5rHxBvipXy7VyvdwgN8vtcrf8WB6Uh+Sxwv/tnH/m3/Hv+m/8t34N
@@ -491,7 +491,7 @@
   <data name="RemoveAmount_toolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        0gAADdIBb5L+jgAAAV5JREFUSEu11UtKxEAUheHgA9yFugA34QJ07gZcgCMHuh0X4ToEh4LgXAUd+Dxf
+        0QAADdEBwivf4wAAAV5JREFUSEu11UtKxEAUheHgA9yFugA34QJ07gZcgCMHuh0X4ToEh4LgXAUd+Dxf
         SDV20t1Jt8mBHyqVe08lt24lVY8Ow2W4DU/ho8HYnHti1tZ+uAlf4afhLTw0GJd5MWLlDNJZeA2SH8NV
         OApbocjYnHtixMqRu1IX4Tsow3XYC30SI1aOXB4LZXUBz+HYxJqSI5dH503Uzyt6ik3Mi+Ty4DW3JzZJ
         Hb3qf8WDF89a2kwn2KwhNe8TD16f4cCEXraijhhLvHjyrg+MC203lnjx5F2fSgfnb58X7YTdHsS0tR3e

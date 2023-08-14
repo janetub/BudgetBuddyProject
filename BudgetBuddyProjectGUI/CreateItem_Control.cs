@@ -60,7 +60,12 @@ namespace Budget_Buddy_GUI
                 {
                     if (itemCost > 999999.99)
                     {
-                        MessageBox.Show("You have reached the maximum item cost allowed in the app.", "Maximum Amount", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("You have reached the maximum item cost allowed in the app.", "Maximum Cost", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                    if (itemCost < 1)
+                    {
+                        MessageBox.Show("You have reached the minimum item cost allowed in the app.", "Minimum Cost", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                 }
@@ -93,7 +98,12 @@ namespace Budget_Buddy_GUI
                 {
                     if (itemCost > 999999.99)
                     {
-                        MessageBox.Show("You have reached the maximum item cost allowed in the app.", "Maximum Amount", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("You have reached the maximum item quantity allowed in the app.", "Maximum Quantity", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                    if (itemCost < 1)
+                    {
+                        MessageBox.Show("You have reached the minimum item quantity allowed in the app.", "Minimum Quantity", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                 }

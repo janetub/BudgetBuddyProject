@@ -198,7 +198,7 @@
             Activity_ContextMenu.ImeMode = ImeMode.NoControl;
             Activity_ContextMenu.Items.AddRange(new ToolStripItem[] { Edit_toolStripMenuItem, AddAmount_toolStripMenuItem, RemoveAmount_toolStripMenuItem, Details_toolStripMenuItem, Archive_toolStripMenuItem });
             Activity_ContextMenu.Name = "Activity_ContextMenu";
-            Activity_ContextMenu.Size = new Size(169, 114);
+            Activity_ContextMenu.Size = new Size(181, 136);
             Activity_ContextMenu.Text = "Menu";
             // 
             // Edit_toolStripMenuItem
@@ -207,15 +207,16 @@
             Edit_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             Edit_toolStripMenuItem.Image = (Image)resources.GetObject("Edit_toolStripMenuItem.Image");
             Edit_toolStripMenuItem.Name = "Edit_toolStripMenuItem";
-            Edit_toolStripMenuItem.Size = new Size(168, 22);
+            Edit_toolStripMenuItem.Size = new Size(180, 22);
             Edit_toolStripMenuItem.Text = "Edit";
+            Edit_toolStripMenuItem.Click += Edit_Button_Click;
             // 
             // AddAmount_toolStripMenuItem
             // 
             AddAmount_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             AddAmount_toolStripMenuItem.Image = (Image)resources.GetObject("AddAmount_toolStripMenuItem.Image");
             AddAmount_toolStripMenuItem.Name = "AddAmount_toolStripMenuItem";
-            AddAmount_toolStripMenuItem.Size = new Size(168, 22);
+            AddAmount_toolStripMenuItem.Size = new Size(180, 22);
             AddAmount_toolStripMenuItem.Text = "Add Amount";
             AddAmount_toolStripMenuItem.Click += AddAmount_toolStripMenuItem_Click;
             // 
@@ -224,7 +225,7 @@
             RemoveAmount_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             RemoveAmount_toolStripMenuItem.Image = (Image)resources.GetObject("RemoveAmount_toolStripMenuItem.Image");
             RemoveAmount_toolStripMenuItem.Name = "RemoveAmount_toolStripMenuItem";
-            RemoveAmount_toolStripMenuItem.Size = new Size(168, 22);
+            RemoveAmount_toolStripMenuItem.Size = new Size(180, 22);
             RemoveAmount_toolStripMenuItem.Text = "Remove Amount";
             RemoveAmount_toolStripMenuItem.Click += RemoveAmount_toolStripMenuItem_Click;
             // 
@@ -233,7 +234,7 @@
             Details_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             Details_toolStripMenuItem.Image = (Image)resources.GetObject("Details_toolStripMenuItem.Image");
             Details_toolStripMenuItem.Name = "Details_toolStripMenuItem";
-            Details_toolStripMenuItem.Size = new Size(168, 22);
+            Details_toolStripMenuItem.Size = new Size(180, 22);
             Details_toolStripMenuItem.Text = "Details";
             // 
             // Archive_toolStripMenuItem
@@ -241,7 +242,7 @@
             Archive_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             Archive_toolStripMenuItem.Image = (Image)resources.GetObject("Archive_toolStripMenuItem.Image");
             Archive_toolStripMenuItem.Name = "Archive_toolStripMenuItem";
-            Archive_toolStripMenuItem.Size = new Size(168, 22);
+            Archive_toolStripMenuItem.Size = new Size(180, 22);
             Archive_toolStripMenuItem.Text = "Archive";
             // 
             // Placeholder_ActivityEntries_Control

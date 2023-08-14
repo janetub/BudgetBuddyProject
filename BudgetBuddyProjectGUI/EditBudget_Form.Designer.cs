@@ -69,7 +69,7 @@
             Amount_NumUpDown.ThousandsSeparator = true;
             Amount_NumUpDown.UpDownButtonStyle = Krypton.Toolkit.ButtonStyle.Standalone;
             Amount_NumUpDown.UseMnemonic = false;
-            Amount_NumUpDown.KeyDown += Amount_NumUpDown_KeyDown;
+            Amount_NumUpDown.KeyDown += Confirm_KeyDown;
             // 
             // CreateBudgetInputFields_TableLayoutPanel
             // 
@@ -135,13 +135,15 @@
             Name_TextBox.StateCommon.Content.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Name_TextBox.StateCommon.Content.Padding = new Padding(5);
             Name_TextBox.TabIndex = 1;
-            Name_TextBox.PreviewKeyDown += Name_TextBox_PreviewKeyDown;
+            Name_TextBox.KeyDown += Confirm_KeyDown;
+            Name_TextBox.Validating += Name_TextBox_Validating;
             // 
             // Back_Button
             // 
             Back_Button.BackColor = Color.FromArgb(255, 218, 70);
             Back_Button.BackgroundImage = (Image)resources.GetObject("Back_Button.BackgroundImage");
             Back_Button.BackgroundImageLayout = ImageLayout.Zoom;
+            Back_Button.DialogResult = DialogResult.Cancel;
             Back_Button.FlatAppearance.BorderSize = 0;
             Back_Button.FlatStyle = FlatStyle.Flat;
             Back_Button.Location = new Point(318, 10);
@@ -210,7 +212,7 @@
             PageName_Label.BackColor = Color.FromArgb(255, 218, 70);
             PageName_Label.Font = new Font("Segoe UI Semibold", 13.25F, FontStyle.Bold, GraphicsUnit.Point);
             PageName_Label.ForeColor = Color.Black;
-            PageName_Label.Location = new Point(125, 11);
+            PageName_Label.Location = new Point(125, 12);
             PageName_Label.Name = "PageName_Label";
             PageName_Label.Size = new Size(110, 25);
             PageName_Label.TabIndex = 51;

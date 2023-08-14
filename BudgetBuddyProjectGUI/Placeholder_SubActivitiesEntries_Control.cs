@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using BudgetBuddyProject;
 using Krypton.Toolkit;
 using Student_Financial_Assisstance;
 using Label = System.Windows.Forms.Label;
@@ -26,6 +27,7 @@ namespace Budget_Buddy_GUI
         public event EventHandler? OnEditButtonClicked;
         public event EventHandler? OnBackButtonClicked;
         public event EventHandler? OnEntryClicked;
+        public event EventHandler? OnCancelSavingsButtonClicked;
 
         public Placeholder_SubActivitiesEntries_Control(BudgetActivity activity)
         {
@@ -33,6 +35,8 @@ namespace Budget_Buddy_GUI
             this.Tag = activity;
             this.Display();
             ReloadStatusPanel();
+            this.CancelSavings_ToolStripMenuItem.Visible = activity.ActivityType is BudgetActivityType.Savings;
+            this.CancelSavings_ToolStripMenuItem.Enabled = Transfer_toolStripMenuItem.Enabled = !(activity.isUsed || activity.Actual == activity.Projected);
         }
 
         public void ReloadStatusPanel()
@@ -143,6 +147,7 @@ namespace Budget_Buddy_GUI
                 if (!act.RemoveItem(item))
                 {
                     MessageBox.Show("An error occurred while deleting the item entry. Please try again.\n", "Error");
+                    return;
                 }
                 this.Tag = act;
                 ReloadStatusPanel();
@@ -169,6 +174,7 @@ namespace Budget_Buddy_GUI
                 if (!act.RemoveSubActivity(subAct))
                 {
                     MessageBox.Show("Please check for remaining balance or ongoing subactivity(ies) within the activity and try again.", "Cannot Delete Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
                 this.Tag = act;
                 ReloadStatusPanel();
@@ -186,11 +192,6 @@ namespace Budget_Buddy_GUI
         }
 
         private void ActivityItemEntries_Control_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PlaceHolder_StatusBar_Control_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -280,6 +281,11 @@ namespace Budget_Buddy_GUI
         private void ContextMenu_Button_Click(object sender, EventArgs e)
         {
             Activity_ContextMenu.Show(this.ContextMenu_Button, this.ContextMenu_Button.Width, this.ContextMenu_Button.Height);
+        }
+
+        private void CancelSavings_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OnCancelSavingsButtonClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

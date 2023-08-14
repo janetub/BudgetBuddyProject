@@ -52,6 +52,13 @@ namespace Budget_Buddy_GUI
                 e.Cancel = true;
                 this.RequiredName_Label.Visible = true;
             }
+            int maxLength = 100;
+            if (Name_TextBox.Text.Length > maxLength)
+            {
+                MessageBox.Show($"Budget name must be no more than {maxLength} characters.");
+                e.Cancel = true;
+                this.RequiredName_Label.Visible = true;
+            }
         }
 
         private void Amount_NumUpDown_Validating(object sender, CancelEventArgs e)
@@ -61,26 +68,26 @@ namespace Budget_Buddy_GUI
                 if (string.IsNullOrEmpty(Amount_NumUpDown.Text) || Amount_NumUpDown.Text == "0.00")
                 {
                     MessageBox.Show("Budget amount is required.");
-                    e.Cancel = true;
                     this.RequiredAmount_Label.Visible = true;
                     return;
                 }
                 if (this.Amount_NumUpDown.Text.Contains("-"))
                 {
                     MessageBox.Show("Budget amount must be a positive number.");
-                    e.Cancel = true;
                     this.RequiredAmount_Label.Visible = true;
                     return;
                 }
-                if (!this.Amount_NumUpDown.Text.Contains("."))
-                    this.Amount_NumUpDown.Text += ".00";
                 double budgetAmount;
                 if (Double.TryParse(this.Amount_NumUpDown.Text, out budgetAmount))
                 {
-                    if (budgetAmount > 1000000000.00)
+                    if (budgetAmount > 9999999999.99)
                     {
-                        MessageBox.Show("You have reached the maximum budget/funds allowed in the app.");
-                        this.Amount_NumUpDown = null;
+                        MessageBox.Show("You have reached the maximum budget allowed in the app.", "Maximum Funds", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                    if (budgetAmount < 1)
+                    {
+                        MessageBox.Show("You have reached the minimum budget allowed in the app.", "Minimum Funds", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                 }
@@ -88,6 +95,7 @@ namespace Budget_Buddy_GUI
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                MessageBox.Show($"Error: {ex.Message}", "Cannot Validate Amount", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -96,30 +104,25 @@ namespace Budget_Buddy_GUI
             try
             {
                 double budgetAmount;
-                if (string.IsNullOrEmpty(this.Name_TextBox.Text) && (string.IsNullOrEmpty(Amount_NumUpDown.Text) || Amount_NumUpDown.Text == "0.00"))
+                this.RequiredName_Label.Visible = string.IsNullOrEmpty(this.Name_TextBox.Text);
+                this.RequiredAmount_Label.Visible = string.IsNullOrEmpty(this.Amount_NumUpDown.Text) || this.Amount_NumUpDown.Text == "0.00";
+                if (string.IsNullOrEmpty(this.Name_TextBox.Text) || (string.IsNullOrEmpty(Amount_NumUpDown.Text) || Amount_NumUpDown.Text == "0.00"))
                 {
-                    MessageBox.Show("Please fill up all required fields to create a budget entry.");
-                    this.RequiredName_Label.Visible = true;
+                    MessageBox.Show("Please fill up all required fields to create a budget entry.", "Empty Field(s)", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                if (this.Amount_NumUpDown.Text.Contains("-"))
+                {
+                    MessageBox.Show("Budget amount must be a positive number.", "Invalid Amount", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.RequiredAmount_Label.Visible = true;
                     return;
                 }
-                else if (string.IsNullOrEmpty(this.Name_TextBox.Text))
+                if (Double.TryParse(this.Amount_NumUpDown.Text, out budgetAmount))
                 {
-                    MessageBox.Show("Please fill up all required fields");
-                    this.RequiredName_Label.Visible = true;
-                    return;
-                }
-                else if (string.IsNullOrEmpty(Amount_NumUpDown.Text) || Amount_NumUpDown.Text == "0.00")
-                {
-                    MessageBox.Show("Please fill up all required fields");
-                    this.RequiredAmount_Label.Visible = true;
-                    return;
-                }
-                else if (Double.TryParse(this.Amount_NumUpDown.Text, out budgetAmount))
-                {
-                    if (budgetAmount > 1000000000.00)
+                    if (budgetAmount > 999999999999.99)
                     {
-                        MessageBox.Show("You have reached the maximum budget/funds allowed in the app.");
+                        MessageBox.Show("You have reached the maximum budget/funds allowed in the app.", "Maximum Funds", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        this.RequiredAmount_Label.Visible = true;
                         return;
                     }
                 }
@@ -131,21 +134,12 @@ namespace Budget_Buddy_GUI
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                MessageBox.Show($"Error: {ex.Message}", "Cannot Validate Budget Input Fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void Amount_NumUpDown_KeyDown(object sender, KeyEventArgs e)
+        private void Confirm_KeyDown(object sender, KeyEventArgs e)
         {
-
-            if (e.KeyCode == Keys.Enter)
-            {
-                this.ConfirmEdit_Button.PerformClick();
-            }
-        }
-
-        private void Name_TextBox_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-
             if (e.KeyCode == Keys.Enter)
             {
                 this.ConfirmEdit_Button.PerformClick();

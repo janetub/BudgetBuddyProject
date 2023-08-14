@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="BudgetBuddy.ico" />
+    <None Remove="BudgetBuddy.ico" />
   </ItemGroup>
 
   <ItemGroup>

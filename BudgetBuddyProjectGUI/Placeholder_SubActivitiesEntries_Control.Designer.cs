@@ -136,6 +136,7 @@
             Edit_toolStripMenuItem.Name = "Edit_toolStripMenuItem";
             Edit_toolStripMenuItem.Size = new Size(171, 22);
             Edit_toolStripMenuItem.Text = "Edit";
+            Edit_toolStripMenuItem.Click += Edit_Button_Click;
             // 
             // Details_toolStripMenuItem
             // 
@@ -184,6 +185,7 @@
             CancelSavings_ToolStripMenuItem.Size = new Size(171, 22);
             CancelSavings_ToolStripMenuItem.Text = "Cancel Savings";
             CancelSavings_ToolStripMenuItem.Visible = false;
+            CancelSavings_ToolStripMenuItem.Click += CancelSavings_ToolStripMenuItem_Click;
             // 
             // Placeholder_SubActivitiesEntries_Control
             // 
@@ -209,7 +211,6 @@
         private Label NoContent_label;
         private Krypton.Toolkit.KryptonTableLayoutPanel ActivityItemEntriesPlaceHolder_TablePanel;
         private Krypton.Toolkit.KryptonPanel PlaceHolder_StatusBar_Control;
-        private Button button1;
         private Button Back_Button;
         private Button ContextMenu_Button;
         private ContextMenuStrip Activity_ContextMenu;

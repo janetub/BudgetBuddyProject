@@ -149,11 +149,11 @@ namespace Student_Financial_Assisstance
         {
             if(activity.ActivityType == BudgetActivityType.Savings)
             {
-                if (activity.Projected <= activity.Actual)
+                if (activity.Projected > activity.Actual)
                 {
                     double balance = activity.Projected - activity.Actual;
                     this.amount += activity.Actual;
-                    Item transfer = new($"Transfer amount of {activity.Actual} to budget funds. Savings cancelled.", balance, 1);
+                    Item transfer = new($"Transfer amount of {activity.Actual.ToString("N2")} to budget funds. Savings cancelled.", balance, 1);
                     activity.AddItem(transfer);
                     return true;
                 }

@@ -108,10 +108,12 @@ namespace Budget_Buddy_GUI
                         if (actEntry.ActivityType == BudgetBuddyProject.BudgetActivityType.Savings)
                         {
                             MessageBox.Show("This savings have yet to reach its target amount. Please check the contributions and try again.", "Cannot Delete Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
                         }
                         else
                         {
                             MessageBox.Show("Please check for remaining balance or ongoing subactivity(ies) within the activity and try again.", "Cannot Delete Activity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
                         }
                     }
                     this.Tag = budget;

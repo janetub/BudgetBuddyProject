@@ -53,6 +53,13 @@ namespace Student_Financial_Assisstance
         /// </summary>
         [JsonRequired]
         private BudgetActivityType activityType;
+        
+        /// <summary>
+        /// Helps determine if the activity funds has been used.
+        /// Utilized by savings-activity type.
+        /// </summary>
+        [JsonRequired]
+        public bool isUsed;
 
         /// <summary>
         /// Public accesor and mutator of private field name.
@@ -184,6 +191,7 @@ namespace Student_Financial_Assisstance
             this.DateAdded = DateTime.Now;
             this.activityType = type;
             //this.DeadLine = DeadLine;
+            this.isUsed = false;
         }
 
 

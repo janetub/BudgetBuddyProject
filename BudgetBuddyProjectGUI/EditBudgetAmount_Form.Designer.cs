@@ -77,7 +77,7 @@
             Amount_NumUpDown.DecimalPlaces = 2;
             Amount_NumUpDown.Location = new Point(20, 70);
             Amount_NumUpDown.Margin = new Padding(0);
-            Amount_NumUpDown.Maximum = new decimal(new int[] { -727379969, 232, 0, 131072 });
+            Amount_NumUpDown.Maximum = new decimal(new int[] { 276447231, 23283, 0, 131072 });
             Amount_NumUpDown.Name = "Amount_NumUpDown";
             Amount_NumUpDown.PaletteMode = Krypton.Toolkit.PaletteMode.Office365White;
             Amount_NumUpDown.Size = new Size(317, 23);
@@ -139,7 +139,7 @@
             ConfirmEdit_Button.Name = "ConfirmEdit_Button";
             ConfirmEdit_Button.Size = new Size(360, 50);
             ConfirmEdit_Button.TabIndex = 53;
-            ConfirmEdit_Button.Text = "Confirm Addition";
+            ConfirmEdit_Button.Text = "Confirm";
             ConfirmEdit_Button.UseVisualStyleBackColor = false;
             ConfirmEdit_Button.Click += ConfirmEdit_Button_Click;
             // 
@@ -156,7 +156,7 @@
             AppBar.MouseMove += AppBar_MouseMove;
             AppBar.MouseUp += AppBar_MouseUp;
             // 
-            // EditAddAmount_Form
+            // EditBudgetmount_Form
             // 
             AcceptButton = ConfirmEdit_Button;
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -171,7 +171,7 @@
             Controls.Add(AppBar);
             Controls.Add(FormCanvas_TableLayoutPanel);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "EditAddAmount_Form";
+            Name = "EditBudgetmount_Form";
             StartPosition = FormStartPosition.CenterParent;
             Text = "AddAmount_Form";
             FormCanvas_TableLayoutPanel.ResumeLayout(false);

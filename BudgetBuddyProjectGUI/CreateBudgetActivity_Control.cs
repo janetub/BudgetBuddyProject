@@ -72,6 +72,11 @@ namespace Budget_Buddy_GUI
                         MessageBox.Show("You have reached the maximum projected amount allowed in the app.", "Maximum Funds", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
+                    if (projectedAmount < 1)
+                    {
+                        MessageBox.Show("You have reached the minimum budget allowed in the app.", "Minimum Funds", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
                 }
                 this.RequiredProjectedAmount_Label.Visible = false;
             }
@@ -115,7 +120,12 @@ namespace Budget_Buddy_GUI
                 {
                     if (projectedAmount > 9999999999.99)
                     {
-                        MessageBox.Show("You have reached the maximum projected amount allowed in the app.", "Maximum Funds", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("You have reached the maximum projected amount allowed in the app.", "Maximum Amount", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                    if (projectedAmount < 1)
+                    {
+                        MessageBox.Show("You have reached the minimum projected amount allowed in the app.", "Minimum Amount", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                 }

@@ -22,8 +22,6 @@ namespace Budget_Buddy_GUI
 {
     public partial class AppPanel_Form2 : Form
     {
-
-        private BudgetActivity activity;
         public AppPanel_Form2(BudgetActivity activity)
         {
             InitializeComponent();
