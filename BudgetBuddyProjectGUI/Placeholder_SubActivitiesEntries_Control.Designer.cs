@@ -125,7 +125,7 @@
             Activity_ContextMenu.ImeMode = ImeMode.NoControl;
             Activity_ContextMenu.Items.AddRange(new ToolStripItem[] { Edit_toolStripMenuItem, Details_toolStripMenuItem, Transfer_toolStripMenuItem, Archive_toolStripMenuItem, CancelSavings_ToolStripMenuItem });
             Activity_ContextMenu.Name = "Activity_ContextMenu";
-            Activity_ContextMenu.Size = new Size(172, 114);
+            Activity_ContextMenu.Size = new Size(181, 136);
             Activity_ContextMenu.Text = "Menu";
             // 
             // Edit_toolStripMenuItem
@@ -134,7 +134,7 @@
             Edit_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             Edit_toolStripMenuItem.Image = (Image)resources.GetObject("Edit_toolStripMenuItem.Image");
             Edit_toolStripMenuItem.Name = "Edit_toolStripMenuItem";
-            Edit_toolStripMenuItem.Size = new Size(171, 22);
+            Edit_toolStripMenuItem.Size = new Size(180, 22);
             Edit_toolStripMenuItem.Text = "Edit";
             Edit_toolStripMenuItem.Click += Edit_Button_Click;
             // 
@@ -143,7 +143,7 @@
             Details_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             Details_toolStripMenuItem.Image = (Image)resources.GetObject("Details_toolStripMenuItem.Image");
             Details_toolStripMenuItem.Name = "Details_toolStripMenuItem";
-            Details_toolStripMenuItem.Size = new Size(171, 22);
+            Details_toolStripMenuItem.Size = new Size(180, 22);
             Details_toolStripMenuItem.Text = "Details";
             // 
             // Transfer_toolStripMenuItem
@@ -152,21 +152,22 @@
             Transfer_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             Transfer_toolStripMenuItem.Image = (Image)resources.GetObject("Transfer_toolStripMenuItem.Image");
             Transfer_toolStripMenuItem.Name = "Transfer_toolStripMenuItem";
-            Transfer_toolStripMenuItem.Size = new Size(171, 22);
+            Transfer_toolStripMenuItem.Size = new Size(180, 22);
             Transfer_toolStripMenuItem.Text = "Transfer Balance";
             // 
             // ToBudget_ToolStripMenuItem
             // 
             ToBudget_ToolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             ToBudget_ToolStripMenuItem.Name = "ToBudget_ToolStripMenuItem";
-            ToBudget_ToolStripMenuItem.Size = new Size(134, 22);
+            ToBudget_ToolStripMenuItem.Size = new Size(180, 22);
             ToBudget_ToolStripMenuItem.Text = "To Budget";
+            ToBudget_ToolStripMenuItem.Click += ToBudget_ToolStripMenuItem_Click;
             // 
             // ToSavings_ToolStripMenuItem
             // 
             ToSavings_ToolStripMenuItem.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
             ToSavings_ToolStripMenuItem.Name = "ToSavings_ToolStripMenuItem";
-            ToSavings_ToolStripMenuItem.Size = new Size(134, 22);
+            ToSavings_ToolStripMenuItem.Size = new Size(180, 22);
             ToSavings_ToolStripMenuItem.Text = "To Savings";
             // 
             // Archive_toolStripMenuItem
@@ -174,7 +175,7 @@
             Archive_toolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             Archive_toolStripMenuItem.Image = (Image)resources.GetObject("Archive_toolStripMenuItem.Image");
             Archive_toolStripMenuItem.Name = "Archive_toolStripMenuItem";
-            Archive_toolStripMenuItem.Size = new Size(171, 22);
+            Archive_toolStripMenuItem.Size = new Size(180, 22);
             Archive_toolStripMenuItem.Text = "Archive";
             // 
             // CancelSavings_ToolStripMenuItem
@@ -182,7 +183,7 @@
             CancelSavings_ToolStripMenuItem.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             CancelSavings_ToolStripMenuItem.Image = (Image)resources.GetObject("CancelSavings_ToolStripMenuItem.Image");
             CancelSavings_ToolStripMenuItem.Name = "CancelSavings_ToolStripMenuItem";
-            CancelSavings_ToolStripMenuItem.Size = new Size(171, 22);
+            CancelSavings_ToolStripMenuItem.Size = new Size(180, 22);
             CancelSavings_ToolStripMenuItem.Text = "Cancel Savings";
             CancelSavings_ToolStripMenuItem.Visible = false;
             CancelSavings_ToolStripMenuItem.Click += CancelSavings_ToolStripMenuItem_Click;

@@ -28,6 +28,7 @@ namespace Budget_Buddy_GUI
         public event EventHandler? OnBackButtonClicked;
         public event EventHandler? OnEntryClicked;
         public event EventHandler? OnCancelSavingsButtonClicked;
+        public event EventHandler? OnTransferToBudgetClicked;
 
         public Placeholder_SubActivitiesEntries_Control(BudgetActivity activity)
         {
@@ -286,6 +287,11 @@ namespace Budget_Buddy_GUI
         private void CancelSavings_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OnCancelSavingsButtonClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void ToBudget_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OnTransferToBudgetClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

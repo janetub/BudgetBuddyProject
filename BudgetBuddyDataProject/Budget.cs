@@ -122,20 +122,35 @@ namespace Student_Financial_Assisstance
         }
 
         /// <summary>
-        /// Transfers or moves the remaining unused money to back to budget.
+        /// Transfers or moves the remaining unused money back to budget.
         /// If the activity is an expense, the remaining balance or unused money gets moved to the budget funds.
-        /// For expense-type activities since projected is deducted from budget funds while savings-type are not
+        /// For expense-type activities since projected is deducted from budget funds while savings-type are not.
+        /// If activity 
+        /// Savings-type activities' funds can only be moved if target is met, otherwise CancelSavings method must be used.
         /// </summary>
         /// <param name="activity">activity with having a positive difference between projected and actual</param>
         /// <returns>Confimation for transfer</returns>
         public bool TransferBalanceToBudget(BudgetActivity activity)
         {
-            if (activity.Projected <= activity.Actual)
+            if ((activity.ActivityType == BudgetActivityType.Expense && activity.Projected <= activity.Actual) || (activity.ActivityType == BudgetActivityType.Savings && activity.Actual != activity.Projected))
                 return false;
-            double balance = activity.Projected - activity.Actual;
-            this.amount += balance;
-            Item transfer = new("Transfer " + (activity.ActivityType == BudgetActivityType.Savings? $"amount of {activity.Actual} " : "balance") + " to budget funds", balance, 1);
-            activity.AddItem(transfer);
+            if(activity.ActivityType == BudgetActivityType.Expense)
+            {
+                double balance = activity.Projected - activity.GetSummedProjectedsItems();
+                this.amount += balance;
+                Item transfer = new("Transferred remaining balance to budget funds.", balance, 1);
+                activity.AddItem(transfer);
+            }
+            else if(activity.ActivityType == BudgetActivityType.Savings)
+            {
+                this.amount += activity.Projected;
+                Item transfer = new("Congratulations! Target amount has been reached and transferred to the budget funds, ready to be used.", 0, 1);
+                activity.AddItem(transfer);
+            }
+            else
+            {
+                return false;
+            }
             return true;
         }
 

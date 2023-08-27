@@ -211,6 +211,7 @@ namespace Budget_Buddy_GUI
                 activities.OnEditButtonClicked += Show_EditActivityForm;
                 activities.OnEntryClicked += Open_BudgetActivityEntry;
                 activities.OnCancelSavingsButtonClicked += CancelSavings;
+                activities.OnTransferToBudgetClicked += TransferFunds_ToBudget;
                 this.Placeholder_Panel.Controls.Clear();
                 this.Placeholder_Panel.Controls.Add(activities);
                 this.Add_Button.Visible = true;
@@ -233,6 +234,30 @@ namespace Budget_Buddy_GUI
                     if(!this.activeBudget!.CancelSavings(this.currentDirectory.Last!.Value))
                     {
                         MessageBox.Show("A problem occured while cancelling the savings activity. Please try again later.", "Cannot Cancel Savings");
+                        return;
+                    }
+                    this.currentDirectory.Last!.Value.isUsed = true;
+                    ShowPlaceholder_SubActivityEntries(this.currentDirectory.Last!.Value);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("An error occurred while cancelling the savings activity. Please try again.\n" + ex.Message, "Error");
+            }
+        }
+
+        private void TransferFunds_ToBudget(object? sender, EventArgs e)
+        {
+            try
+            {
+                String message = ((BudgetActivity)((Placeholder_SubActivitiesEntries_Control)sender!).Tag).ActivityType == BudgetActivityType.Expense ? "Remaining unused funds in this activity will be moved back to the budget funds." : "All saved amount in this activity will be added to the budget funds.";
+                DialogResult result = MessageBox.Show(message, "Are you sure you want to transfer the activity funds to the budget funds?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if(result == DialogResult.Yes)
+                {
+                    if(!this.activeBudget!.TransferBalanceToBudget(this.currentDirectory.Last!.Value))
+                    {
+                        MessageBox.Show("A problem occured while moving the funds. Please check all subactivities within this activity and try again later.", "Cannot Transfer Funds");
                         return;
                     }
                     this.currentDirectory.Last!.Value.isUsed = true;
