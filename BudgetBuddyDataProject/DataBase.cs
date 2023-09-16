@@ -14,8 +14,10 @@ namespace BudgetBuddyProject
     public class DataBase
     {
         private static string RootDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        public static string? BackupDirectory;
         private static string BudgetFileName = "budget.bb";
         public static List<Budget> Budgets = new List<Budget>();
+        private static string BackupDirectoryPathFile = "backupDirectoryPath.txt";
 
         public static void SaveBudget()
         {
@@ -35,6 +37,68 @@ namespace BudgetBuddyProject
                 Console.WriteLine("An exception occurred: " + ex.Message);
             }
         }
+
+        public static bool CreateBackup()
+        {
+            if (string.IsNullOrEmpty(BackupDirectory))
+            {
+                Console.WriteLine("Please choose a backup directory first.");
+                return false;
+            }
+
+            string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+            string backupFileName = $"budget_{timestamp}.bb";
+            string json = JsonConvert.SerializeObject(Budgets, Formatting.Indented);
+            File.WriteAllText(Path.Combine(BackupDirectory, backupFileName), json);
+            return true;
+        }
+
+        public static void LoadBackup()
+        {
+            if (string.IsNullOrEmpty(BackupDirectory))
+            {
+                Console.WriteLine("Please choose a backup directory first.");
+                return;
+            }
+
+            try
+            {
+                var directoryInfo = new DirectoryInfo(BackupDirectory);
+                var latestBackupFile = directoryInfo.GetFiles()
+                    .Where(f => f.Extension.Equals(".bb"))
+                    .OrderByDescending(f => f.LastWriteTime)
+                    .FirstOrDefault();
+
+                if (latestBackupFile != null)
+                {
+                    string json = File.ReadAllText(latestBackupFile.FullName);
+                    Budgets = JsonConvert.DeserializeObject<List<Budget>>(json)!;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An exception occurred: " + ex.Message);
+            }
+        }
+
+        public static void SaveBackupDirectoryPath()
+        {
+            File.WriteAllText(Path.Combine(RootDirectory, BackupDirectoryPathFile), BackupDirectory);
+        }
+
+        public static void LoadBackupDirectoryPath()
+        {
+            try
+            {
+                BackupDirectory = File.ReadAllText(Path.Combine(RootDirectory, BackupDirectoryPathFile));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An exception occurred: " + ex.Message);
+            }
+        }
+
+        /*
 
         public void addBudget(Budget budget)
         {
@@ -69,7 +133,6 @@ namespace BudgetBuddyProject
             }
         }
 
-        /*
         public void save(Budget budget)
         {
             addBudget(budget);
@@ -87,7 +150,7 @@ namespace BudgetBuddyProject
         public void addActivity(Budget budget)
         {
             ReadOnlyCollection<BudgetActivity> activitiesList = (ReadOnlyCollection<BudgetActivity>)budget.GetActivities();
-           
+
             foreach (BudgetActivity activity in activitiesList)
             {
                 BudgetActivities.Add(activity);

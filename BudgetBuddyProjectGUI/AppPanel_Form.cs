@@ -675,7 +675,7 @@ namespace Budget_Buddy_GUI
 
         private void MenuButton_Click(object? sender, EventArgs e)
         {
-
+            btnChooseDirectory_Click(sender, e);
         }
 
         bool isDragging = false;
@@ -714,6 +714,39 @@ namespace Budget_Buddy_GUI
         {
             DataBase.Budgets = this.budgets.ToList();
             DataBase.SaveBudget();
+            DataBase.LoadBackupDirectoryPath();
+            if (DataBase.CreateBackup())
+            {
+                MessageBox.Show("Backup successfully.");
+            }
+        }
+
+        private void btnChooseDirectory_Click(object sender, EventArgs e)
+        {
+            using (var folderBrowserDialog = new FolderBrowserDialog())
+            {
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    DataBase.BackupDirectory = folderBrowserDialog.SelectedPath;
+                    DataBase.SaveBackupDirectoryPath();
+                    var directoryInfo = new DirectoryInfo(DataBase.BackupDirectory);
+                    var latestBackupFile = directoryInfo.GetFiles()
+                        .Where(f => f.Extension.Equals(".bb"))
+                        .OrderByDescending(f => f.LastWriteTime)
+                        .FirstOrDefault();
+
+                    if (latestBackupFile != null)
+                    {
+                        var result = MessageBox.Show("A backup file was found in the chosen directory. Do you want to load this backup?", "Load Backup", MessageBoxButtons.YesNo);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            DataBase.LoadBackup();
+                            MessageBox.Show("Latest backup loaded successfully.");
+                        }
+                    }
+                }
+            }
         }
     }
 }
