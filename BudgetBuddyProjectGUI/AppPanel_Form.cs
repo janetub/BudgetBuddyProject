@@ -715,15 +715,57 @@ namespace Budget_Buddy_GUI
             DataBase.Budgets = this.budgets.ToList();
             DataBase.SaveBudget();
             DataBase.LoadBackupDirectoryPath();
-            if (DataBase.CreateBackup())
+            if (DataBase.BackupDirectory == null)
             {
+                using (var folderBrowserDialog = new FolderBrowserDialog())
+                {
+                    if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        DataBase.BackupDirectory = folderBrowserDialog.SelectedPath;
+                        DataBase.SaveBackupDirectoryPath();
+                    }
+                    DataBase.CreateBackup();
+                    MessageBox.Show("Backup successfully.");
+                }
+            }
+            else
+            {
+                DataBase.CreateBackup();
                 MessageBox.Show("Backup successfully.");
             }
         }
 
         private void btnChooseDirectory_Click(object sender, EventArgs e)
         {
-            using (var folderBrowserDialog = new FolderBrowserDialog())
+            DataBase.LoadBackupDirectoryPath();
+            using (var openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "BB files (*.bb)|*.bb";
+                if (!string.IsNullOrEmpty(DataBase.BackupDirectory))
+                {
+                    openFileDialog.InitialDirectory = DataBase.BackupDirectory;
+                    DataBase.SaveBackupDirectoryPath();
+                }
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    var backupFile = new FileInfo(openFileDialog.FileName);
+
+                    if (backupFile.Exists)
+                    {
+                        var result = MessageBox.Show($"Are you sure you want to load this backup?", "Load Backup", MessageBoxButtons.YesNo);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            DataBase.LoadSpecificBackup(backupFile.FullName);
+                            this.budgets = DataBase.Budgets.ToHashSet();
+                            ShowPlaceholder_BudgetEntries();
+                            MessageBox.Show("Backup loaded successfully.");
+                        }
+                    }
+                }
+            }
+            /*using (var folderBrowserDialog = new FolderBrowserDialog())
             {
                 if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -742,11 +784,12 @@ namespace Budget_Buddy_GUI
                         if (result == DialogResult.Yes)
                         {
                             DataBase.LoadBackup();
+                            ShowPlaceholder_BudgetEntries();
                             MessageBox.Show("Latest backup loaded successfully.");
                         }
                     }
                 }
-            }
+            }*/
         }
     }
 }

@@ -144,7 +144,7 @@ namespace Student_Financial_Assisstance
             else if(activity.ActivityType == BudgetActivityType.Savings)
             {
                 this.amount += activity.Projected;
-                Item transfer = new("Congratulations! Target amount has been reached and transferred to the budget funds, ready to be used.", 0, 1);
+                Item transfer = new("Well done! Target amount has been reached and transferred to the budget funds, ready to be used.", 0, 1);
                 activity.AddItem(transfer);
             }
             else

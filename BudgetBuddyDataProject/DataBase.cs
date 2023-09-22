@@ -14,10 +14,10 @@ namespace BudgetBuddyProject
     public class DataBase
     {
         private static string RootDirectory = AppDomain.CurrentDomain.BaseDirectory;
-        public static string? BackupDirectory;
         private static string BudgetFileName = "budget.bb";
-        public static List<Budget> Budgets = new List<Budget>();
         private static string BackupDirectoryPathFile = "backupDirectoryPath.txt";
+        public static string? BackupDirectory;
+        public static List<Budget> Budgets = new List<Budget>();
 
         public static void SaveBudget()
         {
@@ -53,7 +53,7 @@ namespace BudgetBuddyProject
             return true;
         }
 
-        public static void LoadBackup()
+        /*public static void LoadBackup()
         {
             if (string.IsNullOrEmpty(BackupDirectory))
             {
@@ -79,24 +79,44 @@ namespace BudgetBuddyProject
             {
                 Console.WriteLine("An exception occurred: " + ex.Message);
             }
-        }
+        }*/
 
         public static void SaveBackupDirectoryPath()
         {
-            File.WriteAllText(Path.Combine(RootDirectory, BackupDirectoryPathFile), BackupDirectory);
+            if (!string.IsNullOrEmpty(BackupDirectory))
+            {
+                File.WriteAllText(Path.Combine(RootDirectory, BackupDirectoryPathFile), BackupDirectory);
+            }
         }
 
         public static void LoadBackupDirectoryPath()
         {
             try
             {
-                BackupDirectory = File.ReadAllText(Path.Combine(RootDirectory, BackupDirectoryPathFile));
+                if (File.Exists(Path.Combine(RootDirectory, BackupDirectoryPathFile)))
+                {
+                    BackupDirectory = File.ReadAllText(Path.Combine(RootDirectory, BackupDirectoryPathFile));
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("An exception occurred: " + ex.Message);
             }
         }
+
+        public static void LoadSpecificBackup(string backupFilePath)
+        {
+            try
+            {
+                string json = File.ReadAllText(backupFilePath);
+                Budgets = JsonConvert.DeserializeObject<List<Budget>>(json)!;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An exception occurred: " + ex.Message);
+            }
+        }
+
 
         /*
 
